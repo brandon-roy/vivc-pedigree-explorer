@@ -1,6 +1,6 @@
 """
 VIVC Grape Variety Pedigree Explorer — Python / Streamlit port
-Replicates the R/Shiny app using pandas, networkx, pyvis, and plotly.
+Replicates the R/Shiny app using pandas, networkx, vis.js, and plotly.
 
 Run with:  streamlit run app.py
 """
@@ -20,7 +20,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
-from pyvis.network import Network
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -1007,9 +1006,9 @@ def prepare_layout_coords(
     return {n: (x_auto[n], y_auto[n]) for n in names}
 
 
-# ── Network visualisation (pyvis) ─────────────────────────────────────────────
+# ── Network visualisation (vis.js direct HTML) ────────────────────────────────
 
-def build_pyvis_network(
+def build_visjs_network(
     nodes_df: pd.DataFrame,
     edges_df: pd.DataFrame,
     focal: str,
@@ -1019,18 +1018,17 @@ def build_pyvis_network(
     height: str = "650px",
 ) -> str:
     """
-    Build a pyvis HTML string for the pedigree network.
+    Build a vis.js HTML string for the pedigree network directly (no pyvis).
     Uses vivc_no as internal node ID to avoid duplicate-name crashes.
-    Node positions are pinned from the pyramidal layout algorithm.
+    Node positions are pinned from the pyramidal layout algorithm for
+    hierarchical/pinned modes; free for physics mode.
     Returns raw HTML string.
     """
-    net = Network(
-        height=height,
-        width="100%",
-        directed=True,
-        bgcolor="#faf8f5",
-        font_color="#333333",
-    )
+    # Map layout_mode to internal mode
+    # "physics" → free physics simulation
+    # "UD" or "LR" or "hierarchical" → hierarchical/pinned layout
+    use_physics = (layout_mode == "physics")
+    coord_mode  = layout_mode if layout_mode in ("UD", "LR") else "UD"
 
     # node_id → name mapping (use vivc_no if available, else name)
     def node_id(row_: pd.Series) -> str:
@@ -1043,16 +1041,17 @@ def build_pyvis_network(
     for _, row in nodes_df.iterrows():
         name_to_id[row["name"]] = node_id(row)
 
-    # Compute pinned pixel coordinates from layout algorithm
-    if not nodes_df.empty and "x" in nodes_df.columns and "y" in nodes_df.columns:
-        coords = prepare_layout_coords(nodes_df, mode=layout_mode)
+    # Compute pinned pixel coordinates from layout algorithm (for non-physics modes)
+    if not use_physics and not nodes_df.empty and "x" in nodes_df.columns and "y" in nodes_df.columns:
+        coords = prepare_layout_coords(nodes_df, mode=coord_mode)
     else:
         coords = {row["name"]: (0.0, 0.0) for _, row in nodes_df.iterrows()}
 
     # Annotated edges for tooltip/color building
     ann = annotate_edges(edges_df, load_marker_support()) if not edges_df.empty else edges_df.copy()
 
-    # --- Add nodes ---
+    # --- Build nodes list ---
+    nodes_data = []
     for _, row in nodes_df.iterrows():
         nid      = name_to_id[row["name"]]
         nm       = row["name"]
@@ -1094,29 +1093,47 @@ def build_pyvis_network(
         label = nm if pd.isna(yr) else f"{nm}\n({int(yr)})"
 
         # Fixed position from layout
-        px, py = coords.get(nm, (0.0, 0.0))
+        px_val, py_val = coords.get(nm, (0.0, 0.0))
 
         tooltip = build_node_tooltip(row, ann)
 
-        net.add_node(
-            nid,
-            label=label,
-            title=tooltip,
-            shape=shape,
-            color={
+        # VIVC URL for double-click
+        vivc_no = row.get("vivc_no")
+        vivc_url = (
+            f"https://www.vivc.de/index.php?r=cultivarname%2Fview&id={vivc_no}"
+            if vivc_no and not (isinstance(vivc_no, float) and np.isnan(vivc_no))
+            else None
+        )
+
+        node_dict: dict = {
+            "id": nid,
+            "label": label,
+            "title": tooltip,
+            "shape": shape,
+            "color": {
                 "background": bg_color,
                 "border": border_color,
                 "highlight": {"background": "#c8a44a", "border": "#9a7a2e"},
             },
-            size=size,
-            font={"size": font_size, "color": "#111111"},
-            shadow={"enabled": True, "size": 4},
-            x=px,
-            y=py,
-            fixed={"x": True, "y": True},
-        )
+            "size": size,
+            "font": {
+                "size": font_size,
+                "color": "#111111",
+                "face": "Inter, system-ui, sans-serif",
+            },
+            "shadow": {"enabled": True, "size": 4, "color": "rgba(0,0,0,0.15)"},
+        }
+        if not use_physics:
+            node_dict["x"] = px_val
+            node_dict["y"] = py_val
+            node_dict["fixed"] = {"x": True, "y": True}
+        if vivc_url:
+            node_dict["url"] = vivc_url
 
-    # --- Add edges ---
+        nodes_data.append(node_dict)
+
+    # --- Build edges list ---
+    edges_data = []
     edge_iter = ann.iterrows() if not ann.empty else edges_df.iterrows()
     for _, erow in edge_iter:
         src  = erow.get("from", "")
@@ -1169,46 +1186,234 @@ def build_pyvis_network(
             glyph      = ""
             edge_title = role
 
-        net.add_edge(
-            src_id, dst_id,
-            title=edge_title,
-            color=edge_color,
-            width=edge_width,
-            dashes=is_p2,
-            arrows="to",
-            label=glyph if glyph else None,
-            font={
-                "size": 11, "color": "#333333",
-                "strokeWidth": 2, "strokeColor": "#ffffff",
+        edges_data.append({
+            "from": src_id,
+            "to": dst_id,
+            "title": edge_title,
+            "color": {
+                "color": edge_color,
+                "highlight": "#c8a44a",
+                "hover": "#c8a44a",
+            },
+            "width": edge_width,
+            "dashes": is_p2,
+            "arrows": {"to": {"enabled": True, "scaleFactor": 0.7}},
+            "label": glyph if glyph else "",
+            "font": {
+                "size": 11,
+                "color": "#333",
+                "strokeWidth": 2,
+                "strokeColor": "#fff",
                 "align": "middle",
             },
+            "smooth": {"enabled": True, "type": "curvedCW", "roundness": 0.15},
+        })
+
+    # --- Build options ---
+    if use_physics:
+        options = {
+            "physics": {
+                "enabled": True,
+                "solver": "barnesHut",
+                "barnesHut": {
+                    "gravitationalConstant": -4000,
+                    "centralGravity": 0.25,
+                    "springLength": 140,
+                    "springConstant": 0.04,
+                    "damping": 0.09,
+                    "avoidOverlap": 0.6,
+                },
+                "stabilization": {"iterations": 200, "fit": True},
+            },
+            "interaction": {
+                "hover": True,
+                "tooltipDelay": 80,
+                "navigationButtons": True,
+                "zoomView": True,
+                "dragNodes": True,
+                "keyboard": False,
+            },
+            "edges": {"smooth": {"enabled": True, "type": "dynamic", "roundness": 0.3}},
+            "nodes": {"scaling": {"min": 10, "max": 35}},
+        }
+    else:
+        options = {
+            "layout": {
+                "hierarchical": {
+                    "enabled": True,
+                    "direction": "UD",
+                    "sortMethod": "directed",
+                    "levelSeparation": 160,
+                    "nodeSpacing": 140,
+                    "treeSpacing": 200,
+                    "blockShifting": True,
+                    "edgeMinimization": True,
+                    "parentCentralization": True,
+                }
+            },
+            "physics": {"enabled": False},
+            "interaction": {
+                "hover": True,
+                "tooltipDelay": 80,
+                "navigationButtons": True,
+                "zoomView": True,
+                "dragNodes": False,
+            },
+            "edges": {
+                "smooth": {
+                    "enabled": True,
+                    "type": "cubicBezier",
+                    "forceDirection": "vertical",
+                    "roundness": 0.4,
+                }
+            },
+        }
+
+    # --- Assemble HTML ---
+    height_val = height if height else "650px"
+    nodes_json = json.dumps(nodes_data)
+    edges_json = json.dumps(edges_data)
+    options_json = json.dumps(options)
+
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+  html, body {{ margin:0; padding:0; background:#faf8f5; overflow:hidden; }}
+  #net {{ width:100%; height:{height_val}; background:#faf8f5; }}
+  .vis-tooltip {{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+    border: 1px solid #ddd !important;
+    max-width: 340px !important;
+  }}
+  .vis-navigation .vis-button {{ background-color: rgba(123,28,46,0.08); border-radius: 4px; }}
+</style>
+</head>
+<body>
+<div id="net"></div>
+<script>
+var nodes = new vis.DataSet({nodes_json});
+var edges = new vis.DataSet({edges_json});
+var options = {options_json};
+var network = new vis.Network(document.getElementById("net"), {{nodes:nodes, edges:edges}}, options);
+network.on("doubleClick", function(params) {{
+  if (params.nodes.length > 0) {{
+    var nodeId = params.nodes[0];
+    var node = nodes.get(nodeId);
+    if (node && node.url) window.open(node.url, "_blank");
+  }}
+}});
+</script>
+</body>
+</html>"""
+
+    return html
+
+
+# ── Graphviz static pedigree ──────────────────────────────────────────────────
+
+def build_graphviz_pedigree(
+    nodes_df: pd.DataFrame,
+    edges_df: pd.DataFrame,
+    focal: str,
+    color_mode: str = "generation",
+) -> str:
+    """
+    Generate a DOT language string for st.graphviz_chart().
+    Uses rankdir=BT (children at bottom, parents at top — pedigree convention).
+    Returns the DOT string.
+    """
+    def _is_dark(hex_color: str) -> bool:
+        """Return True if the hex color is dark (needs white text)."""
+        try:
+            r = int(hex_color[1:3], 16)
+            g = int(hex_color[3:5], 16)
+            b = int(hex_color[5:7], 16)
+            luminance = 0.299 * r + 0.587 * g + 0.114 * b
+            return luminance < 140
+        except Exception:
+            return True
+
+    def _dot_escape(s: str) -> str:
+        return s.replace('"', '\\"').replace('\n', '\\n')
+
+    lines = [
+        'digraph pedigree {',
+        '  rankdir=BT;',
+        '  graph [bgcolor="#faf8f5" fontname="Helvetica" pad="0.4" nodesep="0.5" ranksep="0.8"];',
+        '  node [fontname="Helvetica" style="filled,rounded" shape="box" margin="0.15,0.08" fontsize="11"];',
+        '  edge [fontname="Helvetica" fontsize="9" arrowsize="0.7"];',
+    ]
+
+    # Node id mapping
+    name_to_dot_id: dict[str, str] = {}
+    for i, (_, row) in enumerate(nodes_df.iterrows()):
+        name_to_dot_id[row["name"]] = f"n{i}"
+
+    for _, row in nodes_df.iterrows():
+        nm       = row["name"]
+        ntype    = row.get("node_type", "Other")
+        gen      = row.get("generation", 0)
+        is_focal = (nm == focal.upper())
+        dot_id   = name_to_dot_id[nm]
+
+        # Color
+        if color_mode == "berry":
+            fill_color = berry_color_hex(row.get("berry_color"))
+        else:
+            fill_color = gen_color(ntype, gen)
+
+        font_color = "white" if _is_dark(fill_color) else "#1a1a1a"
+
+        # Label: name + year
+        yr = row.get("year_of_crossing")
+        if pd.notna(yr):
+            label = f"{_dot_escape(nm)}\\n({int(yr)})"
+        else:
+            label = _dot_escape(nm)
+
+        # Shape override for target/founder
+        if ntype == "Target":
+            shape_attr = 'shape="diamond"'
+        elif ntype == "Founder/Terminal":
+            shape_attr = 'shape="box" style="filled"'
+        else:
+            shape_attr = 'shape="box" style="filled,rounded"'
+
+        # Border width for focal
+        penwidth = "3.0" if is_focal else "1.0"
+        border_color = "#7b1c2e" if is_focal else "#555555"
+
+        lines.append(
+            f'  {dot_id} [label="{label}" fillcolor="{fill_color}" '
+            f'fontcolor="{font_color}" {shape_attr} '
+            f'color="{border_color}" penwidth="{penwidth}"];'
         )
 
-    # Physics: disabled since nodes are pinned; keep interactions enabled
-    physics_options = """{
-  "physics": {
-    "enabled": false
-  },
-  "interaction": {
-    "hover": true,
-    "tooltipDelay": 100,
-    "navigationButtons": true,
-    "keyboard": false,
-    "zoomView": true,
-    "dragNodes": true
-  },
-  "edges": {
-    "smooth": {
-      "enabled": true,
-      "type": "diagonalCross",
-      "roundness": 0.28
-    },
-    "font": {"size": 11, "strokeWidth": 2, "strokeColor": "#ffffff"}
-  }
-}"""
-    net.set_options(physics_options)
+    # Edges
+    for _, erow in edges_df.iterrows():
+        src  = erow.get("from", "")
+        dst  = erow.get("to", "")
+        role = erow.get("parent_role", "")
+        if src not in name_to_dot_id or dst not in name_to_dot_id:
+            continue
+        src_id = name_to_dot_id[src]
+        dst_id = name_to_dot_id[dst]
+        is_p2  = (role == "Parent 2")
+        style  = "dashed" if is_p2 else "solid"
+        color  = "#b09a7a" if is_p2 else "#6b4226"
+        lines.append(
+            f'  {src_id} -> {dst_id} [style="{style}" color="{color}" '
+            f'penwidth="{"1.2" if is_p2 else "2.0"}"];'
+        )
 
-    return net.generate_html()
+    lines.append('}')
+    return '\n'.join(lines)
 
 
 # ── Timeline (Plotly) ─────────────────────────────────────────────────────────
@@ -1503,6 +1708,16 @@ def main() -> None:
             options=["UD", "LR"],
             format_func=lambda x: "Top-down (oldest at top)" if x == "UD" else "Left-right (oldest at left)",
         )
+        net_view_mode = st.radio(
+            "Network view",
+            options=["physics", "hierarchical", "static"],
+            format_func=lambda x: {
+                "physics":      "🔬 Interactive (Physics)",
+                "hierarchical": "🌳 Hierarchical Tree",
+                "static":       "📐 Static Diagram",
+            }[x],
+            index=1,
+        )
         st.markdown("---")
         st.markdown('<div class="sidebar-heading">Molecular Evidence</div>', unsafe_allow_html=True)
         show_markers = st.checkbox("Show marker support overlay", value=False)
@@ -1617,17 +1832,28 @@ def main() -> None:
                 f"{n_nodes} nodes · {n_edges} edges",
             )
 
-            with st.spinner("Rendering network…"):
-                html_content = build_pyvis_network(
-                    net_nodes,
-                    net_edges,
-                    focal=selected_variety,
-                    color_mode=color_mode,
-                    marker_overlay=show_markers,
-                    layout_mode=layout_mode,
-                    height="650px",
-                )
-            components.html(html_content, height=680, scrolling=False)
+            if net_view_mode == "static":
+                with st.spinner("Rendering static diagram…"):
+                    dot_string = build_graphviz_pedigree(
+                        net_nodes,
+                        net_edges,
+                        focal=selected_variety,
+                        color_mode=color_mode,
+                    )
+                st.graphviz_chart(dot_string, use_container_width=True)
+            else:
+                vis_layout = "physics" if net_view_mode == "physics" else layout_mode
+                with st.spinner("Rendering network…"):
+                    html_content = build_visjs_network(
+                        net_nodes,
+                        net_edges,
+                        focal=selected_variety,
+                        color_mode=color_mode,
+                        marker_overlay=show_markers,
+                        layout_mode=vis_layout,
+                        height="650px",
+                    )
+                components.html(html_content, height=700, scrolling=False)
 
             # Legend expanders
             col_a, col_b = st.columns(2)
