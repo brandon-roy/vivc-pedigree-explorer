@@ -1052,6 +1052,7 @@ def build_visjs_network(
 
     # --- Build nodes list ---
     nodes_data = []
+    node_tooltips: dict[str, str] = {}   # nid → HTML for custom JS tooltip
     for _, row in nodes_df.iterrows():
         nid      = name_to_id[row["name"]]
         nm       = row["name"]
@@ -1096,6 +1097,7 @@ def build_visjs_network(
         px_val, py_val = coords.get(nm, (0.0, 0.0))
 
         tooltip = build_node_tooltip(row, ann)
+        node_tooltips[nid] = tooltip   # stored separately; rendered by custom JS handler
 
         # VIVC URL for double-click
         vivc_no = row.get("vivc_no")
@@ -1108,7 +1110,6 @@ def build_visjs_network(
         node_dict: dict = {
             "id": nid,
             "label": label,
-            "title": tooltip,
             "shape": shape,
             "color": {
                 "background": bg_color,
@@ -1271,9 +1272,10 @@ def build_visjs_network(
 
     # --- Assemble HTML ---
     height_val = height if height else "650px"
-    nodes_json = json.dumps(nodes_data)
-    edges_json = json.dumps(edges_data)
-    options_json = json.dumps(options)
+    nodes_json    = json.dumps(nodes_data)
+    edges_json    = json.dumps(edges_data)
+    options_json  = json.dumps(options)
+    tooltips_json = json.dumps(node_tooltips)
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -1281,30 +1283,82 @@ def build_visjs_network(
 <meta charset="utf-8">
 <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
 <style>
-  html, body {{ margin:0; padding:0; background:#faf8f5; overflow:hidden; }}
+  html, body {{ margin:0; padding:0; background:#faf8f5; }}
   #net {{ width:100%; height:{height_val}; background:#faf8f5; }}
-  .vis-tooltip {{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-size: 13px !important;
-    border-radius: 6px !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
-    border: 1px solid #ddd !important;
-    max-width: 340px !important;
+  /* Custom tooltip — position:fixed so it is never clipped by overflow */
+  #vis-tip {{
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #d0ccc4;
+    border-radius: 7px;
+    padding: 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    max-width: 350px;
+    pointer-events: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
   }}
   .vis-navigation .vis-button {{ background-color: rgba(123,28,46,0.08); border-radius: 4px; }}
 </style>
 </head>
 <body>
 <div id="net"></div>
+<div id="vis-tip"></div>
 <script>
-var nodes = new vis.DataSet({nodes_json});
-var edges = new vis.DataSet({edges_json});
-var options = {options_json};
-var network = new vis.Network(document.getElementById("net"), {{nodes:nodes, edges:edges}}, options);
+var TOOLTIPS = {tooltips_json};
+var nodes    = new vis.DataSet({nodes_json});
+var edges    = new vis.DataSet({edges_json});
+var options  = {options_json};
+var network  = new vis.Network(document.getElementById("net"), {{nodes:nodes, edges:edges}}, options);
+
+// ── Custom tooltip logic ──────────────────────────────────────────────────────
+var tipEl    = document.getElementById("vis-tip");
+var mouseX   = 0;
+var mouseY   = 0;
+var hideTimer;
+
+document.addEventListener("mousemove", function(e) {{
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+}});
+
+network.on("hoverNode", function(params) {{
+  clearTimeout(hideTimer);
+  var html = TOOLTIPS[params.node];
+  if (!html) return;
+  tipEl.innerHTML = html;
+  tipEl.style.display = "block";
+  // Defer so offsetWidth/Height are populated after render
+  setTimeout(function() {{
+    var w  = tipEl.offsetWidth  || 250;
+    var h  = tipEl.offsetHeight || 150;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var x  = mouseX + 14;
+    var y  = mouseY - 10;
+    if (x + w + 4 > vw) x = mouseX - w - 14;
+    if (y + h + 4 > vh) y = mouseY - h - 10;
+    if (x < 4) x = 4;
+    if (y < 4) y = 4;
+    tipEl.style.left = x + "px";
+    tipEl.style.top  = y + "px";
+  }}, 0);
+}});
+
+network.on("blurNode", function() {{
+  hideTimer = setTimeout(function() {{
+    tipEl.style.display = "none";
+  }}, 150);
+}});
+
+// ── Double-click opens VIVC page ─────────────────────────────────────────────
 network.on("doubleClick", function(params) {{
   if (params.nodes.length > 0) {{
-    var nodeId = params.nodes[0];
-    var node = nodes.get(nodeId);
+    var node = nodes.get(params.nodes[0]);
     if (node && node.url) window.open(node.url, "_blank");
   }}
 }});
