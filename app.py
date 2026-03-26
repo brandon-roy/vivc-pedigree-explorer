@@ -1477,6 +1477,7 @@ def build_timeline_chart(
     edges_df: pd.DataFrame,
     focal: str,
     color_mode: str = "generation",
+    show_markers: bool = False,
 ) -> go.Figure:
     """
     Plotly scatter chart: x = pedigree layout x, y = year_plot.
@@ -1522,12 +1523,19 @@ def build_timeline_chart(
                 x0, y0 = node_pos[src]["x"], node_pos[src]["y"]
                 x1, y1 = node_pos[dst]["x"], node_pos[dst]["y"]
                 is_p2  = erow.get("parent_role") == "Parent 2"
-                ecolor = "#b09a7a" if is_p2 else "#6b4226"
-                dash   = "dot" if is_p2 else "solid"
+                if show_markers and "confidence_level" in erow.index:
+                    cl     = erow.get("confidence_level") or "undocumented"
+                    ecolor = MARKER_COLORS.get(cl, "#888888")
+                    dash   = "dot" if is_p2 else "solid"
+                    ewidth = 2.5
+                else:
+                    ecolor = "#b09a7a" if is_p2 else "#6b4226"
+                    dash   = "dot" if is_p2 else "solid"
+                    ewidth = 1.5
                 fig.add_trace(go.Scatter(
                     x=[x0, x1], y=[y0, y1],
                     mode="lines",
-                    line={"color": ecolor, "width": 1.5, "dash": dash},
+                    line={"color": ecolor, "width": ewidth, "dash": dash},
                     showlegend=False,
                     hoverinfo="skip",
                 ))
@@ -1899,19 +1907,21 @@ def main() -> None:
         use_full_depth  = st.checkbox("Networks use full depth", value=True)
 
         st.markdown("---")
-        st.markdown('<div class="sidebar-heading">Network Display</div>', unsafe_allow_html=True)
+        st.markdown('<div class="sidebar-heading">Display Options</div>', unsafe_allow_html=True)
         color_mode = st.selectbox(
             "Colour nodes by",
             options=["generation", "berry"],
             format_func=lambda x: "Generation depth" if x == "generation" else "Berry skin colour",
+            help="Applies to Pedigree Explorer and Timeline.",
         )
         layout_mode = st.selectbox(
-            "Timeline direction",
+            "Layout direction",
             options=["UD", "LR"],
             format_func=lambda x: "Top-down (oldest at top)" if x == "UD" else "Left-right (oldest at left)",
+            help="Applies to Hierarchical Tree and Timeline network views.",
         )
         net_view_mode = st.radio(
-            "Network view",
+            "Pedigree network view",
             options=["physics", "hierarchical", "static"],
             format_func=lambda x: {
                 "physics":      "🔬 Interactive (Physics)",
@@ -1922,7 +1932,11 @@ def main() -> None:
         )
         st.markdown("---")
         st.markdown('<div class="sidebar-heading">Molecular Evidence</div>', unsafe_allow_html=True)
-        show_markers = st.checkbox("Show marker support overlay", value=False)
+        show_markers = st.checkbox(
+            "Show marker support overlay",
+            value=False,
+            help="Colours edges by molecular evidence confidence in Pedigree Explorer and Timeline.",
+        )
 
         if show_markers:
             st.markdown(
@@ -2239,7 +2253,7 @@ def main() -> None:
                 index=flat_opts.index(selected_variety) if selected_variety in flat_opts else 0,
                 key="desc_variety_select",
             )
-            desc_depth  = st.slider("Max generations", 1, 20, 10, key="desc_depth")
+            desc_depth  = st.slider("Max generations", 1, 20, max_depth, key="desc_depth")
             search_btn  = st.button("🔍 Find descendants", type="primary")
 
             n_with_kids = len(names_with_kids)
@@ -2317,19 +2331,18 @@ def main() -> None:
                 edges_df["from"].isin(tl_names) & edges_df["to"].isin(tl_names)
             ].copy()
 
-            tl_color_mode = st.radio(
-                "Color nodes by",
-                ["Generation depth", "Berry skin color"],
-                horizontal=True,
-                label_visibility="collapsed",
-            )
-            cm = "generation" if tl_color_mode == "Generation depth" else "berry"
+            # Annotate edges with marker confidence when the sidebar toggle is on
+            if show_markers and not tl_edges.empty:
+                tl_edges = annotate_edges(tl_edges, load_marker_support())
 
-            fig = build_timeline_chart(tl_nodes, tl_edges, selected_variety, color_mode=cm)
+            fig = build_timeline_chart(
+                tl_nodes, tl_edges, selected_variety,
+                color_mode=color_mode, show_markers=show_markers,
+            )
             st.plotly_chart(fig, use_container_width=True)
 
-            # Berry colour legend
-            if cm == "berry":
+            # Node colour legend — mirrors Pedigree Explorer
+            if color_mode == "berry":
                 legend_items = " ".join(
                     f"<span style='display:inline-flex;align-items:center;gap:5px;margin-right:12px;'>"
                     f"<span style='display:inline-block;width:12px;height:12px;border-radius:50%;"
@@ -2347,6 +2360,48 @@ def main() -> None:
                 )
                 st.markdown(
                     f"<div style='padding:8px 0;'>{legend_items}</div>",
+                    unsafe_allow_html=True,
+                )
+            else:
+                gen_swatches = [
+                    ("Target variety",   gen_color("Target", 0)),
+                    ("Founder/Terminal", gen_color("Founder/Terminal", 0)),
+                    ("Gen 1",  gen_color("Other", 1)),
+                    ("Gen 2",  gen_color("Other", 2)),
+                    ("Gen 3",  gen_color("Other", 3)),
+                    ("Gen 4",  gen_color("Other", 4)),
+                    ("Gen 5+", gen_color("Other", 5)),
+                ]
+                legend_items = " ".join(
+                    f"<span style='display:inline-flex;align-items:center;gap:5px;margin-right:12px;'>"
+                    f"<span style='display:inline-block;width:12px;height:12px;border-radius:50%;"
+                    f"background:{c};border:1px solid #888;'></span>"
+                    f"<span style='font-size:12px;color:#555;'>{lbl}</span></span>"
+                    for lbl, c in gen_swatches
+                )
+                st.markdown(
+                    f"<div style='padding:8px 0;'>{legend_items}</div>",
+                    unsafe_allow_html=True,
+                )
+
+            # Marker evidence legend (shown when overlay is active)
+            if show_markers:
+                marker_items = " ".join(
+                    f"<span style='display:inline-flex;align-items:center;gap:5px;margin-right:12px;'>"
+                    f"<span style='display:inline-block;width:20px;height:3px;"
+                    f"background:{c};border-radius:2px;'></span>"
+                    f"<span style='font-size:12px;color:#555;'>{lbl}</span></span>"
+                    for lbl, c in [
+                        ("Confirmed",    MARKER_COLORS["confirmed"]),
+                        ("Probable",     MARKER_COLORS["probable"]),
+                        ("Disputed",     MARKER_COLORS["disputed"]),
+                        ("Refuted",      MARKER_COLORS["refuted"]),
+                        ("Undocumented", MARKER_COLORS["undocumented"]),
+                    ]
+                )
+                st.markdown(
+                    f"<div style='padding:4px 0 8px 0;font-size:11px;color:#777;'>"
+                    f"<b>Edge colour = marker confidence</b> &nbsp; {marker_items}</div>",
                     unsafe_allow_html=True,
                 )
 
