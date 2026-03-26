@@ -1427,13 +1427,39 @@ def build_timeline_chart(
     """
     Plotly scatter chart: x = pedigree layout x, y = year_plot.
     Edges drawn as lines behind nodes.
+
+    Fix 2: suppress on-chart text labels for non-important nodes to avoid overlap.
+    - Focal variety, direct parents (gen==1), and direct children always show labels.
+    - If total nodes > 50, suppress ALL on-chart labels and show a note.
+    - All other nodes show info on hover only.
     """
     if nodes_df.empty:
         return go.Figure()
 
+    focal_up   = focal.strip().upper()
+    n_nodes    = len(nodes_df)
+    suppress_all_labels = n_nodes > 50
+
+    # Determine which nodes get on-chart labels (gen 0 target + gen 1 parents)
+    label_names: set[str] = set()
+    if not suppress_all_labels:
+        label_names.add(focal_up)
+        # Direct parents (generation == 1) and direct children
+        if not edges_df.empty:
+            direct_parents = set(
+                edges_df.loc[edges_df["to"] == focal_up, "from"].tolist()
+            )
+            direct_children = set(
+                edges_df.loc[edges_df["from"] == focal_up, "to"].tolist()
+            )
+            label_names |= direct_parents | direct_children
+        # Also include gen==1 nodes even if edges_df lacks focal
+        gen1_names = set(nodes_df.loc[nodes_df["generation"] == 1, "name"].tolist())
+        label_names |= gen1_names
+
     fig = go.Figure()
 
-    # Draw edges first (as lines)
+    # Draw edges first (as lines) — no text on edges
     if not edges_df.empty:
         node_pos = nodes_df.set_index("name")[["x", "y"]].to_dict("index")
         for _, erow in edges_df.iterrows():
@@ -1442,58 +1468,75 @@ def build_timeline_chart(
                 x0, y0 = node_pos[src]["x"], node_pos[src]["y"]
                 x1, y1 = node_pos[dst]["x"], node_pos[dst]["y"]
                 is_p2  = erow.get("parent_role") == "Parent 2"
-                color  = "#b09a7a" if is_p2 else "#6b4226"
+                ecolor = "#b09a7a" if is_p2 else "#6b4226"
                 dash   = "dot" if is_p2 else "solid"
                 fig.add_trace(go.Scatter(
                     x=[x0, x1], y=[y0, y1],
                     mode="lines",
-                    line={"color": color, "width": 1.5, "dash": dash},
+                    line={"color": ecolor, "width": 1.5, "dash": dash},
                     showlegend=False,
                     hoverinfo="skip",
                 ))
 
-    # Draw nodes
+    # Draw nodes — label logic per Fix 2
     for _, row in nodes_df.iterrows():
-        nm    = row["name"]
-        yr    = row.get("y", row.get("year_plot", 2000))
-        x_val = row.get("x", 0.0)
-        ntype = row.get("node_type", "Other")
-        gen   = row.get("generation", 0)
+        nm     = row["name"]
+        yr     = row.get("y", row.get("year_plot", 2000))
+        x_val  = row.get("x", 0.0)
+        ntype  = row.get("node_type", "Other")
+        gen    = row.get("generation", 0)
         bcolor = row.get("berry_color")
 
         if color_mode == "berry":
-            color = berry_color_hex(bcolor)
+            node_color = berry_color_hex(bcolor)
         else:
-            color = gen_color(ntype, gen)
+            node_color = gen_color(ntype, gen)
 
         symbol = "triangle-up" if ntype == "Target" else (
             "square" if ntype == "Founder/Terminal" else "circle"
         )
-        size = 16 if nm == focal.upper() else 8
+        is_focal = (nm == focal_up)
+        size = 16 if is_focal else (10 if gen == 1 else 7)
 
         hover = (
             f"<b>{nm}</b><br>"
             f"Year: {_safe(row.get('year_of_crossing'))}<br>"
             f"Origin: {_safe(row.get('origin'))}<br>"
-            f"Generation: {gen}"
+            f"Species: {_safe(row.get('species'))}<br>"
+            f"Berry color: {_safe(row.get('berry_color'))}<br>"
+            f"Generation: {gen}<br>"
+            f"Breeder: {_safe(row.get('breeder'))}"
         )
+
+        show_label = (not suppress_all_labels) and (nm in label_names)
+
+        if show_label:
+            mode      = "markers+text"
+            text_val  = [nm]
+            tpos      = "top center"
+            tfont_sz  = 12 if is_focal else 9
+        else:
+            mode      = "markers"
+            text_val  = [""]
+            tpos      = "top center"
+            tfont_sz  = 9
 
         fig.add_trace(go.Scatter(
             x=[x_val], y=[yr],
-            mode="markers+text",
-            marker={"color": color, "size": size, "symbol": symbol,
+            mode=mode,
+            marker={"color": node_color, "size": size, "symbol": symbol,
                     "line": {"color": "#333", "width": 1}},
-            text=[nm],
-            textposition="top center",
-            textfont={"size": 9 if nm != focal.upper() else 12,
-                      "color": "#1a1a1a"},
+            text=text_val,
+            textposition=tpos,
+            textfont={"size": tfont_sz, "color": "#1a1a1a"},
             hovertemplate=hover + "<extra></extra>",
             showlegend=False,
         ))
 
+    title_suffix = " (hover for names — >50 nodes)" if suppress_all_labels else ""
     fig.update_layout(
         title={
-            "text": f"Pedigree Timeline — {focal.upper()}",
+            "text": f"Pedigree Timeline — {focal_up}{title_suffix}",
             "font": {"color": "#7b1c2e", "size": 18},
         },
         xaxis={"visible": False},
@@ -1511,6 +1554,111 @@ def build_timeline_chart(
         hovermode="closest",
     )
     return fig
+
+
+# ── Crossing statistics (module-level cached) ─────────────────────────────────
+
+@st.cache_data(show_spinner="Computing direct offspring counts…")
+def compute_direct_offspring_counts(_df: pd.DataFrame) -> pd.DataFrame:
+    """Count how many times each variety appears as parent1 or parent2."""
+    p1_counts = _df["parent1"].dropna().value_counts()
+    p2_counts = _df["parent2"].dropna().value_counts()
+    combined  = p1_counts.add(p2_counts, fill_value=0).astype(int)
+    result_df = combined.reset_index()
+    result_df.columns = ["variety", "offspring_count"]
+    result_df = result_df.sort_values("offspring_count", ascending=False).reset_index(drop=True)
+    color_map = _df.drop_duplicates("prime_name").set_index("prime_name")["berry_color"].to_dict()
+    result_df["berry_color"] = result_df["variety"].map(color_map)
+    return result_df
+
+
+@st.cache_data(show_spinner="Computing total descendant counts (this may take a moment)…")
+def compute_top_descendants(_df: pd.DataFrame, top_n: int = 200, max_depth: int = 6) -> pd.DataFrame:
+    """For the top top_n varieties by direct offspring, run BFS and rank by total descendants."""
+    offspring_df = compute_direct_offspring_counts(_df)
+    candidates   = offspring_df.head(top_n)["variety"].tolist()
+    rows = []
+    for var in candidates:
+        desc = find_descendants(var, _df, max_depth=max_depth)
+        rows.append({"variety": var, "total_descendants": len(desc) if not desc.empty else 0})
+    return (
+        pd.DataFrame(rows)
+        .sort_values("total_descendants", ascending=False)
+        .head(50)
+        .reset_index(drop=True)
+    )
+
+
+@st.cache_data(show_spinner="Computing rootstock parent frequency…")
+def compute_rootstock_parent_freq(_df: pd.DataFrame) -> pd.DataFrame:
+    """Count parent appearances across rootstock varieties."""
+    rootstock_names: set[str] = set(
+        _df.loc[_df["utilization"].fillna("").str.lower().str.contains("rootstock"), "prime_name"]
+        .dropna().str.upper().tolist()
+    )
+    if ROOTSTOCK_PATH.exists():
+        try:
+            rt_csv   = pd.read_csv(ROOTSTOCK_PATH, dtype=str, low_memory=False)
+            name_cols = [c for c in rt_csv.columns if any(k in c.lower() for k in ("prime_name", "variety", "name"))]
+            if name_cols:
+                rootstock_names |= set(rt_csv[name_cols[0]].dropna().str.strip().str.upper().tolist())
+        except Exception:
+            pass
+    if not rootstock_names:
+        return pd.DataFrame(columns=["variety", "count"])
+    rs_df    = _df[_df["prime_name"].str.upper().isin(rootstock_names)].copy()
+    combined = rs_df["parent1"].dropna().value_counts().add(
+        rs_df["parent2"].dropna().value_counts(), fill_value=0
+    ).astype(int).reset_index()
+    combined.columns = ["variety", "count"]
+    return combined.sort_values("count", ascending=False).reset_index(drop=True)
+
+
+@st.cache_data(show_spinner="Computing rootstock founder frequency…")
+def compute_rootstock_founder_freq(_df: pd.DataFrame, max_depth: int = 3) -> pd.DataFrame:
+    """BFS to find terminal founders across rootstock variety lineages."""
+    rootstock_names: set[str] = set(
+        _df.loc[_df["utilization"].fillna("").str.lower().str.contains("rootstock"), "prime_name"]
+        .dropna().str.upper().tolist()
+    )
+    if ROOTSTOCK_PATH.exists():
+        try:
+            rt_csv    = pd.read_csv(ROOTSTOCK_PATH, dtype=str, low_memory=False)
+            name_cols = [c for c in rt_csv.columns if any(k in c.lower() for k in ("prime_name", "variety", "name"))]
+            if name_cols:
+                rootstock_names |= set(rt_csv[name_cols[0]].dropna().str.strip().str.upper().tolist())
+        except Exception:
+            pass
+    if not rootstock_names:
+        return pd.DataFrame(columns=["founder", "count"])
+    # Vectorised parent lookup — avoids slow iterrows on 26k rows
+    lkp = _df[["prime_name", "parent1", "parent2"]].copy()
+    lkp["prime_name"] = lkp["prime_name"].str.strip().str.upper()
+    lkp["parent1"]    = lkp["parent1"].fillna("").str.strip().str.upper()
+    lkp["parent2"]    = lkp["parent2"].fillna("").str.strip().str.upper()
+    p1_lkp = dict(zip(lkp["prime_name"], lkp["parent1"]))
+    p2_lkp = dict(zip(lkp["prime_name"], lkp["parent2"]))
+    founder_counts: dict[str, int] = defaultdict(int)
+    for rs_var in rootstock_names:
+        visited_bfs: set[str] = set()
+        queue_bfs: deque[tuple[str, int]] = deque([(rs_var, 0)])
+        while queue_bfs:
+            node, depth = queue_bfs.popleft()
+            if node in visited_bfs or depth > max_depth:
+                continue
+            visited_bfs.add(node)
+            pa1 = p1_lkp.get(node, ""); pa2 = p2_lkp.get(node, "")
+            if not pa1 and not pa2 and node != rs_var:
+                founder_counts[node] += 1
+            for p in (pa1, pa2):
+                if p and p not in visited_bfs:
+                    queue_bfs.append((p, depth + 1))
+    if not founder_counts:
+        return pd.DataFrame(columns=["founder", "count"])
+    return (
+        pd.DataFrame([{"founder": k, "count": v} for k, v in founder_counts.items()])
+        .sort_values("count", ascending=False).head(15).reset_index(drop=True)
+    )
 
 
 # ── Data summary ──────────────────────────────────────────────────────────────
@@ -1855,50 +2003,80 @@ def main() -> None:
                     )
                 components.html(html_content, height=700, scrolling=False)
 
-            # Legend expanders
-            col_a, col_b = st.columns(2)
-            with col_a:
-                with st.expander("Node Legend"):
-                    st.markdown("""
-| Symbol | Meaning |
-|--------|---------|
-| ▲ **Triangle** | Target (searched) variety |
-| ■ **Square** | Founder / Terminal (no known parents) |
-| ● **Circle** | Intermediate ancestor |
+            # ── Dynamic inline legend (Fix 1) ────────────────────────────
+            # Build node color swatches based on current color_mode
+            if color_mode == "generation":
+                node_legend_items = [
+                    (gen_color("Target", 0),           "▲", "Target variety (focal)"),
+                    (gen_color("Founder/Terminal", 0), "■", "Founder / Terminal (no known parents)"),
+                    (gen_color("Other", 1),             "●", "Generation 1 parent"),
+                    (gen_color("Other", 2),             "●", "Generation 2"),
+                    (gen_color("Other", 3),             "●", "Generation 3"),
+                    (gen_color("Other", 5),             "●", "Generation 5+"),
+                ]
+            else:
+                # berry mode — show one swatch per known colour
+                node_legend_items = [
+                    (berry_color_hex(k), "●", BERRY_COLOR_LABELS.get(k, k))
+                    for k in BERRY_COLOR_HEX
+                ] + [(BERRY_COLOR_DEFAULT, "●", "Unknown / not recorded")]
 
-**Generation colors** (mode: generation depth)
+            def _swatch(hex_c: str, symbol: str, label: str) -> str:
+                return (
+                    f"<span style='display:inline-flex;align-items:center;gap:5px;"
+                    f"margin:2px 10px 2px 0;white-space:nowrap;'>"
+                    f"<span style='display:inline-block;width:14px;height:14px;"
+                    f"background:{hex_c};border:1px solid #888;border-radius:3px;"
+                    f"text-align:center;line-height:14px;font-size:9px;color:#fff;"
+                    f"font-weight:bold;'>{symbol}</span>"
+                    f"<span style='font-size:12px;color:#444;'>{label}</span></span>"
+                )
 
-<div style='display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;'>
-<span style='background:#7b1c2e;color:#fff;padding:2px 8px;border-radius:3px;font-size:11px;'>Target</span>
-<span style='background:#4a235a;color:#fff;padding:2px 8px;border-radius:3px;font-size:11px;'>Founder</span>
-<span style='background:#2d5a1b;color:#fff;padding:2px 8px;border-radius:3px;font-size:11px;'>Gen 1</span>
-<span style='background:#6ea64f;color:#fff;padding:2px 8px;border-radius:3px;font-size:11px;'>Gen 2</span>
-<span style='background:#c8d9a0;color:#333;padding:2px 8px;border-radius:3px;font-size:11px;'>Gen 4+</span>
-</div>
-""", unsafe_allow_html=True)
+            node_swatches_html = "".join(
+                _swatch(hc, sym, lbl) for hc, sym, lbl in node_legend_items
+            )
 
-            with col_b:
-                with st.expander("Edge Legend"):
-                    if show_markers:
-                        st.markdown("""
-**Edge color = marker confidence level:**
+            # Edge legend — always shown; marker detail only when overlay active
+            if show_markers:
+                edge_items = [
+                    (MARKER_COLORS["confirmed"],    "━━", "Confirmed"),
+                    (MARKER_COLORS["probable"],     "━━", "Probable"),
+                    (MARKER_COLORS["disputed"],     "╌╌", "Disputed"),
+                    (MARKER_COLORS["refuted"],      "╌╌", "Refuted"),
+                    (MARKER_COLORS["undocumented"], "──", "Undocumented"),
+                ]
+            else:
+                edge_items = [
+                    ("#6b4226", "━━", "Parent 1 (solid)"),
+                    ("#b09a7a", "╌╌", "Parent 2 (dashed)"),
+                ]
 
-<div style='font-size:13px;line-height:2;'>
-<span style='display:inline-block;width:32px;height:4px;background:#1e9645;border-radius:2px;margin-right:8px;vertical-align:middle;'></span>Confirmed (molecular)<br>
-<span style='display:inline-block;width:32px;height:4px;background:#d4920c;border-radius:2px;margin-right:8px;vertical-align:middle;'></span>Probable (single study)<br>
-<span style='display:inline-block;width:32px;height:4px;background:#c45d1a;border-radius:2px;margin-right:8px;vertical-align:middle;'></span>Disputed<br>
-<span style='display:inline-block;width:32px;height:4px;background:#cc2222;border-radius:2px;margin-right:8px;vertical-align:middle;'></span>Refuted<br>
-<span style='display:inline-block;width:32px;height:4px;background:#c0bab2;border-radius:2px;margin-right:8px;vertical-align:middle;'></span>Undocumented<br>
-</div>
-""", unsafe_allow_html=True)
-                    else:
-                        st.markdown("""
-**Solid line** = Parent 1 (seed parent)
+            edge_swatches_html = "".join(
+                f"<span style='display:inline-flex;align-items:center;gap:5px;"
+                f"margin:2px 10px 2px 0;white-space:nowrap;'>"
+                f"<span style='display:inline-block;width:28px;height:4px;"
+                f"background:{hc};border-radius:2px;'></span>"
+                f"<span style='font-size:12px;color:#444;'>{lbl}</span></span>"
+                for hc, _, lbl in edge_items
+            )
 
-**Dashed line** = Parent 2 (pollen parent)
-
-*Hover over nodes and edges for details.*
-""")
+            st.markdown(
+                f"<div style='background:#fff;border:1px solid #e0d8cc;border-radius:6px;"
+                f"padding:10px 14px;margin-top:6px;'>"
+                f"<div style='display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start;'>"
+                f"<div style='min-width:220px;margin-right:16px;'>"
+                f"<div style='font-size:11px;font-weight:700;color:#7b1c2e;"
+                f"text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;'>Node colors</div>"
+                f"<div style='display:flex;flex-wrap:wrap;'>{node_swatches_html}</div>"
+                f"</div>"
+                f"<div style='min-width:180px;'>"
+                f"<div style='font-size:11px;font-weight:700;color:#7b1c2e;"
+                f"text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;'>Edge style</div>"
+                f"<div style='display:flex;flex-wrap:wrap;'>{edge_swatches_html}</div>"
+                f"</div>"
+                f"</div></div>",
+                unsafe_allow_html=True,
+            )
 
             # Pedigree node table
             with st.expander("Pedigree node table", expanded=False):
@@ -1918,6 +2096,75 @@ def main() -> None:
     # TAB 2 — Descendants
     # ────────────────────────────────────────────────────────────────────────
     with tab2:
+        # ── Fix 4: Database-wide crossing statistics ──────────────────────
+        with st.expander("📊 Database-wide crossing statistics", expanded=True):
+            st.markdown(
+                "#### Most Influential Varieties in VIVC Pedigrees",
+                unsafe_allow_html=False,
+            )
+
+            # Chart A & B — calls module-level cached functions
+            offspring_df = compute_direct_offspring_counts(df)
+            top50_off    = offspring_df.head(50).copy()
+
+            # Berry color for bars
+            top50_off["bar_color"] = top50_off["berry_color"].apply(
+                lambda x: berry_color_hex(x) if pd.notna(x) and x else BERRY_COLOR_DEFAULT
+            )
+
+            desc_col1, desc_col2 = st.columns(2)
+
+            with desc_col1:
+                st.markdown("**Top 50 Varieties by Number of Direct Offspring**")
+                fig_off = go.Figure(go.Bar(
+                    x=top50_off["offspring_count"],
+                    y=top50_off["variety"],
+                    orientation="h",
+                    marker_color=top50_off["bar_color"],
+                    marker_line_color="#555",
+                    marker_line_width=0.4,
+                    hovertemplate="<b>%{y}</b><br>Direct offspring: %{x}<extra></extra>",
+                ))
+                fig_off.update_layout(
+                    title="Top 50 Varieties by Number of Direct Offspring",
+                    title_font={"color": "#7b1c2e", "size": 13},
+                    xaxis_title="Direct offspring count",
+                    yaxis={"autorange": "reversed", "tickfont": {"size": 9}},
+                    plot_bgcolor="#faf7f0",
+                    paper_bgcolor="#faf7f0",
+                    height=700,
+                    margin={"l": 10, "r": 10, "t": 40, "b": 30},
+                )
+                st.plotly_chart(fig_off, use_container_width=True)
+
+            with desc_col2:
+                st.markdown("**Top 50 Varieties by Total Descendant Count**")
+                with st.spinner("Computing total descendants for top 200 varieties…"):
+                    top_desc_df = compute_top_descendants(df)
+
+                fig_desc = go.Figure(go.Bar(
+                    x=top_desc_df["total_descendants"],
+                    y=top_desc_df["variety"],
+                    orientation="h",
+                    marker_color="#4a235a",
+                    marker_line_color="#2d1040",
+                    marker_line_width=0.4,
+                    hovertemplate="<b>%{y}</b><br>Total descendants (depth≤6): %{x}<extra></extra>",
+                ))
+                fig_desc.update_layout(
+                    title="Top 50 Varieties by Total Descendant Count",
+                    title_font={"color": "#7b1c2e", "size": 13},
+                    xaxis_title="Total descendants (depth ≤ 6)",
+                    yaxis={"autorange": "reversed", "tickfont": {"size": 9}},
+                    plot_bgcolor="#faf7f0",
+                    paper_bgcolor="#faf7f0",
+                    height=700,
+                    margin={"l": 10, "r": 10, "t": 40, "b": 30},
+                )
+                st.plotly_chart(fig_desc, use_container_width=True)
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
         col_left, col_right = st.columns([1, 2])
         with col_left:
             st.markdown(
@@ -2159,6 +2406,67 @@ def main() -> None:
     # ────────────────────────────────────────────────────────────────────────
     with tab5:
         st.subheader("🪴 Rootstock Varieties")
+
+        # ── Rootstock pedigree charts (functions defined at module level) ───
+        with st.spinner("Computing rootstock statistics…"):
+            rs_parent_df  = compute_rootstock_parent_freq(df)
+            rs_founder_df = compute_rootstock_founder_freq(df)
+
+        rs_col1, rs_col2 = st.columns(2)
+
+        with rs_col1:
+            if not rs_parent_df.empty:
+                top20_rs = rs_parent_df.head(20)
+                fig_rs_par = go.Figure(go.Bar(
+                    x=top20_rs["count"],
+                    y=top20_rs["variety"],
+                    orientation="h",
+                    marker_color="#4a7c30",
+                    marker_line_color="#2d5a1b",
+                    marker_line_width=0.5,
+                    hovertemplate="<b>%{y}</b><br>Used as parent in: %{x} rootstock crosses<extra></extra>",
+                ))
+                fig_rs_par.update_layout(
+                    title="Most Common Parents in Rootstock Pedigrees",
+                    title_font={"color": "#7b1c2e", "size": 13},
+                    xaxis_title="Count",
+                    yaxis={"autorange": "reversed", "tickfont": {"size": 9}},
+                    plot_bgcolor="#faf7f0",
+                    paper_bgcolor="#faf7f0",
+                    height=500,
+                    margin={"l": 10, "r": 10, "t": 40, "b": 30},
+                )
+                st.plotly_chart(fig_rs_par, use_container_width=True)
+            else:
+                st.info("No rootstock parent data available.")
+
+        with rs_col2:
+            if not rs_founder_df.empty:
+                fig_rs_found = go.Figure(go.Bar(
+                    x=rs_founder_df["count"],
+                    y=rs_founder_df["founder"],
+                    orientation="h",
+                    marker_color="#7b1c2e",
+                    marker_line_color="#5a1020",
+                    marker_line_width=0.5,
+                    hovertemplate="<b>%{y}</b><br>Appears as founder in: %{x} rootstock lineages<extra></extra>",
+                ))
+                fig_rs_found.update_layout(
+                    title="Most Common Founders in Rootstock Lineages",
+                    title_font={"color": "#7b1c2e", "size": 13},
+                    xaxis_title="Frequency (depth ≤ 3)",
+                    yaxis={"autorange": "reversed", "tickfont": {"size": 9}},
+                    plot_bgcolor="#faf7f0",
+                    paper_bgcolor="#faf7f0",
+                    height=500,
+                    margin={"l": 10, "r": 10, "t": 40, "b": 30},
+                )
+                st.plotly_chart(fig_rs_found, use_container_width=True)
+            else:
+                st.info("No rootstock founder data available.")
+
+        st.markdown("---")
+
         if ROOTSTOCK_PATH.exists():
             rootstock_df = pd.read_csv(ROOTSTOCK_PATH, dtype=str, low_memory=False)
             st.markdown(f"**{len(rootstock_df):,}** rootstock entries loaded.")
