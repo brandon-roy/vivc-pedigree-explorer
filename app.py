@@ -425,16 +425,13 @@ def find_ancestors(
     """
     variety = variety.strip().upper()
 
-    # Build O(1) lookup dicts
-    p1_lkp: dict[str, str] = {}
-    p2_lkp: dict[str, str] = {}
-    for _, row in df.iterrows():
-        nm = row["prime_name"]
-        if isinstance(nm, str):
-            p1 = row.get("parent1")
-            p2 = row.get("parent2")
-            p1_lkp[nm] = p1 if isinstance(p1, str) and p1.strip() else ""
-            p2_lkp[nm] = p2 if isinstance(p2, str) and p2.strip() else ""
+    # Build O(1) parent lookup dicts — vectorised (avoids slow iterrows on 26k rows)
+    _lkp = df[["prime_name", "parent1", "parent2"]].copy()
+    _lkp["prime_name"] = _lkp["prime_name"].fillna("").str.strip()
+    _lkp["parent1"]    = _lkp["parent1"].fillna("").str.strip()
+    _lkp["parent2"]    = _lkp["parent2"].fillna("").str.strip()
+    p1_lkp = dict(zip(_lkp["prime_name"], _lkp["parent1"]))
+    p2_lkp = dict(zip(_lkp["prime_name"], _lkp["parent2"]))
 
     edges: list[tuple[str, str, str, int]] = []
     nodes: set[str] = {variety}
@@ -517,9 +514,10 @@ def find_descendants(
     return pd.DataFrame(result_rows)
 
 
+@st.cache_data(show_spinner=False)
 def build_pedigree_graph(
     variety: str,
-    df: pd.DataFrame,
+    _df: pd.DataFrame,
     max_depth: int = 10,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
@@ -530,11 +528,11 @@ def build_pedigree_graph(
     edges_df cols: from, to, parent_role, depth
     """
     variety = variety.strip().upper()
-    raw_edges, all_nodes = find_ancestors(variety, df, max_depth=max_depth)
+    raw_edges, all_nodes = find_ancestors(variety, _df, max_depth=max_depth)
 
     if not raw_edges:
         # Single node — no ancestors
-        row = df[df["prime_name"] == variety]
+        row = _df[_df["prime_name"] == variety]
         if row.empty:
             node_row = {
                 "name": variety, "vivc_no": None, "berry_color": None,
@@ -570,8 +568,8 @@ def build_pedigree_graph(
     # Build metadata lookup keyed by prime_name
     meta_cols = ["prime_name", "vivc_no", "berry_color", "origin", "species",
                  "parent1", "parent2", "year_of_crossing", "pedigree_confirmed", "breeder"]
-    available = [c for c in meta_cols if c in df.columns]
-    meta = df[available].drop_duplicates(subset=["prime_name"], keep="first").set_index("prime_name")
+    available = [c for c in meta_cols if c in _df.columns]
+    meta = _df[available].drop_duplicates(subset=["prime_name"], keep="first").set_index("prime_name")
 
     # Compute generation via BFS from target
     G = nx.DiGraph()
@@ -1785,14 +1783,8 @@ def build_data_summary(_df: pd.DataFrame) -> dict:
         .value_counts()
         .head(20)
         .reset_index()
+        .set_axis(["Origin", "Count"], axis=1)
     )
-    # pandas value_counts().reset_index() changed column names in pandas 2.x
-    if top_origins.columns.tolist() == ["origin", "count"]:
-        top_origins.columns = ["Origin", "Count"]
-    elif top_origins.columns.tolist() == ["index", "origin"]:
-        top_origins.columns = ["Origin", "Count"]
-    else:
-        top_origins.columns = ["Origin", "Count"]
     top_origins["%"] = (top_origins["Count"] / n * 100).round(1).astype(str) + "%"
 
     top_species = (
@@ -1800,12 +1792,18 @@ def build_data_summary(_df: pd.DataFrame) -> dict:
         .value_counts()
         .head(20)
         .reset_index()
+        .set_axis(["Species", "Count"], axis=1)
     )
-    if top_species.columns.tolist() == ["species", "count"]:
-        top_species.columns = ["Species", "Count"]
-    else:
-        top_species.columns = ["Species", "Count"]
     top_species["%"] = (top_species["Count"] / n * 100).round(1).astype(str) + "%"
+
+    top_breeders = (
+        df["breeder"].dropna()
+        .value_counts()
+        .head(20)
+        .reset_index()
+        .set_axis(["Breeder", "Count"], axis=1)
+    )
+    top_breeders["%"] = (top_breeders["Count"] / n * 100).round(1).astype(str) + "%"
 
     parentage_dist = pd.DataFrame({
         "Parentage state": ["No parents", "One parent only", "Both parents"],
@@ -1825,6 +1823,7 @@ def build_data_summary(_df: pd.DataFrame) -> dict:
         "summary":        summary,
         "top_origins":    top_origins,
         "top_species":    top_species,
+        "top_breeders":   top_breeders,
         "parentage_dist": parentage_dist,
         "years":          yr_valid,
         "df":             df,
@@ -2080,6 +2079,7 @@ def main() -> None:
                     (gen_color("Other", 1),             "●", "Generation 1 parent"),
                     (gen_color("Other", 2),             "●", "Generation 2"),
                     (gen_color("Other", 3),             "●", "Generation 3"),
+                    (gen_color("Other", 4),             "●", "Generation 4"),
                     (gen_color("Other", 5),             "●", "Generation 5+"),
                 ]
             else:
@@ -2146,6 +2146,17 @@ def main() -> None:
                 unsafe_allow_html=True,
             )
 
+            # Marker coverage metric (only shown when overlay is active)
+            if show_markers and not net_edges.empty:
+                ann_tab1 = annotate_edges(net_edges, load_marker_support())
+                n_doc = int((ann_tab1["confidence_level"] != "undocumented").sum())
+                n_all = len(ann_tab1)
+                cov_pct = round(100 * n_doc / n_all) if n_all else 0
+                st.caption(
+                    f"🔬 Molecular marker evidence covers **{n_doc} / {n_all}** "
+                    f"edges ({cov_pct}%) in this pedigree."
+                )
+
             # Pedigree node table
             with st.expander("Pedigree node table", expanded=False):
                 display_cols = [c for c in [
@@ -2153,12 +2164,17 @@ def main() -> None:
                     "origin", "species", "berry_color", "year_of_crossing",
                     "parent1", "parent2", "breeder", "pedigree_confirmed",
                 ] if c in net_nodes.columns]
-                st.dataframe(
-                    net_nodes[display_cols].sort_values("generation"),
-                    use_container_width=True,
-                    hide_index=True,
-                    height=300,
+                node_filter = st.text_input(
+                    "Filter by name…",
+                    key="pedigree_node_filter",
+                    placeholder="e.g. Pinot Noir",
+                    label_visibility="collapsed",
                 )
+                tbl = net_nodes[display_cols].sort_values("generation")
+                if node_filter:
+                    mask = tbl["name"].str.contains(node_filter.strip(), case=False, na=False)
+                    tbl = tbl[mask]
+                st.dataframe(tbl, use_container_width=True, hide_index=True, height=300)
 
     # ────────────────────────────────────────────────────────────────────────
     # TAB 2 — Descendants
@@ -2259,8 +2275,10 @@ def main() -> None:
             n_with_kids = len(names_with_kids)
             st.markdown(
                 f"<div style='color:#888;font-size:12px;margin-top:8px;line-height:1.6;'>"
-                f"<b style='color:#555;'>{n_with_kids:,} varieties</b> have recorded offspring.<br>"
-                f"Try <b>PINOT NOIR</b>, <b>RIESLING WEISS</b>, or <b>HEUNISCH WEISS</b>."
+                f"<b style='color:#555;'>{n_with_kids:,} varieties</b> have recorded offspring "
+                f"and appear at the top of the list.<br>"
+                f"Try <b>PINOT NOIR</b>, <b>RIESLING WEISS</b>, or <b>HEUNISCH WEISS</b>.<br>"
+                f"<span style='color:#aaa;'>Max generations uses the sidebar depth setting.</span>"
                 f"</div>",
                 unsafe_allow_html=True,
             )
@@ -2341,22 +2359,17 @@ def main() -> None:
             )
             st.plotly_chart(fig, use_container_width=True)
 
-            # Node colour legend — mirrors Pedigree Explorer
+            # Node colour legend — mirrors Pedigree Explorer; uses shared palette constants
             if color_mode == "berry":
+                berry_legend_pairs = [
+                    (BERRY_COLOR_LABELS[k], BERRY_COLOR_HEX[k]) for k in BERRY_COLOR_LABELS
+                ] + [("Unknown / not recorded", BERRY_COLOR_DEFAULT)]
                 legend_items = " ".join(
                     f"<span style='display:inline-flex;align-items:center;gap:5px;margin-right:12px;'>"
                     f"<span style='display:inline-block;width:12px;height:12px;border-radius:50%;"
                     f"background:{hex_c};border:1px solid #888;'></span>"
                     f"<span style='font-size:12px;color:#555;'>{lbl}</span></span>"
-                    for lbl, hex_c in [
-                        ("Blanc (white)", "#e8d96a"),
-                        ("Noir (black)",  "#2d1b4e"),
-                        ("Rouge (red)",   "#8b1a2e"),
-                        ("Rosé",          "#d9728a"),
-                        ("Gris (grey)",   "#9b8abf"),
-                        ("Red-Violet",    "#6b2060"),
-                        ("Unknown",       "#c8bfb0"),
-                    ]
+                    for lbl, hex_c in berry_legend_pairs
                 )
                 st.markdown(
                     f"<div style='padding:8px 0;'>{legend_items}</div>",
@@ -2726,11 +2739,8 @@ def main() -> None:
                 .fillna("Unknown")
                 .value_counts()
                 .reset_index()
+                .set_axis(["Berry Color", "Count"], axis=1)
             )
-            if berry_counts.columns.tolist() == ["berry_color", "count"]:
-                berry_counts.columns = ["Berry Color", "Count"]
-            else:
-                berry_counts.columns = ["Berry Color", "Count"]
             berry_counts["hex"] = berry_counts["Berry Color"].map(
                 lambda x: BERRY_COLOR_HEX.get(str(x).upper(), BERRY_COLOR_DEFAULT)
             )
@@ -2786,9 +2796,38 @@ def main() -> None:
             )
             st.plotly_chart(fig_yr, use_container_width=True)
 
-        # Top species
-        st.subheader("Top Species")
-        st.dataframe(sd["top_species"], use_container_width=True, hide_index=True)
+        # Top species + Top breeders side-by-side
+        col_sp, col_br = st.columns(2)
+
+        with col_sp:
+            st.subheader("Top Species")
+            st.dataframe(sd["top_species"], use_container_width=True, hide_index=True)
+
+        with col_br:
+            st.subheader("Top 20 Breeders")
+            if sd["top_breeders"].empty:
+                st.info("No breeder data available in this dataset.")
+            else:
+                fig_br = px.bar(
+                    sd["top_breeders"].sort_values("Count"),
+                    x="Count",
+                    y="Breeder",
+                    orientation="h",
+                    color="Count",
+                    color_continuous_scale=[
+                        "#7b1c2e", "#a0522d", "#7a6a20", "#4a7c30",
+                        "#2d5a1b", "#4a235a", "#6b3fa0",
+                    ],
+                    labels={"Count": "Varieties", "Breeder": ""},
+                )
+                fig_br.update_layout(
+                    plot_bgcolor="#faf7f0",
+                    paper_bgcolor="#faf7f0",
+                    coloraxis_showscale=False,
+                    height=500,
+                    margin={"l": 10, "r": 10, "t": 10, "b": 10},
+                )
+                st.plotly_chart(fig_br, use_container_width=True)
 
     # ────────────────────────────────────────────────────────────────────────
     # TAB 8 — Resources
