@@ -1176,6 +1176,8 @@ def build_visjs_network(
 
     # --- Build edges list ---
     edges_data = []
+    edge_tooltips: dict[str, str] = {}   # eid → HTML for custom JS tooltip
+    _edge_counter = 0
     edge_iter = ann.iterrows() if not ann.empty else edges_df.iterrows()
     for _, erow in edge_iter:
         src  = erow.get("from", "")
@@ -1253,10 +1255,14 @@ def build_visjs_network(
             glyph      = ""
             edge_title = role
 
+        eid = f"e{_edge_counter}"
+        _edge_counter += 1
+        edge_tooltips[eid] = edge_title   # stored separately; rendered by custom JS handler
+
         edges_data.append({
+            "id": eid,
             "from": src_id,
             "to": dst_id,
-            "title": edge_title,
             "color": {
                 "color": edge_color,
                 "highlight": "#c8a44a",
@@ -1338,10 +1344,11 @@ def build_visjs_network(
 
     # --- Assemble HTML ---
     height_val = height if height else "650px"
-    nodes_json    = json.dumps(nodes_data)
-    edges_json    = json.dumps(edges_data)
-    options_json  = json.dumps(options)
-    tooltips_json = json.dumps(node_tooltips)
+    nodes_json        = json.dumps(nodes_data)
+    edges_json        = json.dumps(edges_data)
+    options_json      = json.dumps(options)
+    tooltips_json     = json.dumps(node_tooltips)
+    edge_tips_json    = json.dumps(edge_tooltips)
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -1363,7 +1370,7 @@ def build_visjs_network(
     padding: 0;
     box-shadow: 0 4px 18px rgba(0,0,0,0.18);
     max-width: 350px;
-    pointer-events: none;
+    pointer-events: auto;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 13px;
     line-height: 1.4;
@@ -1375,7 +1382,8 @@ def build_visjs_network(
 <div id="net"></div>
 <div id="vis-tip"></div>
 <script>
-var TOOLTIPS = {tooltips_json};
+var TOOLTIPS      = {tooltips_json};
+var EDGE_TOOLTIPS = {edge_tips_json};
 var nodes    = new vis.DataSet({nodes_json});
 var edges    = new vis.DataSet({edges_json});
 var options  = {options_json};
@@ -1392,13 +1400,18 @@ document.addEventListener("mousemove", function(e) {{
   mouseY = e.clientY;
 }});
 
-network.on("hoverNode", function(params) {{
+// Cancel hide when the user moves their cursor into the tooltip (to click links)
+tipEl.addEventListener("mouseenter", function() {{
   clearTimeout(hideTimer);
-  var html = TOOLTIPS[params.node];
-  if (!html) return;
+}});
+tipEl.addEventListener("mouseleave", function() {{
+  hideTimer = setTimeout(function() {{ tipEl.style.display = "none"; }}, 400);
+}});
+
+function showTip(html) {{
+  clearTimeout(hideTimer);
   tipEl.innerHTML = html;
   tipEl.style.display = "block";
-  // Defer so offsetWidth/Height are populated after render
   setTimeout(function() {{
     var w  = tipEl.offsetWidth  || 250;
     var h  = tipEl.offsetHeight || 150;
@@ -1413,13 +1426,27 @@ network.on("hoverNode", function(params) {{
     tipEl.style.left = x + "px";
     tipEl.style.top  = y + "px";
   }}, 0);
+}}
+
+function hideTip() {{
+  hideTimer = setTimeout(function() {{ tipEl.style.display = "none"; }}, 600);
+}}
+
+network.on("hoverNode", function(params) {{
+  var html = TOOLTIPS[params.node];
+  if (!html) return;
+  showTip(html);
 }});
 
-network.on("blurNode", function() {{
-  hideTimer = setTimeout(function() {{
-    tipEl.style.display = "none";
-  }}, 150);
+network.on("blurNode", hideTip);
+
+network.on("hoverEdge", function(params) {{
+  var html = EDGE_TOOLTIPS[params.edge];
+  if (!html) return;
+  showTip(html);
 }});
+
+network.on("blurEdge", hideTip);
 
 // ── Double-click opens VIVC page ─────────────────────────────────────────────
 network.on("doubleClick", function(params) {{
