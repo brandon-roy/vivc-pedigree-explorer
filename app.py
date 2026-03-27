@@ -349,11 +349,18 @@ def load_marker_support() -> pd.DataFrame:
     Load and combine marker_support.csv + vivc_confirmed_marker_support.csv.
     Deduplicates by (child_variety, parent_variety), keeping highest confidence.
     """
+    # Sentinel strings that represent missing data in the source CSVs
+    _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
+
     dfs = []
     for path in (MARKER_PATH, VIVC_MARKER_PATH):
         if path.exists():
             try:
-                d = pd.read_csv(path, dtype=str, low_memory=False)
+                # keep_default_na=False so the literal string "NA" is preserved;
+                # we then replace it ourselves with NaN for clean downstream handling
+                d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
+                # Normalise all NA-like sentinels → actual NaN across every column
+                d = d.replace(_NA_VALS, np.nan)
                 dfs.append(d)
             except Exception:
                 pass
@@ -862,10 +869,11 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
     )
 
     swatch_color = berry_color_hex(bcolor)
+    bc_label = _safe(bcolor) if (bcolor and str(bcolor).strip() not in ("", "nan", "None")) else "Not specified"
     bc_swatch = (
         f"<span style='display:inline-block;width:10px;height:10px;border-radius:2px;"
         f"background:{swatch_color};border:1px solid #888;margin-right:4px;"
-        f"vertical-align:middle;'></span>{_safe(bcolor)}"
+        f"vertical-align:middle;'></span>{bc_label}"
     )
 
     # Evidence from annotated edges leading into this node
@@ -884,27 +892,51 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
                 f"<td><span style='background:{conf_color};color:#fff;padding:1px 5px;"
                 f"border-radius:3px;font-size:10px;'>{conf_str}</span></td></tr>"
             )
-            dois = child_edges["doi"].dropna().unique().tolist() if "doi" in child_edges.columns else []
-            dois = [d for d in dois if d and str(d) not in ("nan", "None", "")]
+
+            # ── DOI links ──────────────────────────────────────────────────
+            # Strip any sentinel strings that survived loading, then keep only
+            # values that look like real DOIs (start with "10.")
+            _bad = {"nan", "none", "", "na", "n/a", "n.a.", "null"}
+            dois = []
+            if "doi" in child_edges.columns:
+                for d in child_edges["doi"].dropna().unique():
+                    d = str(d).strip()
+                    if d.lower() not in _bad and d.startswith("10."):
+                        dois.append(d)
+
             if dois:
                 doi_links = " ".join(
                     f"<a href='https://doi.org/{d}' target='_blank' style='color:#4a7c30;'>"
                     f"{d} ↗</a>"
-                    for d in dois[:2]
+                    for d in dois[:3]
                 )
                 ev_rows += (
                     f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>DOI</td>"
                     f"<td style='font-size:11px;'>{doi_links}</td></tr>"
                 )
+
+            # ── Study reference ────────────────────────────────────────────
             if "study_reference" in child_edges.columns:
-                studies = child_edges["study_reference"].dropna().unique().tolist()
-                studies = [s for s in studies if s and str(s) not in ("nan", "None", "")]
+                studies = [
+                    str(s).strip() for s in child_edges["study_reference"].dropna().unique()
+                    if str(s).strip().lower() not in _bad
+                ]
                 if studies:
-                    study_str = "; ".join(studies[:2])
+                    # If no DOI was found AND the reference is the generic VIVC passport
+                    # text, substitute a direct hyperlink to the variety's VIVC page.
+                    is_vivc_ref = any("vivc passport" in s.lower() for s in studies)
+                    if is_vivc_ref and not dois and vivc_no and not (isinstance(vivc_no, float) and np.isnan(vivc_no)):
+                        source_cell = (
+                            f"<a href='https://www.vivc.de/index.php?"
+                            f"r=cultivarname%2Fview&id={vivc_no}' "
+                            f"target='_blank' style='color:#4a7c30;'>VIVC passport ↗</a>"
+                        )
+                    else:
+                        source_cell = "; ".join(studies[:2])
                     ev_rows += (
-                        f"<tr><td style='color:#777;padding:2px 10px 2px 0;vertical-align:top;'>Study</td>"
-                        f"<td style='font-size:11px;max-width:180px;word-wrap:break-word;'>"
-                        f"{study_str}</td></tr>"
+                        f"<tr><td style='color:#777;padding:2px 10px 2px 0;vertical-align:top;'>Source</td>"
+                        f"<td style='font-size:11px;max-width:200px;word-wrap:break-word;'>"
+                        f"{source_cell}</td></tr>"
                     )
 
     return (
@@ -1153,18 +1185,43 @@ def build_visjs_network(
             edge_width = base_width * MARKER_WIDTHS.get(conf, 1.0)
             glyph      = MARKER_GLYPHS.get(conf, "")
 
-            doi   = erow.get("doi", "")
-            study = erow.get("study_reference", "")
-            n_mk  = erow.get("n_markers", "")
-            yr_mk = erow.get("confirmed_year", "")
-            doi_str   = _safe(doi)
-            study_str = _safe(study)
+            doi_raw = str(erow.get("doi", "") or "").strip()
+            study   = str(erow.get("study_reference", "") or "").strip()
+            n_mk    = erow.get("n_markers", "")
+            yr_mk   = erow.get("confirmed_year", "")
 
-            if doi and str(doi) not in ("", "nan", "None"):
-                doi_str = (
-                    f"<a href='https://doi.org/{doi}' target='_blank' "
-                    f"style='color:#4a7c30;'>{doi} ↗</a>"
+            _bad_e = {"", "nan", "none", "na", "n/a", "n.a.", "null"}
+
+            # DOI — only link if it looks like a real DOI (starts with "10.")
+            if doi_raw.lower() not in _bad_e and doi_raw.startswith("10."):
+                doi_cell = (
+                    f"<a href='https://doi.org/{doi_raw}' target='_blank' "
+                    f"style='color:#4a7c30;'>{doi_raw} ↗</a>"
                 )
+            else:
+                doi_cell = "—"
+
+            # Source — link to VIVC page when the reference is the generic passport text
+            # and there's no real DOI; otherwise show the citation as plain text
+            dst_vivc = None
+            if dst in name_to_id:
+                # look up vivc_no for dst node from nodes_df
+                dst_rows = nodes_df[nodes_df["name"] == dst]
+                if not dst_rows.empty:
+                    dst_vivc = dst_rows.iloc[0].get("vivc_no")
+            if (study.lower() not in _bad_e
+                    and "vivc passport" in study.lower()
+                    and doi_cell == "—"
+                    and dst_vivc and not (isinstance(dst_vivc, float) and np.isnan(dst_vivc))):
+                source_cell = (
+                    f"<a href='https://www.vivc.de/index.php?"
+                    f"r=cultivarname%2Fview&id={dst_vivc}' "
+                    f"target='_blank' style='color:#4a7c30;'>VIVC passport ↗</a>"
+                )
+            elif study.lower() not in _bad_e:
+                source_cell = study
+            else:
+                source_cell = "—"
 
             conf_color = MARKER_COLORS.get(conf, "#888")
             edge_title = (
@@ -1173,8 +1230,8 @@ def build_visjs_network(
                 f"<span style='background:{conf_color};color:#fff;padding:1px 6px;"
                 f"border-radius:3px;font-size:11px;'>{conf}</span><br/><br/>"
                 f"<table style='font-size:12px;'>"
-                f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Study</td><td>{study_str}</td></tr>"
-                f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>DOI</td><td>{doi_str}</td></tr>"
+                f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Source</td><td>{source_cell}</td></tr>"
+                f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>DOI</td><td>{doi_cell}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Markers</td><td>{_safe(n_mk)}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Year</td><td>{_safe(yr_mk)}</td></tr>"
                 f"</table></div>"
@@ -2087,7 +2144,7 @@ def main() -> None:
                 node_legend_items = [
                     (berry_color_hex(k), "●", BERRY_COLOR_LABELS.get(k, k))
                     for k in BERRY_COLOR_HEX
-                ] + [(BERRY_COLOR_DEFAULT, "●", "Unknown / not recorded")]
+                ] + [(BERRY_COLOR_DEFAULT, "●", "Not specified")]
 
             def _swatch(hex_c: str, symbol: str, label: str) -> str:
                 return (
@@ -2363,7 +2420,7 @@ def main() -> None:
             if color_mode == "berry":
                 berry_legend_pairs = [
                     (BERRY_COLOR_LABELS[k], BERRY_COLOR_HEX[k]) for k in BERRY_COLOR_LABELS
-                ] + [("Unknown / not recorded", BERRY_COLOR_DEFAULT)]
+                ] + [("Not specified", BERRY_COLOR_DEFAULT)]
                 legend_items = " ".join(
                     f"<span style='display:inline-flex;align-items:center;gap:5px;margin-right:12px;'>"
                     f"<span style='display:inline-block;width:12px;height:12px;border-radius:50%;"
@@ -2736,7 +2793,7 @@ def main() -> None:
             st.subheader("Varieties by Berry Color")
             berry_counts = (
                 df["berry_color"]
-                .fillna("Unknown")
+                .fillna("Not specified")
                 .value_counts()
                 .reset_index()
                 .set_axis(["Berry Color", "Count"], axis=1)
