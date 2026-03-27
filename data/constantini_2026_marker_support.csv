@@ -1,0 +1,79 @@
+evidence_type,marker_type,n_markers,lod_score,study_reference,doi,confirmed_year,confidence_level,notes,child_variety,parent_variety,parent_role
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),CABERNET SAUVIGNON,CABERNET FRANC,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),CABERNET SAUVIGNON,SAUVIGNON BLANC,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),F4P38,SCHIAVA GROSSA,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),F4P38,MALVASIA DI CANDIA AROMATICA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,F26P41,FIANO,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,F26P41,CHARDONNAY BLANC MUSQUE,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,F26P50,FIANO,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,F26P50,CHARDONNAY BLANC MUSQUE,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),F42P74,SANGIOVESE,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),F42P74,TEROLDEGO,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 2 is maternal via chlorotype,F45P137,SYRAH,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 2 is maternal via chlorotype,F45P137,PINOT NOIR,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),F49P35,FIANO,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),F49P35,GEWUERZTRAMINER,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),IASMA ECO 1,TEROLDEGO,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),IASMA ECO 1,LAGREIN,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),IASMA ECO 2,TEROLDEGO,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),IASMA ECO 2,LAGREIN,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,IASMA ECO 3,MUSCAT OTTONEL,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,IASMA ECO 3,MALVASIA DI CANDIA AROMATICA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,IASMA ECO 4,MUSCAT OTTONEL,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,IASMA ECO 4,MALVASIA DI CANDIA AROMATICA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),MANZONI BIANCO,RIESLING WEISS,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Maternal parent ambiguous (chlorotype),MANZONI BIANCO,PINOT BLANC,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-296,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-296,PETRA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-482,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-482,PETRA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,IV 1-1-768,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,IV 1-1-768,PETRA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-9,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-9,PETRA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-93,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,KOZMA 01-1-93,PETRA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,CABERNET CORTIS,CABERNET SAUVIGNON,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,CABERNET CORTIS,SOLARIS,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,PALMA,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,PALMA,PETRA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIA F12P140,CHARDONNAY BLANC MUSQUE,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIA F12P140,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIA F12P194,SCHIAVA GROSSA,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIA F12P194,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIR F1P54,CHARDONNAY BLANC MUSQUE,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIR F1P54,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIR F2P83,VRH3082-1-42,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIR F2P83,KISHMISH VATKANA,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIR F2P97,BRONNER,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,GIR F2P97,KOZMA 01-1-9,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P49,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P49,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P55,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P55,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P74,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P74,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P78,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P78,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P87,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P87,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P102,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P102,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P103,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P103,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P108,REGENT,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P108,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P115,IV 8/1,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P115,REGENT,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P128,SOLARIS,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F12P128,REGENT,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F13P152,IV 8/1,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F13P152,BRONNER,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F14P33,SCHIAVA GROSSA,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,INF F14P33,IV 1-1-768,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,NERMANTIS,MERZLING,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,NERMANTIS,TEROLDEGO,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,TERMANTIS,MERZLING,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,TERMANTIS,TEROLDEGO,Parent 2
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,VALNOSIA,BIANCA,Parent 1
+SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,VALNOSIA,NOSIOLA,Parent 2

@@ -185,6 +185,7 @@ PASSPORT_PATH    = BASE_DIR / "vivc_passport_table.csv"
 SLIM_PATH        = BASE_DIR / "data" / "vivc_passport_slim.csv"
 MARKER_PATH      = BASE_DIR / "data" / "marker_support.csv"
 VIVC_MARKER_PATH = BASE_DIR / "data" / "vivc_confirmed_marker_support.csv"
+CONSTANTINI_PATH = BASE_DIR / "data" / "constantini_2026_marker_support.csv"
 ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
 ROOTSTOCK_PATH   = BASE_DIR / "data" / "vivc_rootstock_utilization_table.csv"
@@ -347,14 +348,15 @@ def load_passport() -> pd.DataFrame:
 @st.cache_data(show_spinner="Loading marker support data…")
 def load_marker_support() -> pd.DataFrame:
     """
-    Load and combine marker_support.csv + vivc_confirmed_marker_support.csv.
+    Load and combine marker_support.csv + vivc_confirmed_marker_support.csv
+    + constantini_2026_marker_support.csv (Axiom Vitis22K SNP array trios).
     Deduplicates by (child_variety, parent_variety), keeping highest confidence.
     """
     # Sentinel strings that represent missing data in the source CSVs
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH):
         if path.exists():
             try:
                 # keep_default_na=False so the literal string "NA" is preserved;
