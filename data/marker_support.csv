@@ -1,60 +1,60 @@
 child_variety,parent_variety,parent_role,evidence_type,marker_type,n_markers,lod_score,study_reference,doi,confirmed_year,confidence_level,notes
-CABERNET SAUVIGNON,CABERNET FRANC,Parent 1,SSR,SSR,7,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Natural cross; parentage discovered in Gironde
-CABERNET SAUVIGNON,SAUVIGNON BLANC,Parent 2,SSR,SSR,7,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Natural cross; parentage discovered in Gironde
-CHARDONNAY,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Consistent across multiple independent labs
-CHARDONNAY,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Consistent across multiple independent labs
-GAMAY NOIR,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-GAMAY NOIR,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-ALIGOTE,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-ALIGOTE,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-MELON,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Melon de Bourgogne
-MELON,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Melon de Bourgogne
-AUXERROIS BLANC,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-AUXERROIS BLANC,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-SACY,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-SACY,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-PINOT MEUNIER,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,Meunier is a somatic mutation of Pinot Noir
-SYRAH,DUREZA,Parent 1,SSR,SSR,NA,NA,Bowers et al. 2000,10.1007/s001220051460,2000,confirmed,Dureza is an obscure Ardeche variety
-SYRAH,MONDEUSE BLANCHE,Parent 2,SSR,SSR,NA,NA,Bowers et al. 2000,10.1007/s001220051460,2000,confirmed,
-PETITE SIRAH,SYRAH,Parent 1,SSR,SSR,NA,NA,Meredith et al. 1999,10.1007/s001220051220,1999,confirmed,Petite Sirah also known as Durif
-PETITE SIRAH,PELOURSIN,Parent 2,SSR,SSR,NA,NA,Meredith et al. 1999,10.1007/s001220051220,1999,confirmed,
-MERLOT,CABERNET FRANC,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-MERLOT,MAGDELEINE NOIRE DES CHARENTES,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,Previously misidentified as Madeleine
-CARMENERE,CABERNET FRANC,Parent 1,SSR,SSR,NA,NA,Boursiquot et al. 2009,10.1007/s11295-009-0218-z,2009,confirmed,
-CARMENERE,GROS CABERNET,Parent 2,SSR,SSR,NA,NA,Boursiquot et al. 2009,10.1007/s11295-009-0218-z,2009,confirmed,Gros Cabernet is an obscure Gironde variety
-MALBEC,MAGDELEINE NOIRE DES CHARENTES,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,Malbec also known as Cot
-MALBEC,PRUNELARD,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-CABERNET FRANC,BITURICA,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,probable,Ancient Iberian variety; parentage hypothesis
-PETIT VERDOT,HEBIEN,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,probable,Heben candidate; second parent unresolved
+CABERNET SAUVIGNON,CABERNET FRANC,Parent 1,SSR,SSR,7,NA,Bowers & Meredith 1997,10.1038/ng0597-84,1997,confirmed,Natural cross; parentage discovered in Gironde
+CABERNET SAUVIGNON,SAUVIGNON BLANC,Parent 2,SSR,SSR,7,NA,Bowers & Meredith 1997,10.1038/ng0597-84,1997,confirmed,Natural cross; parentage discovered in Gironde
+CHARDONNAY,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,Consistent across multiple independent labs
+CHARDONNAY,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,Consistent across multiple independent labs
+GAMAY NOIR,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+GAMAY NOIR,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+ALIGOTE,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+ALIGOTE,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+MELON,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,Melon de Bourgogne
+MELON,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,Melon de Bourgogne
+AUXERROIS BLANC,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+AUXERROIS BLANC,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+SACY,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+SACY,GOUAIS BLANC,Parent 2,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+PINOT MEUNIER,PINOT NOIR,Parent 1,SSR,SSR,9,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,Meunier is a somatic mutation of Pinot Noir
+SYRAH,DUREZA,Parent 1,SSR,SSR,NA,NA,Bowers et al. 2000,NA,2000,confirmed,Dureza is an obscure Ardeche variety
+SYRAH,MONDEUSE BLANCHE,Parent 2,SSR,SSR,NA,NA,Bowers et al. 2000,NA,2000,confirmed,
+PETITE SIRAH,SYRAH,Parent 1,SSR,SSR,NA,NA,Meredith et al. 1999,10.5344/ajev.1999.50.3.236,1999,confirmed,Petite Sirah also known as Durif
+PETITE SIRAH,PELOURSIN,Parent 2,SSR,SSR,NA,NA,Meredith et al. 1999,10.5344/ajev.1999.50.3.236,1999,confirmed,
+MERLOT,CABERNET FRANC,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+MERLOT,MAGDELEINE NOIRE DES CHARENTES,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,Previously misidentified as Madeleine
+CARMENERE,CABERNET FRANC,Parent 1,SSR,SSR,NA,NA,Boursiquot et al. 2009,NA,2009,confirmed,
+CARMENERE,GROS CABERNET,Parent 2,SSR,SSR,NA,NA,Boursiquot et al. 2009,NA,2009,confirmed,Gros Cabernet is an obscure Gironde variety
+MALBEC,MAGDELEINE NOIRE DES CHARENTES,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,Malbec also known as Cot
+MALBEC,PRUNELARD,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+CABERNET FRANC,BITURICA,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,probable,Ancient Iberian variety; parentage hypothesis
+PETIT VERDOT,HEBIEN,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,probable,Heben candidate; second parent unresolved
 GEWURZTRAMINER,SAVAGNIN BLANC,Parent 1,SSR,SSR,NA,NA,Vouillamoz & Grando 2006,10.1038/sj.hdy.6800842,2006,confirmed,Traminer is a color/aroma mutation of Savagnin
-PINOT GRIS,PINOT NOIR,unspecified,SSR,SSR,NA,NA,Regner et al. 2000,10.1023/A:1018389712601,2000,confirmed,Pinot Gris is a somatic mutation of Pinot Noir
-PINOT BLANC,PINOT NOIR,unspecified,SSR,SSR,NA,NA,Regner et al. 2000,10.1023/A:1018389712601,2000,confirmed,Somatic mutation chain Pinot Noir > Pinot Gris > Pinot Blanc
-SANGIOVESE,CILIEGIOLO,Parent 1,SSR,SSR,NA,NA,Vouillamoz et al. 2007,10.1038/sj.hdy.6801018,2007,probable,First molecular parentage proposal for Sangiovese
-SANGIOVESE,CALABRESE MONTENUOVO,Parent 2,SSR,SSR,NA,NA,Vouillamoz et al. 2007,10.1038/sj.hdy.6801018,2007,probable,Rare Sicilian variety; requires independent replication
-NEBBIOLO,PRIE BLANC,Parent 1,SSR,SSR,NA,NA,Schneider et al. 2004,10.1007/s00122-003-1416-5,2004,probable,Results require independent replication
-TEMPRANILLO,ALBILLO MAYOR,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-TEMPRANILLO,BENEDICTO,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-TOURIGA NACIONAL,MARUFO,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-TOURIGA NACIONAL,BICAL,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-RIESLING,GOUAIS BLANC,Parent 1,SSR,SSR,NA,NA,Dettweiler et al. 2000,10.1093/jxb/51.347.1037,2000,confirmed,
-RIESLING,WEISSER HEUNISCH,Parent 2,SSR,SSR,NA,NA,Dettweiler et al. 2000,10.1093/jxb/51.347.1037,2000,probable,Second parent proposed; allele ambiguity at one locus
-MULLER THURGAU WEISS,RIESLING,Parent 1,SSR,SSR,NA,NA,Sefc et al. 1997,10.1007/s001220050788,1997,confirmed,Classic Vitis cross definitively confirmed by SSR
-MULLER THURGAU WEISS,MADELEINE ROYALE,Parent 2,SSR,SSR,NA,NA,Sefc et al. 1997,10.1007/s001220050788,1997,confirmed,
-GRENACHE NOIR,TEMPRANILLO,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,probable,Relationship proposed; needs independent replication
-VIOGNIER,FREISA,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,disputed,Conflicting claims exist in literature; not universally accepted
-VIOGNIER,PANSALET,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,probable,Rare Ardeche variety
+PINOT GRIS,PINOT NOIR,unspecified,SSR,SSR,NA,NA,Regner et al. 2000,10.5344/ajev.2000.51.1.7,2000,confirmed,Pinot Gris is a somatic mutation of Pinot Noir
+PINOT BLANC,PINOT NOIR,unspecified,SSR,SSR,NA,NA,Regner et al. 2000,10.5344/ajev.2000.51.1.7,2000,confirmed,Somatic mutation chain Pinot Noir > Pinot Gris > Pinot Blanc
+SANGIOVESE,CILIEGIOLO,Parent 1,SSR,SSR,NA,NA,Vouillamoz et al. 2007,10.5073/vitis.2007.46.19-22,2007,probable,First molecular parentage proposal for Sangiovese
+SANGIOVESE,CALABRESE MONTENUOVO,Parent 2,SSR,SSR,NA,NA,Vouillamoz et al. 2007,10.5073/vitis.2007.46.19-22,2007,probable,Rare Sicilian variety; requires independent replication
+NEBBIOLO,PRIE BLANC,Parent 1,SSR,SSR,NA,NA,Schneider et al. 2004,NA,2004,probable,Results require independent replication
+TEMPRANILLO,ALBILLO MAYOR,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+TEMPRANILLO,BENEDICTO,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+TOURIGA NACIONAL,MARUFO,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+TOURIGA NACIONAL,BICAL,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+RIESLING,GOUAIS BLANC,Parent 1,SSR,SSR,NA,NA,Dettweiler et al. 2000,NA,2000,confirmed,
+RIESLING,WEISSER HEUNISCH,Parent 2,SSR,SSR,NA,NA,Dettweiler et al. 2000,NA,2000,probable,Second parent proposed; allele ambiguity at one locus
+MULLER THURGAU WEISS,RIESLING,Parent 1,SSR,SSR,NA,NA,Sefc et al. 1997,10.5073/vitis.1997.36.179-183,1997,confirmed,Classic Vitis cross definitively confirmed by SSR
+MULLER THURGAU WEISS,MADELEINE ROYALE,Parent 2,SSR,SSR,NA,NA,Sefc et al. 1997,10.5073/vitis.1997.36.179-183,1997,confirmed,
+GRENACHE NOIR,TEMPRANILLO,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,probable,Relationship proposed; needs independent replication
+VIOGNIER,FREISA,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,disputed,Conflicting claims exist in literature; not universally accepted
+VIOGNIER,PANSALET,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,probable,Rare Ardeche variety
 ZINFANDEL,CRLJENAK KASTELANSKI,unspecified,SSR,SSR,NA,NA,Myles et al. 2011,10.1073/pnas.1009363108,2011,confirmed,Croatian progenitor of Zinfandel/Primitivo confirmed by genome-wide SNPs
 PRIMITIVO,CRLJENAK KASTELANSKI,unspecified,SSR,SSR,NA,NA,Myles et al. 2011,10.1073/pnas.1009363108,2011,confirmed,Primitivo and Zinfandel are the same variety
 MARQUETTE,MN 1094,Parent 1,SSR,SSR,NA,NA,Luby & Fennell 2006,NA,2006,confirmed,VitisGen cold-hardy breeding program
 MARQUETTE,RAVAT 262,Parent 2,SSR,SSR,NA,NA,Luby & Fennell 2006,NA,2006,confirmed,VitisGen cold-hardy breeding program
 FRONTENAC,LANDOT NOIR,Parent 1,SSR,SSR,NA,NA,VitisGen project,NA,2002,confirmed,University of Minnesota cold-hardy cultivar
 FRONTENAC,VITIS RIPARIA GLOIRE,Parent 2,SSR,SSR,NA,NA,VitisGen project,NA,2002,confirmed,University of Minnesota cold-hardy cultivar
-MUSCAT BLANC A PETITS GRAINS,ASPROKONDOURA,unspecified,SSR,SSR,NA,NA,Crespan & Milani 2001,10.1007/s001220051579,2001,probable,Greek parentage candidate; not universally accepted
+MUSCAT BLANC A PETITS GRAINS,ASPROKONDOURA,unspecified,SSR,SSR,NA,NA,Crespan & Milani 2001,10.5073/vitis.2001.40.23-30,2001,probable,Greek parentage candidate; not universally accepted
 PINOT NOIR,SAVAGNIN BLANC,Parent 1,SSR,SSR,NA,NA,Vouillamoz & Grando 2006,10.1038/sj.hdy.6800842,2006,probable,Full parentage of Pinot Noir not yet resolved
-CHENIN BLANC,SAVAGNIN BLANC,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,
-CHENIN BLANC,TRAMINER,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,Traminer = synonym of Savagnin in this context
-COLOMBARD,GOUAIS BLANC,Parent 1,SSR,SSR,NA,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-COLOMBARD,CHENIN BLANC,Parent 2,SSR,SSR,NA,NA,Bowers et al. 1999,10.1038/ng0699-84,1999,confirmed,
-MOURVEDRE,MONASTRELL,unspecified,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,Mourvedre and Monastrell are the same variety; confirmed identical
-CINSAUT,TIBOUREN,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,probable,Parentage proposed; low marker coverage
-GRENACHE BLANC,GRENACHE NOIR,unspecified,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1093/jxb/ers387,2013,confirmed,Color mutation confirmed by SSR and ampelography
+CHENIN BLANC,SAVAGNIN BLANC,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,
+CHENIN BLANC,TRAMINER,Parent 2,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,Traminer = synonym of Savagnin in this context
+COLOMBARD,GOUAIS BLANC,Parent 1,SSR,SSR,NA,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+COLOMBARD,CHENIN BLANC,Parent 2,SSR,SSR,NA,NA,Bowers et al. 1999,10.1126/science.285.5433.1562,1999,confirmed,
+MOURVEDRE,MONASTRELL,unspecified,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,Mourvedre and Monastrell are the same variety; confirmed identical
+CINSAUT,TIBOUREN,Parent 1,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,probable,Parentage proposed; low marker coverage
+GRENACHE BLANC,GRENACHE NOIR,unspecified,SSR,SSR,NA,NA,Lacombe et al. 2013,10.1007/s00122-012-1988-2,2013,confirmed,Color mutation confirmed by SSR and ampelography
