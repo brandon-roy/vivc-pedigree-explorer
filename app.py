@@ -302,11 +302,12 @@ def load_passport() -> pd.DataFrame:
     df.loc[df["parent1"].isin(artifact), "parent1"] = np.nan
     df.loc[df["parent2"].isin(artifact), "parent2"] = np.nan
 
-    # Extract 4-digit year
+    # Extract 4-digit year; store as nullable Int64 so it displays as "1941" not "1941.0"
     df["year_of_crossing"] = (
         df["year_raw"]
         .str.extract(r"(\d{4})", expand=False)
         .pipe(pd.to_numeric, errors="coerce")
+        .astype(pd.Int64Dtype())
     )
     df = df.drop(columns=["year_raw"])
 
@@ -660,8 +661,13 @@ def build_pedigree_graph(
             break
 
     nodes_df["year_of_crossing"] = nodes_df["name"].map(year_map)
+    # Convert to nullable integer so it displays as "1941" not "1941.0"
+    nodes_df["year_of_crossing"] = pd.array(
+        nodes_df["year_of_crossing"].where(nodes_df["year_of_crossing"].notna()),
+        dtype=pd.Int64Dtype()
+    )
 
-    max_yr = nodes_df["year_of_crossing"].dropna().max()
+    max_yr = nodes_df["year_of_crossing"].dropna().astype(float).max()
     if pd.isna(max_yr):
         max_yr = 2000.0
 
@@ -844,8 +850,13 @@ def summarize_terminal_founders(
 # ── Node tooltip builder ──────────────────────────────────────────────────────
 
 def _safe(val) -> str:
-    if val is None or (isinstance(val, float) and np.isnan(val)):
+    if val is None or val is pd.NA:
         return "—"
+    if isinstance(val, float) and np.isnan(val):
+        return "—"
+    # Strip trailing ".0" from integer-valued floats (e.g. 1941.0 → "1941")
+    if isinstance(val, float) and val == int(val):
+        val = int(val)
     s = str(val).strip()
     return s if s and s.lower() not in ("nan", "none", "na", "n/a") else "—"
 
