@@ -192,6 +192,7 @@ ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
 ROOTSTOCK_PATH   = BASE_DIR / "data" / "vivc_rootstock_utilization_table.csv"
 SUPP_META_PATH   = BASE_DIR / "data" / "vivc_supplementary_meta.json"
+NODE_PROFILE_PATH = BASE_DIR / "data" / "node_molecular_profile.csv"
 
 
 # ── Data loading ──────────────────────────────────────────────────────────────
@@ -345,6 +346,30 @@ def load_passport() -> pd.DataFrame:
     df.loc[df["parent2"] == df["prime_name"], "parent2"] = np.nan
 
     return df.reset_index(drop=True)
+
+
+@st.cache_data(show_spinner=False)
+def load_node_molecular_profile() -> pd.DataFrame:
+    """Load node_molecular_profile.csv. Returns empty DataFrame if file missing."""
+    if not NODE_PROFILE_PATH.exists():
+        return pd.DataFrame()
+    try:
+        df = pd.read_csv(NODE_PROFILE_PATH, dtype=str, low_memory=False)
+        df["vivc_prime_name"] = df["vivc_prime_name"].str.strip().str.upper()
+        # Cast bool columns
+        for col in ("has_snp_myles", "has_snp_constantini"):
+            if col in df.columns:
+                df[col] = df[col].map(
+                    lambda x: str(x).strip().lower() in {"true", "1", "yes"}
+                )
+        # Cast numeric columns
+        for col in ("vv_ancestry_pct", "na1_ancestry_pct", "na2_ancestry_pct",
+                    "mus_ancestry_pct", "ea_ancestry_pct", "ancestry_n_samples"):
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors="coerce")
+        return df
+    except Exception:
+        return pd.DataFrame()
 
 
 @st.cache_data(show_spinner="Loading marker support data…")
@@ -1039,7 +1064,8 @@ def _vivc_no_valid(val) -> bool:
     return s.isdigit() and int(s) > 0
 
 
-def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
+def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame,
+                       profile_df: pd.DataFrame | None = None) -> str:
     name    = _safe(row.get("name"))
     vivc_no = row.get("vivc_no")
     origin  = _safe(row.get("origin"))
@@ -1128,6 +1154,123 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
                         f"{source_cell}</td></tr>"
                     )
 
+    # ── Molecular profile sections ────────────────────────────────────────────
+    mol_rows = ""
+
+    if profile_df is not None and not profile_df.empty and name:
+        _nm_upper = str(name).strip().upper()
+        _match = profile_df[profile_df["vivc_prime_name"] == _nm_upper]
+        if not _match.empty:
+            prof = _match.iloc[0]
+
+            # — Genetic Ancestry bar ——————————————————————————————————————————
+            _vv  = prof.get("vv_ancestry_pct")
+            _na1 = prof.get("na1_ancestry_pct")
+            _na2 = prof.get("na2_ancestry_pct")
+            _mus = prof.get("mus_ancestry_pct")
+            _ea  = prof.get("ea_ancestry_pct")
+            _has_anc = all(
+                v is not None and not (isinstance(v, float) and np.isnan(v))
+                for v in [_vv, _na1, _na2, _mus, _ea]
+            )
+
+            if _has_anc:
+                _vv  = float(_vv)
+                _na1 = float(_na1)
+                _na2 = float(_na2)
+                _mus = float(_mus)
+                _ea  = float(_ea)
+                _total = _vv + _na1 + _na2 + _mus + _ea
+                if _total <= 0:
+                    _total = 100.0
+
+                _segs = [
+                    (_vv  / _total * 100, "#4a7c30", "Vv"),
+                    (_na1 / _total * 100, "#e07b39", "NA1"),
+                    (_na2 / _total * 100, "#c0392b", "NA2"),
+                    (_mus / _total * 100, "#8e44ad", "Mus"),
+                    (_ea  / _total * 100, "#2980b9",  "EA"),
+                ]
+                _bar_parts = ""
+                for _pct, _col, _lbl in _segs:
+                    if _pct < 0.5:
+                        continue
+                    _label_html = (
+                        f"<span style='font-size:9px;color:#fff;padding:0 2px;"
+                        f"white-space:nowrap;overflow:hidden;'>{_lbl} {_pct:.0f}%</span>"
+                        if _pct >= 5
+                        else ""
+                    )
+                    _bar_parts += (
+                        f"<div style='display:inline-block;width:{_pct:.1f}%;height:14px;"
+                        f"background:{_col};vertical-align:top;overflow:hidden;"
+                        f"line-height:14px;'>{_label_html}</div>"
+                    )
+
+                _n_samp = prof.get("ancestry_n_samples")
+                _n_str  = (
+                    f"n={int(_n_samp)}" if _n_samp is not None
+                    and not (isinstance(_n_samp, float) and np.isnan(_n_samp))
+                    else ""
+                )
+                _anc_src = str(prof.get("ancestry_source") or "").strip()
+                _anc_caption = ", ".join(x for x in [_n_str, _anc_src] if x)
+
+                mol_rows += (
+                    f"<tr><td colspan='2'>"
+                    f"<div style='margin-top:8px;padding-top:6px;"
+                    f"border-top:1px solid #e0d8cc;'>"
+                    f"<span style='font-size:10px;color:#888;font-weight:600;"
+                    f"text-transform:uppercase;letter-spacing:.5px;'>Genetic Ancestry</span>"
+                    f"<div style='margin-top:4px;width:100%;background:#ddd;"
+                    f"border-radius:3px;overflow:hidden;line-height:14px;'>"
+                    f"{_bar_parts}"
+                    f"</div>"
+                    f"<span style='font-size:10px;color:#999;'>{_anc_caption}</span>"
+                    f"</div></td></tr>"
+                )
+
+            # — SSR Profile ———————————————————————————————————————————————————
+            _ssr_loci = ["VVS2", "VVMD5", "VVMD7", "VVMD25", "VVMD27",
+                         "VVMD28", "VVMD32", "VrZAG62", "VrZAG79"]
+            _ssr_vals = []
+            for _locus in _ssr_loci:
+                _v = str(prof.get(f"ssr_{_locus}") or "").strip()
+                if _v and _v.lower() not in {"", "nan", "none"}:
+                    _ssr_vals.append((_locus, _v))
+
+            if _ssr_vals:
+                _ssr_src = str(prof.get("ssr_source") or "VIVC").strip()
+                _ssr_cells = ""
+                for _locus, _val in _ssr_vals:
+                    _ssr_cells += (
+                        f"<td style='padding:1px 4px;color:#555;font-size:10px;'>{_locus}</td>"
+                        f"<td style='padding:1px 6px 1px 2px;font-size:10px;'>{_val}</td>"
+                    )
+                # Group into rows of 3 loci each
+                _ssr_table_rows = ""
+                for _i in range(0, len(_ssr_vals), 3):
+                    _chunk = _ssr_vals[_i:_i + 3]
+                    _tr_cells = "".join(
+                        f"<td style='padding:1px 4px;color:#555;font-size:10px;'>{_l}</td>"
+                        f"<td style='padding:1px 6px 1px 2px;font-size:10px;'>{_a}</td>"
+                        for _l, _a in _chunk
+                    )
+                    _ssr_table_rows += f"<tr>{_tr_cells}</tr>"
+
+                mol_rows += (
+                    f"<tr><td colspan='2'>"
+                    f"<div style='margin-top:8px;padding-top:6px;"
+                    f"border-top:1px solid #e0d8cc;'>"
+                    f"<span style='font-size:10px;color:#888;font-weight:600;"
+                    f"text-transform:uppercase;letter-spacing:.5px;'>"
+                    f"SSR Profile (GENRES081) — {_ssr_src}</span>"
+                    f"<table style='margin-top:4px;border-collapse:collapse;width:100%;'>"
+                    f"{_ssr_table_rows}"
+                    f"</table>"
+                    f"</div></td></tr>"
+                )
+
     return (
         f"<div style='font-family:sans-serif;padding:6px 8px;min-width:210px;'>"
         f"<b style='font-size:14px;color:#1a1a1a;'>{name}</b>"
@@ -1142,6 +1285,7 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
         f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Breeder</td><td>{breeder}</td></tr>"
         f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Pedigree confirmed</td><td>{ped}</td></tr>"
         f"{ev_rows}"
+        f"{mol_rows}"
         f"</table></div>"
     )
 
@@ -1235,6 +1379,7 @@ def build_visjs_network(
     marker_overlay: bool = False,
     layout_mode: str = "UD",
     height: str = "650px",
+    profile_df: pd.DataFrame | None = None,
 ) -> str:
     """
     Build a vis.js HTML string for the pedigree network directly (no pyvis).
@@ -1315,7 +1460,7 @@ def build_visjs_network(
         # Fixed position from layout
         px_val, py_val = coords.get(nm, (0.0, 0.0))
 
-        tooltip = build_node_tooltip(row, ann)
+        tooltip = build_node_tooltip(row, ann, profile_df=profile_df)
         node_tooltips[nid] = tooltip   # stored separately; rendered by custom JS handler
 
         # VIVC URL for double-click
@@ -2420,6 +2565,7 @@ def main() -> None:
                 st.graphviz_chart(dot_string, use_container_width=True)
             else:
                 vis_layout = "physics" if net_view_mode == "physics" else layout_mode
+                _node_profile_df = load_node_molecular_profile()
                 with st.spinner("Rendering network…"):
                     html_content = build_visjs_network(
                         net_nodes,
@@ -2429,6 +2575,7 @@ def main() -> None:
                         marker_overlay=show_markers,
                         layout_mode=vis_layout,
                         height="650px",
+                        profile_df=_node_profile_df,
                     )
                 components.html(html_content, height=700, scrolling=False)
 
