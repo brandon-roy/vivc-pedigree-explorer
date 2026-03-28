@@ -186,6 +186,7 @@ SLIM_PATH        = BASE_DIR / "data" / "vivc_passport_slim.csv"
 MARKER_PATH      = BASE_DIR / "data" / "marker_support.csv"
 VIVC_MARKER_PATH = BASE_DIR / "data" / "vivc_confirmed_marker_support.csv"
 CONSTANTINI_PATH = BASE_DIR / "data" / "constantini_2026_marker_support.csv"
+GRIN_PED_PATH    = BASE_DIR / "data" / "grin_pedigree_support.csv"
 ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
 ROOTSTOCK_PATH   = BASE_DIR / "data" / "vivc_rootstock_utilization_table.csv"
@@ -346,10 +347,71 @@ def load_passport() -> pd.DataFrame:
 
 
 @st.cache_data(show_spinner="Loading marker support data…")
+def _load_grin_pedigree_as_marker_support() -> pd.DataFrame:
+    """
+    Convert grin_pedigree_support.csv (wide trio format) into two rows per trio
+    (one per parent) in the standard marker-support schema.
+
+    ACS → confidence_level mapping:
+        strong   (ACS ≥ 0.95)  →  confirmed
+        moderate (ACS ≥ 0.90)  →  probable
+        weak     (ACS ≥ 0.80)  →  probable
+        conflicting (ACS < 0.80) →  disputed
+    """
+    if not GRIN_PED_PATH.exists():
+        return pd.DataFrame()
+
+    gps = pd.read_csv(GRIN_PED_PATH, dtype=str, low_memory=False, keep_default_na=False)
+    gps = gps.replace({"NA": np.nan, "": np.nan})
+
+    _conf_map = {"strong": "confirmed", "moderate": "probable",
+                 "weak": "probable", "conflicting": "disputed"}
+
+    rows: list[dict] = []
+    for _, r in gps.iterrows():
+        child   = str(r.get("child",   "")).strip().upper()
+        parent1 = str(r.get("parent1", "")).strip().upper()
+        parent2 = str(r.get("parent2", "")).strip().upper()
+        cat     = str(r.get("support_category", "")).strip().lower()
+        acs     = r.get("ancestry_consistency_score", "")
+        mdev    = r.get("mean_abs_deviation_pp", "")
+        n_meth  = r.get("min_confirming_methods", "")
+
+        conf    = _conf_map.get(cat, "undocumented")
+        try:
+            acs_f = float(acs)
+            note  = (f"GRIN admixture ACS={acs_f:.4f}; "
+                     f"mean_dev={float(mdev):.2f} pp; "
+                     f"min_aln_methods={n_meth}")
+        except (TypeError, ValueError):
+            note = f"GRIN admixture; category={cat}"
+
+        base = {
+            "evidence_type":   "SNP_Ancestry",
+            "marker_type":     "Admixture",
+            "n_markers":       np.nan,
+            "lod_score":       np.nan,
+            "study_reference": "GRIN DVIT/GVIT SNP Admixture",
+            "doi":             np.nan,
+            "confirmed_year":  np.nan,
+            "confidence_level": conf,
+            "notes":           note,
+        }
+        if child and parent1:
+            rows.append({**base, "child_variety": child, "parent_variety": parent1,
+                         "parent_role": "Parent 1"})
+        if child and parent2:
+            rows.append({**base, "child_variety": child, "parent_variety": parent2,
+                         "parent_role": "Parent 2"})
+
+    return pd.DataFrame(rows) if rows else pd.DataFrame()
+
+
 def load_marker_support() -> pd.DataFrame:
     """
     Load and combine marker_support.csv + vivc_confirmed_marker_support.csv
-    + constantini_2026_marker_support.csv (Axiom Vitis22K SNP array trios).
+    + constantini_2026_marker_support.csv (Axiom Vitis22K SNP array trios)
+    + grin_pedigree_support.csv (GRIN SNP admixture ancestry consistency).
     Deduplicates by (child_variety, parent_variety), keeping highest confidence.
     """
     # Sentinel strings that represent missing data in the source CSVs
@@ -367,6 +429,11 @@ def load_marker_support() -> pd.DataFrame:
                 dfs.append(d)
             except Exception:
                 pass
+
+    # Append GRIN ancestry-consistency evidence (already in marker-support schema)
+    grin_df = _load_grin_pedigree_as_marker_support()
+    if not grin_df.empty:
+        dfs.append(grin_df)
 
     if not dfs:
         return pd.DataFrame(columns=[
@@ -1239,6 +1306,12 @@ def build_visjs_network(
                 source_cell = "—"
 
             conf_color = MARKER_COLORS.get(conf, "#888")
+            notes_raw  = str(erow.get("notes", "") or "").strip()
+            notes_row  = (
+                f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Notes</td>"
+                f"<td style='font-size:11px;color:#555;'>{notes_raw}</td></tr>"
+                if notes_raw.lower() not in _bad_e else ""
+            )
             edge_title = (
                 f"<div style='font-family:sans-serif;padding:6px 8px;min-width:220px;'>"
                 f"<b>{role}</b><br/>"
@@ -1249,6 +1322,7 @@ def build_visjs_network(
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>DOI</td><td>{doi_cell}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Markers</td><td>{_safe(n_mk)}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Year</td><td>{_safe(yr_mk)}</td></tr>"
+                f"{notes_row}"
                 f"</table></div>"
             )
         else:
