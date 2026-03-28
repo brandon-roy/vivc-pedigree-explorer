@@ -186,6 +186,7 @@ SLIM_PATH        = BASE_DIR / "data" / "vivc_passport_slim.csv"
 MARKER_PATH      = BASE_DIR / "data" / "marker_support.csv"
 VIVC_MARKER_PATH = BASE_DIR / "data" / "vivc_confirmed_marker_support.csv"
 CONSTANTINI_PATH = BASE_DIR / "data" / "constantini_2026_marker_support.csv"
+MYLES_PATH       = BASE_DIR / "data" / "myles_2011_marker_support.csv"
 GRIN_PED_PATH    = BASE_DIR / "data" / "grin_pedigree_support.csv"
 ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
@@ -409,28 +410,34 @@ def _load_grin_pedigree_as_marker_support() -> pd.DataFrame:
 
 def load_marker_support() -> pd.DataFrame:
     """
-    Load and combine marker_support.csv + vivc_confirmed_marker_support.csv
-    + constantini_2026_marker_support.csv (Axiom Vitis22K SNP array trios)
-    + grin_pedigree_support.csv (GRIN SNP admixture ancestry consistency).
-    Deduplicates by (child_variety, parent_variety), keeping highest confidence.
+    Load and combine all marker-support evidence layers:
+      • marker_support.csv                    — curated SSR/SNP literature
+      • vivc_confirmed_marker_support.csv     — VIVC passport marker text
+      • constantini_2026_marker_support.csv   — Axiom Vitis22K SNP array
+      • myles_2011_marker_support.csv         — Vitis9KSNP ICS scoring
+      • grin_pedigree_support.csv             — GRIN admixture ACS scoring
+
+    Deduplication strategy
+    ──────────────────────
+    When multiple sources cover the same (child_variety, parent_variety) pair,
+    the row with the highest confidence_level is kept as the primary record.
+    All lower-ranked sources are appended to that row's `notes` field as
+    "Also supported by: <ref> (<evidence_type>/<marker_type>); …"
+    so corroborating evidence remains visible in tooltips.
     """
-    # Sentinel strings that represent missing data in the source CSVs
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH):
         if path.exists():
             try:
-                # keep_default_na=False so the literal string "NA" is preserved;
-                # we then replace it ourselves with NaN for clean downstream handling
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
-                # Normalise all NA-like sentinels → actual NaN across every column
                 d = d.replace(_NA_VALS, np.nan)
                 dfs.append(d)
             except Exception:
                 pass
 
-    # Append GRIN ancestry-consistency evidence (already in marker-support schema)
+    # GRIN ancestry-consistency evidence (synthesised at runtime)
     grin_df = _load_grin_pedigree_as_marker_support()
     if not grin_df.empty:
         dfs.append(grin_df)
@@ -445,7 +452,7 @@ def load_marker_support() -> pd.DataFrame:
 
     tbl = pd.concat(dfs, ignore_index=True)
 
-    # Normalise
+    # Normalise name and confidence columns
     for c in ("child_variety", "parent_variety"):
         if c in tbl.columns:
             tbl[c] = tbl[c].str.strip().str.upper()
@@ -460,12 +467,50 @@ def load_marker_support() -> pd.DataFrame:
             if c in tbl.columns:
                 tbl[c] = tbl[c].map(lambda x: alias_map.get(x, x) if isinstance(x, str) else x)
 
-    # Deduplicate — keep highest confidence per (child, parent) pair
+    # ── Rank rows and aggregate corroborating sources before deduplication ────
     conf_rank = {c: i for i, c in enumerate(CONFIDENCE_ORDER)}
-    tbl["_rank"] = tbl["confidence_level"].map(lambda x: conf_rank.get(str(x).lower(), 99))
+    tbl["_rank"] = tbl["confidence_level"].map(
+        lambda x: conf_rank.get(str(x).lower(), 99)
+    )
+    tbl = tbl.sort_values("_rank").reset_index(drop=True)
+
+    # For each (child, parent) pair that has more than one source, append the
+    # lower-ranked sources' references to the winner's notes field.
+    _bad_note = {"nan", "none", ""}
+    notes_patch: dict[int, str] = {}
+
+    for (_, _), grp in tbl.groupby(["child_variety", "parent_variety"], sort=False):
+        if len(grp) <= 1:
+            continue
+        winner_idx = grp.index[0]
+        corr_parts: list[str] = []
+        for _, loser in grp.iloc[1:].iterrows():
+            ref   = str(loser.get("study_reference", "") or "").strip()
+            etype = str(loser.get("evidence_type",   "") or "").strip()
+            mtype = str(loser.get("marker_type",     "") or "").strip()
+            if ref and ref.lower() not in _bad_note:
+                label = f"{ref} ({etype}/{mtype})" if etype else ref
+                corr_parts.append(label)
+        if corr_parts:
+            # Deduplicate while preserving insertion order
+            _seen: set[str] = set()
+            unique_parts = [
+                p for p in corr_parts
+                if p not in _seen and not _seen.add(p)  # type: ignore[func-returns-value]
+            ]
+            corr_str  = "Also supported by: " + "; ".join(unique_parts)
+            existing  = str(tbl.at[winner_idx, "notes"] or "").strip()
+            if existing and existing.lower() not in _bad_note:
+                notes_patch[winner_idx] = existing + " | " + corr_str
+            else:
+                notes_patch[winner_idx] = corr_str
+
+    for idx, note in notes_patch.items():
+        tbl.at[idx, "notes"] = note
+
+    # Keep only the highest-ranked row per (child, parent) pair
     tbl = (
-        tbl.sort_values("_rank")
-           .drop_duplicates(subset=["child_variety", "parent_variety"], keep="first")
+        tbl.drop_duplicates(subset=["child_variety", "parent_variety"], keep="first")
            .drop(columns=["_rank"])
            .reset_index(drop=True)
     )

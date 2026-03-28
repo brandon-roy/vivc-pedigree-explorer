@@ -77,3 +77,21 @@ SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,
 SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,TERMANTIS,TEROLDEGO,Parent 2
 SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,VALNOSIA,BIANCA,Parent 1
 SNP array,Axiom Vitis22K,NA,NA,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,Parent 1 confirmed as maternal via chlorotype,VALNOSIA,NOSIOLA,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9984; informative_loci=7390; exclusions=12,CHARDONNAY BLANC MUSQUE,PINOT NOIR,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9974; informative_loci=7245; exclusions=19,LAGREIN,TEROLDEGO,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9975; informative_loci=7509; exclusions=19,MERLOT NOIR,CABERNET FRANC,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9979; informative_loci=7285; exclusions=15,MUELLER THURGAU WEISS,RIESLING WEISS,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9907; informative_loci=7777; exclusions=72,BIANCA,VILLARD BLANC,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9933; informative_loci=6898; exclusions=46,BRONNER,MERZLING,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9946; informative_loci=7178; exclusions=39,CALARDIS BLANC,CALARDIS MUSQUE,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9867; informative_loci=7735; exclusions=103,CALARDIS MUSQUE,SEYVAL BLANC,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9951; informative_loci=6898; exclusions=34,CHARVIR,MERZLING,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9980; informative_loci=7384; exclusions=15,CIVIT 2,PINOT NOIR,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9934; informative_loci=7289; exclusions=48,IV 8/1,BIANCA,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9974; informative_loci=7275; exclusions=19,JOHANNITER,RIESLING WEISS,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9933; informative_loci=7282; exclusions=49,IV 54/2,BIANCA,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9904; informative_loci=7747; exclusions=74,MERZLING,SEYVAL BLANC,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9930; informative_loci=6892; exclusions=48,SOLARIS,MERZLING,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9868; informative_loci=7739; exclusions=102,SOUVIGNIER GRIS,SEYVAL BLANC,Parent 1
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9951; informative_loci=9297; exclusions=46,KOBER 5 BB,RIPARIA GLOIRE DE MONTPELLIER,Parent 2
+SNP array,Axiom Vitis22K,10484,,Costantini et al. 2026,10.3389/fpls.2026.1771381,2026,confirmed,DCS=0.9970; informative_loci=8231; exclusions=25,CHAOUCH ROZOVYI,CHAOUCH BLANC,Parent 1
