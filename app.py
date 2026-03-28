@@ -2058,6 +2058,20 @@ def main() -> None:
         show_unknown_species = st.checkbox("Include 'Unknown' species", value=True)
 
         st.markdown("---")
+        st.markdown('<div class="sidebar-heading">Feedback</div>', unsafe_allow_html=True)
+        st.markdown(
+            "<a href='https://docs.google.com/forms/d/e/1FAIpQLSeIbNGXpCgqEDYAefrAGfdAb_95P1vwAMLR3gQUEYw662XjuA/viewform' "
+            "target='_blank' style='display:block;background:#7b1c2e;color:#fff;text-align:center;"
+            "border-radius:4px;padding:8px 10px;font-size:12px;font-weight:600;"
+            "text-decoration:none;margin-bottom:6px;'>⚠️ Report a Bug / Data Error</a>"
+            "<a href='https://docs.google.com/forms/d/e/1FAIpQLSfu5epHCzrDqfg5diP3E2lAjvQnH-dd7_m9L9dSfUlcZZBDSg/viewform' "
+            "target='_blank' style='display:block;background:#4a7c30;color:#fff;text-align:center;"
+            "border-radius:4px;padding:8px 10px;font-size:12px;font-weight:600;"
+            "text-decoration:none;'>📋 Full Feedback Form</a>",
+            unsafe_allow_html=True,
+        )
+
+        st.markdown("---")
         st.markdown('<div class="sidebar-heading">Download</div>', unsafe_allow_html=True)
         download_section = st.empty()
 
@@ -3089,6 +3103,46 @@ def main() -> None:
 - Plant Variety Protection / DUS registration
 - Accession holdings by country / genebank
 """)
+
+        # ── Feedback forms ────────────────────────────────────────────────────
+        st.markdown("---")
+        st.markdown(
+            "<div style='background:#fff3f3;border-radius:6px;padding:20px;"
+            "border-left:4px solid #7b1c2e;margin-bottom:16px;'>"
+            "<h4 style='color:#7b1c2e;margin:0 0 8px 0;'>💬 App Feedback</h4>"
+            "<p style='font-size:13px;color:#444;margin:0;'>"
+            "Help us improve the VIVC Pedigree Explorer. Use the <b>Quick Issue Report</b> "
+            "to flag bugs, data errors, duplicates, or display problems in under a minute. "
+            "Use the <b>Full Feedback Form</b> for detailed comments on app experience and "
+            "data quality."
+            "</p></div>",
+            unsafe_allow_html=True,
+        )
+        fb_col1, fb_col2 = st.columns(2)
+        with fb_col1:
+            st.markdown(
+                "<a href='https://docs.google.com/forms/d/e/1FAIpQLSeIbNGXpCgqEDYAefrAGfdAb_95P1vwAMLR3gQUEYw662XjuA/viewform' "
+                "target='_blank' style='display:block;background:#7b1c2e;color:#fff;"
+                "text-align:center;border-radius:6px;padding:18px 16px;font-weight:600;"
+                "text-decoration:none;line-height:1.5;'>"
+                "⚠️ Quick Issue Report<br>"
+                "<span style='font-size:12px;font-weight:400;opacity:0.85;'>"
+                "Bug · data error · duplicate · display problem<br>3 fields — under 1 minute"
+                "</span></a>",
+                unsafe_allow_html=True,
+            )
+        with fb_col2:
+            st.markdown(
+                "<a href='https://docs.google.com/forms/d/e/1FAIpQLSfu5epHCzrDqfg5diP3E2lAjvQnH-dd7_m9L9dSfUlcZZBDSg/viewform' "
+                "target='_blank' style='display:block;background:#4a7c30;color:#fff;"
+                "text-align:center;border-radius:6px;padding:18px 16px;font-weight:600;"
+                "text-decoration:none;line-height:1.5;'>"
+                "📋 Full Feedback Form<br>"
+                "<span style='font-size:12px;font-weight:400;opacity:0.85;'>"
+                "App experience · data quality · suggestions<br>4 sections — ~5 minutes"
+                "</span></a>",
+                unsafe_allow_html=True,
+            )
 
 
 if __name__ == "__main__":
