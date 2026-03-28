@@ -879,6 +879,64 @@ def build_pedigree_graph(
 
 # ── Marker annotation ─────────────────────────────────────────────────────────
 
+@st.cache_data(show_spinner=False)
+def load_all_marker_evidence() -> pd.DataFrame:
+    """
+    Load ALL marker evidence rows across every source — WITHOUT deduplication.
+    Used by the Molecular Markers tab and the multi-source edge tooltip to show
+    every supporting study for a given (child_variety, parent_variety) pair.
+
+    Applies the same normalisation as load_marker_support() (name uppercasing,
+    alias map, NA sentinel cleanup) but skips the rank-based deduplication step,
+    so every source row is preserved even when multiple sources cover the same
+    pedigree edge.
+    """
+    _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
+
+    dfs = []
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH):
+        if path.exists():
+            try:
+                d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
+                d = d.replace(_NA_VALS, np.nan)
+                dfs.append(d)
+            except Exception:
+                pass
+
+    grin_df = _load_grin_pedigree_as_marker_support()
+    if not grin_df.empty:
+        dfs.append(grin_df)
+
+    if not dfs:
+        return pd.DataFrame(columns=[
+            "child_variety", "parent_variety", "parent_role",
+            "evidence_type", "marker_type", "n_markers",
+            "lod_score", "study_reference", "doi",
+            "confirmed_year", "confidence_level", "notes",
+        ])
+
+    tbl = pd.concat(dfs, ignore_index=True)
+
+    for c in ("child_variety", "parent_variety"):
+        if c in tbl.columns:
+            tbl[c] = tbl[c].str.strip().str.upper()
+
+    if "confidence_level" in tbl.columns:
+        tbl["confidence_level"] = tbl["confidence_level"].str.strip().str.lower()
+
+    alias_map = load_alias_map()
+    if alias_map:
+        for c in ("child_variety", "parent_variety"):
+            if c in tbl.columns:
+                tbl[c] = tbl[c].map(lambda x: alias_map.get(x, x) if isinstance(x, str) else x)
+
+    # Sort so confirmed rows come first for consistent display ordering
+    conf_rank = {c: i for i, c in enumerate(CONFIDENCE_ORDER)}
+    tbl["_rank"] = tbl["confidence_level"].map(lambda x: conf_rank.get(str(x).lower(), 99))
+    tbl = tbl.sort_values(["child_variety", "parent_variety", "_rank"]).drop(columns=["_rank"]).reset_index(drop=True)
+    return tbl
+
+
 def annotate_edges(edges_df: pd.DataFrame, marker_tbl: pd.DataFrame) -> pd.DataFrame:
     """Left-join marker evidence onto edges (parent→child pairs)."""
     if edges_df.empty or marker_tbl.empty:
@@ -975,6 +1033,12 @@ def _safe(val) -> str:
     return s if s and s.lower() not in ("nan", "none", "na", "n/a") else "—"
 
 
+def _vivc_no_valid(val) -> bool:
+    """Return True only when val is a positive integer string usable as a VIVC URL id."""
+    s = str(val or "").strip()
+    return s.isdigit() and int(s) > 0
+
+
 def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
     name    = _safe(row.get("name"))
     vivc_no = row.get("vivc_no")
@@ -989,7 +1053,7 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame) -> str:
     vivc_link = (
         f"<a href='https://www.vivc.de/index.php?r=cultivarname%2Fview&id={vivc_no}' "
         f"target='_blank' style='color:#4a7c30;'>VIVC #{vivc_no} ↗</a>"
-        if vivc_no and not (isinstance(vivc_no, float) and np.isnan(vivc_no))
+        if _vivc_no_valid(vivc_no)
         else "—"
     )
 
@@ -1339,7 +1403,7 @@ def build_visjs_network(
             if (study.lower() not in _bad_e
                     and "vivc passport" in study.lower()
                     and doi_cell == "—"
-                    and dst_vivc and not (isinstance(dst_vivc, float) and np.isnan(dst_vivc))):
+                    and _vivc_no_valid(dst_vivc)):
                 source_cell = (
                     f"<a href='https://www.vivc.de/index.php?"
                     f"r=cultivarname%2Fview&id={dst_vivc}' "
@@ -1352,22 +1416,89 @@ def build_visjs_network(
 
             conf_color = MARKER_COLORS.get(conf, "#888")
             notes_raw  = str(erow.get("notes", "") or "").strip()
-            notes_row  = (
-                f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Notes</td>"
-                f"<td style='font-size:11px;color:#555;'>{notes_raw}</td></tr>"
-                if notes_raw.lower() not in _bad_e else ""
+            # Strip the "Also supported by" clause — corroborating sources
+            # are displayed separately from the full evidence table below
+            _notes_display = notes_raw.split(" | Also supported by:")[0].strip()
+            notes_row = (
+                f"<tr><td style='color:#777;padding:2px 8px 2px 0;vertical-align:top;'>Notes</td>"
+                f"<td style='font-size:11px;color:#555;'>{_notes_display}</td></tr>"
+                if _notes_display and _notes_display.lower() not in _bad_e else ""
             )
+
+            # Gather all evidence rows for this (parent → child) pair from
+            # the full un-deduped table so we can show every supporting study
+            _all_ev  = load_all_marker_evidence()
+            _pair_ev = _all_ev[
+                (_all_ev["child_variety"]  == dst) &
+                (_all_ev["parent_variety"] == src)
+            ] if not _all_ev.empty else pd.DataFrame()
+
+            n_total_sources = max(len(_pair_ev), 1)   # at least the winner itself
+
+            # Build corroborating source rows (sources beyond the primary winner)
+            # Show at most 2 extras inline; the full list lives in the Molecular tab
+            _corr_rows_html = ""
+            if len(_pair_ev) > 1:
+                _shown = 0
+                for _, _ev in _pair_ev.iterrows():
+                    _ev_ref   = str(_ev.get("study_reference", "") or "").strip()
+                    _ev_etype = str(_ev.get("evidence_type",   "") or "").strip()
+                    _ev_mtype = str(_ev.get("marker_type",     "") or "").strip()
+                    _ev_conf  = str(_ev.get("confidence_level","") or "").strip().lower()
+                    _ev_doi   = str(_ev.get("doi",             "") or "").strip()
+                    # Skip the primary winner (same study_reference)
+                    if _ev_ref == study:
+                        continue
+                    if _shown >= 2:
+                        break
+                    _ev_badge_color = MARKER_COLORS.get(_ev_conf, "#aaa")
+                    _ev_doi_link = (
+                        f" <a href='https://doi.org/{_ev_doi}' target='_blank' "
+                        f"style='color:#4a7c30;font-size:10px;'>[DOI ↗]</a>"
+                        if _ev_doi and _ev_doi.lower() not in _bad_e and _ev_doi.startswith("10.")
+                        else ""
+                    )
+                    _ev_label = _ev_ref if _ev_ref and _ev_ref.lower() not in _bad_e else f"{_ev_etype}/{_ev_mtype}"
+                    _corr_rows_html += (
+                        f"<tr>"
+                        f"<td style='padding:2px 8px 2px 0;vertical-align:middle;'>"
+                        f"<span style='background:{_ev_badge_color};color:#fff;padding:1px 5px;"
+                        f"border-radius:3px;font-size:10px;'>{_ev_conf}</span></td>"
+                        f"<td style='font-size:11px;color:#555;'>{_ev_label}{_ev_doi_link}</td>"
+                        f"</tr>"
+                    )
+                    _shown += 1
+
+            _corr_section = (
+                f"<tr><td colspan='2'>"
+                f"<div style='margin-top:6px;padding-top:5px;border-top:1px solid #e0d8cc;'>"
+                f"<span style='font-size:10px;color:#888;font-weight:600;"
+                f"text-transform:uppercase;letter-spacing:.5px;'>Corroborating sources</span>"
+                f"<table style='font-size:12px;margin-top:3px;width:100%;'>{_corr_rows_html}</table>"
+                f"</div></td></tr>"
+            ) if _corr_rows_html else ""
+
+            _more_note = (
+                f"<tr><td colspan='2'>"
+                f"<div style='margin-top:5px;font-size:10px;color:#4a7c30;'>"
+                f"📊 {n_total_sources} total source{'s' if n_total_sources > 1 else ''}"
+                f" — see <b>Molecular Markers</b> tab for full details"
+                f"</div></td></tr>"
+            ) if n_total_sources > 1 else ""
+
             edge_title = (
-                f"<div style='font-family:sans-serif;padding:6px 8px;min-width:220px;'>"
+                f"<div style='font-family:sans-serif;padding:6px 8px;min-width:240px;max-width:340px;'>"
                 f"<b>{role}</b><br/>"
                 f"<span style='background:{conf_color};color:#fff;padding:1px 6px;"
                 f"border-radius:3px;font-size:11px;'>{conf}</span><br/><br/>"
-                f"<table style='font-size:12px;'>"
+                f"<table style='font-size:12px;width:100%;'>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Source</td><td>{source_cell}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>DOI</td><td>{doi_cell}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Markers</td><td>{_safe(n_mk)}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Year</td><td>{_safe(yr_mk)}</td></tr>"
                 f"{notes_row}"
+                f"{_corr_section}"
+                f"{_more_note}"
                 f"</table></div>"
             )
         else:
@@ -2252,7 +2383,7 @@ def main() -> None:
     st.markdown("<br>", unsafe_allow_html=True)
 
     # ── Tabs ──────────────────────────────────────────────────────────────────
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
         "🔍 Pedigree Explorer",
         "🌿 Descendants",
         "📅 Timeline",
@@ -2261,6 +2392,7 @@ def main() -> None:
         "📋 Raw Data",
         "📊 Data Summary",
         "📚 Resources",
+        "🔬 Molecular Markers",
     ])
 
     # ────────────────────────────────────────────────────────────────────────
@@ -3262,6 +3394,161 @@ def main() -> None:
                 "</span></a>",
                 unsafe_allow_html=True,
             )
+
+    # ────────────────────────────────────────────────────────────────────────
+    # TAB 9 — Molecular Markers
+    # ────────────────────────────────────────────────────────────────────────
+    with tab9:
+        st.subheader("🔬 Molecular Marker Evidence")
+        st.markdown(
+            "Full evidence table for **all pedigree edges** in the current variety's network. "
+            "Every source is shown individually — no deduplication. "
+            "The highest-confidence source determines edge colour in the graph; "
+            "all others appear here as corroborating evidence.",
+            unsafe_allow_html=False,
+        )
+
+        all_ev = load_all_marker_evidence()
+
+        if nodes_df.empty or all_ev.empty:
+            st.info("No molecular marker evidence found for this variety's pedigree network.")
+        else:
+            # Filter to varieties present in the current pedigree network
+            net_variety_names = set(nodes_df["name"].str.upper())
+            ev_filtered = all_ev[
+                all_ev["child_variety"].isin(net_variety_names) |
+                all_ev["parent_variety"].isin(net_variety_names)
+            ].copy()
+
+            if ev_filtered.empty:
+                st.info("No molecular marker evidence found for the varieties in this network.")
+            else:
+                # ── Filter controls ───────────────────────────────────────
+                mk9_col1, mk9_col2, mk9_col3 = st.columns([2, 2, 1])
+                with mk9_col1:
+                    ev_types = ["All"] + sorted(ev_filtered["evidence_type"].dropna().unique().tolist())
+                    sel_ev_type = st.selectbox("Evidence type", ev_types, key="mk9_ev_type")
+                with mk9_col2:
+                    conf_opts = ["All"] + CONFIDENCE_ORDER
+                    sel_conf = st.selectbox("Confidence level", conf_opts, key="mk9_conf")
+                with mk9_col3:
+                    st.markdown("<br/>", unsafe_allow_html=True)
+                    show_notes = st.checkbox("Show Notes col", value=False, key="mk9_notes")
+
+                if sel_ev_type != "All":
+                    ev_filtered = ev_filtered[ev_filtered["evidence_type"] == sel_ev_type]
+                if sel_conf != "All":
+                    ev_filtered = ev_filtered[ev_filtered["confidence_level"] == sel_conf]
+
+                # ── Summary metrics ───────────────────────────────────────
+                mk9_m1, mk9_m2, mk9_m3, mk9_m4 = st.columns(4)
+                mk9_m1.metric("Evidence rows", len(ev_filtered))
+                mk9_m2.metric("Unique edges", ev_filtered[["child_variety","parent_variety"]].drop_duplicates().shape[0])
+                mk9_m3.metric("Sources", ev_filtered["study_reference"].dropna().nunique())
+                mk9_m4.metric("Confirmed edges",
+                    int((ev_filtered["confidence_level"] == "confirmed").sum()))
+
+                # ── Display columns ───────────────────────────────────────
+                disp_cols = [
+                    "child_variety", "parent_variety", "parent_role",
+                    "confidence_level", "evidence_type", "marker_type",
+                    "n_markers", "study_reference", "doi", "confirmed_year",
+                ]
+                if show_notes:
+                    disp_cols.append("notes")
+                disp_cols = [c for c in disp_cols if c in ev_filtered.columns]
+
+                # Colour-code confidence column
+                def _conf_style(val):
+                    colors = {
+                        "confirmed": "#d4edda", "probable": "#fff3cd",
+                        "disputed": "#f8d7da", "refuted": "#f5c6cb",
+                        "undocumented": "#e2e3e5",
+                    }
+                    return f"background-color: {colors.get(str(val).lower(), '#fff')}"
+
+                styled = (
+                    ev_filtered[disp_cols]
+                    .reset_index(drop=True)
+                    .rename(columns={
+                        "child_variety": "Variety (child)",
+                        "parent_variety": "Parent",
+                        "parent_role": "Role",
+                        "confidence_level": "Confidence",
+                        "evidence_type": "Evidence type",
+                        "marker_type": "Marker type",
+                        "n_markers": "N markers",
+                        "study_reference": "Study",
+                        "doi": "DOI",
+                        "confirmed_year": "Year",
+                        "notes": "Notes",
+                    })
+                    .style.map(_conf_style, subset=["Confidence"])
+                )
+                st.dataframe(styled, use_container_width=True, height=480)
+
+                # ── Download button ───────────────────────────────────────
+                csv_bytes = ev_filtered[disp_cols].to_csv(index=False).encode()
+                st.download_button(
+                    "⬇ Download evidence table (CSV)",
+                    data=csv_bytes,
+                    file_name=f"marker_evidence_{selected_variety.replace(' ','_')}.csv",
+                    mime="text/csv",
+                    key="mk9_download",
+                )
+
+                # ── Per-edge detail expanders ─────────────────────────────
+                st.markdown("---")
+                st.markdown("#### Per-edge source detail")
+                edge_groups = ev_filtered.groupby(
+                    ["child_variety", "parent_variety", "parent_role"], sort=False
+                )
+                for (child, parent, prole), grp in edge_groups:
+                    best_conf = grp["confidence_level"].map(
+                        lambda x: {c: i for i, c in enumerate(CONFIDENCE_ORDER)}.get(str(x).lower(), 99)
+                    ).min()
+                    best_conf_label = CONFIDENCE_ORDER[best_conf] if best_conf < len(CONFIDENCE_ORDER) else "unknown"
+                    badge_color = MARKER_COLORS.get(best_conf_label, "#888")
+                    n_src = len(grp)
+                    with st.expander(
+                        f"{child}  ←  {parent}  ({prole}) · "
+                        f"{n_src} source{'s' if n_src > 1 else ''} · {best_conf_label}",
+                        expanded=False,
+                    ):
+                        for _, ev_row in grp.iterrows():
+                            ev_conf  = str(ev_row.get("confidence_level", "") or "")
+                            ev_ref   = str(ev_row.get("study_reference",  "") or "—")
+                            ev_doi   = str(ev_row.get("doi",              "") or "")
+                            ev_etype = str(ev_row.get("evidence_type",    "") or "")
+                            ev_mtype = str(ev_row.get("marker_type",      "") or "")
+                            ev_nmk   = str(ev_row.get("n_markers",        "") or "—")
+                            ev_yr    = str(ev_row.get("confirmed_year",   "") or "—")
+                            ev_notes = str(ev_row.get("notes",            "") or "")
+                            ev_badge = MARKER_COLORS.get(ev_conf.lower(), "#aaa")
+                            doi_md = (
+                                f"[{ev_doi} ↗](https://doi.org/{ev_doi})"
+                                if ev_doi and ev_doi.lower() not in {"", "nan","none","na"}
+                                   and ev_doi.startswith("10.")
+                                else "—"
+                            )
+                            st.markdown(
+                                f"<div style='background:#fafaf7;border-left:3px solid {ev_badge};"
+                                f"border-radius:4px;padding:8px 12px;margin-bottom:6px;'>"
+                                f"<span style='background:{ev_badge};color:#fff;padding:1px 7px;"
+                                f"border-radius:3px;font-size:11px;'>{ev_conf}</span>"
+                                f"&nbsp;&nbsp;<b style='font-size:13px;'>{ev_ref}</b><br/>"
+                                f"<span style='font-size:11px;color:#666;'>"
+                                f"{ev_etype} · {ev_mtype} · {ev_nmk} markers · {ev_yr}</span>",
+                                unsafe_allow_html=True,
+                            )
+                            if doi_md != "—":
+                                st.markdown(f"DOI: {doi_md}")
+                            if ev_notes and ev_notes.lower() not in {"", "nan", "none"}:
+                                st.markdown(
+                                    f"<span style='font-size:11px;color:#555;'>{ev_notes}</span>",
+                                    unsafe_allow_html=True,
+                                )
+                            st.markdown("</div>", unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
