@@ -1,0 +1,93 @@
+variety,locus,source_VIVC,source_Published,source_Pub_ref,VIVC_vs_Pub,marker_type,panel,source_Myles2011,source_Constantini2026
+CABERNET SAUVIGNON,VVS2,139/151,139/151,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VVMD5,234/242,234/242,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VVMD7,239/239,239/239,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VVMD25,239/249,239/249,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VVMD27,176/190,176/190,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VVMD28,234/236,224/236,This et al. 2004 TAG / Bowers 1999 NatGenet,⚠,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VVMD32,240/240,251/251,This et al. 2004 TAG / Bowers 1999 NatGenet,⚠,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VrZAG62,188/194,188/194,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CABERNET SAUVIGNON,VrZAG79,247/247,247/247,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVS2,137/143,137/143,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVMD5,236/240,236/240,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVMD7,239/243,239/243,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVMD25,239/255,239/255,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVMD27,182/190,182/190,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVMD28,218/228,218/228,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VVMD32,240/272,240/272,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VrZAG62,188/196,188/196,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+CHARDONNAY BLANC,VrZAG79,243/245,243/245,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVS2,133/133,133/133,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVMD5,230/238,230/238,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVMD7,233/249,233/249,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVMD25,241/249,241/249,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVMD27,180/195,180/195,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVMD28,246/268,246/268,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VVMD32,264/272,264/272,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VrZAG62,186/196,186/196,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+MUSCAT A PETITS GRAINS BLANCS,VrZAG79,251/255,251/255,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVS2,137/151,137/151,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVMD5,230/240,230/240,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVMD7,239/243,239/243,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVMD25,239/249,239/249,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVMD27,186/190,186/190,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVMD28,218/236,218/236,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VVMD32,240/272,240/272,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VrZAG62,188/194,188/194,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+PINOT NOIR,VrZAG79,239/245,239/245,This et al. 2004 TAG / Bowers 1999 NatGenet,✓,SSR (bp),A_SSR_comparison,,
+Pinot Noir,VV:1:179444,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,G/G,
+Pinot Noir,VV:1:205687,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Pinot Noir,VV:1:257134,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Pinot Noir,VV:1:320621,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,T/T,
+Pinot Noir,VV:1:320647,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Pinot Noir,VV:1:357328,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Pinot Noir,VV:1:357588,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,A/A,
+Pinot Noir,VV:1:366545,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,G/G,
+Cabernet Sauvignon,VV:1:179444,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,G/G,
+Cabernet Sauvignon,VV:1:205687,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Cabernet Sauvignon,VV:1:257134,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Cabernet Sauvignon,VV:1:320621,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,T/T,
+Cabernet Sauvignon,VV:1:320647,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,T/C,
+Cabernet Sauvignon,VV:1:357328,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Cabernet Sauvignon,VV:1:357588,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,A/A,
+Cabernet Sauvignon,VV:1:366545,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,A/G,
+Chardonnay,VV:1:179444,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,G/G,
+Chardonnay,VV:1:205687,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Chardonnay,VV:1:257134,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Chardonnay,VV:1:320621,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,T/T,
+Chardonnay,VV:1:320647,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Chardonnay,VV:1:357328,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,C/C,
+Chardonnay,VV:1:357588,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,A/G,
+Chardonnay,VV:1:366545,,,,,SNP-nuc (Vitis9KSNP / 8X ref),B_Myles2011_SNP_sample,G/G,
+Cabernet Sauvignon,chr3_random_452230_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Chardonnay,chr3_random_452230_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Muscat à Petits Grains,chr3_random_452230_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Pinot Noir,chr3_random_452230_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Cabernet Sauvignon,chr1_27655_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Chardonnay,chr1_27655_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Muscat à Petits Grains,chr1_27655_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AA
+Pinot Noir,chr1_27655_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Cabernet Sauvignon,chr1_301596_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Chardonnay,chr1_301596_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AA
+Muscat à Petits Grains,chr1_301596_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AA
+Pinot Noir,chr1_301596_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Cabernet Sauvignon,chr1_518154_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Chardonnay,chr1_518154_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Muscat à Petits Grains,chr1_518154_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,NC
+Pinot Noir,chr1_518154_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Cabernet Sauvignon,chr1_542829_A_C,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Chardonnay,chr1_542829_A_C,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Muscat à Petits Grains,chr1_542829_A_C,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Pinot Noir,chr1_542829_A_C,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Cabernet Sauvignon,chr1_694816_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AA
+Chardonnay,chr1_694816_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Muscat à Petits Grains,chr1_694816_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AA
+Pinot Noir,chr1_694816_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Cabernet Sauvignon,chr1_728704_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Chardonnay,chr1_728704_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Muscat à Petits Grains,chr1_728704_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Pinot Noir,chr1_728704_A_G,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Cabernet Sauvignon,chr1_765680_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,AB
+Chardonnay,chr1_765680_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Muscat à Petits Grains,chr1_765680_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
+Pinot Noir,chr1_765680_C_T,,,,,SNP-dosage (Vitis22K / T2T ref),C_Constantini2026_SNP_sample,,BB
