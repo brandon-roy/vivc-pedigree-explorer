@@ -1,0 +1,231 @@
+migliaro_id,variety_name,vivc_prime_name,match_method
+1,101.14 Millardet et de Grasset,MILLARDET ET GRASSET  101- 14,rootstock_flip
+2,1045 Paulsen,PAULSEN  1045,rootstock_flip
+3,106.8 Millardet et de Grasset,MILLARDET ET GRASSET  106-  8,rootstock_flip
+4,110 Richter,RICHTER 110,rootstock_flip
+5,1103 Paulsen,PAULSEN  1103,rootstock_flip
+6,1202 Couderc,COUDERC  1202,rootstock_flip
+7,13-5 Evex,EVEX 13-  5,rootstock_flip
+8,140 Ruggeri,RUGGERI   140,rootstock_flip
+9,1447 Paulsen,PAULSEN  1447,rootstock_flip
+10,161.49 Couderc,,no_match
+11,1613 Couderc,COUDERC  1613,rootstock_flip
+12,196-17 Castel,CASTEL   196- 17,rootstock_flip
+13,216-3 Castel,CASTEL   216-  3,rootstock_flip
+14,31 Richter,RICHTER  31,rootstock_flip
+15,3306 Couderc,COUDERC  3306,rootstock_flip
+16,3309 Couderc,COUDERC  3309,rootstock_flip
+17,333 Ecole de Montpellier or Tisserand,,no_match
+18,34 Ecole de Montpellier,ECOLE MONTPELLIER  34,rootstock_flip
+19,41 B Millardet et de Grasset,,no_match
+20,420 A Millardet et de Grasset,,no_match
+21,57 Richter,RICHTER  57,rootstock_flip
+22,6736 Castel,CASTEL  6736,rootstock_flip
+23,775 Paulsen,PAULSEN   775,rootstock_flip
+24,779 Paulsen,PAULSEN   779,rootstock_flip
+25,99 Richter,RICHTER  99,rootstock_flip
+26,Berlandieri x Colombard 1 B or Blanchard 1 B,,no_match
+27,Berlandieri-Colombard 2,,no_match
+28,Cosmo 10,,no_match
+29,Dog Ridge,DOG RIDGE,direct
+30,Fercal,FERCAL,direct
+31,Freedom,FREEDOM,direct
+32,Ganzin 1,,no_match
+33,Geisenheim 26,,no_match
+34,Golia,GOLIA,direct
+35,Gravesac,GRAVESAC,direct
+36,Grezot 1,GREZOT 1,direct
+37,Harmony,HARMONY,direct
+38,Isabella,ISABELLA,direct
+39,Jacquez,JACQUEZ,direct
+40,Kober 125 AA,KOBER 125 AA,direct
+41,Kober 5BB,,no_match
+42,LN 33 or LLYOD’S NUMBER 33,,no_match
+43,Malegue 44.53,,no_match
+44,Martinez Zaporta 5 A,,no_match
+45,Oberlin noir,OBERLIN NOIR,direct
+46,Salt Creek,,no_match
+47,Schwarzmann,,no_match
+48,SO 4,,no_match
+49,Solonis,,no_match
+50,Teleki 5C,,no_match
+51,Teleki 8B,,no_match
+52,Teleki 8B Ferrari,,no_match
+53,Genotype 166,,no_match
+54,Vitis riparia Colorado,,no_match
+55,V. riparia Fabre,,no_match
+56,V. riparia Gloire de Montpellier,,no_match
+57,V. riparia Scribner,,no_match
+58,Vitis rupestris du Lot,,no_match
+59,V. rupestris Gaillard,,no_match
+60,V. rupestris Martin,,no_match
+61,V. rupestris Metallique,,no_match
+62,17-37 Millardet et de Grasset,MILLARDET ET GRASSET   17- 37,rootstock_flip
+63,93-5 C,COUDERC    93-  5,rootstock_flip
+64,M1,,no_match
+65,M2,,no_match
+66,M3,,no_match
+67,M4,,no_match
+68,genotype 01,,no_match
+69,genotype 02,,no_match
+70,genotype 03,,no_match
+71,genotype 04,,no_match
+72,genotype 05,,no_match
+73,genotype 06,,no_match
+74,genotype 07,,no_match
+75,genotype 09,,no_match
+76,genotype 10,,no_match
+77,genotype 11,,no_match
+78,genotype 12,,no_match
+79,genotype 13,,no_match
+80,228-1 Castel,CASTEL   228-  1,rootstock_flip
+81,genotype 15,,no_match
+82,genotype 16,,no_match
+83,genotype 17,,no_match
+84,genotype 18,,no_match
+85,genotype 19,,no_match
+86,genotype 20,,no_match
+87,genotype 21,,no_match
+88,genotype 22,,no_match
+89,genotype 23,,no_match
+90,genotype 24,,no_match
+91,genotype 25,,no_match
+92,genotype 26,,no_match
+93,genotype 27,,no_match
+94,genotype 28,,no_match
+95,genotype 29,,no_match
+96,genotype 30,,no_match
+97,genotype 31,,no_match
+98,genotype 32,,no_match
+99,genotype 33,,no_match
+100,genotype 34,,no_match
+101,genotype 35,,no_match
+102,genotype 36,,no_match
+103,genotype 37,,no_match
+104,V. riparia Grand Glabre,,no_match
+105,genotype 39,,no_match
+106,genotype 40,,no_match
+107,genotype 41,,no_match
+108,genotype 42,,no_match
+109,genotype 43,,no_match
+110,genotype 44,,no_match
+111,genotype 45,,no_match
+112,genotype 46,,no_match
+113,genotype 47,,no_match
+114,genotype 48,,no_match
+115,genotype 49,,no_match
+116,V. riparia Lombard,,no_match
+117,V. riparia Pubescent blanc,,no_match
+118,genotype 52,,no_match
+119,genotype 53,,no_match
+121,genotype 55,,no_match
+122,genotype 56,,no_match
+123,genotype 57,,no_match
+124,genotype 58,,no_match
+125,Lindley,LINDLEY,direct
+126,genotype 60,,no_match
+127,genotype 61,,no_match
+128,genotype 62,,no_match
+129,genotype 63,,no_match
+130,genotype 64,,no_match
+131,genotype 65,,no_match
+132,genotype 66,,no_match
+133,Ganzin 2,,no_match
+134,genotype 68,,no_match
+135,genotype 69,,no_match
+136,genotype 70,,no_match
+137,genotype 71,,no_match
+138,genotype 72,,no_match
+139,genotype 73,,no_match
+140,genotype 74,,no_match
+141,genotype 75,,no_match
+142,genotype 76,,no_match
+143,genotype 77,,no_match
+144,genotype 78,,no_match
+145,genotype 79,,no_match
+146,genotype 80,,no_match
+147,genotype 81,,no_match
+148,genotype 82,,no_match
+149,genotype 83,,no_match
+150,GEILWEILERHOF V.,,no_match
+151,Tergi,,no_match
+152,genotype 86,,no_match
+153,genotype 87,,no_match
+154,genotype 88,,no_match
+155,genotype 89,,no_match
+156,genotype 90,,no_match
+157,genotype 91,,no_match
+158,genotype 92,,no_match
+159,13-16 Evex,EVEX 13- 16,rootstock_flip
+160,13-44 Evex,EVEX 13- 44,rootstock_flip
+161,genotype 95,,no_match
+162,genotype 96,,no_match
+163,genotype 97,,no_match
+164,genotype 98,,no_match
+165,genotype 99,,no_match
+167,genotype 101,,no_match
+168,genotype 102,,no_match
+169,genotype 103,,no_match
+170,genotype 104,,no_match
+171,genotype 105,,no_match
+172,genotype 106,,no_match
+173,genotype 107,,no_match
+174,genotype 108,,no_match
+175,genotype 109,,no_match
+176,genotype 110,,no_match
+177,genotype 111,,no_match
+178,Des Bords Sableux,,no_match
+179,genotype 113,,no_match
+180,genotype 114,,no_match
+181,genotype 115,,no_match
+182,1132 Grimaldi,GRIMALDI 1132,rootstock_flip
+183,1331 Paulsen,PAULSEN  1331,rootstock_flip
+184,genotype 118,,no_match
+185,genotype 119,,no_match
+186,125-1 Millardet et de Grasset,MILLARDET ET GRASSET  125-  1,rootstock_flip
+187,143 B Millardet et de Grasset,MILLARDET ET GRASSET  143 B,rootstock_flip
+188,16-107 Prosperi,,no_match
+189,16-108 Prosperi,,no_match
+190,16-109 Prosperi,,no_match
+191,genotype 125,,no_match
+192,202-4 Millardet et de Grasset,MILLARDET ET GRASSET  202-  4,rootstock_flip
+193,205 Ruggeri,RUGGERI   205,rootstock_flip
+194,240 Ruggeri,RUGGERI   240,rootstock_flip
+195,300 Ruggeri,RUGGERI   300,rootstock_flip
+196,genotype 130,,no_match
+197,genotype 131,,no_match
+198,33 Ecole de Montpellier,,no_match
+199,420 B Millardet et de Grasset,,no_match
+200,44 Richter,RICHTER  44,rootstock_flip
+201,genotype 135,,no_match
+202,7605 Castel,CASTEL  7605,rootstock_flip
+203,764 Paulsen,PAULSEN   764,rootstock_flip
+204,782 Paulsen,PAULSEN   782,rootstock_flip
+205,Caselle,,no_match
+206,Dufour 11 F,,no_match
+207,Gagliardo,GAGLIARDO,direct
+208,Geilweilerhof GA-52-,,no_match
+209,genotype 143,,no_match
+210,Vitis novae-angliae Fernald,,no_match
+211,genotype 145,,no_match
+212,V. riparia Martin des Paillieres,,no_match
+213,genotype 147,,no_match
+214,genotype 148,,no_match
+215,V. riparia sericea,,no_match
+216,V. riparia sombre,,no_match
+217,V. riparia tomenteux,,no_match
+218,genotype 152,,no_match
+219,V. rupestris Constantia,,no_match
+220,V. rupestris Velletri,,no_match
+221,genotype 155,,no_match
+222,genotype 156,,no_match
+223,genotype 157,,no_match
+224,genotype 158,,no_match
+225,Cosmo 4,,no_match
+226,Cosmo 7,,no_match
+227,Cosmo 9,,no_match
+228,Teleki 10 A,,no_match
+229,215-1 Castel,CASTEL   215-  1,rootstock_flip
+230,227-1 Castel,CASTEL   227-  1,rootstock_flip
+231,genotype 165,,no_match
+232,Vitis berlandieri Resseguier n. 2,,no_match
