@@ -992,24 +992,38 @@ def annotate_edges(edges_df: pd.DataFrame, marker_tbl: pd.DataFrame) -> pd.DataF
 def summarize_terminal_founders(
     nodes_df: pd.DataFrame,
     edges_df: pd.DataFrame,
+    full_df:  pd.DataFrame | None = None,
 ) -> dict:
     """
     Returns a dict with:
-      founders      — rows where no incoming edges (no known parents in pedigree)
-      origin_comp   — count/% by origin
-      species_comp  — count/% by species
-    """
-    if nodes_df.empty or edges_df.empty:
-        empty = pd.DataFrame(columns=["name", "origin", "species", "berry_color",
-                                      "vivc_no", "generation", "indegree", "outdegree"])
-        return {
-            "founders":     empty,
-            "origin_comp":  pd.DataFrame(columns=["origin", "n", "percent"]),
-            "species_comp": pd.DataFrame(columns=["species", "n", "percent"]),
-        }
+      founders         — all nodes with indegree==0 in the rendered graph
+      true_founders    — subset with no parents anywhere in the full passport (full_df)
+      depth_terminals  — subset that DO have parents in full_df but are cut off by depth
+      origin_comp      — count/% by origin for all terminals
+      species_comp     — count/% by species for all terminals
+      origin_comp_true   — count/% by origin for true founders only
+      species_comp_true  — count/% by species for true founders only
 
-    indeg  = edges_df.groupby("to").size().reset_index(name="indegree")
-    outdeg = edges_df.groupby("from").size().reset_index(name="outdegree")
+    A node is a *true founder* if both parent1 and parent2 are null/empty in full_df.
+    A node is a *depth-limited terminal* if it has at least one parent recorded in
+    full_df that simply wasn't included at the current pedigree depth.
+    """
+    empty_f = pd.DataFrame(columns=["name", "origin", "species", "berry_color",
+                                    "vivc_no", "generation", "indegree", "outdegree",
+                                    "is_true_founder"])
+    empty_c = pd.DataFrame(columns=["origin", "n", "percent"])
+    empty_s = pd.DataFrame(columns=["species", "n", "percent"])
+    _empty  = {
+        "founders": empty_f, "true_founders": empty_f, "depth_terminals": empty_f,
+        "origin_comp": empty_c, "species_comp": empty_s,
+        "origin_comp_true": empty_c, "species_comp_true": empty_s,
+        "n_true": 0, "n_depth_cut": 0,
+    }
+    if nodes_df.empty:
+        return _empty
+
+    indeg  = edges_df.groupby("to").size().reset_index(name="indegree")   if not edges_df.empty else pd.DataFrame(columns=["to","indegree"])
+    outdeg = edges_df.groupby("from").size().reset_index(name="outdegree") if not edges_df.empty else pd.DataFrame(columns=["from","outdegree"])
 
     founder_df = (
         nodes_df
@@ -1022,25 +1036,42 @@ def summarize_terminal_founders(
     founder_df["origin"]  = founder_df["origin"].fillna("Unknown")
     founder_df["species"] = founder_df["species"].fillna("Unknown")
 
-    n = len(founder_df)
-    origin_comp = (
-        founder_df.groupby("origin").size()
-        .reset_index(name="n")
-        .sort_values("n", ascending=False)
-    )
-    origin_comp["percent"] = (origin_comp["n"] / n * 100).round(1) if n > 0 else 0.0
+    # ── Classify: true founder vs depth-limited terminal ──────────────────
+    if full_df is not None and not full_df.empty:
+        _p1 = full_df["parent1"].fillna("").str.strip().str.upper()
+        _p2 = full_df["parent2"].fillna("").str.strip().str.upper()
+        _name_up = full_df["prime_name"].str.strip().str.upper()
+        # A variety is a true founder if BOTH parents are blank in the full dataset
+        _has_parent = set(
+            _name_up[(_p1 != "") | (_p2 != "")]
+        )
+        founder_df["is_true_founder"] = ~founder_df["name"].isin(_has_parent)
+    else:
+        # Without full_df, conservatively treat all terminals as true founders
+        founder_df["is_true_founder"] = True
 
-    species_comp = (
-        founder_df.groupby("species").size()
-        .reset_index(name="n")
-        .sort_values("n", ascending=False)
-    )
-    species_comp["percent"] = (species_comp["n"] / n * 100).round(1) if n > 0 else 0.0
+    true_df  = founder_df[founder_df["is_true_founder"]].copy()
+    depth_df = founder_df[~founder_df["is_true_founder"]].copy()
+
+    def _comp(df, col):
+        n = len(df)
+        if n == 0:
+            return pd.DataFrame(columns=[col, "n", "percent"])
+        c = (df.groupby(col).size().reset_index(name="n")
+               .sort_values("n", ascending=False))
+        c["percent"] = (c["n"] / n * 100).round(1)
+        return c
 
     return {
-        "founders":     founder_df,
-        "origin_comp":  origin_comp,
-        "species_comp": species_comp,
+        "founders":          founder_df,
+        "true_founders":     true_df,
+        "depth_terminals":   depth_df,
+        "origin_comp":       _comp(founder_df, "origin"),
+        "species_comp":      _comp(founder_df, "species"),
+        "origin_comp_true":  _comp(true_df,    "origin"),
+        "species_comp_true": _comp(true_df,    "species"),
+        "n_true":            len(true_df),
+        "n_depth_cut":       len(depth_df),
     }
 
 
@@ -2932,25 +2963,62 @@ def main() -> None:
     # ────────────────────────────────────────────────────────────────────────
     with tab4:
         st.subheader("🌳 Founder Composition")
-        st.markdown(
-            f"Terminal founders (no known parents) in the pedigree of "
-            f"**{selected_variety}** (depth {max_depth})."
-        )
 
-        if nodes_df.empty or edges_df.empty:
+        if nodes_df.empty:
             st.info("Select a variety with a multi-generation pedigree to see founder composition.")
         else:
-            founder_summary = summarize_terminal_founders(nodes_df, edges_df)
-            founders_df     = founder_summary["founders"]
-            origin_comp     = founder_summary["origin_comp"]
-            species_comp    = founder_summary["species_comp"]
+            founder_summary = summarize_terminal_founders(nodes_df, edges_df, full_df=df)
+            n_true      = founder_summary["n_true"]
+            n_depth_cut = founder_summary["n_depth_cut"]
+
+            # ── Scope selector — default to full pedigree (true founders) ─
+            _scope_opts = [
+                f"Full pedigree — true founders only ({n_true})",
+                f"Current depth ({max_depth}) — all terminals ({n_true + n_depth_cut})",
+            ]
+            fc_scope = st.radio(
+                "Founder scope",
+                _scope_opts,
+                index=0,
+                horizontal=True,
+                key="fc_scope",
+                label_visibility="collapsed",
+            )
+            _use_true = (fc_scope == _scope_opts[0])
+
+            if _use_true:
+                founders_df  = founder_summary["true_founders"]
+                origin_comp  = founder_summary["origin_comp_true"]
+                species_comp = founder_summary["species_comp_true"]
+                _scope_label = "true founders (no known parents anywhere in the database)"
+            else:
+                founders_df  = founder_summary["founders"]
+                origin_comp  = founder_summary["origin_comp"]
+                species_comp = founder_summary["species_comp"]
+                _scope_label = f"all terminal nodes at depth {max_depth}"
 
             n_founders = len(founders_df)
+
+            # Banner
+            if _use_true and n_depth_cut > 0:
+                st.info(
+                    f"ℹ️ **{n_depth_cut} additional ancestors** with known parents exist "
+                    f"beyond depth {max_depth} and are excluded from this view. "
+                    f"Switch to *Current depth* scope above to include them."
+                )
+            elif not _use_true and n_depth_cut > 0:
+                st.warning(
+                    f"⚠️ **{n_depth_cut} of these {n_founders} terminals have known parents** "
+                    f"that are not shown at the current depth ({max_depth}). "
+                    f"Increase the depth slider or switch to *Full pedigree* scope for a "
+                    f"complete picture."
+                )
+
             st.markdown(
                 f"<div style='background:#f5f0e8;border-radius:6px;padding:10px 12px;"
                 f"font-size:12px;color:#555;margin-bottom:12px;'>"
                 f"<b style='color:#7b1c2e;font-size:14px;'>{n_founders}</b>"
-                f" terminal founders identified."
+                f" {_scope_label}."
                 f"</div>",
                 unsafe_allow_html=True,
             )
@@ -2963,61 +3031,41 @@ def main() -> None:
 
             fc1, fc2 = st.columns(2)
 
+            def _bar_chart(df_plot, col, color_scale, label):
+                if df_plot.empty:
+                    st.info(f"No {label} data available for founders.")
+                    return
+                fig = px.bar(
+                    df_plot.head(20),
+                    x="n", y=col, orientation="h",
+                    color="n", color_continuous_scale=color_scale,
+                    labels={"n": "Founders", col: ""},
+                    hover_data={"percent": True, "n": True},
+                )
+                fig.update_layout(
+                    plot_bgcolor="#faf7f0", paper_bgcolor="#faf7f0",
+                    coloraxis_showscale=False,
+                    height=max(300, min(600, 20 * len(df_plot) + 80)),
+                    margin={"l": 10, "r": 10, "t": 10, "b": 10},
+                    yaxis={"autorange": "reversed"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+
             with fc1:
                 st.markdown("**By Geographic Origin**")
-                if not origin_comp.empty:
-                    fig_orig = px.bar(
-                        origin_comp.head(20),
-                        x="n",
-                        y="origin",
-                        orientation="h",
-                        color="n",
-                        color_continuous_scale=["#f0eedd", "#2d5a1b"],
-                        labels={"n": "Founders", "origin": ""},
-                        hover_data={"percent": True, "n": True},
-                    )
-                    fig_orig.update_layout(
-                        plot_bgcolor="#faf7f0",
-                        paper_bgcolor="#faf7f0",
-                        coloraxis_showscale=False,
-                        height=max(300, min(600, 20 * len(origin_comp) + 80)),
-                        margin={"l": 10, "r": 10, "t": 10, "b": 10},
-                        yaxis={"autorange": "reversed"},
-                    )
-                    st.plotly_chart(fig_orig, use_container_width=True)
-                else:
-                    st.info("No origin data available for founders.")
+                _bar_chart(origin_comp, "origin", ["#f0eedd", "#2d5a1b"], "origin")
 
             with fc2:
                 st.markdown("**By Species**")
-                if not species_comp.empty:
-                    fig_spec = px.bar(
-                        species_comp.head(20),
-                        x="n",
-                        y="species",
-                        orientation="h",
-                        color="n",
-                        color_continuous_scale=["#f0eedd", "#4a235a"],
-                        labels={"n": "Founders", "species": ""},
-                        hover_data={"percent": True, "n": True},
-                    )
-                    fig_spec.update_layout(
-                        plot_bgcolor="#faf7f0",
-                        paper_bgcolor="#faf7f0",
-                        coloraxis_showscale=False,
-                        height=max(300, min(600, 20 * len(species_comp) + 80)),
-                        margin={"l": 10, "r": 10, "t": 10, "b": 10},
-                        yaxis={"autorange": "reversed"},
-                    )
-                    st.plotly_chart(fig_spec, use_container_width=True)
-                else:
-                    st.info("No species data available for founders.")
+                _bar_chart(species_comp, "species", ["#f0eedd", "#4a235a"], "species")
 
             # Founder table
             with st.expander("Founder details table", expanded=False):
+                _tcol = "is_true_founder" if "is_true_founder" in founders_df.columns else None
                 display_cols = [c for c in [
                     "name", "generation", "vivc_no", "origin", "species",
-                    "berry_color", "year_of_crossing", "indegree", "outdegree",
+                    "berry_color", "year_of_crossing", "is_true_founder",
+                    "indegree", "outdegree",
                 ] if c in founders_df.columns]
                 st.dataframe(
                     founders_df[display_cols].sort_values("generation", ascending=False),
