@@ -187,6 +187,8 @@ MARKER_PATH      = BASE_DIR / "data" / "marker_support.csv"
 VIVC_MARKER_PATH = BASE_DIR / "data" / "vivc_confirmed_marker_support.csv"
 CONSTANTINI_PATH = BASE_DIR / "data" / "constantini_2026_marker_support.csv"
 MYLES_PATH       = BASE_DIR / "data" / "myles_2011_marker_support.csv"
+LACOMBE_PATH     = BASE_DIR / "data" / "lacombe_2013_marker_support.csv"
+OLIVEIRA_PATH    = BASE_DIR / "data" / "oliveira_2020_marker_support.csv"
 GRIN_PED_PATH    = BASE_DIR / "data" / "grin_pedigree_support.csv"
 ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
@@ -453,7 +455,7 @@ def load_marker_support() -> pd.DataFrame:
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH):
         if path.exists():
             try:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
@@ -919,7 +921,7 @@ def load_all_marker_evidence() -> pd.DataFrame:
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH):
         if path.exists():
             try:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
@@ -1737,6 +1739,17 @@ def build_visjs_network(
             "edges": {"smooth": {"enabled": True, "type": "dynamic", "roundness": 0.3}},
             "nodes": {"scaling": {"min": 10, "max": 35}},
         }
+        if n_nodes > 100:
+            options["physics"]["solver"] = "forceAtlas2Based"
+            options["physics"]["forceAtlas2Based"] = {
+                "gravitationalConstant": -60,
+                "centralGravity": 0.01,
+                "springLength": 100,
+                "springConstant": 0.08,
+                "damping": 0.4,
+                "avoidOverlap": 0.5,
+            }
+            options["physics"]["stabilization"] = {"iterations": 300, "fit": True}
     else:
         options = {
             "layout": {
@@ -2014,7 +2027,7 @@ def build_timeline_chart(
 
     focal_up   = focal.strip().upper()
     n_nodes    = len(nodes_df)
-    suppress_all_labels = n_nodes > 50
+    suppress_all_labels = n_nodes > 120
 
     # Determine which nodes get on-chart labels (gen 0 target + gen 1 parents)
     label_names: set[str] = set()
@@ -2116,7 +2129,7 @@ def build_timeline_chart(
             showlegend=False,
         ))
 
-    title_suffix = " (hover for names — >50 nodes)" if suppress_all_labels else ""
+    title_suffix = " (hover for names — >120 nodes)" if suppress_all_labels else ""
     fig.update_layout(
         title={
             "text": f"Pedigree Timeline — {focal_up}{title_suffix}",
@@ -2974,7 +2987,7 @@ def main() -> None:
             # ── Scope selector — default to full pedigree (true founders) ─
             _scope_opts = [
                 f"Full pedigree — true founders only ({n_true})",
-                f"Current depth ({max_depth}) — all terminals ({n_true + n_depth_cut})",
+                f"Current depth ({max_depth}) — includes {n_depth_cut} depth-limited terminals ({n_true + n_depth_cut} total)",
             ]
             fc_scope = st.radio(
                 "Founder scope",
@@ -2985,6 +2998,26 @@ def main() -> None:
                 label_visibility="collapsed",
             )
             _use_true = (fc_scope == _scope_opts[0])
+
+            # ── Explainer metrics and callout ─────────────────────────────
+            _expl_col1, _expl_col2 = st.columns(2)
+            with _expl_col1:
+                st.metric("True Founders", n_true, help="No parents in database")
+                st.metric(
+                    "Depth-limited Terminals", n_depth_cut,
+                    help=f"Have parents beyond depth {max_depth}",
+                )
+            with _expl_col2:
+                st.markdown(
+                    "**What is the difference?**\n"
+                    "- **True founders** have no recorded parents anywhere in the full VIVC "
+                    "database. These are the genetic dead-ends — varieties that may be wild "
+                    "selections or whose parents were never documented. They are stable "
+                    "regardless of the depth slider.\n"
+                    "- **Depth-limited terminals** have known parents that simply aren't "
+                    "shown at the current depth setting. They are *not* true founders — "
+                    "increasing the depth slider will reveal their ancestry."
+                )
 
             if _use_true:
                 founders_df  = founder_summary["true_founders"]
@@ -3035,8 +3068,9 @@ def main() -> None:
                 if df_plot.empty:
                     st.info(f"No {label} data available for founders.")
                     return
+                df_truncated = df_plot.head(50)
                 fig = px.bar(
-                    df_plot.head(20),
+                    df_truncated,
                     x="n", y=col, orientation="h",
                     color="n", color_continuous_scale=color_scale,
                     labels={"n": "Founders", col: ""},
@@ -3045,7 +3079,7 @@ def main() -> None:
                 fig.update_layout(
                     plot_bgcolor="#faf7f0", paper_bgcolor="#faf7f0",
                     coloraxis_showscale=False,
-                    height=max(300, min(600, 20 * len(df_plot) + 80)),
+                    height=max(300, min(900, 18 * len(df_truncated) + 80)),
                     margin={"l": 10, "r": 10, "t": 10, "b": 10},
                     yaxis={"autorange": "reversed"},
                 )

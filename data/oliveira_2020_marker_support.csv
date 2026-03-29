@@ -1,0 +1,89 @@
+child_variety,parent_variety,parent_role,evidence_type,marker_type,n_markers,lod_score,study_reference,doi,confirmed_year,confidence_level,notes
+ISABELLA,LABRUSCA,Parent 1,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+ISABELLA,MESLIER PETIT,Parent 2,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+CUNNINGHAM,AESTIVALIS,Parent 1,SSR,SSR,11,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 11 loci typed
+CUNNINGHAM,MESLIER PETIT,Parent 2,SSR,SSR,11,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 11 loci typed
+LINDLEY,PARENT 1 IS MOST LIKELY EXTINCT,Parent 1,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+LINDLEY,CHASSELAS BLANC,Parent 2,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+DURIF,SYRAH,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+DURIF,PELOURSIN,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GRAND NOIR,GRACIANO,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GRAND NOIR,BOUSCHET PETIT,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBY CABERNET,CARIGNAN NOIR,Parent 1,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+RUBY CABERNET,CABERNET SAUVIGNON,Parent 2,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+RUBY CABERNET,CARIGNAN NOIR,Parent 1,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+RUBY CABERNET,CABERNET‐SAUVIGNON,Parent 2,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+SYRAH,DUREZA,Parent 1,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+SYRAH,MONDEUSE BLANCHE,Parent 2,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+RIESLING WEISS,HEUNISCH WEISS,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RIESLING WEISS,HEUNISCH WEISS,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+CHENIN BLANC,SAVAGNIN BLANC,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHENIN BLANC,SAVAGNIN BLANC,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHARDONNAY BLANC,PINOT NOIR,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHARDONNAY BLANC,HEUNISCH WEISS,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHARDONNAY BLANC,HEUNISCH WEISS,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHARDONNAY BLANC,PINOT,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHARDONNAY BLANC,PINOT,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CHARDONNAY BLANC,GOUAIS BLANC = HEUNISCH WEISS,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+CABERNET SAUVIGNON,CABERNET FRANC,Parent 1,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+CABERNET SAUVIGNON,SAUVIGNON BLANC,Parent 2,SSR,SSR,13,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 13 loci typed
+SYRAH,DUREZA,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+SYRAH,MONDEUSE BLANCHE,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+PINOTAGE,CINSAUT,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+PINOTAGE,PINOT,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+PINOTAGE,PINOT,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+PINOTAGE,CINSAUT,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+TEMPRANILLO,ALBILLO MAYOR,Parent 1,SSR,SSR,12,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 12 loci typed
+TEMPRANILLO,BENEDICTO,Parent 2,SSR,SSR,12,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 12 loci typed
+TOURIGA NACIONAL,MARUFO,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+TOURIGA NACIONAL,BICAL,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+GAMAY NOIR,PINOT NOIR,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GAMAY NOIR,HEUNISCH WEISS,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GAMAY NOIR,PINOT,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GAMAY NOIR,GOUAIS BLANC = HEUNISCH WEISS,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+TORRONTES RIOJANO,CRIOLLA CHICA,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+TORRONTES RIOJANO,MUSCAT D'ALEXANDRIE,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+MOSCATEL NAZARENO,MOSCATEL DE HAMBURGO,Parent 1,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+MOSCATEL NAZARENO,JOAO SANTAREM,Parent 2,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+MOSCATEL DE OEIRAS,DIAGALVES,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+MOSCATEL DE OEIRAS,MUSCAT D'ALEXANDRIE,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+DIAMOND,CONCORD,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+DIAMOND,IONA,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+EINSET SEEDLESS,FREDONIA,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+EINSET SEEDLESS,CANNER SEEDLESS,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+ATHENS,HUBBARD,Parent 1,SSR,SSR,11,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 11 loci typed
+ATHENS,PORTLAND,Parent 2,SSR,SSR,11,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 11 loci typed
+RUBY SEEDLESS,EMPEROR,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBY SEEDLESS,SULTANA MOSCATA,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBY SEEDLESS,EMPEROR,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBY SEEDLESS,SULTANA MOSCATA = PIROVANO 75,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GOLDEN MUSCAT,MUSCAT HAMBURG,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+GOLDEN MUSCAT,DIAMOND,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+RUBI,HEUNISCH WEISS,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBI,PINOT,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBI,PINOT,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+RUBI,GOUAIS BLANC = HEUNISCH WEISS,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+FREEDOM,FRESNO 1613-59,Parent 1,SSR,SSR,12,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 12 loci typed
+FREEDOM,DOG RIDGE 5,Parent 2,SSR,SSR,12,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 12 loci typed
+GOLIA,CASTEL 156-12,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+GOLIA,RUPESTRIS DU LOT,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+REGALE,PARENT 1 WAS NOT CONFIRMED,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+REGALE,MAGNOLIA,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+TOPSAIL,LATHAM,Parent 1,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+TOPSAIL,PARENT 2 WAS NOT CONFIRMED,Parent 2,SSR,SSR,14,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 14 loci typed
+SUMMIT,FRY,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+SUMMIT,PARENT 2 WAS NOT CONFIRMED,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+MANZONI BIANCO,RIESLING WEISS,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+MANZONI BIANCO,PINOT,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+REBO,MERLOT NOIR,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+REBO,TEROLDEGO,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+LAGREIN,SCHIAVA GENTILE,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+LAGREIN,TEROLDEGO,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+LAGREIN,TEROLDEGO,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+LAGREIN,URBAN BLAU = SCHIAVA GENTILE,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+SANGIOVESE,CILIEGIOLO,Parent 1,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+SANGIOVESE,CALABRESE MONTENUOVO,Parent 2,SSR,SSR,17,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 17 loci typed
+UVA DI TROIA,BOMBINO BIANCO,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+UVA DI TROIA,BOUTEILLAN NOIR,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+UVA DI TROIA,BOMBINO BIANCO,Parent 1,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
+UVA DI TROIA,BOUTEILLAN NOIR = QUAGLIANO,Parent 2,SSR,SSR,16,,de Oliveira et al. 2020,10.1371/journal.pone.0240665,2020,probable,SSR profile: Brazilian grapevine germplasm collection (IAC); 16 loci typed
