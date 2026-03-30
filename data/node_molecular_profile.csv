@@ -1,28 +1,28 @@
 vivc_prime_name,vv_ancestry_pct,na1_ancestry_pct,na2_ancestry_pct,mus_ancestry_pct,ea_ancestry_pct,ancestry_n_samples,ancestry_source,ssr_VVS2,ssr_VVMD5,ssr_VVMD7,ssr_VVMD25,ssr_VVMD27,ssr_VVMD28,ssr_VVMD32,ssr_VrZAG62,ssr_VrZAG79,ssr_source,has_snp_myles,has_snp_constantini,data_sources
 ACCORD,0.0,54.3,0.0,0.0,45.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 AFFENTHALER,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-AGADAI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-AGAWAM,50.0,1.0,49.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+AGADAI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,225/232,247/253,238/240,176/182,235/257,255/261,,,,False,False,ancestry
+AGAWAM,50.0,1.0,49.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),135/141,234/236,243/249,254/266,176/182,247/257,249/261,,,,False,False,ancestry
 AGLIANICO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-AL BURLA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+AL BURLA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,225/236,233/247,238/240,176/186,216/243,239/261,,,,False,False,ancestry
 ALBA,0.0,0.9,98.9,0.0,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ALBANA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ALBANIA,33.5,0.4,65.8,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ALBANIA,33.5,0.4,65.8,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,225/238,239/239,238/238,178/182,216/245,249/271,,,,False,False,ancestry
 ALBANY SURPRISE,75.2,11.4,2.1,10.8,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ALDEN,50.6,0.3,49.1,0.0,0.0,4.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ALDEN,50.6,0.3,49.1,0.0,0.0,4.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,223/225,253/255,254/254,176/191,247/259,251/263,,,,False,False,ancestry
 ALEATICO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ALEXANDER,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ALICANTE BOUSCHET 7,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ALICANTE GANZIN,78.9,20.6,0.5,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-ALIGOTE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ALIGOTE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/137,223/232,249/249,238/238,178/186,216/245,239/271,,,,False,False,ancestry
 ALLOUED ZEINE,98.4,1.6,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ALMERIA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-ALVARELHAO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ALMERIA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,223/236,239/257,238/240,172/176,233/267,239/239,,,,True,False,"ancestry,SNP_Myles"
+ALVARELHAO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/143,225/238,239/249,238/240,176/178,227/247,255/271,,,,False,False,ancestry
 ALWOOD,32.6,0.0,67.4,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 AMBER,50.3,21.2,28.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-AMBER QUEEN,50.2,21.0,28.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+AMBER QUEEN,50.2,21.0,28.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,223/236,243/247,248/248,182/188,233/235,239/271,,,,False,False,ancestry
 AMERBONTE,35.3,10.8,53.3,0.0,0.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-AMERICA,1.6,34.6,63.5,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+AMERICA,1.6,34.6,63.5,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),137/149,223/229,257/262,238/248,178/186,227/227,239/257,,,,False,False,ancestry
 AMINIA,50.1,49.9,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ANGELINA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ANGELO PIROVANO,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
@@ -32,11 +32,11 @@ ARAMON NOIR,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),
 ARIS,60.5,39.5,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ARKANSAS 21,74.9,0.0,25.1,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ARMALAGA,76.4,0.0,23.3,0.2,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ARNSBURGER,87.2,5.4,1.8,5.6,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ARNSBURGER,87.2,5.4,1.8,5.6,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,223/234,247/255,238/254,176/182,227/243,271/271,,,,False,False,ancestry
 ASMA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ASPIRAN NOIR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ASPIRAN NOIR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),133/135,234/236,249/249,254/254,186/191,243/243,255/271,,,,False,False,ancestry
 ASWAD,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ATHENS,0.0,50.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ATHENS,0.0,50.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),135/137,223/229,239/249,240/248,178/182,233/235,239/251,,,,False,False,ancestry
 ATKAN,20.9,37.1,42.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ATOKA,34.4,9.6,56.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 AUGUST GIANT,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -48,15 +48,15 @@ AZITA,29.1,50.0,20.7,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,
 BACHMAN'S EARLY,46.9,0.3,52.0,0.8,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BAILEY,35.8,0.9,63.3,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BAILEY ALICANTE A,70.1,0.5,29.4,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BANNER,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BARBABLEU,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+BANNER,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/143,223/229,243/251,240/240,182/182,233/267,249/261,,,,False,False,ancestry
+BARBABLEU,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,223/225,243/251,238/248,176/176,243/247,251/263,,,,True,False,"ancestry,SNP_Myles"
 BARBARA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARBERA NERA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARGOON,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARLINKA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARNES,0.0,50.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARRET MN-1,3.5,0.9,0.0,95.6,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BARRY,50.0,0.3,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BARRY,50.0,0.3,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/153,229/234,247/249,238/240,182/191,243/243,271/271,,,,False,False,ancestry
 BATH,50.3,0.0,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BEACON,32.2,0.7,67.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BEAUFORT,24.8,45.7,29.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -92,22 +92,22 @@ BLACK HAMBURG,91.0,7.7,0.3,0.7,0.4,2.0,Myles et al. 2011 / GRIN (DVIT admixture)
 BLACK MONUKKA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BLACK MOROCCO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 BLACK QUEEN,69.5,1.3,29.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BLACK ROSE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BLACK ROSE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),149/155,223/236,239/259,248/248,180/186,233/257,239/251,,,,False,False,ancestry
 BLANCA NIEVE,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BLUE EYE,32.1,34.7,33.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BLUE LAKE,9.1,19.1,71.7,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BLUESTAR,31.9,0.0,68.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BLUESTAR,31.9,0.0,68.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/143,219/238,239/239,240/254,178/178,243/257,251/271,,,,False,False,ancestry
 BOAL BRANCO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BOKAY,62.7,11.4,26.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BOMBINO BIANCO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BONDOLA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BONDOLA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/141,236/238,239/257,254/254,186/191,235/257,271/271,,,,False,False,ancestry
 BOUNTIFUL,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BOYALSING I,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BRANDIS,0.0,50.1,49.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BRANT,62.7,23.8,13.5,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BRIGHTON,50.8,0.0,49.1,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BRILLIANT,50.6,0.0,49.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BROCTON,51.6,0.3,48.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BROCTON,51.6,0.3,48.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/147,236/238,233/247,240/244,176/176,243/257,261/261,,,,False,False,ancestry
 BRONNER,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 BRONX SEEDLESS,32.1,32.1,35.6,0.0,0.2,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BROWNIE,0.0,0.3,0.0,99.7,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -144,7 +144,7 @@ CALARDIS BLANC,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 CALARDIS MUSQUE,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 CALMERIA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 CALZIN,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-CAMPBELL EARLY,23.8,0.3,76.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CAMPBELL EARLY,23.8,0.3,76.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,232/236,239/251,238/254,182/191,247/257,261/271,,,,False,False,ancestry
 CANADA,62.7,24.2,13.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CANADA MUSCAT,68.0,0.0,32.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CANAIOLO NERO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -154,7 +154,7 @@ CAPTIVATOR,39.3,44.1,16.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),
 CARDINAL,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CARIBE,35.1,3.1,61.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CARLOS,0.5,0.0,0.0,99.5,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CARMAN,33.4,0.7,65.3,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CARMAN,33.4,0.7,65.3,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/143,234/238,243/249,240/254,176/176,233/257,251/271,,,,False,False,ancestry
 CAROLINA BLACKROSE,86.8,12.2,0.8,0.0,0.2,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CARRIERE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CARVALHEIRA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -166,14 +166,14 @@ CAYWOOD,31.9,1.9,66.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 CEDAR VALLEY,59.7,1.9,38.0,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CENTENNIAL SEEDLESS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CEREZA,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
-CHALLENGE,71.3,1.0,27.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CHALLENGE,71.3,1.0,27.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,225/229,249/249,238/248,176/182,243/243,257/263,,,,False,False,ancestry
 CHAMBEAUDIERE 1337,41.3,46.6,12.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMBEAUDIERE 1391,40.1,46.0,14.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMO,97.6,0.0,0.0,0.0,2.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMPAGNE,15.3,1.2,83.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMPANEL,2.8,23.3,73.9,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAOUCH BLANC,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-CHAOUCH ROZOVYI,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
+CHAOUCH ROZOVYI,,,,,,,,139/153,232/234,243/243,244/256,182/191,234/257,249/259,,,,False,True,SNP_Constantini
 CHARAS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHARDONNAY BLANC,100.0,0.0,0.0,0.0,0.0,8.0,Myles et al. 2011 / GRIN (DVIT admixture),137/143,236/240,239/243,239/255,182/190,218/228,240/272,188/196,243/245,VIVC,False,False,"ancestry,SSR"
 CHARDONNAY BLANC MUSQUE,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
@@ -185,7 +185,7 @@ CHASSELAS ROSE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixtur
 CHASSELAS ROUGE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 CHASSELAS VIOLET,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHATUS,99.9,0.1,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CHENIN BLANC,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+CHENIN BLANC,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),141/141,229/229,253/253,254/254,176/180,243/247,249/271,,,,True,False,"ancestry,SNP_Myles"
 CHILAR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHINURI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHONTAY,30.0,31.3,38.6,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -193,9 +193,9 @@ CHOWAN,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,
 CHURGOON,98.4,0.0,0.0,0.0,1.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CIMARRON,37.2,20.2,42.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CINSAUT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CITRONELLE,99.5,0.5,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CITRONELLE,99.5,0.5,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,223/229,239/243,240/248,186/191,235/243,239/271,,,,False,False,ancestry
 CIVIT 2,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-CLAIRETTE BLANCHE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CLAIRETTE BLANCHE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),149/151,236/238,243/251,244/254,178/182,257/257,255/271,,,,False,False,ancestry
 CLEVENER,0.0,51.6,48.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CLINTON,22.8,50.2,26.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CLOETA,0.4,49.8,49.6,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -203,15 +203,15 @@ CLOTILDE PROSPERI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admix
 COLOMBARD,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COLUMBIA,32.5,0.3,66.8,0.4,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COLUMBIAN IMPERIAL,29.8,0.4,69.7,0.1,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CONCORD,28.4,0.0,71.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CONCORD,28.4,0.0,71.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/149,225/236,239/239,240/248,182/182,216/247,239/255,,,,False,False,ancestry
 CONCORD SEEDLESS,49.4,0.0,50.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CONQUISTADOR,21.1,0.5,78.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CONTE ROSSO,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
+CONTE ROSSO,,,,,,,,131/131,225/232,239/239,238/238,186/191,235/247,255/271,,,,True,False,SNP_Myles
 CORNIFESTO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CORTESE,99.9,0.1,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COSMO 10,0.0,50.4,49.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COSMO 2,70.7,29.3,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-COT,99.9,0.1,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+COT,99.9,0.1,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),141/143,223/225,239/239,240/254,176/191,233/243,239/255,,,,True,False,"ancestry,SNP_Myles"
 COTTAGE,28.1,0.0,71.9,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COUDERC 1202,49.7,50.0,0.0,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COUDERC 13,84.3,0.0,15.5,0.0,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -230,20 +230,20 @@ COUDERC 3309,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture)
 COUDERC 401,50.2,49.6,0.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COUDERC 41,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COUDERC 93- 5,50.2,49.6,0.0,0.3,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-COURBU BLANC,99.9,0.0,0.0,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+COURBU BLANC,99.9,0.0,0.0,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,223/223,239/249,238/248,182/191,233/257,239/271,,,,False,False,ancestry
 COWART,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CRESWELL,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CRIMSON SEEDLESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CROTON,76.5,0.0,23.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CROTON,76.5,0.0,23.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/149,232/232,239/239,238/248,178/191,216/243,249/249,,,,False,False,ancestry
 CYNTHIANA,27.0,0.8,71.9,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 D'ARPA,29.3,0.0,70.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DABOUKI,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+DABOUKI,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),141/149,223/236,239/257,248/254,176/186,233/247,239/255,,,,True,False,"ancestry,SNP_Myles"
 DAISY,14.4,18.8,66.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DAN BEN HANNAH,99.9,0.0,0.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DANAKHARULI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DANUGUE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DANUGUE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,223/223,243/249,238/248,191/191,233/245,239/249,,,,False,False,ancestry
 DARDARI,97.6,0.5,0.0,0.0,1.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DATTIER DE ST. VALLIER,77.7,18.6,3.1,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DATTIER DE ST. VALLIER,77.7,18.6,3.1,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),133/141,223/236,239/249,238/254,178/186,233/247,251/255,,,,False,False,ancestry
 DAWN,0.8,0.6,0.1,98.5,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DAYTONA,68.6,9.5,21.0,0.0,0.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DE CHAUNAC,2.7,49.2,47.0,0.4,0.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -254,13 +254,13 @@ DELAWARE,46.1,24.9,29.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,
 DELICATESSEN,31.8,24.0,44.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DELICIOUS,62.7,24.7,12.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DELIGHT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DELIZIA DI VAPRIO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+DELIZIA DI VAPRIO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/143,232/238,239/259,240/240,178/178,239/243,243/255,,,,True,False,"ancestry,SNP_Myles"
 DEMETRA,78.6,16.2,4.8,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DIAMOND,43.1,0.0,56.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DIAMOND,43.1,0.0,56.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,223/236,247/249,238/254,176/182,257/259,239/261,,,,False,False,ancestry
 DIAMOND MUSCAT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DIANA,54.0,0.0,46.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DIANA,54.0,0.0,46.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,225/234,239/247,238/248,176/186,216/253,251/271,,,,False,False,ancestry
 DIX,48.2,34.5,16.6,0.0,0.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DIXIE,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DIXIE,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/151,229/238,239/239,240/244,176/191,243/257,271/271,,,,False,False,ancestry
 DIXIERED,0.0,0.1,0.0,99.9,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DIZMAR,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DOG RIDGE,0.0,49.4,50.6,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -275,7 +275,7 @@ DULCET,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,
 DUNKELFELDER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DUNKIRK,57.3,0.0,42.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DUNSTAN 348,0.5,0.0,99.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DURIF,0.2,42.7,49.9,0.0,7.3,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+DURIF,0.2,42.7,49.9,0.0,7.3,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,232/244,239/249,238/238,178/178,235/245,255/271,,,,True,False,"ancestry,SNP_Myles"
 DUTCHESS,66.0,0.0,34.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DUVAL,1.7,0.4,96.6,0.4,0.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EARLY DAISY,12.9,18.5,68.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -1073,19 +1073,19 @@ MILLARDET ET GRASSET  101- 14,,,,,,,,133/143,256/266,243/251,241/243,197/207,245
 PAULSEN  1045,,,,,,,,137/149,226/236,233/257,241/251,191/205,245/255,,195/213,250/258,Migliaro et al. 2019,,,
 MILLARDET ET GRASSET  106-  8,,,,,,,,139/143,234/266,243/253,243/253,183/209,243/247,,189/193,242/254,Migliaro et al. 2019,,,
 PAULSEN  1103,,,,,,,,137/147,236/236,233/257,241/254,203/207,245/255,,195/213,250/262,Migliaro et al. 2019,,,
-COUDERC  1202,,,,,,,,137/151,226/252,249/249,241/267,179/207,239/247,,187/201,254/260,Migliaro et al. 2019,,,
+COUDERC  1202,,,,,,,,137/151,226/252,249/249,241/267,179/207,239/247,239/271,187/201,254/260,Migliaro et al. 2019,,,
 EVEX 13-  5,,,,,,,,135/149,226/264,231/233,251/253,203/209,243/255,,207/213,250/254,Migliaro et al. 2019,,,
 RUGGERI   140,,,,,,,,137/143,246/268,231/257,241/267,189/205,237/245,,195/213,242/258,Migliaro et al. 2019,,,
 PAULSEN  1447,,,,,,,,137/147,226/268,233/261,241/254,203/207,223/255,,195/213,250/262,Migliaro et al. 2019,,,
 COUDERC  1613,,,,,,,,129/139,238/268,243/251,247/253,177/209,239/251,,187/189,256/266,Migliaro et al. 2019,,,
-CASTEL   196- 17,,,,,,,,133/145,266/266,249/265,243/245,189/207,219/247,,187/199,254/260,Migliaro et al. 2019,,,
+CASTEL   196- 17,,,,,,,,133/145,266/266,249/265,243/245,189/207,219/247,251/271,187/199,254/260,Migliaro et al. 2019,,,
 CASTEL   216-  3,,,,,,,,137/141,236/268,251/261,241/243,207/211,223/245,,189/195,254/262,Migliaro et al. 2019,,,
 RICHTER  31,,,,,,,,139/143,258/264,251/251,241/259,189/189,223/245,,183/189,256/258,Migliaro et al. 2019,,,
 COUDERC  3306,,,,,,,,133/159,246/264,245/259,241/243,186/215,239/249,,179/189,254/254,Migliaro et al. 2019,,,
 COUDERC  3309,,,,,,,,123/161,252/264,245/259,241/243,185/211,243/249,,179/189,254/256,Migliaro et al. 2019,,,
 ECOLE MONTPELLIER  34,,,,,,,,135/143,240/264,231/251,253/271,189/209,243/247,,190/207,252/254,Migliaro et al. 2019,,,
 RICHTER  57,,,,,,,,137/143,246/268,231/257,241/266,189/207,237/245,,195/213,242/262,Migliaro et al. 2019,,,
-CASTEL  6736,,,,,,,,127/137,236/266,251/261,241/243,207/217,223/245,,189/195,254/262,Migliaro et al. 2019,,,
+CASTEL  6736,,,,,,,,127/137,236/266,251/261,241/243,207/217,223/245,263/271,189/195,254/262,Migliaro et al. 2019,,,
 PAULSEN   775,,,,,,,,137/147,226/236,231/261,241/254,191/207,223/255,,195/209,250/262,Migliaro et al. 2019,,,
 PAULSEN   779,,,,,,,,137/149,236/268,231/257,241/251,203/205,245/255,,195/209,250/258,Migliaro et al. 2019,,,
 RICHTER  99,,,,,,,,137/149,236/236,231/261,241/251,191/207,223/239,,195/209,250/262,Migliaro et al. 2019,,,
@@ -1094,7 +1094,7 @@ GOLIA,,,,,,,,137/145,264/268,249/257,241/245,207/207,223/261,,189/195,254/262,Mi
 GREZOT 1,,,,,,,,137/151,252/268,239/249,241/267,179/211,245/247,,187/190,254/260,Migliaro et al. 2019,,,
 OBERLIN NOIR,,,,,,,,133/159,234/266,239/253,243/271,189/217,221/239,,186/193,244/256,Migliaro et al. 2019,,,
 MILLARDET ET GRASSET   17- 37,,,,,,,,133/165,234/252,231/259,241/262,193/201,249/249,,201/215,254/254,Migliaro et al. 2019,,,
-COUDERC    93-  5,,,,,,,,133/137,226/226,249/249,243/245,194/207,253/261,,201/203,254/256,Migliaro et al. 2019,,,
+COUDERC    93-  5,,,,,,,,133/137,226/226,249/249,243/245,194/207,253/261,239/271,201/203,254/256,Migliaro et al. 2019,,,
 CASTEL   228-  1,,,,,,,,137/155,252/268,259/261,241/259,195/205,223/253,,195/199,256/258,Migliaro et al. 2019,,,
 EVEX 13- 16,,,,,,,,143/147,226/240,233/251,254/271,191/209,247/255,,190/213,250/254,Migliaro et al. 2019,,,
 EVEX 13- 44,,,,,,,,135/149,226/264,231/231,251/253,189/203,247/255,,207/209,250/252,Migliaro et al. 2019,,,
@@ -1112,4 +1112,731 @@ PAULSEN   764,,,,,,,,137/147,226/268,233/261,241/254,203/205,223/239,,195/213,25
 PAULSEN   782,,,,,,,,137/147,226/236,231/257,241/254,191/205,239/245,,195/209,250/258,Migliaro et al. 2019,,,
 GAGLIARDO,,,,,,,,137/143,226/236,249/261,241/241,181/207,237/245,,189/195,258/262,Migliaro et al. 2019,,,
 CASTEL   215-  1,,,,,,,,137/139,236/268,251/261,241/247,195/207,245/251,,189/195,256/262,Migliaro et al. 2019,,,
-CASTEL   227-  1,,,,,,,,137/155,236/252,251/261,241/259,205/209,245/253,,189/195,260/262,Migliaro et al. 2019,,,
+CASTEL   227-  1,,,,,,,,137/155,236/252,251/261,241/259,205/209,245/253,255/271,189/195,260/262,Migliaro et al. 2019,,,
+BOR KARA,,,,,,,,141/149,225/238,247/249,248/254,178/184,216/247,251/271,,,Lacombe et al. 2013,,,
+CALCUTTA BIANCA,,,,,,,,149/149,234/238,249/249,248/254,176/182,243/247,249/261,,,Lacombe et al. 2013,,,
+ALTESSE,,,,,,,,131/149,234/234,247/247,240/248,178/182,233/243,239/271,,,Lacombe et al. 2013,,,
+CARNEIRO,,,,,,,,131/141,229/234,247/249,240/240,176/182,243/276,265/265,,,Lacombe et al. 2013,,,
+AZAL AZEDO,,,,,,,,131/135,223/234,239/243,240/254,182/191,233/267,239/239,,,Lacombe et al. 2013,,,
+BRUNI 840,,,,,,,,131/147,223/234,239/247,244/248,184/191,243/243,271/271,,,Lacombe et al. 2013,,,
+CHAMBEAUDIERE  540,,,,,,,,131/133,225/238,247/247,240/254,176/186,216/235,239/271,,,Lacombe et al. 2013,,,
+TCHUBERI,,,,,,,,141/149,223/234,239/249,244/248,191/191,257/257,251/271,,,Lacombe et al. 2013,,,
+BURGRAVE DE HONGRIE,,,,,,,,135/141,229/236,243/249,254/254,180/191,243/247,249/271,,,Lacombe et al. 2013,,,
+DUBOVSKII,,,,,,,,131/135,223/223,249/249,240/254,176/186,235/257,249/261,,,Lacombe et al. 2013,,,
+COUDERC     3,,,,,,,,133/139,234/238,239/253,238/240,176/182,243/257,249/273,,,Lacombe et al. 2013,,,
+BLANQUEDONZELLE,,,,,,,,141/143,232/234,239/239,240/254,182/191,233/257,255/271,,,Lacombe et al. 2013,,,
+ACEITUNA,,,,,,,,131/151,223/236,239/247,238/240,191/191,247/276,263/271,,,Lacombe et al. 2013,,,
+ACITANA,,,,,,,,141/149,223/236,253/257,248/254,176/186,235/247,251/271,,,Lacombe et al. 2013,,,
+CROMATELLA,,,,,,,,133/153,234/234,247/247,240/254,178/178,235/235,271/271,,,Lacombe et al. 2013,,,
+APOI KHAGOG,,,,,,,,131/143,223/236,239/243,240/240,178/191,243/259,249/271,,,Lacombe et al. 2013,,,
+AL TOPAK,,,,,,,,131/135,225/238,239/239,238/238,176/186,227/235,239/271,,,Lacombe et al. 2013,,,
+ATTIGNO BIANCO,,,,,,,,133/149,225/234,247/249,254/262,182/182,235/263,249/271,,,Lacombe et al. 2013,,,
+ARNON,,,,,,,,131/133,223/236,249/255,238/254,182/182,243/243,251/271,,,Lacombe et al. 2013,,,
+AK KALTAK,,,,,,,,131/149,223/234,247/253,240/266,186/188,243/257,255/271,,,Lacombe et al. 2013,,,
+COUDERC   201- 80,,,,,,,,131/149,232/236,247/255,238/244,176/182,243/257,249/251,,,Lacombe et al. 2013,,,
+ADAGO,,,,,,,,133/149,219/229,239/239,238/254,186/186,233/235,239/271,,,Lacombe et al. 2013,,,
+COUDERC    84- 18,,,,,,,,131/143,232/236,249/253,238/238,182/191,243/243,249/251,,,Lacombe et al. 2013,,,
+BLAUFRAENKISCH,,,,,,,,133/141,223/229,239/262,254/258,178/186,235/267,239/239,,,Lacombe et al. 2013,,,
+CAMPO DEL POZZO,,,,,,,,135/153,223/238,239/249,244/254,176/191,243/257,255/261,,,Lacombe et al. 2013,,,
+CANDOLLE,,,,,,,,131/153,229/229,239/262,240/254,182/186,233/243,239/271,,,Lacombe et al. 2013,,,
+ARGVETULA SAPERE,,,,,,,,141/149,225/232,239/257,248/254,176/182,216/245,239/271,,,Lacombe et al. 2013,,,
+BANJUSKA,,,,,,,,131/133,225/234,239/249,240/254,178/191,235/243,261/271,,,Lacombe et al. 2013,,,
+BACO NOIR,,,,,,,,133/141,229/234,247/247,254/254,182/182,216/243,239/271,,,Lacombe et al. 2013,,,
+COUDERC    89- 23,,,,,,,,133/133,234/236,249/249,248/254,176/182,247/267,271/271,,,Lacombe et al. 2013,,,
+AMOKRANE,,,,,,,,137/149,223/225,249/249,238/248,182/186,263/267,239/239,,,Lacombe et al. 2013,,,
+DUC D'ANJOU,,,,,,,,131/131,223/234,239/249,240/240,178/186,235/257,249/271,,,Lacombe et al. 2013,,,
+COELEBS,,,,,,,,137/153,229/238,239/249,248/254,172/182,233/233,239/239,,,Lacombe et al. 2013,,,
+BOLERAT BLANC,,,,,,,,141/143,223/238,239/257,240/254,176/191,233/235,251/255,,,Lacombe et al. 2013,,,
+ADELINE,,,,,,,,131/151,238/244,239/247,238/240,178/191,233/247,263/271,,,Lacombe et al. 2013,,,
+ARINTHO,,,,,,,,131/149,223/234,243/257,240/248,182/186,216/233,251/271,,,Lacombe et al. 2013,,,
+BEDONA,,,,,,,,131/133,225/234,249/249,248/254,176/182,233/267,251/263,,,Lacombe et al. 2013,,,
+COE,,,,,,,,131/131,223/229,239/249,240/240,178/186,235/245,239/239,,,Lacombe et al. 2013,,,
+CASTEL 15428,,,,,,,,139/143,232/236,239/253,238/240,176/191,216/257,249/271,,,Lacombe et al. 2013,,,
+ARENAL,,,,,,,,143/147,229/232,239/251,240/248,191/191,233/267,263/271,,,Lacombe et al. 2013,,,
+ARBORAS,,,,,,,,131/141,232/244,233/249,238/244,176/176,243/257,249/271,,,Lacombe et al. 2013,,,
+BRONZE,,,,,,,,141/147,232/234,249/249,244/248,176/178,257/257,255/259,,,Lacombe et al. 2013,,,
+COUDERC   121,,,,,,,,147/151,236/244,243/249,240/244,182/191,245/257,249/271,,,Lacombe et al. 2013,,,
+CHATYRBAK,,,,,,,,133/143,225/229,239/245,240/254,189/191,243/274,251/255,,,Lacombe et al. 2013,,,
+COUDERC   136- 04,,,,,,,,133/149,236/238,253/255,248/254,182/191,243/243,255/271,,,Lacombe et al. 2013,,,
+ALICANTE BOUSCHET X PIQUEPOUL GRIS 8,,,,,,,,141/149,232/236,249/257,248/254,176/186,227/233,271/271,,,Lacombe et al. 2013,,,
+ALIGOTE ROUGE,,,,,,,,141/149,225/232,239/243,248/254,176/186,227/235,239/271,,,Lacombe et al. 2013,,,
+ACIKIRAN,,,,,,,,131/131,229/234,253/257,240/248,176/191,243/257,239/261,,,Lacombe et al. 2013,,,
+COUGET,,,,,,,,131/131,234/236,243/249,238/240,182/191,243/267,271/271,,,Lacombe et al. 2013,,,
+DOBRA,,,,,,,,133/153,234/234,249/249,240/254,176/182,233/267,271/271,,,Lacombe et al. 2013,,,
+COUDERC    74- 17,,,,,,,,131/149,232/238,233/249,248/254,180/191,243/243,249/271,,,Lacombe et al. 2013,,,
+ALGEMRE KIRMIZI,,,,,,,,131/149,232/236,239/243,238/248,178/186,227/235,249/271,,,Lacombe et al. 2013,,,
+ARBARA,,,,,,,,137/149,223/238,249/253,254/270,182/182,247/259,249/251,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   822,,,,,,,,141/141,234/236,249/253,248/254,178/191,227/233,255/271,,,Lacombe et al. 2013,,,
+AVGOUSTIATIS,,,,,,,,131/145,223/238,249/262,238/254,178/178,227/245,249/257,,,Lacombe et al. 2013,,,
+ALBA MAGNA,,,,,,,,141/149,232/236,243/249,248/254,176/186,227/235,271/271,,,Lacombe et al. 2013,,,
+BOTELHEIRA,,,,,,,,131/151,225/236,239/239,238/240,178/191,235/247,263/271,,,Lacombe et al. 2013,,,
+COUDERC   146- 41,,,,,,,,131/131,223/232,247/249,238/240,182/184,247/259,251/271,,,Lacombe et al. 2013,,,
+CRISTAL,,,,,,,,131/133,225/225,233/239,238/254,182/191,216/243,239/271,,,Lacombe et al. 2013,,,
+CONCORDIA,,,,,,,,131/151,223/229,249/249,240/240,176/186,243/247,239/271,,,Lacombe et al. 2013,,,
+CONFOISI,,,,,,,,133/143,223/229,249/255,240/254,178/191,233/259,247/255,,,Lacombe et al. 2013,,,
+CRIMPOSIE,,,,,,,,131/135,223/238,239/249,240/254,180/191,243/243,239/249,,,Lacombe et al. 2013,,,
+COUDERC   122- 20,,,,,,,,128/147,229/232,243/253,248/254,191/191,233/243,249/273,,,Lacombe et al. 2013,,,
+ALJAMI,,,,,,,,131/131,225/232,239/257,240/254,172/176,245/247,255/271,,,Lacombe et al. 2013,,,
+COUDERC   582-  4,,,,,,,,131/149,223/225,239/239,238/248,176/186,227/247,239/251,,,Lacombe et al. 2013,,,
+BRUNI 906,,,,,,,,133/149,232/234,247/253,248/254,176/191,243/243,271/271,,,Lacombe et al. 2013,,,
+CASTEL  5938,,,,,,,,149/149,232/238,249/253,248/248,182/191,247/257,251/259,,,Lacombe et al. 2013,,,
+ALVILHA,,,,,,,,131/153,223/232,239/249,238/254,176/186,245/267,239/239,,,Lacombe et al. 2013,,,
+COT PRECOCE DE TOURS,,,,,,,,137/137,223/236,239/239,238/238,176/186,233/245,239/271,,,Lacombe et al. 2013,,,
+ALBANINA NERA,,,,,,,,141/149,232/236,239/243,248/254,176/186,216/227,239/249,,,Lacombe et al. 2013,,,
+CASTEL  2041,,,,,,,,141/149,223/229,239/249,238/254,176/178,245/247,271/271,,,Lacombe et al. 2013,,,
+BURDIN  4655,,,,,,,,131/149,232/234,247/253,240/248,176/178,216/233,249/271,,,Lacombe et al. 2013,,,
+COUDERC  2859,,,,,,,,133/135,225/234,245/249,238/254,182/191,257/274,255/271,,,Lacombe et al. 2013,,,
+COUDERC   215- 17,,,,,,,,133/149,223/232,249/255,248/254,182/182,243/247,259/271,,,Lacombe et al. 2013,,,
+DELAWARE WHITE,,,,,,,,131/149,229/238,249/257,240/248,186/186,235/247,249/251,,,Lacombe et al. 2013,,,
+COUDERC   215- 19,,,,,,,,131/135,229/236,239/243,248/254,182/182,233/243,261/271,,,Lacombe et al. 2013,,,
+AT BOGRY,,,,,,,,149/153,225/236,239/247,240/254,176/182,243/263,251/271,,,Lacombe et al. 2013,,,
+ABROFI,,,,,,,,131/143,223/232,243/247,240/240,176/178,233/257,239/255,,,Lacombe et al. 2013,,,
+COUDERC   162-  5,,,,,,,,131/153,223/234,239/249,240/248,176/182,233/267,257/271,,,Lacombe et al. 2013,,,
+ALSACIEN,,,,,,,,137/149,234/236,239/257,238/248,172/186,235/243,239/273,,,Lacombe et al. 2013,,,
+BRATKOVINA BIJELA,,,,,,,,141/141,236/244,239/249,248/254,184/186,247/259,251/257,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  2846,,,,,,,,131/143,229/234,243/247,238/240,176/182,233/245,251/261,,,Lacombe et al. 2013,,,
+COUDERC  1613- 57,,,,,,,,131/147,236/236,243/247,238/248,176/191,235/247,251/271,,,Lacombe et al. 2013,,,
+CARIGNAN BLANC,,,,,,,,131/141,223/238,249/249,238/248,172/182,243/257,249/261,,,Lacombe et al. 2013,,,
+BURNET,,,,,,,,149/149,223/238,249/249,254/254,176/182,247/259,249/251,,,Lacombe et al. 2013,,,
+ASPIRAN GRIS,,,,,,,,131/135,223/236,243/249,238/254,176/191,233/247,239/251,,,Lacombe et al. 2013,,,
+CHERGVALI,,,,,,,,131/143,229/229,239/239,240/240,176/186,227/267,239/263,,,Lacombe et al. 2013,,,
+CHERKERO TSIBIL,,,,,,,,131/143,229/229,239/249,240/248,176/176,227/243,239/271,,,Lacombe et al. 2013,,,
+COUDERC   216-  2,,,,,,,,131/135,223/232,233/249,240/254,176/180,233/247,261/271,,,Lacombe et al. 2013,,,
+ATSLIZH,,,,,,,,131/149,234/236,247/249,238/254,178/182,253/259,249/251,,,Lacombe et al. 2013,,,
+BURDIN  4555,,,,,,,,139/149,232/238,253/253,248/254,178/191,216/243,249/255,,,Lacombe et al. 2013,,,
+ATTILIO RAGIONIERI,,,,,,,,149/149,225/236,239/249,254/262,176/182,259/263,249/271,,,Lacombe et al. 2013,,,
+DOGRU CUBUK,,,,,,,,147/149,225/236,239/251,248/254,176/191,243/259,263/271,,,Lacombe et al. 2013,,,
+BEL CASTEL,,,,,,,,133/149,236/238,249/253,248/254,182/191,243/243,255/271,,,Lacombe et al. 2013,,,
+BABAL,,,,,,,,131/133,225/238,239/247,240/254,186/191,216/235,239/255,,,Lacombe et al. 2013,,,
+CALLO,,,,,,,,133/143,234/236,243/249,238/240,178/191,233/259,255/271,,,Lacombe et al. 2013,,,
+CARCAGNETTO,,,,,,,,139/149,236/244,239/247,240/248,176/178,235/257,271/271,,,Lacombe et al. 2013,,,
+BOVERY,,,,,,,,131/133,225/244,239/239,238/254,178/191,235/247,255/263,,,Lacombe et al. 2013,,,
+CORVINA GENTILE,,,,,,,,141/149,229/238,243/249,248/248,176/178,227/245,271/271,,,Lacombe et al. 2013,,,
+COUDERC   175,,,,,,,,135/143,223/234,239/249,240/254,176/178,233/233,251/255,,,Lacombe et al. 2013,,,
+BOEGRUEL KARA,,,,,,,,131/133,229/236,239/239,238/258,178/182,235/257,239/251,,,Lacombe et al. 2013,,,
+ALTINTAS,,,,,,,,131/131,223/238,249/253,238/240,176/186,233/247,239/251,,,Lacombe et al. 2013,,,
+ALOGLU,,,,,,,,131/149,223/236,239/239,238/248,178/186,233/257,251/271,,,Lacombe et al. 2013,,,
+ARIZUL,,,,,,,,141/141,223/225,239/249,254/254,178/186,227/245,251/263,,,Lacombe et al. 2013,,,
+AL HAGHI,,,,,,,,133/149,223/236,243/247,248/254,178/191,227/235,271/271,,,Lacombe et al. 2013,,,
+COUDERC    64- 19,,,,,,,,135/149,229/232,239/257,238/248,186/186,227/233,239/271,,,Lacombe et al. 2013,,,
+AHMEH SAL A PEPIN,,,,,,,,131/141,223/238,239/249,240/254,186/191,257/257,255/271,,,Lacombe et al. 2013,,,
+AGHBIZH,,,,,,,,131/141,223/223,239/243,238/266,176/186,247/257,239/249,,,Lacombe et al. 2013,,,
+ANGELA,,,,,,,,131/149,225/225,233/243,248/248,182/191,216/267,271/271,,,Lacombe et al. 2013,,,
+DZHURA USYUM,,,,,,,,141/149,229/236,257/262,248/254,186/186,233/233,251/271,,,Lacombe et al. 2013,,,
+CALDARESE NERO,,,,,,,,149/149,236/238,249/253,254/254,176/182,243/259,251/261,,,Lacombe et al. 2013,,,
+BRESANO,,,,,,,,131/133,223/238,239/239,238/240,176/178,233/235,255/271,,,Lacombe et al. 2013,,,
+ARHE ZEINAH,,,,,,,,131/133,239/244,239/239,238/254,178/191,235/235,263/271,,,Lacombe et al. 2013,,,
+CORREDERA,,,,,,,,141/141,234/238,247/257,254/254,182/186,216/233,239/271,,,Lacombe et al. 2013,,,
+ADELAIDE,,,,,,,,131/131,223/236,243/249,238/240,176/191,235/257,239/239,,,Lacombe et al. 2013,,,
+COUDERC  1203,,,,,,,,133/151,223/234,247/247,240/254,186/191,227/243,239/271,,,Lacombe et al. 2013,,,
+ATURKUZH,,,,,,,,133/133,234/234,247/247,254/254,182/182,243/243,251/271,,,Lacombe et al. 2013,,,
+COUDERC   337- 50,,,,,,,,145/149,223/229,239/239,248/254,178/186,227/257,239/239,,,Lacombe et al. 2013,,,
+BORDE,,,,,,,,131/137,225/229,239/239,238/238,186/186,233/233,239/239,,,Lacombe et al. 2013,,,
+BORDO,,,,,,,,137/149,225/229,239/239,238/248,186/186,235/267,239/239,,,Lacombe et al. 2013,,,
+BORGESA NERA,,,,,,,,137/149,225/229,239/262,238/248,186/188,233/267,239/251,,,Lacombe et al. 2013,,,
+ALJIBE,,,,,,,,137/149,229/238,239/239,238/248,172/186,233/235,239/239,,,Lacombe et al. 2013,,,
+DURASA,,,,,,,,137/149,223/238,239/249,238/262,172/186,233/243,239/239,,,Lacombe et al. 2013,,,
+COUDERC  6055,,,,,,,,133/149,232/234,243/249,254/262,182/182,233/257,251/271,,,Lacombe et al. 2013,,,
+COUDERC   404,,,,,,,,131/131,223/225,239/249,238/238,176/178,227/263,251/255,,,Lacombe et al. 2013,,,
+BOERNER,,,,,,,,141/149,219/223,239/262,254/254,178/186,233/235,239/239,,,Lacombe et al. 2013,,,
+CORBEAU,,,,,,,,143/149,223/236,239/239,240/248,188/191,233/243,239/251,,,Lacombe et al. 2013,,,
+BLEFANO,,,,,,,,131/141,234/238,239/249,240/254,178/186,235/257,239/239,,,Lacombe et al. 2013,,,
+AMBECON,,,,,,,,137/149,234/236,239/243,238/248,172/186,233/243,239/239,,,Lacombe et al. 2013,,,
+BURDIN  4650,,,,,,,,141/149,229/232,239/239,246/248,191/191,216/243,249/273,,,Lacombe et al. 2013,,,
+CONCORD CHASSELAS,,,,,,,,133/147,225/236,247/249,248/254,178/191,243/243,251/271,,,Lacombe et al. 2013,,,
+ARAMONT,,,,,,,,131/143,225/236,239/239,240/240,178/182,243/247,251/271,,,Lacombe et al. 2013,,,
+ABKHASURA SHARI,,,,,,,,141/143,223/225,239/239,240/254,178/182,247/257,249/251,,,Lacombe et al. 2013,,,
+CSOKONAI,,,,,,,,131/149,223/232,239/239,240/248,178/188,227/243,239/249,,,Lacombe et al. 2013,,,
+COUDERC    85-  1,,,,,,,,133/133,234/236,249/255,254/254,176/182,243/267,271/271,,,Lacombe et al. 2013,,,
+ALLAIR,,,,,,,,137/145,223/236,239/262,238/254,172/186,235/247,239/239,,,Lacombe et al. 2013,,,
+CURNICCHIA,,,,,,,,141/149,223/236,239/257,248/254,176/186,235/247,239/255,,,Lacombe et al. 2013,,,
+BOJANKA BELA,,,,,,,,141/143,234/236,243/257,240/254,176/178,235/247,251/251,,,Lacombe et al. 2013,,,
+EARLY DELMONICO,,,,,,,,141/155,223/234,239/239,248/254,180/182,257/257,251/255,,,Lacombe et al. 2013,,,
+ANDIZHANSKII CHERNYI,,,,,,,,131/149,234/236,239/243,248/248,172/186,227/233,239/239,,,Lacombe et al. 2013,,,
+CRUINO,,,,,,,,133/133,229/234,245/249,238/254,182/191,239/243,251/271,,,Lacombe et al. 2013,,,
+BEYAZIREK,,,,,,,,141/149,223/223,239/249,254/254,176/176,227/235,249/251,,,Lacombe et al. 2013,,,
+COUDERC  4986,,,,,,,,131/141,223/223,239/262,240/254,176/182,227/233,251/255,,,Lacombe et al. 2013,,,
+COUDERC PINEAU,,,,,,,,141/141,232/236,239/249,248/254,176/182,233/259,251/263,,,Lacombe et al. 2013,,,
+CAROLINE BURY,,,,,,,,133/147,225/229,249/251,238/248,176/186,243/243,257/271,,,Lacombe et al. 2013,,,
+ALBANELLO,,,,,,,,141/149,225/225,243/253,248/254,182/191,216/259,263/271,,,Lacombe et al. 2013,,,
+JINESHI,,,,,,,,131/147,225/234,239/253,240/248,176/176,216/257,249/271,,,Lacombe et al. 2013,,,
+DOMENECH,,,,,,,,131/137,238/238,239/239,238/238,180/186,257/257,255/271,,,Lacombe et al. 2013,,,
+BRETON BLANC,,,,,,,,133/149,225/236,247/249,248/254,176/180,257/257,251/271,,,Lacombe et al. 2013,,,
+AUWI SAFID,,,,,,,,149/149,225/238,239/243,248/248,176/186,243/243,271/271,,,Lacombe et al. 2013,,,
+COUDERC    82- 12,,,,,,,,131/135,225/236,243/247,238/240,182/186,227/267,239/239,,,Lacombe et al. 2013,,,
+ARGAMUSA,,,,,,,,131/141,225/234,239/247,240/254,182/186,216/267,239/239,,,Lacombe et al. 2013,,,
+ARNASCA,,,,,,,,133/149,223/225,247/257,248/254,186/186,235/257,239/271,,,Lacombe et al. 2013,,,
+ZEINI BALADI,,,,,,,,135/141,234/236,233/243,238/254,176/182,233/247,239/271,,,Lacombe et al. 2013,,,
+BIBORKADARKA,,,,,,,,131/131,223/234,247/262,240/240,176/180,233/245,251/251,,,Lacombe et al. 2013,,,
+ABBRUZZESE BIANCA,,,,,,,,131/131,223/223,243/247,238/248,176/178,227/233,255/261,,,Lacombe et al. 2013,,,
+ARAMON BOUSCHET 9,,,,,,,,131/131,223/236,243/247,240/248,176/186,227/259,249/255,,,Lacombe et al. 2013,,,
+BABA HASSAN,,,,,,,,131/131,225/234,239/243,238/240,176/182,257/267,239/263,,,Lacombe et al. 2013,,,
+BABATE,,,,,,,,131/141,225/232,239/239,238/240,178/180,235/257,261/261,,,Lacombe et al. 2013,,,
+ABOQUEL BLANCO,,,,,,,,135/149,223/229,239/249,240/262,176/188,227/257,255/261,,,Lacombe et al. 2013,,,
+ABSHILURI,,,,,,,,131/141,234/244,239/247,240/248,178/182,216/235,239/263,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   413,,,,,,,,131/149,223/229,239/249,240/248,182/186,257/263,239/239,,,Lacombe et al. 2013,,,
+COUNOISE,,,,,,,,141/149,229/236,239/253,248/254,178/186,233/233,239/255,,,Lacombe et al. 2013,,,
+AUXERROIS,,,,,,,,131/133,234/236,247/255,238/254,176/182,227/259,251/251,,,Lacombe et al. 2013,,,
+COUDERC  3311,,,,,,,,143/147,225/244,239/253,244/254,180/180,235/257,251/261,,,Lacombe et al. 2013,,,
+BERKI JOZSEF,,,,,,,,131/151,223/234,247/251,240/244,176/182,216/257,239/271,,,Lacombe et al. 2013,,,
+COUDERC  2627- 11,,,,,,,,135/149,236/238,243/249,238/248,176/182,227/267,271/271,,,Lacombe et al. 2013,,,
+BUIST,,,,,,,,135/141,234/238,243/249,238/248,176/182,233/257,271/271,,,Lacombe et al. 2013,,,
+BABACAN AZEZI,,,,,,,,141/153,225/236,247/247,240/254,182/186,216/235,239/271,,,Lacombe et al. 2013,,,
+AHUMAT,,,,,,,,131/149,223/225,239/243,238/248,176/182,243/267,255/261,,,Lacombe et al. 2013,,,
+ALLIANA BIANCA,,,,,,,,131/149,225/236,239/262,238/248,186/188,233/267,239/251,,,Lacombe et al. 2013,,,
+ANGELICA NERA,,,,,,,,131/141,223/238,239/249,240/254,178/186,243/257,239/255,,,Lacombe et al. 2013,,,
+AMASYA,,,,,,,,149/149,223/229,239/243,248/262,182/182,257/257,255/255,,,Lacombe et al. 2013,,,
+COUDERC    24,,,,,,,,131/143,229/238,239/257,240/240,176/191,243/257,239/261,,,Lacombe et al. 2013,,,
+CASTEL  6961,,,,,,,,131/131,223/238,239/249,238/238,182/182,259/259,249/263,,,Lacombe et al. 2013,,,
+COUDERC  1305,,,,,,,,131/147,225/225,249/249,240/248,186/191,243/267,255/263,,,Lacombe et al. 2013,,,
+BOTTONINO BIANCO,,,,,,,,131/131,236/238,239/249,238/238,176/178,233/233,247/263,,,Lacombe et al. 2013,,,
+COUDERC  4306,,,,,,,,149/149,229/238,243/247,248/248,178/186,227/235,251/271,,,Lacombe et al. 2013,,,
+ALBEMARLE,,,,,,,,131/137,223/244,239/249,238/240,178/182,243/257,251/255,,,Lacombe et al. 2013,,,
+ATALAYA,,,,,,,,133/149,232/234,247/249,240/244,176/180,257/257,249/271,,,Lacombe et al. 2013,,,
+CROXU GUSSU,,,,,,,,131/143,234/236,243/247,238/240,182/186,243/245,251/251,,,Lacombe et al. 2013,,,
+ALARIJE,,,,,,,,131/153,223/232,249/253,238/254,176/182,243/245,255/271,,,Lacombe et al. 2013,,,
+ALB EL TAIR,,,,,,,,131/149,236/238,239/243,248/254,178/186,216/245,239/271,,,Lacombe et al. 2013,,,
+COMPLEXA,,,,,,,,147/149,229/232,249/249,244/254,180/182,235/257,271/271,,,Lacombe et al. 2013,,,
+DALMASSO 15-28,,,,,,,,131/147,223/229,247/249,238/248,182/182,243/257,271/271,,,Lacombe et al. 2013,,,
+COMMANDEUR,,,,,,,,131/149,225/232,239/249,240/244,176/182,216/257,239/271,,,Lacombe et al. 2013,,,
+ALEXANDROOULI,,,,,,,,133/141,232/244,243/249,244/254,176/180,243/257,271/271,,,Lacombe et al. 2013,,,
+CHAMSAR SAFID,,,,,,,,141/147,229/234,247/249,240/248,176/182,243/267,239/263,,,Lacombe et al. 2013,,,
+HASTAKOT,,,,,,,,135/141,234/234,247/249,240/248,176/182,233/243,255/273,,,Lacombe et al. 2013,,,
+COMTE ODART,,,,,,,,133/147,223/229,239/249,248/248,182/191,233/267,271/271,,,Lacombe et al. 2013,,,
+COUDERC   219,,,,,,,,131/133,223/232,233/239,254/254,180/182,243/257,261/271,,,Lacombe et al. 2013,,,
+COSMO  95,,,,,,,,133/143,232/232,247/249,238/254,176/178,235/243,249/271,,,Lacombe et al. 2013,,,
+DAVIS K 51- 32,,,,,,,,135/149,225/236,239/243,248/248,186/186,216/235,239/271,,,Lacombe et al. 2013,,,
+CHUKURAK,,,,,,,,137/149,223/236,249/253,254/270,182/191,233/259,251/251,,,Lacombe et al. 2013,,,
+BASAR KARA,,,,,,,,133/135,236/236,243/247,238/254,176/176,233/235,271/271,,,Lacombe et al. 2013,,,
+BON LAURENT,,,,,,,,141/149,232/236,243/253,254/254,178/182,233/259,251/271,,,Lacombe et al. 2013,,,
+CROATINA BIANCA,,,,,,,,141/143,232/236,239/253,240/254,176/178,247/257,251/271,,,Lacombe et al. 2013,,,
+DARWIN,,,,,,,,131/149,225/234,239/239,238/248,176/191,235/257,251/271,,,Lacombe et al. 2013,,,
+AUBUN,,,,,,,,131/141,225/236,239/239,238/248,176/178,227/235,255/271,,,Lacombe et al. 2013,,,
+BREGIN NOIR,,,,,,,,141/141,238/244,239/249,248/254,176/178,233/245,249/263,,,Lacombe et al. 2013,,,
+CROATINA DI ROVESCALA,,,,,,,,141/143,229/234,239/243,240/248,176/176,257/257,251/271,,,Lacombe et al. 2013,,,
+COLOSSO,,,,,,,,147/149,225/225,247/249,248/248,182/191,234/243,271/271,,,Lacombe et al. 2013,,,
+COUDERC    96- 32,,,,,,,,131/141,225/236,243/247,238/240,178/186,216/267,239/239,,,Lacombe et al. 2013,,,
+COUDERC  1206,,,,,,,,133/141,223/236,239/243,248/254,176/178,235/245,271/271,,,Lacombe et al. 2013,,,
+BIANCU GENTILE,,,,,,,,131/143,229/229,243/249,240/240,182/191,233/235,249/261,,,Lacombe et al. 2013,,,
+AMATOSA,,,,,,,,141/149,229/236,257/262,248/254,176/178,235/247,239/251,,,Lacombe et al. 2013,,,
+ATAVITE,,,,,,,,133/149,225/234,239/247,254/262,178/182,243/263,249/271,,,Lacombe et al. 2013,,,
+AZAREOU,,,,,,,,131/133,234/236,239/243,240/254,182/191,257/267,239/273,,,Lacombe et al. 2013,,,
+ASPILLA,,,,,,,,131/131,225/229,247/251,240/248,176/182,243/267,271/271,,,Lacombe et al. 2013,,,
+COUDERC   639- 15,,,,,,,,131/141,223/225,247/249,240/254,182/186,243/257,255/261,,,Lacombe et al. 2013,,,
+ANCORAT,,,,,,,,137/149,223/236,243/249,238/248,176/186,233/267,239/271,,,Lacombe et al. 2013,,,
+AHMET UEZUEMUE,,,,,,,,131/135,223/225,239/249,238/240,176/186,227/243,239/271,,,Lacombe et al. 2013,,,
+CAILLAN BLANC,,,,,,,,131/133,234/236,247/249,240/254,176/182,243/267,271/271,,,Lacombe et al. 2013,,,
+COSMO   4,,,,,,,,131/137,223/234,239/247,238/240,182/184,227/243,239/239,,,Lacombe et al. 2013,,,
+COUDERC  3303,,,,,,,,131/141,236/244,239/247,238/248,176/176,233/259,251/263,,,Lacombe et al. 2013,,,
+COERTUEK AZIZI,,,,,,,,131/149,234/236,239/247,240/248,178/186,243/247,239/271,,,Lacombe et al. 2013,,,
+CLARISSA,,,,,,,,141/149,223/225,239/257,248/254,186/186,227/227,249/251,,,Lacombe et al. 2013,,,
+COUDERC   199- 81,,,,,,,,149/153,236/238,239/249,238/254,172/182,233/233,239/255,,,Lacombe et al. 2013,,,
+ALGARVIA,,,,,,,,133/149,232/236,247/249,248/254,178/182,233/243,271/271,,,Lacombe et al. 2013,,,
+BEKTAS,,,,,,,,131/131,225/236,243/243,238/240,176/191,247/257,239/251,,,Lacombe et al. 2013,,,
+DALMASSO 15-33,,,,,,,,131/133,232/232,233/249,240/254,176/180,243/257,249/249,,,Lacombe et al. 2013,,,
+ALPHA,,,,,,,,133/143,223/234,243/247,240/254,182/191,243/257,239/249,,,Lacombe et al. 2013,,,
+CLAYTON,,,,,,,,133/149,225/234,239/249,238/248,191/191,216/257,249/251,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   893,,,,,,,,133/135,223/223,239/243,254/254,182/191,247/257,239/271,,,Lacombe et al. 2013,,,
+COUDERC    92- 21,,,,,,,,133/143,232/234,243/253,238/254,191/191,243/247,249/251,,,Lacombe et al. 2013,,,
+BURDIN  4517,,,,,,,,131/133,234/234,243/249,238/254,178/191,247/257,251/271,,,Lacombe et al. 2013,,,
+AUGUSTA,,,,,,,,131/131,229/238,239/249,240/248,178/186,247/267,239/251,,,Lacombe et al. 2013,,,
+COUDERC  1106,,,,,,,,131/133,223/225,239/247,240/254,178/186,216/235,239/271,,,Lacombe et al. 2013,,,
+COUDERC    85-113,,,,,,,,131/133,229/232,249/253,240/254,176/182,233/243,249/271,,,Lacombe et al. 2013,,,
+CORVINA ROTUNDA,,,,,,,,133/133,236/236,239/249,254/254,182/191,243/253,255/271,,,Lacombe et al. 2013,,,
+BOURBOULENC,,,,,,,,131/141,223/229,239/239,240/248,176/182,227/276,255/271,,,Lacombe et al. 2013,,,
+BARTLETT,,,,,,,,135/147,236/236,233/247,238/248,176/176,243/247,239/271,,,Lacombe et al. 2013,,,
+ARIS (4N),,,,,,,,141/141,223/232,239/249,254/254,176/178,233/245,239/251,,,Lacombe et al. 2013,,,
+COUDERC  7201,,,,,,,,131/133,236/236,251/255,238/238,182/191,243/257,261/271,,,Lacombe et al. 2013,,,
+COUDERC  7502,,,,,,,,131/133,223/232,239/249,238/254,182/182,243/257,251/261,,,Lacombe et al. 2013,,,
+DOLCIAME,,,,,,,,137/137,223/234,239/239,238/238,186/188,227/233,239/239,,,Lacombe et al. 2013,,,
+BRATKOVINA CRNA,,,,,,,,131/131,223/234,247/253,248/254,182/191,247/259,247/251,,,Lacombe et al. 2013,,,
+CASTEL  7229,,,,,,,,131/131,234/238,247/249,238/248,191/191,227/259,251/263,,,Lacombe et al. 2013,,,
+BOU KHANZIR NOIR,,,,,,,,133/135,234/236,239/247,238/254,176/191,216/235,271/271,,,Lacombe et al. 2013,,,
+ALPONOURA,,,,,,,,131/149,229/234,239/243,248/248,182/186,233/243,239/239,,,Lacombe et al. 2013,,,
+CANDIVE BLANCHE,,,,,,,,131/133,225/238,233/239,240/254,182/186,227/233,249/255,,,Lacombe et al. 2013,,,
+CELINE,,,,,,,,131/141,225/234,239/262,240/254,182/182,235/243,255/271,,,Lacombe et al. 2013,,,
+BLAUFRAENKISCH (4N),,,,,,,,131/143,234/238,239/247,240/240,176/178,235/243,239/271,,,Lacombe et al. 2013,,,
+COUDERC    97- 16,,,,,,,,131/149,223/232,239/253,240/248,178/180,245/247,271/271,,,Lacombe et al. 2013,,,
+ALINE BURY,,,,,,,,131/149,223/232,239/239,238/248,178/186,245/257,239/271,,,Lacombe et al. 2013,,,
+CHENANSON,,,,,,,,131/133,229/234,239/249,248/254,176/191,247/267,257/263,,,Lacombe et al. 2013,,,
+COUDERC  1208,,,,,,,,149/149,223/225,243/257,248/248,178/191,227/233,251/271,,,Lacombe et al. 2013,,,
+BARTHAINER GRUEN,,,,,,,,131/133,223/236,247/251,248/254,182/191,235/243,251/271,,,Lacombe et al. 2013,,,
+AUGSTER BLAU,,,,,,,,149/153,225/234,247/249,240/254,182/182,243/259,251/271,,,Lacombe et al. 2013,,,
+ALEXANDROULI TETRI,,,,,,,,135/141,225/232,243/249,238/254,176/186,216/227,239/271,,,Lacombe et al. 2013,,,
+ASPIRAN BOUSCHET,,,,,,,,131/131,225/225,243/253,238/238,176/182,235/243,255/255,,,Lacombe et al. 2013,,,
+BAHNUESI,,,,,,,,141/147,225/234,239/249,238/248,178/178,235/257,261/261,,,Lacombe et al. 2013,,,
+CARVALHAL ROVISCO,,,,,,,,133/141,229/234,243/247,248/254,176/182,243/257,251/251,,,Lacombe et al. 2013,,,
+ABORIETRAUBE,,,,,,,,131/151,223/238,239/249,238/240,176/191,227/247,263/271,,,Lacombe et al. 2013,,,
+COUDERC    87- 83,,,,,,,,131/133,223/236,247/249,238/254,176/178,233/235,239/271,,,Lacombe et al. 2013,,,
+CELLERINA,,,,,,,,131/149,223/223,239/262,240/240,176/182,227/233,251/255,,,Lacombe et al. 2013,,,
+BONAPARTE,,,,,,,,141/143,236/238,239/243,240/254,186/191,247/257,239/271,,,Lacombe et al. 2013,,,
+DEGIRMENCI,,,,,,,,131/153,229/236,239/262,238/254,186/186,233/245,239/239,,,Lacombe et al. 2013,,,
+ALBARANZEULI BIANCO,,,,,,,,131/135,232/236,239/249,238/238,178/186,216/245,239/271,,,Lacombe et al. 2013,,,
+ALBAROSSA,,,,,,,,135/141,225/238,243/249,238/254,176/186,227/235,249/271,,,Lacombe et al. 2013,,,
+COMUN BLANCA,,,,,,,,135/149,223/236,239/243,248/254,188/191,243/245,239/239,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  4176,,,,,,,,131/141,223/229,249/253,240/254,176/191,235/247,249/257,,,Lacombe et al. 2013,,,
+BLOOD,,,,,,,,141/149,219/238,239/249,254/262,176/191,233/257,239/271,,,Lacombe et al. 2013,,,
+CUZOVSKY,,,,,,,,141/149,223/238,239/239,254/262,180/191,243/257,239/271,,,Lacombe et al. 2013,,,
+ALVARINHO LILAS,,,,,,,,131/131,223/225,243/262,238/266,182/188,233/257,239/239,,,Lacombe et al. 2013,,,
+ACETO,,,,,,,,141/143,232/238,239/243,240/254,178/191,233/257,255/271,,,Lacombe et al. 2013,,,
+AVANA,,,,,,,,131/147,223/229,251/255,238/248,176/176,227/267,251/263,,,Lacombe et al. 2013,,,
+CANELA,,,,,,,,141/143,232/238,239/239,240/254,176/178,243/257,239/271,,,Lacombe et al. 2013,,,
+CASALZE,,,,,,,,131/147,229/236,247/249,240/248,180/191,267/267,255/271,,,Lacombe et al. 2013,,,
+CASTEL  6971,,,,,,,,131/151,236/238,239/249,238/240,178/191,233/247,247/271,,,Lacombe et al. 2013,,,
+CHONDROSTAFIDA,,,,,,,,133/133,232/236,239/249,254/254,176/176,235/243,249/271,,,Lacombe et al. 2013,,,
+CHAMPION AMBRE,,,,,,,,133/141,225/236,243/247,254/254,176/186,216/235,239/271,,,Lacombe et al. 2013,,,
+COUDERC  1304,,,,,,,,133/135,223/234,247/249,254/254,176/178,233/243,239/271,,,Lacombe et al. 2013,,,
+ARIMITO,,,,,,,,135/149,223/225,239/249,248/254,178/186,227/235,251/271,,,Lacombe et al. 2013,,,
+CASTEL  7501,,,,,,,,131/133,223/244,239/239,238/254,176/178,227/235,263/271,,,Lacombe et al. 2013,,,
+COUDERC   802,,,,,,,,131/141,223/236,239/249,238/254,176/182,257/267,239/255,,,Lacombe et al. 2013,,,
+CONCA D'ORO,,,,,,,,131/143,232/238,243/243,240/240,191/191,227/243,239/249,,,Lacombe et al. 2013,,,
+ANGUR SIEKH KALON,,,,,,,,137/149,223/232,239/243,248/270,178/180,235/243,239/249,,,Lacombe et al. 2013,,,
+COUDERC    87-115,,,,,,,,135/149,225/236,249/257,238/248,178/186,216/247,263/271,,,Lacombe et al. 2013,,,
+ASCERA NERA,,,,,,,,131/141,225/234,247/253,240/254,182/182,235/257,255/261,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  5813,,,,,,,,133/135,223/223,239/247,254/254,186/191,216/243,249/249,,,Lacombe et al. 2013,,,
+ABOURIOU,,,,,,,,135/143,223/238,239/243,240/254,191/191,243/243,239/249,,,Lacombe et al. 2013,,,
+BEYLERCE,,,,,,,,141/147,223/225,249/249,248/254,176/191,235/243,251/271,,,Lacombe et al. 2013,,,
+BONNET DE RETORD,,,,,,,,131/149,225/234,247/257,240/248,176/186,233/263,251/271,,,Lacombe et al. 2013,,,
+DON DOMINGO,,,,,,,,131/153,229/234,247/249,240/248,178/182,257/267,257/271,,,Lacombe et al. 2013,,,
+ALICANTE BOUSCHET X PIQUEPOUL GRIS 9,,,,,,,,131/135,232/236,239/249,238/238,178/182,216/227,249/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  1127,,,,,,,,131/137,234/236,239/262,238/248,182/186,227/247,239/239,,,Lacombe et al. 2013,,,
+AUGUSTA LUISE,,,,,,,,131/133,223/234,247/255,238/254,176/182,227/243,251/271,,,Lacombe et al. 2013,,,
+COUDERC   338- 84,,,,,,,,131/131,223/238,239/247,240/248,186/188,233/233,239/271,,,Lacombe et al. 2013,,,
+AMERSION,,,,,,,,137/149,229/236,239/257,238/248,186/186,227/233,239/239,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   450,,,,,,,,131/149,223/225,239/249,238/248,178/186,227/263,239/251,,,Lacombe et al. 2013,,,
+AUGUSTANA,,,,,,,,133/149,236/236,247/249,254/254,178/182,243/259,249/251,,,Lacombe et al. 2013,,,
+ALVAREJA,,,,,,,,131/141,223/238,239/249,238/254,186/186,247/257,239/239,,,Lacombe et al. 2013,,,
+ARNAVASSA,,,,,,,,131/135,223/236,243/249,238/254,176/191,233/247,239/271,,,Lacombe et al. 2013,,,
+AK DODI,,,,,,,,131/141,223/232,249/249,238/254,176/178,245/257,239/271,,,Lacombe et al. 2013,,,
+AK TEKEREK,,,,,,,,141/149,232/234,247/249,254/254,176/188,243/245,255/271,,,Lacombe et al. 2013,,,
+ALACA KARA,,,,,,,,141/149,225/238,249/262,248/254,178/186,235/245,249/271,,,Lacombe et al. 2013,,,
+ALZEY 23384,,,,,,,,131/153,234/234,247/249,238/254,176/186,233/253,239/255,,,Lacombe et al. 2013,,,
+COOK,,,,,,,,131/141,225/229,239/249,248/254,186/191,243/243,239/271,,,Lacombe et al. 2013,,,
+CAGNA,,,,,,,,141/141,229/229,239/247,248/248,176/182,243/257,261/261,,,Lacombe et al. 2013,,,
+CASCAROLO NERO,,,,,,,,131/141,225/236,247/247,238/238,176/191,247/276,251/263,,,Lacombe et al. 2013,,,
+BOUQUETRIESLING,,,,,,,,131/143,223/229,239/247,238/240,176/176,227/247,263/271,,,Lacombe et al. 2013,,,
+CHILYAKI BELYI LENINABADSKII,,,,,,,,131/131,229/229,247/249,238/240,176/186,243/247,263/263,,,Lacombe et al. 2013,,,
+ECOLE MONTPELLIER 142,,,,,,,,149/149,229/234,239/243,248/248,186/188,216/233,271/271,,,Lacombe et al. 2013,,,
+CROWN,,,,,,,,133/153,225/232,243/249,244/254,182/191,243/243,249/257,,,Lacombe et al. 2013,,,
+CUNNINGHAM,,,,,,,,133/133,229/238,239/249,238/254,186/191,243/247,255/257,,,Lacombe et al. 2013,,,
+ALUWE,,,,,,,,131/149,223/234,243/253,248/254,182/186,243/257,255/261,,,Lacombe et al. 2013,,,
+COUDERC     8,,,,,,,,141/147,225/229,239/253,244/248,178/191,243/243,249/273,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   540,,,,,,,,139/149,232/238,243/253,248/254,182/191,234/243,249/255,,,Lacombe et al. 2013,,,
+COUDERC     9-   3,,,,,,,,131/141,219/225,239/249,240/254,178/182,243/247,251/257,,,Lacombe et al. 2013,,,
+BLANC AUBA,,,,,,,,131/131,225/229,239/239,238/248,176/186,247/267,263/263,,,Lacombe et al. 2013,,,
+BARMAK GELIN,,,,,,,,131/141,229/234,247/251,248/254,182/191,233/243,239/263,,,Lacombe et al. 2013,,,
+BARTOLOMESA,,,,,,,,135/147,229/236,243/249,238/248,176/176,233/243,271/271,,,Lacombe et al. 2013,,,
+BLANQUECINA,,,,,,,,133/153,223/234,247/249,240/254,176/178,216/267,249/271,,,Lacombe et al. 2013,,,
+COUDERC    97- 95,,,,,,,,131/133,229/234,249/249,240/254,176/180,267/267,255/271,,,Lacombe et al. 2013,,,
+BALATON VIRAGA,,,,,,,,131/147,229/236,243/247,238/248,176/191,233/243,251/271,,,Lacombe et al. 2013,,,
+COUDERC    10,,,,,,,,131/131,223/234,243/247,238/240,176/176,233/233,261/271,,,Lacombe et al. 2013,,,
+CHAJMKA,,,,,,,,131/137,229/244,247/249,240/240,182/186,257/267,239/273,,,Lacombe et al. 2013,,,
+BOURECQ,,,,,,,,141/143,223/229,239/249,240/254,176/186,235/257,255/271,,,Lacombe et al. 2013,,,
+CASE,,,,,,,,131/151,223/232,239/249,238/240,178/191,227/247,271/271,,,Lacombe et al. 2013,,,
+BEKARI,,,,,,,,131/133,223/225,239/255,240/254,182/186,243/259,263/271,,,Lacombe et al. 2013,,,
+CASTEL  7821,,,,,,,,143/149,225/225,233/249,240/244,186/191,233/257,271/275,,,Lacombe et al. 2013,,,
+CHILYAKI CHERNYI,,,,,,,,131/149,225/236,247/247,240/268,186/186,245/267,239/239,,,Lacombe et al. 2013,,,
+CHASSELAS OBERLIN,,,,,,,,131/149,232/234,239/262,240/256,180/182,235/253,239/255,,,Lacombe et al. 2013,,,
+BRUN,,,,,,,,131/153,234/234,239/247,240/240,178/186,216/267,239/271,,,Lacombe et al. 2013,,,
+ALVEY,,,,,,,,131/149,223/232,239/239,238/248,176/178,245/267,239/271,,,Lacombe et al. 2013,,,
+ALVARIN NEGRA,,,,,,,,149/149,232/236,239/262,238/248,186/188,233/245,239/251,,,Lacombe et al. 2013,,,
+BOUQUETSYLVANER,,,,,,,,131/133,223/223,247/255,238/254,182/191,227/259,271/271,,,Lacombe et al. 2013,,,
+ARMARIE,,,,,,,,131/149,223/223,243/257,248/248,176/178,227/245,251/263,,,Lacombe et al. 2013,,,
+CARIGNAN GRIS,,,,,,,,141/147,234/238,233/249,254/270,176/176,233/235,251/255,,,Lacombe et al. 2013,,,
+CLAVERIE,,,,,,,,141/149,225/229,243/257,248/254,178/191,235/243,251/271,,,Lacombe et al. 2013,,,
+COUDERC  3301,,,,,,,,133/151,232/234,233/253,248/262,176/184,257/270,251/271,,,Lacombe et al. 2013,,,
+CUGLIOLA,,,,,,,,131/131,229/229,243/249,238/248,191/191,233/267,263/271,,,Lacombe et al. 2013,,,
+CASTEL 15204,,,,,,,,133/149,238/238,243/253,248/266,176/191,237/243,249/271,,,Lacombe et al. 2013,,,
+DONKICKA,,,,,,,,131/131,234/236,243/249,240/240,176/178,243/259,249/249,,,Lacombe et al. 2013,,,
+ALVARDRAO BRANCO,,,,,,,,139/149,223/229,239/245,240/248,176/182,233/257,255/257,,,Lacombe et al. 2013,,,
+BEITANOURI,,,,,,,,133/141,234/236,247/249,254/254,178/182,216/233,251/271,,,Lacombe et al. 2013,,,
+CHEROKEE,,,,,,,,133/143,223/238,247/255,240/254,176/191,235/267,247/271,,,Lacombe et al. 2013,,,
+BRUNI 624,,,,,,,,133/151,223/238,247/255,238/240,176/191,235/267,271/271,,,Lacombe et al. 2013,,,
+DAVIS J 17- 53,,,,,,,,133/141,223/229,247/247,248/254,182/191,243/259,251/271,,,Lacombe et al. 2013,,,
+COSMO 101,,,,,,,,131/131,225/234,243/247,238/240,176/182,216/245,239/263,,,Lacombe et al. 2013,,,
+CODEGA DO LARINHO,,,,,,,,149/153,223/234,247/257,240/248,182/186,227/235,271/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   872,,,,,,,,145/153,221/232,243/243,244/254,191/191,243/257,249/271,,,Lacombe et al. 2013,,,
+BRIDGEWATER,,,,,,,,143/149,225/232,239/249,240/248,178/186,243/247,249/271,,,Lacombe et al. 2013,,,
+CROUCHEN,,,,,,,,149/153,232/232,249/253,244/248,178/191,216/245,249/249,,,Lacombe et al. 2013,,,
+CACHORRO,,,,,,,,131/141,229/232,239/239,240/254,184/186,247/267,263/271,,,Lacombe et al. 2013,,,
+ATLAS,,,,,,,,133/151,234/238,233/253,240/248,176/184,257/270,271/271,,,Lacombe et al. 2013,,,
+DASH MARANDI,,,,,,,,122/153,232/232,243/253,240/244,182/191,243/243,257/271,,,Lacombe et al. 2013,,,
+GROS DORE,,,,,,,,141/149,229/232,249/257,248/254,178/186,227/233,249/271,,,Lacombe et al. 2013,,,
+ALI CELEBI,,,,,,,,141/149,225/232,239/239,248/254,176/186,227/235,239/249,,,Lacombe et al. 2013,,,
+DELLIKAFFSAR,,,,,,,,141/149,232/232,239/239,248/254,176/176,235/235,249/249,,,Lacombe et al. 2013,,,
+DELMAR,,,,,,,,141/141,232/232,239/239,254/254,176/186,235/235,249/249,,,Lacombe et al. 2013,,,
+COPI BLANC,,,,,,,,133/151,223/225,239/247,240/254,182/191,227/243,263/271,,,Lacombe et al. 2013,,,
+CHERNA PERLA,,,,,,,,131/131,223/225,239/249,238/240,176/186,227/267,239/263,,,Lacombe et al. 2013,,,
+COUDERC  3601,,,,,,,,143/153,232/234,243/247,238/240,178/182,243/243,239/271,,,Lacombe et al. 2013,,,
+BRUNI 123,,,,,,,,143/143,225/236,239/249,238/254,184/184,257/257,249/261,,,Lacombe et al. 2013,,,
+DORONA VENEZIANA,,,,,,,,141/149,232/236,243/249,248/254,176/182,216/227,239/271,,,Lacombe et al. 2013,,,
+DALNEVOSTOCHNYI RAMMINGA,,,,,,,,131/143,234/236,247/249,238/244,182/184,243/243,261/271,,,Lacombe et al. 2013,,,
+DARANYI IGNAC MUSKOTALY,,,,,,,,131/141,236/244,239/249,238/248,178/191,227/247,251/271,,,Lacombe et al. 2013,,,
+CHURCH SEEDLING,,,,,,,,131/131,244/244,239/247,238/238,176/182,233/259,251/271,,,Lacombe et al. 2013,,,
+DONA MARIA,,,,,,,,133/149,225/229,243/247,248/254,182/182,216/235,271/271,,,Lacombe et al. 2013,,,
+DASMARI,,,,,,,,141/143,225/234,249/253,238/248,182/186,257/257,261/271,,,Lacombe et al. 2013,,,
+DAVIS J 17- 58,,,,,,,,131/131,223/236,239/239,238/238,176/176,235/247,263/271,,,Lacombe et al. 2013,,,
+BOSSOLERA NERA,,,,,,,,131/141,232/238,239/249,240/254,178/184,233/247,251/271,,,Lacombe et al. 2013,,,
+CHUPESHI,,,,,,,,133/135,232/234,249/249,238/240,182/191,233/257,271/271,,,Lacombe et al. 2013,,,
+CHURRIAGO,,,,,,,,131/143,219/244,239/264,238/248,186/186,235/243,247/251,,,Lacombe et al. 2013,,,
+BRADDOCK,,,,,,,,131/143,225/244,243/253,240/240,178/186,243/257,261/271,,,Lacombe et al. 2013,,,
+CAMARATE VERMELHO,,,,,,,,131/141,223/234,239/249,240/254,172/180,243/247,239/271,,,Lacombe et al. 2013,,,
+BESTASSONA,,,,,,,,135/153,225/236,239/247,238/240,182/182,227/253,239/251,,,Lacombe et al. 2013,,,
+BRAENDLY,,,,,,,,131/131,225/244,233/239,238/238,176/178,235/245,239/255,,,Lacombe et al. 2013,,,
+ALICANTE ANGLAIS,,,,,,,,131/131,223/232,239/239,238/254,178/191,227/227,271/271,,,Lacombe et al. 2013,,,
+CASTEL 13012,,,,,,,,133/147,225/229,239/247,248/254,178/191,233/235,261/271,,,Lacombe et al. 2013,,,
+CHIMGAN,,,,,,,,131/141,225/238,239/249,240/254,176/178,233/267,239/271,,,Lacombe et al. 2013,,,
+ARROT,,,,,,,,143/153,225/234,247/247,240/248,182/182,233/245,251/261,,,Lacombe et al. 2013,,,
+COHEGI NERA,,,,,,,,135/153,232/236,239/249,238/254,178/186,216/267,239/239,,,Lacombe et al. 2013,,,
+ALBISORA,,,,,,,,141/141,223/238,239/249,248/254,176/191,245/245,249/271,,,Lacombe et al. 2013,,,
+ASPIRAN BLANC,,,,,,,,149/153,225/234,239/247,240/254,176/182,243/263,249/251,,,Lacombe et al. 2013,,,
+ABRAHAM BELANE,,,,,,,,131/143,225/238,239/249,240/240,182/191,235/247,255/257,,,Lacombe et al. 2013,,,
+COVE,,,,,,,,131/143,229/238,247/249,238/240,176/178,233/247,247/257,,,Lacombe et al. 2013,,,
+BALZIGER,,,,,,,,131/143,229/232,243/247,238/240,176/182,235/259,261/271,,,Lacombe et al. 2013,,,
+COMMANDANT,,,,,,,,131/153,223/234,247/255,238/248,182/182,233/243,261/271,,,Lacombe et al. 2013,,,
+BATUTA NEAGRA,,,,,,,,133/147,229/236,247/247,248/254,182/191,233/243,251/271,,,Lacombe et al. 2013,,,
+CASTEL    173- 38,,,,,,,,131/135,234/238,233/253,240/254,180/182,257/259,251/251,,,Lacombe et al. 2013,,,
+DELMERLIE,,,,,,,,135/149,225/232,243/249,248/254,176/186,227/233,251/271,,,Lacombe et al. 2013,,,
+BON ROUSSILLON,,,,,,,,141/149,229/229,251/262,248/254,178/182,257/267,239/251,,,Lacombe et al. 2013,,,
+ASSOUED KERE,,,,,,,,131/135,229/236,239/249,238/248,176/178,216/267,263/271,,,Lacombe et al. 2013,,,
+ACHARD,,,,,,,,131/143,232/234,239/239,238/240,186/191,235/257,249/255,,,Lacombe et al. 2013,,,
+ARSADERA BIANCA,,,,,,,,133/153,234/238,247/247,240/254,178/191,216/243,239/271,,,Lacombe et al. 2013,,,
+ARMSTRONG,,,,,,,,133/133,234/236,243/247,254/254,178/178,227/243,271/271,,,Lacombe et al. 2013,,,
+DEMERDZHIYA,,,,,,,,133/135,225/238,239/247,254/254,176/178,216/233,239/271,,,Lacombe et al. 2013,,,
+CASTEL  6519 R,,,,,,,,141/153,234/238,247/247,240/240,182/191,243/267,239/271,,,Lacombe et al. 2013,,,
+ARSADERA NERA,,,,,,,,149/153,225/234,243/247,240/248,178/186,216/243,251/271,,,Lacombe et al. 2013,,,
+ARSIN UEZUEMUE,,,,,,,,141/153,223/238,247/257,240/254,186/191,216/233,239/271,,,Lacombe et al. 2013,,,
+COUDERC    84- 16,,,,,,,,133/149,223/232,239/249,248/254,176/191,243/243,249/251,,,Lacombe et al. 2013,,,
+DAMET,,,,,,,,133/133,225/234,243/247,254/254,178/180,227/257,251/271,,,Lacombe et al. 2013,,,
+DAMIANA NERA,,,,,,,,131/133,229/234,247/249,240/254,176/182,216/257,257/271,,,Lacombe et al. 2013,,,
+DAMJANICH,,,,,,,,131/133,223/234,247/249,240/248,178/182,257/267,257/271,,,Lacombe et al. 2013,,,
+CHINDOUANI SAFID,,,,,,,,147/147,229/229,249/251,248/248,176/191,243/267,263/271,,,Lacombe et al. 2013,,,
+ANDOVER,,,,,,,,131/137,223/225,239/239,238/248,176/182,227/227,239/255,,,Lacombe et al. 2013,,,
+BIONDA BIANCA,,,,,,,,141/143,234/238,239/243,240/254,176/191,257/257,255/271,,,Lacombe et al. 2013,,,
+DIOLLE,,,,,,,,141/143,229/232,239/239,240/258,178/191,233/235,239/271,,,Lacombe et al. 2013,,,
+BIG HOPE,,,,,,,,143/143,223/238,239/253,238/240,176/176,247/253,251/255,,,Lacombe et al. 2013,,,
+RUPESTRIS MADERA ROJA,,,,,,,,133/147,225/234,247/251,248/254,176/182,243/267,251/263,,,Lacombe et al. 2013,,,
+CENTURIAN,,,,,,,,143/143,223/234,239/249,240/240,176/178,233/247,251/251,,,Lacombe et al. 2013,,,
+COUDERC   246-123,,,,,,,,141/149,232/232,239/243,248/254,178/191,227/243,249/249,,,Lacombe et al. 2013,,,
+ATCHAROULI CHAVI,,,,,,,,131/149,234/238,239/239,240/248,186/186,216/243,239/271,,,Lacombe et al. 2013,,,
+ANEB EL AMAR,,,,,,,,131/149,225/229,249/253,254/254,176/182,247/263,249/251,,,Lacombe et al. 2013,,,
+DOROI KRASNYI,,,,,,,,131/133,225/234,239/247,240/254,182/182,216/243,239/271,,,Lacombe et al. 2013,,,
+AMERICAN HAMBURG,,,,,,,,131/153,234/238,239/249,240/254,186/186,233/267,239/239,,,Lacombe et al. 2013,,,
+AGIORGITIKO,,,,,,,,131/131,223/225,239/253,240/240,178/182,245/257,261/261,,,Lacombe et al. 2013,,,
+CURVAL,,,,,,,,131/143,232/234,239/243,240/240,178/191,243/257,255/271,,,Lacombe et al. 2013,,,
+ASKAR,,,,,,,,131/141,229/238,249/249,248/254,184/186,233/243,239/271,,,Lacombe et al. 2013,,,
+AZEITEIRA,,,,,,,,133/141,225/238,247/247,254/254,186/191,216/257,239/255,,,Lacombe et al. 2013,,,
+COUDERC  5412,,,,,,,,131/133,223/244,239/249,238/254,182/191,235/267,255/261,,,Lacombe et al. 2013,,,
+ADOBE,,,,,,,,131/131,223/236,249/249,238/240,176/176,233/235,239/255,,,Lacombe et al. 2013,,,
+AIGENI SEV,,,,,,,,131/141,232/236,239/249,238/266,176/186,247/257,239/239,,,Lacombe et al. 2013,,,
+COUDERC    85- 16,,,,,,,,137/143,223/229,239/243,238/240,186/191,233/243,239/239,,,Lacombe et al. 2013,,,
+ANADIA TINTA,,,,,,,,131/149,227/229,239/249,248/248,182/188,227/233,239/239,,,Lacombe et al. 2013,,,
+BUGNOLINO,,,,,,,,141/141,223/229,239/239,254/254,180/186,235/243,251/257,,,Lacombe et al. 2013,,,
+BURGOME,,,,,,,,141/143,225/238,239/243,240/254,176/191,247/257,249/271,,,Lacombe et al. 2013,,,
+BERLANDIERI ECOLE,,,,,,,,131/141,225/236,251/257,248/254,176/191,235/267,263/271,,,Lacombe et al. 2013,,,
+ALLEN'S HYBRID,,,,,,,,137/149,223/234,239/247,238/248,186/188,227/233,239/239,,,Lacombe et al. 2013,,,
+ALMURA SHAVI,,,,,,,,149/149,223/234,239/247,248/248,186/188,227/245,239/271,,,Lacombe et al. 2013,,,
+AMBROSIA,,,,,,,,135/149,232/232,249/257,238/248,176/178,216/235,271/271,,,Lacombe et al. 2013,,,
+ALZUB,,,,,,,,131/131,229/232,239/239,238/240,172/176,227/233,271/271,,,Lacombe et al. 2013,,,
+CASTILLO DE ARCOS,,,,,,,,135/149,225/236,239/247,238/238,176/186,216/243,239/271,,,Lacombe et al. 2013,,,
+ALEPOU,,,,,,,,131/149,225/238,239/249,238/248,176/186,227/235,239/249,,,Lacombe et al. 2013,,,
+APILONGO,,,,,,,,147/147,229/236,247/247,240/248,176/182,243/257,261/271,,,Lacombe et al. 2013,,,
+CLIMAX,,,,,,,,131/131,229/234,243/247,238/240,176/178,233/267,271/271,,,Lacombe et al. 2013,,,
+COLUMBUS,,,,,,,,133/153,234/238,247/253,244/248,182/191,233/235,271/271,,,Lacombe et al. 2013,,,
+AT MEMESI,,,,,,,,135/143,234/236,243/249,238/240,182/184,257/257,249/255,,,Lacombe et al. 2013,,,
+COUDERC  1904,,,,,,,,131/141,234/238,239/247,240/248,176/178,216/245,263/271,,,Lacombe et al. 2013,,,
+BURDIN  4077,,,,,,,,131/133,225/238,239/249,238/240,182/186,233/243,255/257,,,Lacombe et al. 2013,,,
+COLORADO JARDIN MALEGUE,,,,,,,,141/141,234/234,239/247,248/248,176/182,243/257,271/273,,,Lacombe et al. 2013,,,
+AK KEKRE,,,,,,,,131/141,232/234,247/249,248/254,176/178,233/245,249/251,,,Lacombe et al. 2013,,,
+AITONYCHI MAVRO,,,,,,,,141/149,223/229,239/249,240/248,176/178,243/245,271/271,,,Lacombe et al. 2013,,,
+AJAKI ODIA,,,,,,,,131/137,225/229,239/260,238/240,186/186,216/216,239/239,,,Lacombe et al. 2013,,,
+AKABIL,,,,,,,,131/149,225/229,239/260,240/262,186/188,216/257,239/261,,,Lacombe et al. 2013,,,
+CONCHA,,,,,,,,135/141,223/232,239/239,240/254,178/191,227/243,239/249,,,Lacombe et al. 2013,,,
+BIANCO D'ALESSANO,,,,,,,,131/133,223/238,233/253,254/254,182/191,227/247,255/263,,,Lacombe et al. 2013,,,
+DINGIL KARA,,,,,,,,141/143,229/238,243/249,240/254,180/186,243/243,251/255,,,Lacombe et al. 2013,,,
+BERLAUSSEL,,,,,,,,141/147,225/236,249/257,248/254,176/186,235/243,263/271,,,Lacombe et al. 2013,,,
+BERLENGA,,,,,,,,141/147,225/238,249/257,248/254,176/191,243/257,271/271,,,Lacombe et al. 2013,,,
+DIRECTO BLANCO,,,,,,,,147/149,225/236,243/251,248/254,176/182,233/243,263/271,,,Lacombe et al. 2013,,,
+DONDGHLABI MTSVANE,,,,,,,,147/149,229/229,249/253,248/262,176/191,243/247,263/271,,,Lacombe et al. 2013,,,
+BACO BLANC,,,,,,,,131/131,223/225,247/251,240/248,176/182,267/267,261/263,,,Lacombe et al. 2013,,,
+BOFALI,,,,,,,,133/141,229/236,239/239,254/258,178/191,235/253,239/251,,,Lacombe et al. 2013,,,
+BOALISA,,,,,,,,141/143,225/229,239/243,240/254,180/191,243/253,239/251,,,Lacombe et al. 2013,,,
+COUDERC    88- 13,,,,,,,,131/137,225/234,239/247,238/240,182/182,243/247,239/251,,,Lacombe et al. 2013,,,
+AMANDA,,,,,,,,149/149,223/225,239/239,248/262,178/186,227/233,239/239,,,Lacombe et al. 2013,,,
+ADVANCE,,,,,,,,131/141,223/229,239/257,248/266,176/191,243/247,239/261,,,Lacombe et al. 2013,,,
+ADIRONDAC,,,,,,,,131/149,223/238,249/249,240/262,176/186,243/257,239/255,,,Lacombe et al. 2013,,,
+CIANORIE,,,,,,,,133/149,236/244,247/249,248/254,176/191,235/247,255/271,,,Lacombe et al. 2013,,,
+ALICANTE BOUSCHET  7,,,,,,,,141/149,223/225,247/257,248/254,178/178,233/243,251/251,,,Lacombe et al. 2013,,,
+BONALLABO,,,,,,,,135/149,223/234,249/253,248/254,178/186,247/247,251/255,,,Lacombe et al. 2013,,,
+ALMACEGA,,,,,,,,137/141,223/232,239/239,238/254,176/182,245/247,261/271,,,Lacombe et al. 2013,,,
+ARBANE NOIR,,,,,,,,131/131,225/234,233/249,240/248,176/191,245/267,263/271,,,Lacombe et al. 2013,,,
+ARBIXEDDA,,,,,,,,131/135,234/236,249/249,240/254,176/191,247/267,251/263,,,Lacombe et al. 2013,,,
+ARAMON BOUSCHET 7,,,,,,,,131/149,234/236,239/247,248/248,176/186,245/259,239/249,,,Lacombe et al. 2013,,,
+ALICE LEE,,,,,,,,131/147,225/229,249/251,248/248,176/191,243/267,263/271,,,Lacombe et al. 2013,,,
+ARGAJLARTO,,,,,,,,133/147,229/236,247/249,248/254,176/182,235/243,271/271,,,Lacombe et al. 2013,,,
+CIBELE,,,,,,,,131/153,229/238,251/253,244/248,176/176,233/243,255/263,,,Lacombe et al. 2013,,,
+ARCHINA,,,,,,,,131/131,225/234,247/249,240/248,176/182,245/267,239/271,,,Lacombe et al. 2013,,,
+ARAMON BOUSCHET 8,,,,,,,,131/131,223/225,239/243,238/240,176/186,216/257,239/263,,,Lacombe et al. 2013,,,
+ASKERI SARI,,,,,,,,131/131,223/225,243/247,238/240,176/186,216/257,239/263,,,Lacombe et al. 2013,,,
+ASPIGNAN 1,,,,,,,,147/149,225/225,239/249,248/254,176/182,259/267,271/271,,,Lacombe et al. 2013,,,
+BERLANDIERI D'ANGEAC,,,,,,,,131/143,234/238,239/247,238/248,176/191,257/267,239/255,,,Lacombe et al. 2013,,,
+ARMLONG,,,,,,,,131/149,236/236,233/247,240/248,178/191,216/227,271/271,,,Lacombe et al. 2013,,,
+ALGUMIA,,,,,,,,131/141,223/225,239/243,248/254,176/186,257/267,239/263,,,Lacombe et al. 2013,,,
+ASKUDI,,,,,,,,131/141,223/225,239/243,248/254,176/186,216/245,239/263,,,Lacombe et al. 2013,,,
+DLINNYI PALESTINSKII,,,,,,,,131/147,225/234,251/253,240/248,176/176,243/267,249/271,,,Lacombe et al. 2013,,,
+DONZELINHO TINTO,,,,,,,,131/133,234/234,233/247,248/254,176/178,216/267,263/271,,,Lacombe et al. 2013,,,
+CIARAS MUSKATNII,,,,,,,,131/147,225/229,233/249,240/248,176/182,235/245,263/271,,,Lacombe et al. 2013,,,
+DANCEVICKA,,,,,,,,133/141,229/244,239/239,238/254,191/191,233/235,251/257,,,Lacombe et al. 2013,,,
+ARMBRILONG,,,,,,,,131/149,223/232,243/249,248/248,176/178,227/245,251/263,,,Lacombe et al. 2013,,,
+ARKTIK,,,,,,,,141/141,223/225,239/257,254/254,178/186,233/245,251/263,,,Lacombe et al. 2013,,,
+BRUNI 183,,,,,,,,141/143,232/238,243/253,238/262,178/182,216/243,249/271,,,Lacombe et al. 2013,,,
+DIXIELAND,,,,,,,,133/149,223/234,249/249,244/254,180/182,243/257,249/271,,,Lacombe et al. 2013,,,
+BEZSEMENII,,,,,,,,133/137,223/223,247/249,238/254,182/182,253/267,239/261,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   453,,,,,,,,137/149,229/236,239/249,248/270,180/188,227/243,239/239,,,Lacombe et al. 2013,,,
+COUDERC   287 BIS A,,,,,,,,131/149,223/238,239/249,240/248,182/186,227/233,239/271,,,Lacombe et al. 2013,,,
+DERECHERO,,,,,,,,137/149,236/236,239/249,238/248,182/186,227/243,239/271,,,Lacombe et al. 2013,,,
+COUDERC    19- 21,,,,,,,,141/149,223/225,239/247,240/254,186/191,216/227,239/271,,,Lacombe et al. 2013,,,
+CRUARA,,,,,,,,133/135,223/234,243/249,240/240,182/182,257/257,251/255,,,Lacombe et al. 2013,,,
+AVOAL VERDEAL,,,,,,,,131/135,225/225,239/247,238/248,176/182,216/257,251/271,,,Lacombe et al. 2013,,,
+ASMI ASSOUAD,,,,,,,,131/135,225/225,243/249,238/240,176/186,216/257,251/271,,,Lacombe et al. 2013,,,
+DZHUNGA,,,,,,,,131/149,223/236,239/257,240/248,176/186,227/233,239/271,,,Lacombe et al. 2013,,,
+CASTEL 10221,,,,,,,,131/143,229/232,239/249,240/248,176/191,257/267,263/271,,,Lacombe et al. 2013,,,
+COLOMINO,,,,,,,,141/141,223/244,239/249,248/254,182/191,233/257,249/251,,,Lacombe et al. 2013,,,
+COINES,,,,,,,,131/149,232/236,239/239,238/248,176/186,267/267,239/239,,,Lacombe et al. 2013,,,
+BILAGANY,,,,,,,,131/135,232/234,233/251,254/254,180/191,243/247,261/271,,,Lacombe et al. 2013,,,
+COUDERC    20,,,,,,,,131/151,223/236,249/255,238/240,178/182,227/247,247/271,,,Lacombe et al. 2013,,,
+COUDERC    14,,,,,,,,135/141,225/236,239/243,238/248,176/186,216/235,255/271,,,Lacombe et al. 2013,,,
+CHASSELAS MUSQUE,,,,,,,,143/149,223/223,233/243,240/262,182/191,243/257,239/239,,,Lacombe et al. 2013,,,
+ACEBO,,,,,,,,133/135,223/232,239/243,238/254,176/180,257/259,249/271,,,Lacombe et al. 2013,,,
+AK UZYUM KITABSKII,,,,,,,,135/141,223/232,239/249,238/254,176/178,235/245,249/271,,,Lacombe et al. 2013,,,
+ANCELLOTTA,,,,,,,,131/149,223/236,239/257,248/248,186/188,233/257,239/271,,,Lacombe et al. 2013,,,
+BRUNOL TINTO,,,,,,,,133/141,232/244,243/247,248/254,178/182,257/257,249/251,,,Lacombe et al. 2013,,,
+BURROUGHS,,,,,,,,135/141,234/236,239/247,238/240,186/186,235/267,239/239,,,Lacombe et al. 2013,,,
+DAVIS J 17- 69,,,,,,,,131/133,223/244,247/255,238/254,182/191,227/247,263/271,,,Lacombe et al. 2013,,,
+CHARKA DE NIKITA,,,,,,,,141/147,234/244,239/247,248/248,178/178,243/257,261/271,,,Lacombe et al. 2013,,,
+CATACIK,,,,,,,,141/141,223/223,249/253,254/254,176/176,243/247,249/271,,,Lacombe et al. 2013,,,
+CHINCO BIANCO,,,,,,,,131/141,229/236,239/249,240/254,180/186,247/267,239/249,,,Lacombe et al. 2013,,,
+BURDIN 10010,,,,,,,,135/141,236/238,249/253,240/254,180/191,257/259,251/261,,,Lacombe et al. 2013,,,
+AG ALDARA,,,,,,,,131/133,225/232,239/243,240/254,182/191,257/259,249/255,,,Lacombe et al. 2013,,,
+CAPORTA 5 A,,,,,,,,133/143,232/244,239/249,238/254,178/182,235/243,249/271,,,Lacombe et al. 2013,,,
+DONZELINHO DO GALEGO,,,,,,,,133/153,223/234,247/249,240/254,178/182,216/257,257/271,,,Lacombe et al. 2013,,,
+COUDERC    22,,,,,,,,133/143,223/232,239/239,240/258,186/191,235/257,239/271,,,Lacombe et al. 2013,,,
+DOMMAR,,,,,,,,141/149,223/229,257/257,248/254,178/186,233/243,239/251,,,Lacombe et al. 2013,,,
+AGAR,,,,,,,,131/141,223/223,247/249,238/266,182/186,245/267,249/261,,,Lacombe et al. 2013,,,
+CANDOLLE ROUGE,,,,,,,,143/149,223/232,243/249,240/262,176/178,257/257,255/271,,,Lacombe et al. 2013,,,
+COUDERC   251-155,,,,,,,,133/143,232/236,253/255,238/254,182/191,216/243,249/251,,,Lacombe et al. 2013,,,
+COUDERC   252- 14,,,,,,,,133/143,232/238,243/253,238/254,186/191,216/243,249/271,,,Lacombe et al. 2013,,,
+COUDERC   261- 50,,,,,,,,131/131,225/225,239/249,240/248,182/191,233/267,257/263,,,Lacombe et al. 2013,,,
+BRIGHTS SEEDLING C,,,,,,,,131/141,238/244,239/239,238/248,176/191,233/233,255/263,,,Lacombe et al. 2013,,,
+AK UZYUM TAGAPSKII,,,,,,,,131/149,223/229,251/257,240/248,176/186,235/247,249/251,,,Lacombe et al. 2013,,,
+ALPHONSE LAVALLEE,,,,,,,,141/149,223/234,239/243,254/262,176/186,227/257,239/271,,,Lacombe et al. 2013,,,
+COJONATA,,,,,,,,131/141,232/238,243/249,240/254,186/186,227/233,239/271,,,Lacombe et al. 2013,,,
+DALMASSO 11- 2,,,,,,,,135/155,223/234,239/249,238/254,178/182,247/257,255/255,,,Lacombe et al. 2013,,,
+BAYARD,,,,,,,,141/147,225/225,239/249,248/254,186/191,216/243,239/263,,,Lacombe et al. 2013,,,
+DES ESSARS,,,,,,,,149/149,225/236,243/253,248/262,186/188,235/247,239/271,,,Lacombe et al. 2013,,,
+COMPETICAO,,,,,,,,131/131,223/234,247/249,238/240,178/178,216/233,261/271,,,Lacombe et al. 2013,,,
+BERTHA,,,,,,,,149/149,225/229,257/257,248/248,178/186,233/243,251/271,,,Lacombe et al. 2013,,,
+BELEM,,,,,,,,131/143,232/234,247/253,238/240,176/178,233/243,249/271,,,Lacombe et al. 2013,,,
+COUDERC   265,,,,,,,,131/133,234/234,243/247,240/254,178/178,243/257,249/271,,,Lacombe et al. 2013,,,
+BAKSZEM,,,,,,,,131/133,236/236,243/247,254/254,176/176,233/243,251/271,,,Lacombe et al. 2013,,,
+AK DERE,,,,,,,,149/149,225/236,239/257,248/262,182/186,233/233,239/251,,,Lacombe et al. 2013,,,
+CIDREIRO,,,,,,,,122/143,232/238,249/259,240/240,176/178,239/257,243/261,,,Lacombe et al. 2013,,,
+ANNAMARIA,,,,,,,,137/149,223/236,239/243,248/270,176/186,235/243,239/271,,,Lacombe et al. 2013,,,
+AMALIA,,,,,,,,131/149,232/236,249/257,238/248,176/186,235/245,271/271,,,Lacombe et al. 2013,,,
+ALLONE KARA,,,,,,,,141/153,223/229,239/262,248/254,176/186,216/235,239/239,,,Lacombe et al. 2013,,,
+DESERTNYI,,,,,,,,149/153,223/229,249/262,248/248,178/186,227/235,239/239,,,Lacombe et al. 2013,,,
+ALENKII,,,,,,,,131/135,232/236,239/243,238/238,178/186,227/235,271/271,,,Lacombe et al. 2013,,,
+CERASARA NERA,,,,,,,,131/131,225/232,239/249,238/238,178/178,227/235,255/271,,,Lacombe et al. 2013,,,
+COUDERC    23,,,,,,,,131/141,225/234,243/247,238/254,176/182,257/257,261/263,,,Lacombe et al. 2013,,,
+AKLAHANA,,,,,,,,135/149,225/236,239/243,238/248,182/186,216/235,239/271,,,Lacombe et al. 2013,,,
+DEGIRMENDERE SIYAHI,,,,,,,,135/149,225/236,239/249,238/248,182/186,227/235,239/239,,,Lacombe et al. 2013,,,
+CHINI TAIFI,,,,,,,,131/149,223/236,239/247,248/248,176/182,216/227,239/261,,,Lacombe et al. 2013,,,
+COUDERC   604,,,,,,,,131/149,223/223,249/249,240/248,176/182,243/257,239/251,,,Lacombe et al. 2013,,,
+COUDERC  226- 58,,,,,,,,143/149,236/238,243/262,240/248,188/191,243/245,249/251,,,Lacombe et al. 2013,,,
+DETROIT,,,,,,,,135/135,225/225,239/243,238/254,176/186,235/235,271/271,,,Lacombe et al. 2013,,,
+COUDERC   532-  4,,,,,,,,131/141,229/236,249/262,238/254,182/186,233/243,251/255,,,Lacombe et al. 2013,,,
+COUDERC  1301,,,,,,,,135/141,223/225,243/257,254/254,176/186,233/233,251/271,,,Lacombe et al. 2013,,,
+DEVE BICIGI,,,,,,,,131/149,223/234,247/249,240/248,178/186,227/233,239/271,,,Lacombe et al. 2013,,,
+AG TOPAK,,,,,,,,131/135,223/238,243/249,240/254,186/191,233/257,255/271,,,Lacombe et al. 2013,,,
+BELLANDAIS,,,,,,,,131/149,232/236,249/257,238/248,172/176,227/247,239/249,,,Lacombe et al. 2013,,,
+COUDERC   554,,,,,,,,131/137,225/234,247/251,238/240,182/182,243/267,251/271,,,Lacombe et al. 2013,,,
+DEVIN,,,,,,,,131/141,234/238,247/249,238/254,176/182,216/245,239/271,,,Lacombe et al. 2013,,,
+DGLENI,,,,,,,,131/141,225/232,239/239,238/254,176/186,216/227,239/271,,,Lacombe et al. 2013,,,
+DIAGA,,,,,,,,131/135,223/232,239/243,240/254,186/191,243/259,249/249,,,Lacombe et al. 2013,,,
+ADAKALKA,,,,,,,,149/149,223/234,233/249,248/262,182/191,247/257,239/251,,,Lacombe et al. 2013,,,
+TOTMUR,,,,,,,,149/153,234/234,239/247,240/248,186/191,243/243,239/239,,,Lacombe et al. 2013,,,
+BOAL BARREIRO,,,,,,,,135/147,223/225,239/239,248/254,176/191,235/243,249/271,,,Lacombe et al. 2013,,,
+COUDERC  2061,,,,,,,,141/143,223/225,247/249,238/240,176/176,247/257,251/255,,,Lacombe et al. 2013,,,
+BREFANO,,,,,,,,131/131,225/244,247/249,238/238,176/182,247/259,251/271,,,Lacombe et al. 2013,,,
+ANDICS 72,,,,,,,,141/149,223/229,243/255,248/248,178/191,227/259,251/271,,,Lacombe et al. 2013,,,
+AIDA,,,,,,,,131/141,223/236,239/243,238/266,176/186,247/257,239/249,,,Lacombe et al. 2013,,,
+ARTEMINO NERO,,,,,,,,135/135,225/236,239/243,238/254,176/186,233/235,251/271,,,Lacombe et al. 2013,,,
+ABLAK BEYAZ,,,,,,,,141/153,232/238,247/257,240/254,178/191,227/243,239/271,,,Lacombe et al. 2013,,,
+DIRUBUENO,,,,,,,,141/143,229/236,239/253,240/254,176/180,253/257,239/271,,,Lacombe et al. 2013,,,
+COUDERC    90- 38,,,,,,,,131/133,234/234,247/249,238/254,182/182,243/267,261/271,,,Lacombe et al. 2013,,,
+BASTARDO BRANCO,,,,,,,,131/153,223/238,247/249,240/248,191/191,216/243,239/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  6283,,,,,,,,131/141,223/234,247/249,238/238,176/178,247/257,255/263,,,Lacombe et al. 2013,,,
+BAUCHMAN RED FOX,,,,,,,,133/147,223/236,249/255,248/254,182/182,243/243,251/271,,,Lacombe et al. 2013,,,
+BALADA,,,,,,,,131/151,223/223,243/251,238/244,176/191,243/247,251/271,,,Lacombe et al. 2013,,,
+BONNA BELLA,,,,,,,,131/143,229/229,239/243,238/240,182/191,235/245,251/261,,,Lacombe et al. 2013,,,
+CASTEL   224-  1,,,,,,,,131/131,223/223,239/239,248/248,176/186,235/257,249/271,,,Lacombe et al. 2013,,,
+BURDIN  4687,,,,,,,,133/149,229/232,239/249,248/254,176/178,235/243,249/271,,,Lacombe et al. 2013,,,
+CHASSELAS SALOMON,,,,,,,,135/149,219/234,239/243,254/262,178/178,233/247,239/255,,,Lacombe et al. 2013,,,
+AMAROT,,,,,,,,131/131,223/238,239/249,238/240,178/186,233/245,239/271,,,Lacombe et al. 2013,,,
+AHMEUR BOU AHMEUR,,,,,,,,131/131,223/234,247/249,240/240,178/182,245/257,261/271,,,Lacombe et al. 2013,,,
+CASTEL  2838,,,,,,,,141/141,223/229,239/253,254/254,176/178,247/247,249/255,,,Lacombe et al. 2013,,,
+CASTEL   188- 08,,,,,,,,131/131,232/244,239/249,238/238,176/178,245/247,263/271,,,Lacombe et al. 2013,,,
+CIGDEM,,,,,,,,149/149,232/236,249/249,248/254,178/180,216/257,249/271,,,Lacombe et al. 2013,,,
+CADILLON TARDIF,,,,,,,,141/147,223/238,239/239,248/254,176/191,243/247,249/271,,,Lacombe et al. 2013,,,
+BURDIN  7419,,,,,,,,137/141,225/225,239/247,238/238,180/191,235/276,261/263,,,Lacombe et al. 2013,,,
+CODDU CURTU,,,,,,,,141/141,225/225,247/249,238/254,182/191,235/245,263/271,,,Lacombe et al. 2013,,,
+CARMINET,,,,,,,,133/141,234/238,243/247,240/266,176/176,243/276,249/265,,,Lacombe et al. 2013,,,
+BUBUL,,,,,,,,131/143,223/225,247/249,238/240,182/191,235/247,251/271,,,Lacombe et al. 2013,,,
+AHMAR DERANI,,,,,,,,131/131,223/232,239/249,238/240,178/178,235/245,261/271,,,Lacombe et al. 2013,,,
+COMPACTA,,,,,,,,131/135,223/234,249/255,238/254,182/191,243/259,261/271,,,Lacombe et al. 2013,,,
+ALFACINHA,,,,,,,,141/149,223/232,249/257,248/254,178/186,227/233,251/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  1808,,,,,,,,133/149,223/236,247/257,254/268,182/186,245/257,239/271,,,Lacombe et al. 2013,,,
+A LA REINE,,,,,,,,131/131,223/223,247/249,240/248,176/178,227/257,239/261,,,Lacombe et al. 2013,,,
+CASTEL 20035,,,,,,,,131/141,223/234,249/257,248/254,172/176,243/243,239/249,,,Lacombe et al. 2013,,,
+BARGINE,,,,,,,,147/149,229/232,239/249,248/248,178/191,243/243,249/263,,,Lacombe et al. 2013,,,
+BULUT UEZUEMUE KIRMIZI,,,,,,,,141/143,238/244,239/247,238/244,176/184,257/257,249/271,,,Lacombe et al. 2013,,,
+ALICANTE HENRI BOUSCHET,,,,,,,,126/131,232/236,243/249,238/248,176/186,227/235,249/271,,,Lacombe et al. 2013,,,
+DAVIS K  5- 20,,,,,,,,141/141,225/244,239/249,248/254,176/182,233/259,271/271,,,Lacombe et al. 2013,,,
+COUDERC    82- 13,,,,,,,,131/131,225/229,249/249,240/248,186/191,243/243,257/271,,,Lacombe et al. 2013,,,
+BRATTRAUBE GRUEN,,,,,,,,137/141,229/244,239/247,240/248,178/182,235/257,251/271,,,Lacombe et al. 2013,,,
+ASCOT CITRONELLE,,,,,,,,133/141,225/238,239/249,254/254,178/182,245/257,249/249,,,Lacombe et al. 2013,,,
+COARNA NEAGRA SELECTIONATA,,,,,,,,133/149,232/236,247/257,248/254,178/186,227/243,271/271,,,Lacombe et al. 2013,,,
+COLP,,,,,,,,149/149,232/236,239/247,248/248,176/178,216/235,249/271,,,Lacombe et al. 2013,,,
+BURDIN  4795,,,,,,,,133/141,234/236,247/247,248/254,182/182,233/243,255/271,,,Lacombe et al. 2013,,,
+ABBOU,,,,,,,,137/141,232/238,239/239,238/254,176/186,245/257,255/271,,,Lacombe et al. 2013,,,
+CASTEL 11013,,,,,,,,133/143,236/238,243/249,240/254,191/191,233/247,251/271,,,Lacombe et al. 2013,,,
+ARNOPOLO,,,,,,,,135/143,225/232,239/243,240/254,182/191,235/243,249/271,,,Lacombe et al. 2013,,,
+ALBILLO REAL,,,,,,,,131/149,225/238,239/249,238/248,176/182,227/235,239/271,,,Lacombe et al. 2013,,,
+CASTEL 20415,,,,,,,,141/149,223/229,239/239,248/254,172/178,233/257,239/251,,,Lacombe et al. 2013,,,
+CASTEL 20023,,,,,,,,135/143,234/238,239/249,240/254,178/178,233/233,251/255,,,Lacombe et al. 2013,,,
+ALBAN REAL,,,,,,,,131/135,225/238,239/249,238/238,176/186,216/227,239/271,,,Lacombe et al. 2013,,,
+DICHALI,,,,,,,,131/137,236/238,247/249,238/238,172/176,227/243,239/249,,,Lacombe et al. 2013,,,
+DIDMTEVANA SHAVI,,,,,,,,141/141,232/234,247/249,254/254,178/182,216/227,239/271,,,Lacombe et al. 2013,,,
+ALA SHAANI,,,,,,,,135/149,225/225,239/257,238/248,182/186,233/235,261/271,,,Lacombe et al. 2013,,,
+TCHUBULO,,,,,,,,149/153,236/236,239/247,240/262,178/182,243/263,271/271,,,Lacombe et al. 2013,,,
+CASTEL  1874,,,,,,,,131/131,223/229,249/257,240/248,180/186,233/247,249/271,,,Lacombe et al. 2013,,,
+CASTEL  1919,,,,,,,,141/149,223/232,239/249,248/254,176/186,245/247,239/271,,,Lacombe et al. 2013,,,
+ALICE SALOMON,,,,,,,,131/141,225/232,239/239,240/254,176/182,233/245,255/271,,,Lacombe et al. 2013,,,
+ASPRADI,,,,,,,,131/141,223/234,249/253,238/254,178/191,243/257,255/259,,,Lacombe et al. 2013,,,
+BRUNI 125,,,,,,,,131/143,221/238,239/239,238/240,186/189,234/243,243/249,,,Lacombe et al. 2013,,,
+DANLAS,,,,,,,,147/149,223/236,247/249,248/268,176/186,243/257,239/239,,,Lacombe et al. 2013,,,
+ALICANTE BOUSCHET TARDIF,,,,,,,,131/149,225/229,239/257,240/248,172/186,233/235,239/255,,,Lacombe et al. 2013,,,
+DOLETUSA,,,,,,,,131/131,225/236,247/249,238/240,176/186,245/245,239/271,,,Lacombe et al. 2013,,,
+ALCUBILLA,,,,,,,,149/149,229/236,243/257,248/248,186/186,233/235,239/271,,,Lacombe et al. 2013,,,
+BUCACO,,,,,,,,139/143,223/225,245/249,240/248,182/191,235/257,251/257,,,Lacombe et al. 2013,,,
+BERNARDIN,,,,,,,,128/141,234/236,239/253,248/254,176/182,257/276,251/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE    60,,,,,,,,141/149,223/229,249/257,248/254,186/186,227/233,239/251,,,Lacombe et al. 2013,,,
+ASERI,,,,,,,,141/149,223/236,247/249,248/254,186/191,233/235,271/271,,,Lacombe et al. 2013,,,
+DE JOSE BLANCO,,,,,,,,141/149,223/225,243/257,248/254,186/186,233/245,239/251,,,Lacombe et al. 2013,,,
+AGUDET BLANC,,,,,,,,131/131,223/225,239/247,238/240,180/186,235/257,251/271,,,Lacombe et al. 2013,,,
+COPLA,,,,,,,,141/149,229/232,255/262,238/248,178/188,233/259,239/251,,,Lacombe et al. 2013,,,
+CASTEL  2834,,,,,,,,131/149,223/229,239/249,240/248,176/178,247/267,271/271,,,Lacombe et al. 2013,,,
+COKE MORU,,,,,,,,131/153,223/225,239/262,238/254,176/188,245/267,239/239,,,Lacombe et al. 2013,,,
+ALMA ATINSKII RANNII,,,,,,,,131/131,234/236,239/257,240/248,172/182,233/243,239/271,,,Lacombe et al. 2013,,,
+AIN EL COUMA,,,,,,,,131/131,223/232,249/249,238/240,178/191,235/245,271/271,,,Lacombe et al. 2013,,,
+AROMAT KHASANA,,,,,,,,131/131,223/232,243/249,238/254,180/182,243/257,239/249,,,Lacombe et al. 2013,,,
+DONSKOY,,,,,,,,131/141,232/244,239/239,238/254,178/191,227/235,263/271,,,Lacombe et al. 2013,,,
+CORDOVI,,,,,,,,135/149,219/232,239/249,254/262,178/178,227/247,239/251,,,Lacombe et al. 2013,,,
+BOTTONINO NERO,,,,,,,,133/137,225/229,239/255,238/254,180/191,259/276,255/263,,,Lacombe et al. 2013,,,
+BATARIJINO SJEME,,,,,,,,133/141,223/229,239/247,254/254,182/182,243/257,271/271,,,Lacombe et al. 2013,,,
+CIRUELA ROJA,,,,,,,,131/141,232/244,239/249,238/254,178/182,216/247,239/251,,,Lacombe et al. 2013,,,
+AVILLA,,,,,,,,131/131,234/236,239/239,238/240,176/182,216/233,239/271,,,Lacombe et al. 2013,,,
+BARTHAINER WEISS,,,,,,,,131/133,229/234,247/249,238/254,178/191,233/235,251/271,,,Lacombe et al. 2013,,,
+DALMASSO  7-23,,,,,,,,141/143,225/238,239/247,238/254,176/186,235/257,249/251,,,Lacombe et al. 2013,,,
+AZHKAPSH,,,,,,,,131/135,234/236,239/243,240/248,176/182,235/267,239/255,,,Lacombe et al. 2013,,,
+COLOMBEAU DU VAR,,,,,,,,131/143,225/232,239/249,238/240,178/191,216/243,249/257,,,Lacombe et al. 2013,,,
+BORRACAL MINDO,,,,,,,,143/149,232/232,239/253,238/248,178/191,216/243,249/249,,,Lacombe et al. 2013,,,
+CANNELA NERA,,,,,,,,131/141,223/238,251/253,240/254,176/180,243/247,249/249,,,Lacombe et al. 2013,,,
+DANAGOEZUE,,,,,,,,131/133,223/234,239/239,240/254,178/182,216/257,257/271,,,Lacombe et al. 2013,,,
+CARREGA BRANCO,,,,,,,,131/143,236/238,243/249,238/238,178/182,233/243,257/261,,,Lacombe et al. 2013,,,
+ALETHA,,,,,,,,149/151,223/229,243/247,240/248,186/191,227/235,271/271,,,Lacombe et al. 2013,,,
+AIKEN,,,,,,,,131/131,223/229,239/239,240/240,186/188,216/227,239/271,,,Lacombe et al. 2013,,,
+COMIOTICO,,,,,,,,131/141,229/229,247/249,238/248,178/182,233/257,247/261,,,Lacombe et al. 2013,,,
+BECAIA,,,,,,,,131/147,223/229,249/249,248/254,191/191,243/247,239/263,,,Lacombe et al. 2013,,,
+CHERUBINI 64,,,,,,,,131/137,225/229,247/249,240/240,178/186,235/243,251/263,,,Lacombe et al. 2013,,,
+BONHEUR,,,,,,,,131/133,236/238,249/249,238/240,191/191,233/259,251/271,,,Lacombe et al. 2013,,,
+BERMEJA,,,,,,,,141/147,229/238,249/257,248/254,186/191,235/267,263/271,,,Lacombe et al. 2013,,,
+COUDERC  1661,,,,,,,,135/147,223/236,239/243,248/254,176/176,243/247,249/251,,,Lacombe et al. 2013,,,
+AMANDORLA,,,,,,,,141/153,236/238,249/249,254/254,182/186,233/243,239/255,,,Lacombe et al. 2013,,,
+CORNELANCHE,,,,,,,,141/149,225/225,247/249,248/254,182/186,243/243,249/271,,,Lacombe et al. 2013,,,
+CORNAREA,,,,,,,,141/149,223/232,239/239,248/254,178/186,243/267,239/249,,,Lacombe et al. 2013,,,
+COUDERC  1102,,,,,,,,128/149,236/244,239/243,238/248,188/191,235/267,255/271,,,Lacombe et al. 2013,,,
+BERNADOU,,,,,,,,141/143,225/244,239/249,238/248,176/186,235/257,249/261,,,Lacombe et al. 2013,,,
+DALMASSO  8-10,,,,,,,,133/141,225/232,239/239,238/248,176/176,235/259,249/255,,,Lacombe et al. 2013,,,
+DIK KIZIL UEZUEM,,,,,,,,131/135,223/223,239/247,240/266,182/188,227/245,249/261,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  1020,,,,,,,,133/141,236/236,233/249,248/254,176/182,233/235,271/271,,,Lacombe et al. 2013,,,
+CADUNEDDU,,,,,,,,137/141,232/236,249/262,238/254,176/182,243/245,261/271,,,Lacombe et al. 2013,,,
+ARANY JANOS,,,,,,,,131/141,223/232,243/247,238/254,176/178,227/257,239/249,,,Lacombe et al. 2013,,,
+BETHLEN,,,,,,,,133/153,223/225,247/249,240/254,186/186,216/233,249/271,,,Lacombe et al. 2013,,,
+ABESO,,,,,,,,131/131,223/223,243/247,238/240,176/182,257/257,239/239,,,Lacombe et al. 2013,,,
+TCHODI SALKHINOSI,,,,,,,,131/133,223/234,247/247,240/248,176/176,227/267,255/271,,,Lacombe et al. 2013,,,
+COUDERC    63- 17,,,,,,,,133/147,223/236,239/247,248/254,182/182,233/235,257/271,,,Lacombe et al. 2013,,,
+COPOLONA,,,,,,,,141/149,225/234,239/243,248/254,178/180,233/243,251/251,,,Lacombe et al. 2013,,,
+DALMASSO 11- 8,,,,,,,,141/149,223/229,239/239,248/254,180/186,253/267,251/271,,,Lacombe et al. 2013,,,
+DALMASSO 10-10,,,,,,,,141/149,232/236,239/253,248/254,176/191,247/257,251/271,,,Lacombe et al. 2013,,,
+BOLGNINO,,,,,,,,131/149,223/236,239/257,238/248,178/186,233/247,255/271,,,Lacombe et al. 2013,,,
+DAVIS K 48- 35,,,,,,,,131/131,223/229,249/249,238/240,180/191,227/267,263/271,,,Lacombe et al. 2013,,,
+CAL KARASI,,,,,,,,133/133,225/234,249/249,238/240,178/182,239/257,243/271,,,Lacombe et al. 2013,,,
+DAVIS K 48- 48,,,,,,,,133/141,234/236,239/249,248/254,176/176,233/257,249/271,,,Lacombe et al. 2013,,,
+CHALA,,,,,,,,131/131,225/229,249/249,240/248,186/191,233/243,239/271,,,Lacombe et al. 2013,,,
+CHAKAR ANGURA SAFID,,,,,,,,131/147,225/238,239/249,240/248,176/182,233/267,255/271,,,Lacombe et al. 2013,,,
+DAVIS K 48- 38,,,,,,,,133/151,223/236,239/255,240/254,182/191,227/235,263/271,,,Lacombe et al. 2013,,,
+DALMASSO 11- 5,,,,,,,,141/141,234/238,239/257,254/254,176/186,233/267,239/255,,,Lacombe et al. 2013,,,
+BOARDE BLANCHE,,,,,,,,141/149,223/225,239/243,248/254,178/180,233/253,239/271,,,Lacombe et al. 2013,,,
+BOBAL,,,,,,,,141/149,223/234,239/271,248/254,178/186,233/267,239/271,,,Lacombe et al. 2013,,,
+ECHKE MEME BELYI,,,,,,,,131/131,234/236,249/253,238/240,178/182,243/243,251/271,,,Lacombe et al. 2013,,,
+ALBANA BIANCA,,,,,,,,137/141,223/236,239/249,238/254,176/186,216/267,239/239,,,Lacombe et al. 2013,,,
+DALMASSO 13- 42,,,,,,,,143/149,232/236,239/243,238/254,178/191,216/233,249/251,,,Lacombe et al. 2013,,,
+BATTTRAUBE,,,,,,,,141/147,229/236,247/247,248/254,182/191,243/243,239/251,,,Lacombe et al. 2013,,,
+DZHAUTY,,,,,,,,133/141,229/234,239/253,254/254,176/186,243/243,251/271,,,Lacombe et al. 2013,,,
+CHASSELAS BABO,,,,,,,,135/141,234/236,239/249,240/248,176/182,243/257,257/271,,,Lacombe et al. 2013,,,
+CORNALIN D'AOSTE,,,,,,,,143/149,232/232,239/239,240/248,178/191,216/235,249/249,,,Lacombe et al. 2013,,,
+CADOUGNAN 1,,,,,,,,149/151,223/229,239/245,240/244,182/191,243/257,257/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   460,,,,,,,,131/137,223/234,249/262,238/248,186/186,227/267,239/251,,,Lacombe et al. 2013,,,
+CIMIN,,,,,,,,143/143,225/244,239/249,248/254,184/191,235/257,251/261,,,Lacombe et al. 2013,,,
+CIMIGHIERA,,,,,,,,143/151,229/238,239/247,238/248,186/191,247/269,257/271,,,Lacombe et al. 2013,,,
+BOTTONA,,,,,,,,137/153,234/236,247/249,238/240,178/182,235/253,251/271,,,Lacombe et al. 2013,,,
+DAVIS K 48- 43,,,,,,,,131/141,223/229,239/255,238/254,176/182,257/259,255/271,,,Lacombe et al. 2013,,,
+CHERUBINI 68,,,,,,,,131/131,229/229,239/257,238/240,176/186,227/233,255/271,,,Lacombe et al. 2013,,,
+DOCAR MENDO,,,,,,,,131/133,225/238,239/251,238/248,176/182,243/267,257/263,,,Lacombe et al. 2013,,,
+DON JUAN,,,,,,,,131/141,238/238,239/251,238/254,178/180,243/247,249/249,,,Lacombe et al. 2013,,,
+DALMASSO  4-27,,,,,,,,131/153,223/244,247/249,240/240,182/182,235/243,249/261,,,Lacombe et al. 2013,,,
+ARTURO MARESCALCHI,,,,,,,,133/141,234/238,243/249,254/254,178/186,243/257,255/271,,,Lacombe et al. 2013,,,
+CRAVEIROU,,,,,,,,131/131,223/236,249/249,238/240,176/182,259/270,251/255,,,Lacombe et al. 2013,,,
+CUBUK BEYAZI,,,,,,,,141/141,234/238,233/239,240/254,191/191,243/243,249/271,,,Lacombe et al. 2013,,,
+CRANSTON,,,,,,,,131/141,223/238,239/249,238/254,176/182,243/270,249/255,,,Lacombe et al. 2013,,,
+TCHETCHIBERA,,,,,,,,122/135,232/238,249/249,238/240,176/191,233/243,249/271,,,Lacombe et al. 2013,,,
+ALI HOCA,,,,,,,,128/131,238/244,239/253,238/240,180/191,245/267,255/263,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE   318,,,,,,,,131/149,229/238,247/253,240/248,186/191,235/267,263/271,,,Lacombe et al. 2013,,,
+BERTILLE SEYVE  3310,,,,,,,,131/131,232/238,247/247,238/254,176/186,235/259,249/271,,,Lacombe et al. 2013,,,
+AIROSA,,,,,,,,131/149,225/229,239/257,240/248,176/186,233/247,239/249,,,Lacombe et al. 2013,,,
+BRUNI 475,,,,,,,,143/149,229/238,239/251,238/248,191/191,247/257,249/255,,,Lacombe et al. 2013,,,
+COSMO   7,,,,,,,,131/131,232/234,243/247,238/238,176/178,245/253,251/255,,,Lacombe et al. 2013,,,
+BAKOUZI,,,,,,,,133/135,236/236,243/249,248/254,176/176,235/247,239/271,,,Lacombe et al. 2013,,,
+CATAL KARA,,,,,,,,141/149,223/229,239/249,248/254,176/176,247/267,239/271,,,Lacombe et al. 2013,,,
+CASTEL  2181,,,,,,,,131/141,223/223,239/249,238/254,176/178,247/267,249/271,,,Lacombe et al. 2013,,,
+CONCORD EARLY,,,,,,,,133/135,229/234,245/249,238/254,191/191,243/257,251/271,,,Lacombe et al. 2013,,,
+BOAL DE FIGUEIRA,,,,,,,,131/133,219/223,239/262,240/258,186/186,235/257,239/239,,,Lacombe et al. 2013,,,
+AKITSIS,,,,,,,,131/137,223/229,239/249,238/240,182/188,216/243,261/271,,,Lacombe et al. 2013,,,
+CARISTIANO,,,,,,,,143/149,219/238,239/239,240/254,178/191,233/247,251/255,,,Lacombe et al. 2013,,,
+CHETCHIPESHI,,,,,,,,141/143,234/244,247/249,240/240,176/176,259/276,265/273,,,Lacombe et al. 2013,,,
+DALMASSO 28-24,,,,,,,,131/141,232/238,243/249,238/254,178/182,233/243,249/257,,,Lacombe et al. 2013,,,
+AVERY PROLIFIC,,,,,,,,131/133,223/234,247/249,238/254,176/182,233/243,251/251,,,Lacombe et al. 2013,,,
+CSERSZEGI FUESZERES,,,,,,,,147/149,223/232,239/251,248/248,178/191,216/243,249/249,,,Lacombe et al. 2013,,,
+DEAK FERENC,,,,,,,,149/149,223/229,243/257,248/248,178/186,233/243,251/271,,,Lacombe et al. 2013,,,
+BLATINA,,,,,,,,131/141,234/238,239/243,238/254,178/186,235/257,249/255,,,Lacombe et al. 2013,,,
+COLOBEL,,,,,,,,133/141,223/223,239/251,238/248,172/191,235/255,255/271,,,Lacombe et al. 2013,,,
+COUDERC   126- 22,,,,,,,,141/141,223/223,239/239,254/254,180/180,243/245,257/271,,,Lacombe et al. 2013,,,
+COLONEL,,,,,,,,135/141,229/234,243/243,248/248,176/182,235/257,251/271,,,Lacombe et al. 2013,,,
+DILBERYANAGI,,,,,,,,131/143,223/238,243/243,240/248,176/191,233/233,255/261,,,Lacombe et al. 2013,,,
+BREIDECKER,,,,,,,,131/131,238/244,239/249,238/240,176/182,227/259,249/251,,,Lacombe et al. 2013,,,
+CASTEL  6519,,,,,,,,131/131,225/236,243/249,238/240,176/182,233/257,239/255,,,Lacombe et al. 2013,,,
+CHERUBINI 73,,,,,,,,131/131,223/225,239/247,238/248,176/176,227/267,239/263,,,Lacombe et al. 2013,,,
+BEERHELLER,,,,,,,,131/147,225/234,247/251,240/248,186/191,216/267,239/263,,,Lacombe et al. 2013,,,
+DAVIS K 48- 45,,,,,,,,131/131,225/236,239/249,238/248,176/178,235/243,255/263,,,Lacombe et al. 2013,,,
+CHERUBINI 81,,,,,,,,131/131,225/238,239/239,240/248,184/186,233/243,263/271,,,Lacombe et al. 2013,,,

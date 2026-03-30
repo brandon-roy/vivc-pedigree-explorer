@@ -1316,7 +1316,7 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame,
         f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Year</td><td>{year}</td></tr>"
         f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Generation</td><td>{gen}</td></tr>"
         f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Breeder</td><td>{breeder}</td></tr>"
-        f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Pedigree confirmed</td><td>{ped}</td></tr>"
+        f"<tr><td style='color:#777;padding:2px 10px 2px 0;'>Pedigree</td><td>{ped}</td></tr>"
         f"{ev_rows}"
         f"{mol_rows}"
         f"</table></div>"
@@ -1637,11 +1637,12 @@ def build_visjs_network(
                         else ""
                     )
                     _ev_label = _ev_ref if _ev_ref and _ev_ref.lower() not in _bad_e else f"{_ev_etype}/{_ev_mtype}"
+                    _ev_conf_display = {"confirmed": "Marker Supported"}.get(_ev_conf, _ev_conf.capitalize())
                     _corr_rows_html += (
                         f"<tr>"
                         f"<td style='padding:2px 8px 2px 0;vertical-align:middle;'>"
                         f"<span style='background:{_ev_badge_color};color:#fff;padding:1px 5px;"
-                        f"border-radius:3px;font-size:10px;'>{_ev_conf}</span></td>"
+                        f"border-radius:3px;font-size:10px;'>{_ev_conf_display}</span></td>"
                         f"<td style='font-size:11px;color:#555;'>{_ev_label}{_ev_doi_link}</td>"
                         f"</tr>"
                     )
@@ -1664,11 +1665,12 @@ def build_visjs_network(
                 f"</div></td></tr>"
             ) if n_total_sources > 1 else ""
 
+            _conf_display = {"confirmed": "Marker Supported"}.get(conf, conf.capitalize())
             edge_title = (
                 f"<div style='font-family:sans-serif;padding:6px 8px;min-width:240px;max-width:340px;'>"
                 f"<b>{role}</b><br/>"
                 f"<span style='background:{conf_color};color:#fff;padding:1px 6px;"
-                f"border-radius:3px;font-size:11px;'>{conf}</span><br/><br/>"
+                f"border-radius:3px;font-size:11px;'>{_conf_display}</span><br/><br/>"
                 f"<table style='font-size:12px;width:100%;'>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>Source</td><td>{source_cell}</td></tr>"
                 f"<tr><td style='color:#777;padding:2px 8px 2px 0;'>DOI</td><td>{doi_cell}</td></tr>"
@@ -1739,6 +1741,7 @@ def build_visjs_network(
             "edges": {"smooth": {"enabled": True, "type": "dynamic", "roundness": 0.3}},
             "nodes": {"scaling": {"min": 10, "max": 35}},
         }
+        n_nodes = len(nodes_df)
         if n_nodes > 100:
             options["physics"]["solver"] = "forceAtlas2Based"
             options["physics"]["forceAtlas2Based"] = {
@@ -2480,11 +2483,11 @@ def main() -> None:
                     f"<span style='display:inline-block;width:12px;height:4px;background:{c};"
                     f"border-radius:2px;margin-right:6px;vertical-align:middle;'></span>{lbl}<br>"
                     for lbl, c in [
-                        ("Confirmed",    MARKER_COLORS["confirmed"]),
-                        ("Probable",     MARKER_COLORS["probable"]),
-                        ("Disputed",     MARKER_COLORS["disputed"]),
-                        ("Refuted",      MARKER_COLORS["refuted"]),
-                        ("Undocumented", MARKER_COLORS["undocumented"]),
+                        ("Marker Supported", MARKER_COLORS["confirmed"]),
+                        ("Probable",         MARKER_COLORS["probable"]),
+                        ("Disputed",         MARKER_COLORS["disputed"]),
+                        ("Refuted",          MARKER_COLORS["refuted"]),
+                        ("Undocumented",     MARKER_COLORS["undocumented"]),
                     ]
                 )
                 + "</div>",
@@ -2660,7 +2663,7 @@ def main() -> None:
             # Edge legend — always shown; marker detail only when overlay active
             if show_markers:
                 edge_items = [
-                    (MARKER_COLORS["confirmed"],    "━━", "Confirmed"),
+                    (MARKER_COLORS["confirmed"],    "━━", "Marker Supported"),
                     (MARKER_COLORS["probable"],     "━━", "Probable"),
                     (MARKER_COLORS["disputed"],     "╌╌", "Disputed"),
                     (MARKER_COLORS["refuted"],      "╌╌", "Refuted"),
@@ -2958,11 +2961,11 @@ def main() -> None:
                     f"background:{c};border-radius:2px;'></span>"
                     f"<span style='font-size:12px;color:#555;'>{lbl}</span></span>"
                     for lbl, c in [
-                        ("Confirmed",    MARKER_COLORS["confirmed"]),
-                        ("Probable",     MARKER_COLORS["probable"]),
-                        ("Disputed",     MARKER_COLORS["disputed"]),
-                        ("Refuted",      MARKER_COLORS["refuted"]),
-                        ("Undocumented", MARKER_COLORS["undocumented"]),
+                        ("Marker Supported", MARKER_COLORS["confirmed"]),
+                        ("Probable",         MARKER_COLORS["probable"]),
+                        ("Disputed",         MARKER_COLORS["disputed"]),
+                        ("Refuted",          MARKER_COLORS["refuted"]),
+                        ("Undocumented",     MARKER_COLORS["undocumented"]),
                     ]
                 )
                 st.markdown(
@@ -3674,7 +3677,7 @@ def main() -> None:
                 mk9_m1.metric("Evidence rows", len(ev_filtered))
                 mk9_m2.metric("Unique edges", ev_filtered[["child_variety","parent_variety"]].drop_duplicates().shape[0])
                 mk9_m3.metric("Sources", ev_filtered["study_reference"].dropna().nunique())
-                mk9_m4.metric("Confirmed edges",
+                mk9_m4.metric("Marker Supported edges",
                     int((ev_filtered["confidence_level"] == "confirmed").sum()))
 
                 # ── Display columns ───────────────────────────────────────
@@ -3690,14 +3693,28 @@ def main() -> None:
                 # Colour-code confidence column
                 def _conf_style(val):
                     colors = {
-                        "confirmed": "#d4edda", "probable": "#fff3cd",
+                        "marker supported": "#d4edda", "probable": "#fff3cd",
                         "disputed": "#f8d7da", "refuted": "#f5c6cb",
                         "undocumented": "#e2e3e5",
                     }
                     return f"background-color: {colors.get(str(val).lower(), '#fff')}"
 
+                _CONF_DISPLAY = {
+                    "confirmed": "Marker Supported",
+                    "probable": "Probable",
+                    "disputed": "Disputed",
+                    "refuted": "Refuted",
+                    "undocumented": "Undocumented",
+                }
+                _ev_display = ev_filtered[disp_cols].copy()
+                if "confidence_level" in _ev_display.columns:
+                    _ev_display["confidence_level"] = (
+                        _ev_display["confidence_level"]
+                        .str.lower()
+                        .map(lambda v: _CONF_DISPLAY.get(v, v.capitalize() if v else v))
+                    )
                 styled = (
-                    ev_filtered[disp_cols]
+                    _ev_display
                     .reset_index(drop=True)
                     .rename(columns={
                         "child_variety": "Variety (child)",
