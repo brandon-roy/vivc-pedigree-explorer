@@ -2017,7 +2017,7 @@ function exportSVG() {{
   }});
 
   svgParts.push('</svg>');
-  var blob = new Blob([svgParts.join('\n')], {{type: 'image/svg+xml'}});
+  var blob = new Blob([svgParts.join('\\n')], {{type: 'image/svg+xml'}});
   var link = document.createElement('a');
   link.download = _safeFilename(FOCAL_NAME) + '_pedigree.svg';
   link.href = URL.createObjectURL(blob);
