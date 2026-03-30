@@ -1820,10 +1820,39 @@ def build_visjs_network(
     line-height: 1.4;
   }}
   .vis-navigation .vis-button {{ background-color: rgba(123,28,46,0.08); border-radius: 4px; }}
+  /* Export toolbar */
+  #export-bar {{
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 9000;
+    display: flex;
+    gap: 6px;
+  }}
+  .export-btn {{
+    background: rgba(250,248,245,0.92);
+    border: 1px solid #c9b99a;
+    border-radius: 5px;
+    padding: 5px 11px;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #4a3020;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    transition: background 0.15s;
+  }}
+  .export-btn:hover {{ background: #f0e8dc; border-color: #9a7a5a; }}
+  #net-wrap {{ position: relative; width: 100%; height: {height_val}; }}
 </style>
 </head>
 <body>
-<div id="net"></div>
+<div id="net-wrap">
+  <div id="net"></div>
+  <div id="export-bar">
+    <button class="export-btn" onclick="exportPNG()" title="Save graph as PNG image">📷 Save PNG</button>
+    <button class="export-btn" onclick="exportSVG()" title="Save graph as SVG (scalable vector)">⬇ SVG</button>
+  </div>
+</div>
 <div id="vis-tip"></div>
 <script>
 var TOOLTIPS      = {tooltips_json};
@@ -1899,6 +1928,105 @@ network.on("doubleClick", function(params) {{
     if (node && node.url) window.open(node.url, "_blank");
   }}
 }});
+
+// ── Graph export helpers ──────────────────────────────────────────────────────
+var FOCAL_NAME = {json.dumps(focal)};
+
+function _safeFilename(name) {{
+  return name.replace(/[^A-Za-z0-9_-]/g, '_').replace(/_+/g, '_');
+}}
+
+function exportPNG() {{
+  var netCanvas = network.getCanvas();
+  // Composite onto a white background (vis canvas is transparent by default)
+  var exp = document.createElement('canvas');
+  exp.width  = netCanvas.width;
+  exp.height = netCanvas.height;
+  var ctx = exp.getContext('2d');
+  ctx.fillStyle = '#faf8f5';
+  ctx.fillRect(0, 0, exp.width, exp.height);
+  ctx.drawImage(netCanvas, 0, 0);
+  var link = document.createElement('a');
+  link.download = _safeFilename(FOCAL_NAME) + '_pedigree.png';
+  link.href = exp.toDataURL('image/png');
+  link.click();
+}}
+
+function exportSVG() {{
+  // Build an SVG from the vis.js canvas using canvg-style approach:
+  // vis.js doesn't expose SVG directly, so we use a canvas → SVG blob via
+  // the built-in canvas export — delivered as a high-res PNG named .svg-compatible.
+  // For true SVG, we generate a minimal hand-crafted node/edge SVG from the
+  // network positions.
+  var positions = network.getPositions();
+  var scale     = network.getScale();
+  var viewPos   = network.getViewPosition();
+
+  // Canvas size
+  var W = network.getCanvas().width;
+  var H = network.getCanvas().height;
+
+  var svgParts = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '">',
+    '<rect width="100%" height="100%" fill="#faf8f5"/>',
+  ];
+
+  // Draw edges
+  edges.forEach(function(e) {{
+    var fromPos = network.getPosition(e.from);
+    var toPos   = network.getPosition(e.to);
+    if (!fromPos || !toPos) return;
+    // Convert world coords to canvas coords
+    var fx = (fromPos.x - viewPos.x) * scale + W/2;
+    var fy = (fromPos.y - viewPos.y) * scale + H/2;
+    var tx = (toPos.x   - viewPos.x) * scale + W/2;
+    var ty = (toPos.y   - viewPos.y) * scale + H/2;
+    var col = (e.color && e.color.color) ? e.color.color : '#6b4226';
+    var sw  = (e.width || 2) * scale;
+    var dash = e.dashes ? 'stroke-dasharray="6 3"' : '';
+    svgParts.push(
+      '<line x1="' + fx.toFixed(1) + '" y1="' + fy.toFixed(1) +
+      '" x2="' + tx.toFixed(1) + '" y2="' + ty.toFixed(1) +
+      '" stroke="' + col + '" stroke-width="' + sw.toFixed(1) + '" ' + dash + '/>'
+    );
+  }});
+
+  // Draw nodes
+  nodes.forEach(function(n) {{
+    var pos = positions[n.id];
+    if (!pos) return;
+    var cx = (pos.x - viewPos.x) * scale + W/2;
+    var cy = (pos.y - viewPos.y) * scale + H/2;
+    var r  = (n.size || 14) * scale * 0.55;
+    var fill   = n.color && n.color.background ? n.color.background : '#c8a44a';
+    var stroke = n.color && n.color.border     ? n.color.border     : '#1a1a1a';
+    svgParts.push(
+      '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) +
+      '" r="' + r.toFixed(1) + '" fill="' + fill +
+      '" stroke="' + stroke + '" stroke-width="1.2"/>'
+    );
+    // Label
+    if (n.label && scale > 0.4) {{
+      var fs = Math.max(8, Math.min(13, (n.font && n.font.size ? n.font.size : 11) * scale));
+      svgParts.push(
+        '<text x="' + cx.toFixed(1) + '" y="' + (cy + r + fs + 2).toFixed(1) +
+        '" text-anchor="middle" font-family="Arial,sans-serif"' +
+        ' font-size="' + fs.toFixed(1) + '" fill="#222">' +
+        n.label.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') +
+        '</text>'
+      );
+    }}
+  }});
+
+  svgParts.push('</svg>');
+  var blob = new Blob([svgParts.join('\n')], {{type: 'image/svg+xml'}});
+  var link = document.createElement('a');
+  link.download = _safeFilename(FOCAL_NAME) + '_pedigree.svg';
+  link.href = URL.createObjectURL(blob);
+  link.click();
+  URL.revokeObjectURL(link.href);
+}}
 </script>
 </body>
 </html>"""
