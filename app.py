@@ -1820,11 +1820,11 @@ def build_visjs_network(
     line-height: 1.4;
   }}
   .vis-navigation .vis-button {{ background-color: rgba(123,28,46,0.08); border-radius: 4px; }}
-  /* Export toolbar */
+  /* Export toolbar — fixed to iframe viewport bottom-right */
   #export-bar {{
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
     z-index: 9000;
     display: flex;
     gap: 6px;
@@ -1842,16 +1842,13 @@ def build_visjs_network(
     transition: background 0.15s;
   }}
   .export-btn:hover {{ background: #f0e8dc; border-color: #9a7a5a; }}
-  #net-wrap {{ position: relative; width: 100%; height: {height_val}; }}
 </style>
 </head>
 <body>
-<div id="net-wrap">
-  <div id="net"></div>
-  <div id="export-bar">
-    <button class="export-btn" onclick="exportPNG()" title="Save graph as PNG image">📷 Save PNG</button>
-    <button class="export-btn" onclick="exportSVG()" title="Save graph as SVG (scalable vector)">⬇ SVG</button>
-  </div>
+<div id="net"></div>
+<div id="export-bar">
+  <button class="export-btn" onclick="exportPNG()" title="Save graph as PNG image">📷 Save PNG</button>
+  <button class="export-btn" onclick="exportSVG()" title="Save graph as SVG (scalable vector)">⬇ SVG</button>
 </div>
 <div id="vis-tip"></div>
 <script>
