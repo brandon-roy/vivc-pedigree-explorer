@@ -2525,7 +2525,7 @@ def main() -> None:
         <span style="font-size:26px;font-weight:800;color:#7b1c2e;letter-spacing:-.01em;">
         🍇 Grapevine Pedigree Atlas</span>
         <span style="font-size:12px;color:#9c8060;letter-spacing:.04em;">
-        Vitis International Variety Catalogue</span>
+        An interactive pedigree of Vitis with collected molecular support</span>
         </div>""",
         unsafe_allow_html=True,
     )
