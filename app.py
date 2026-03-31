@@ -23,7 +23,7 @@ import streamlit.components.v1 as components
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="VIVC Pedigree Explorer",
+    page_title="Grapevine Pedigree Atlas",
     page_icon="🍇",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -2523,7 +2523,7 @@ def main() -> None:
     st.markdown(
         """<div style="display:flex;align-items:baseline;gap:14px;padding:4px 0 8px 0;">
         <span style="font-size:26px;font-weight:800;color:#7b1c2e;letter-spacing:-.01em;">
-        🍇 VIVC Pedigree Explorer</span>
+        🍇 Grapevine Pedigree Atlas</span>
         <span style="font-size:12px;color:#9c8060;letter-spacing:.04em;">
         Vitis International Variety Catalogue</span>
         </div>""",
@@ -3719,7 +3719,7 @@ def main() -> None:
             "border-left:4px solid #7b1c2e;margin-bottom:16px;'>"
             "<h4 style='color:#7b1c2e;margin:0 0 8px 0;'>💬 App Feedback</h4>"
             "<p style='font-size:13px;color:#444;margin:0;'>"
-            "Help us improve the VIVC Pedigree Explorer. Use the <b>Quick Issue Report</b> "
+            "Help us improve the Grapevine Pedigree Atlas. Use the <b>Quick Issue Report</b> "
             "to flag bugs, data errors, duplicates, or display problems in under a minute. "
             "Use the <b>Full Feedback Form</b> for detailed comments on app experience and "
             "data quality."
