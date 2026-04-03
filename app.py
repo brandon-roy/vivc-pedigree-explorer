@@ -96,6 +96,59 @@ hr { border-color: #d4c4a0; }
 
 /* DataFrame / table */
 .dataframe { font-size: 12px; }
+
+/* ── Metric-card hover tooltip ──────────────────────────────────────────── */
+.mc-wrap {
+    position: relative;
+    display: block;
+}
+.mc-card {
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    min-height: 80px;
+    box-sizing: border-box;
+}
+.mc-card.has-tip { cursor: help; }
+.mc-label {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+}
+.mc-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 5px;
+}
+.mc-tip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    background: #1e1e1e;
+    color: #f0ece2;
+    font-size: 11px;
+    padding: 10px 13px;
+    border-radius: 7px;
+    min-width: 240px;
+    max-width: 300px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    z-index: 9999;
+    line-height: 1.55;
+    pointer-events: none;
+}
+.mc-tip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    border: 7px solid transparent;
+    border-top-color: #1e1e1e;
+}
+.mc-wrap:hover .mc-tip { display: block; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -2527,50 +2580,29 @@ def metric_card(
 ) -> None:
     """
     Renders a styled metric card.  When *tooltip_html* is supplied the card
-    gets a ⓘ badge and a CSS hover panel that appears above the card.
+    gets a ⓘ badge and a CSS :hover panel that rises above it.
+    CSS classes are defined once in the global <style> block at app startup.
     """
     if tooltip_html:
-        # Unique ID so multiple tooltip cards on the same page don't clash
-        _uid = abs(hash(label + value)) % 10_000_000
-        tooltip_block = (
-            f"<style>"
-            f"  .mc-wrap-{_uid} {{ position:relative; display:block; }}"
-            f"  .mc-tip-{_uid} {{"
-            f"    display:none; position:absolute; bottom:calc(100% + 6px); left:0;"
-            f"    background:#1a1a1a; color:#f0ece2; font-size:11px;"
-            f"    padding:10px 12px; border-radius:6px; width:260px;"
-            f"    box-shadow:0 4px 14px rgba(0,0,0,0.35); z-index:9999;"
-            f"    line-height:1.5; pointer-events:none;"
-            f"  }}"
-            f"  .mc-tip-{_uid}::after {{"
-            f"    content:''; position:absolute; top:100%; left:18px;"
-            f"    border:6px solid transparent; border-top-color:#1a1a1a;"
-            f"  }}"
-            f"  .mc-wrap-{_uid}:hover .mc-tip-{_uid} {{ display:block; }}"
-            f"</style>"
-            f"<div class='mc-wrap-{_uid}'>"
-            f"  <div class='mc-tip-{_uid}'>{tooltip_html}</div>"
-        )
-        close_wrap = "</div>"
-        info_badge = (
-            f"<span style='font-size:9px;color:#aaa;vertical-align:super;"
-            f"margin-left:4px;cursor:default;'>ⓘ</span>"
-        )
+        tip_div    = f"<div class='mc-tip'>{tooltip_html}</div>"
+        wrap_open  = "<div class='mc-wrap'>"
+        wrap_close = "</div>"
+        has_tip    = "has-tip"
+        badge      = ("<span style='font-size:9px;color:#bbb;"
+                      "vertical-align:super;margin-left:4px;'>ⓘ</span>")
     else:
-        tooltip_block = ""
-        close_wrap    = ""
-        info_badge    = ""
+        tip_div    = ""
+        wrap_open  = ""
+        wrap_close = ""
+        has_tip    = ""
+        badge      = ""
 
     st.markdown(
-        f"""{tooltip_block}
-        <div style="background:#fff;padding:12px 16px;border-radius:6px;
-        border-left:4px solid {accent};box-shadow:0 1px 4px rgba(0,0,0,0.08);
-        min-height:80px;box-sizing:border-box;cursor:{'default' if not tooltip_html else 'help'};">
-        <div style="font-size:10px;color:#888;text-transform:uppercase;
-                    letter-spacing:.07em;">{label}{info_badge}</div>
-        <div style="font-size:22px;font-weight:700;color:#1a1a1a;
-                    margin-top:5px;">{value}</div>
-        </div>{close_wrap}""",
+        f"{wrap_open}{tip_div}"
+        f"<div class='mc-card {has_tip}' style='border-left:4px solid {accent};'>"
+        f"<div class='mc-label'>{label}{badge}</div>"
+        f"<div class='mc-value'>{value}</div>"
+        f"</div>{wrap_close}",
         unsafe_allow_html=True,
     )
 
