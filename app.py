@@ -470,8 +470,8 @@ def load_marker_support() -> pd.DataFrame:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
                 d = d.replace(_NA_VALS, np.nan)
                 dfs.append(d)
-            except Exception:
-                pass
+            except Exception as e:
+                st.warning(f"Could not load {path.name}: {e}")
 
     # GRIN ancestry-consistency evidence (synthesised at runtime)
     grin_df = _load_grin_pedigree_as_marker_support()
@@ -560,12 +560,15 @@ def build_children_map(_df: pd.DataFrame) -> dict[str, list[str]]:
     Leading underscore prevents Streamlit from hashing the DataFrame argument.
     """
     children: dict[str, list[str]] = defaultdict(list)
-    for _, row in _df.iterrows():
-        child = row["prime_name"]
-        for pcol in ("parent1", "parent2"):
-            p = row.get(pcol)
-            if isinstance(p, str) and p.strip():
-                children[p.strip().upper()].append(child)
+    for pcol in ("parent1", "parent2"):
+        if pcol not in _df.columns:
+            continue
+        sub = _df[["prime_name", pcol]].dropna(subset=[pcol])
+        sub = sub[sub[pcol].str.strip() != ""]
+        for parent, child in zip(
+            sub[pcol].str.strip().str.upper(), sub["prime_name"]
+        ):
+            children[parent].append(child)
     return dict(children)
 
 
@@ -936,8 +939,8 @@ def load_all_marker_evidence() -> pd.DataFrame:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
                 d = d.replace(_NA_VALS, np.nan)
                 dfs.append(d)
-            except Exception:
-                pass
+            except Exception as e:
+                import warnings; warnings.warn(f"load_all_marker_evidence: skipped {path.name}: {e}")
 
     grin_df = _load_grin_pedigree_as_marker_support()
     if not grin_df.empty:
