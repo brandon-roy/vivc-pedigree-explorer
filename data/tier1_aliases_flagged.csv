@@ -1,0 +1,15 @@
+unresolved_name,rejected_candidate,reason
+MACABEO,MACABEO NEGRO,Macabeo/Viura is white — MACABEO NEGRO is a different black variety; need to check what name the source actually uses
+FRANKENTHAL,FRANKENTHAL BLANC MUSQUE,Frankenthal is typically NOIR — FRANKENTHAL BLANC MUSQUE is a white muscat variant; likely the wrong mapping for a source citing Frankenthal as a parent
+GRENACHE N,GRENACHE NOIR A FLEURS FEMELLES,"'N' = Noir abbreviation, but GRENACHE NOIR A FLEURS FEMELLES is the female-flower sex variant, not the main Grenache Noir — would misidentify the variety"
+MISSION,MISSION MALE,MISSION MALE is Muscadinia rotundifolia (different genus) — not the California Mission grape which is V. vinifera
+PIROVANO 59,PIROVANO 595,Number does not match: 59 ≠ 595; likely a different accession
+PIROVANO 60,PIROVANO 604,Number does not match: 60 ≠ 604; likely a different accession
+DIAGALVES,DIAGALVES FAUX,"FAUX = 'false Diagalves' — a distinct variety misidentified as Diagalves; sources citing 'DIAGALVES' likely mean the true variety, not this one"
+MOUCHKETNY,MOUCHKETNY FAUX,"Same FAUX issue: sources likely reference true Mouchketny, not the false-labeled entry"
+MOSCATEL DE OEIRAS,MOSCATEL DE OEIRAS FAUX (COLLECTION BORDEAUX),FAUX + collection qualifier — likely a different accession from what literature cites
+BLANC DE DELLYS,BLANC DE DELLYS X RHODITES,"X RHODITES suffix marks a specific hybrid cross, not the base variety"
+DUNAVSKI MISKET,DUNAVSKI MISKET X CARDINAL,"X CARDINAL suffix marks a hybrid cross, not the base variety"
+FUJIMINORI,FUJIMINORI (4N),(4N) = tetraploid — genetically distinct from the diploid Fujiminori; sources likely reference the standard diploid
+NIABELL,NIABELL (4N),(4N) = tetraploid — same concern as Fujiminori
+UVA DI TROJA,UVA DI TROJANERO,TROJANERO suffix substantially changes the name — unclear if these are the same variety
