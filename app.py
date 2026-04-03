@@ -189,6 +189,9 @@ CONSTANTINI_PATH = BASE_DIR / "data" / "constantini_2026_marker_support.csv"
 MYLES_PATH       = BASE_DIR / "data" / "myles_2011_marker_support.csv"
 LACOMBE_PATH     = BASE_DIR / "data" / "lacombe_2013_marker_support.csv"
 OLIVEIRA_PATH    = BASE_DIR / "data" / "oliveira_2020_marker_support.csv"
+LAC_EMAN_PATH    = BASE_DIR / "data" / "lacombe_emanuelli_2020_marker_support.csv"
+LAUCOU18_PATH    = BASE_DIR / "data" / "laucou_2018_marker_support.csv"
+LIANG19_PATH     = BASE_DIR / "data" / "liang_2019_marker_support.csv"
 GRIN_PED_PATH    = BASE_DIR / "data" / "grin_pedigree_support.csv"
 ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
@@ -435,14 +438,20 @@ def _load_grin_pedigree_as_marker_support() -> pd.DataFrame:
     return pd.DataFrame(rows) if rows else pd.DataFrame()
 
 
+@st.cache_data(show_spinner=False)
 def load_marker_support() -> pd.DataFrame:
     """
     Load and combine all marker-support evidence layers:
-      • marker_support.csv                    — curated SSR/SNP literature
-      • vivc_confirmed_marker_support.csv     — VIVC passport marker text
-      • constantini_2026_marker_support.csv   — Axiom Vitis22K SNP array
-      • myles_2011_marker_support.csv         — Vitis9KSNP ICS scoring
-      • grin_pedigree_support.csv             — GRIN admixture ACS scoring
+      • marker_support.csv                          — curated SSR/SNP literature (59 landmark pairs)
+      • vivc_confirmed_marker_support.csv           — VIVC passport marker text (3,391 rows)
+      • constantini_2026_marker_support.csv         — Axiom Vitis22K SNP array (22,000 loci)
+      • myles_2011_marker_support.csv               — Vitis9KSNP ICS scoring (6,114 SNPs)
+      • lacombe_2013_marker_support.csv             — Large-scale SSR parentage (783 cultivars, 20 loci)
+      • oliveira_2020_marker_support.csv            — Portuguese/Iberian SSR parentage
+      • lacombe_emanuelli_2020_marker_support.csv   — Italian Parentage Atlas SNP (Vitis18K, 18,000 loci)
+      • laucou_2018_marker_support.csv              — 10K SNP genome-wide PO pairs
+      • liang_2019_marker_support.csv               — 472-accession WGS study; 108 cultivars, 79 new (passport)
+      • grin_pedigree_support.csv                   — GRIN admixture ACS scoring (synthesised at runtime)
 
     Deduplication strategy
     ──────────────────────
@@ -455,7 +464,7 @@ def load_marker_support() -> pd.DataFrame:
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH, LAC_EMAN_PATH, LAUCOU18_PATH, LIANG19_PATH):
         if path.exists():
             try:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
@@ -921,7 +930,7 @@ def load_all_marker_evidence() -> pd.DataFrame:
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH, LAC_EMAN_PATH, LAUCOU18_PATH, LIANG19_PATH):
         if path.exists():
             try:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
@@ -1534,6 +1543,22 @@ def build_visjs_network(
     edges_data = []
     edge_tooltips: dict[str, str] = {}   # eid → HTML for custom JS tooltip
     _edge_counter = 0
+
+    # Hoist per-loop constants / lookups out of the edge iteration
+    _bad_e = {"", "nan", "none", "na", "n/a", "n.a.", "null"}
+    _vivc_no_map: dict[str, object] = (
+        nodes_df.set_index("name")["vivc_no"].to_dict()
+        if "vivc_no" in nodes_df.columns else {}
+    )
+    _all_ev_preload = load_all_marker_evidence()
+    # Pre-group by (child, parent) so per-edge filtering is O(1) dict lookup
+    _ev_by_pair: dict[tuple[str, str], pd.DataFrame] = {}
+    if not _all_ev_preload.empty:
+        for (_child, _parent), _grp in _all_ev_preload.groupby(
+            ["child_variety", "parent_variety"], sort=False
+        ):
+            _ev_by_pair[(_child, _parent)] = _grp.reset_index(drop=True)
+
     edge_iter = ann.iterrows() if not ann.empty else edges_df.iterrows()
     for _, erow in edge_iter:
         src  = erow.get("from", "")
@@ -1559,8 +1584,6 @@ def build_visjs_network(
             n_mk    = erow.get("n_markers", "")
             yr_mk   = erow.get("confirmed_year", "")
 
-            _bad_e = {"", "nan", "none", "na", "n/a", "n.a.", "null"}
-
             # DOI — only link if it looks like a real DOI (starts with "10.")
             if doi_raw.lower() not in _bad_e and doi_raw.startswith("10."):
                 doi_cell = (
@@ -1572,12 +1595,7 @@ def build_visjs_network(
 
             # Source — link to VIVC page when the reference is the generic passport text
             # and there's no real DOI; otherwise show the citation as plain text
-            dst_vivc = None
-            if dst in name_to_id:
-                # look up vivc_no for dst node from nodes_df
-                dst_rows = nodes_df[nodes_df["name"] == dst]
-                if not dst_rows.empty:
-                    dst_vivc = dst_rows.iloc[0].get("vivc_no")
+            dst_vivc = _vivc_no_map.get(dst)
             if (study.lower() not in _bad_e
                     and "vivc passport" in study.lower()
                     and doi_cell == "—"
@@ -1605,11 +1623,7 @@ def build_visjs_network(
 
             # Gather all evidence rows for this (parent → child) pair from
             # the full un-deduped table so we can show every supporting study
-            _all_ev  = load_all_marker_evidence()
-            _pair_ev = _all_ev[
-                (_all_ev["child_variety"]  == dst) &
-                (_all_ev["parent_variety"] == src)
-            ] if not _all_ev.empty else pd.DataFrame()
+            _pair_ev = _ev_by_pair.get((dst, src), pd.DataFrame())
 
             n_total_sources = max(len(_pair_ev), 1)   # at least the winner itself
 
@@ -2695,7 +2709,7 @@ def main() -> None:
     with col3:
         metric_card("With Offspring", f"{n_offspring:,} ({pct(n_offspring, n_total)})", "#4a235a")
     with col4:
-        metric_card("Marker-Confirmed", f"{n_confirmed:,}", "#7a6a20")
+        metric_card("Marker Supported", f"{n_confirmed:,}", "#7a6a20")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -3871,12 +3885,13 @@ def main() -> None:
                 # ── Per-edge detail expanders ─────────────────────────────
                 st.markdown("---")
                 st.markdown("#### Per-edge source detail")
+                _conf_rank_map = {c: i for i, c in enumerate(CONFIDENCE_ORDER)}
                 edge_groups = ev_filtered.groupby(
                     ["child_variety", "parent_variety", "parent_role"], sort=False
                 )
                 for (child, parent, prole), grp in edge_groups:
                     best_conf = grp["confidence_level"].map(
-                        lambda x: {c: i for i, c in enumerate(CONFIDENCE_ORDER)}.get(str(x).lower(), 99)
+                        lambda x: _conf_rank_map.get(str(x).lower(), 99)
                     ).min()
                     best_conf_label = CONFIDENCE_ORDER[best_conf] if best_conf < len(CONFIDENCE_ORDER) else "unknown"
                     badge_color = MARKER_COLORS.get(best_conf_label, "#888")
