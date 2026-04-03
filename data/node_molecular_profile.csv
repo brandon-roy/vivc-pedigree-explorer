@@ -42,7 +42,7 @@ ATOKA,34.4,9.6,56.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,
 AUGUST GIANT,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 AURELIA,79.2,18.7,1.7,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 AURORA,95.2,4.6,0.2,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-AUTUMN BLACK,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+AUTUMN BLACK,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,232/238,233/249,248/254,180/191,,,,,Lacombe et al. 2013,False,False,ancestry
 AUTUMN SEEDLESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 AZITA,29.1,50.0,20.7,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BACHMAN'S EARLY,46.9,0.3,52.0,0.8,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -53,7 +53,7 @@ BARBABLEU,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),13
 BARBARA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARBERA NERA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARGOON,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BARLINKA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BARLINKA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),149/149,232/238,249/253,248/248,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
 BARNES,0.0,50.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARRET MN-1,3.5,0.9,0.0,95.6,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BARRY,50.0,0.3,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/153,229/234,247/249,238/240,182/191,243/243,271/271,,,,False,False,ancestry
@@ -61,17 +61,17 @@ BATH,50.3,0.0,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,
 BEACON,32.2,0.7,67.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BEAUFORT,24.8,45.7,29.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BEAUMONT,40.2,33.5,26.3,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BEAUTY SEEDLESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BEAUTY SEEDLESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,232/234,247/253,240/248,176/178,,,,,Lacombe et al. 2013,False,False,ancestry
 BEAVER,38.4,8.3,53.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BEBA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 BEICHUN,50.0,0.0,0.0,0.0,50.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BELI POTOK,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BELL,50.3,33.3,16.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BELLINO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+BELLINO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),149/153,225/236,239/247,240/254,176/182,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 BEN HUR,33.6,0.3,66.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BERCKMANS,41.4,32.8,25.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BERGONIA,0.0,82.4,17.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BERMESTIA BIANCA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BERMESTIA BIANCA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/143,229/234,243/247,238/240,176/182,,,,,Lacombe et al. 2013,False,False,ancestry
 BERTILLE SEYVE 1353,66.4,0.0,33.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BERTILLE SEYVE 27,18.5,81.5,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BERTILLE SEYVE 2863,40.0,45.9,14.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -89,8 +89,8 @@ BLACK DELAWARE,0.0,99.8,0.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture
 BLACK EAGLE,61.3,0.0,38.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BLACK FERRARA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BLACK HAMBURG,91.0,7.7,0.3,0.7,0.4,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BLACK MONUKKA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BLACK MOROCCO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+BLACK MONUKKA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),139/149,232/238,253/253,248/254,178/191,,,,,Lacombe et al. 2013,False,False,ancestry
+BLACK MOROCCO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),149/149,225/236,239/249,254/262,176/182,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 BLACK QUEEN,69.5,1.3,29.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BLACK ROSE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),149/155,223/236,239/259,248/248,180/186,233/257,239/251,,,,False,False,ancestry
 BLANCA NIEVE,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -112,7 +112,7 @@ BRONNER,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 BRONX SEEDLESS,32.1,32.1,35.6,0.0,0.2,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BROWNIE,0.0,0.3,0.0,99.7,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BRYANT,63.4,0.0,36.6,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-BUCKLAND SWEET WATER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+BUCKLAND SWEET WATER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),133/133,234/234,247/247,254/254,182/182,,,,,Lacombe et al. 2013,False,False,ancestry
 BUDRILAY,99.2,0.1,0.0,0.1,0.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BUFFALO,57.0,1.4,41.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BURABURI,99.1,0.0,0.0,0.0,0.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -137,7 +137,7 @@ BURDIN 8753,59.0,31.8,9.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),
 BURMUNK,90.4,8.2,1.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 BUTLER,52.0,0.5,47.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CABERNET CORTIS,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-CABERNET FRANC,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
+CABERNET FRANC,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),137/145,223/238,239/262,238/254,178/186,,,,,Lacombe et al. 2013,False,True,"ancestry,SNP_Constantini"
 CABERNET SAUVIGNON,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),139/151,234/242,239/239,239/249,176/190,234/236,240/240,188/194,247/247,VIVC,True,True,"ancestry,SSR,SNP_Myles,SNP_Constantini"
 CACO,62.9,0.0,37.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CALARDIS BLANC,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
@@ -165,19 +165,19 @@ CATAWBA,69.7,1.1,29.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 CAYWOOD,31.9,1.9,66.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CEDAR VALLEY,59.7,1.9,38.0,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CENTENNIAL SEEDLESS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CEREZA,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
+CEREZA,,,,,,,,133/147,225/229,249/251,238/248,176/186,,,,,Lacombe et al. 2013,True,False,SNP_Myles
 CHALLENGE,71.3,1.0,27.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,225/229,249/249,238/248,176/182,243/243,257/263,,,,False,False,ancestry
 CHAMBEAUDIERE 1337,41.3,46.6,12.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMBEAUDIERE 1391,40.1,46.0,14.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMO,97.6,0.0,0.0,0.0,2.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMPAGNE,15.3,1.2,83.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHAMPANEL,2.8,23.3,73.9,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CHAOUCH BLANC,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
+CHAOUCH BLANC,,,,,,,,133/149,225/236,247/249,248/254,176/180,,,,,Lacombe et al. 2013,False,True,SNP_Constantini
 CHAOUCH ROZOVYI,,,,,,,,139/153,232/234,243/243,244/256,182/191,234/257,249/259,,,,False,True,SNP_Constantini
 CHARAS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHARDONNAY BLANC,100.0,0.0,0.0,0.0,0.0,8.0,Myles et al. 2011 / GRIN (DVIT admixture),137/143,236/240,239/243,239/255,182/190,218/228,240/272,188/196,243/245,VIVC,False,False,"ancestry,SSR"
 CHARDONNAY BLANC MUSQUE,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-CHARMONT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CHARMONT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,225/236,243/247,238/240,182/186,,,,,Lacombe et al. 2013,False,False,ancestry
 CHARVIR,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 CHASSELAS CIOUTAT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHASSELAS DES BOUCHES DU RHONE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -192,7 +192,7 @@ CHONTAY,30.0,31.3,38.6,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,
 CHOWAN,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CHURGOON,98.4,0.0,0.0,0.0,1.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CIMARRON,37.2,20.2,42.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-CINSAUT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CINSAUT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,223/223,243/247,238/248,176/178,,,,,Lacombe et al. 2013,False,False,ancestry
 CITRONELLE,99.5,0.5,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,223/229,239/243,240/248,186/191,235/243,239/271,,,,False,False,ancestry
 CIVIT 2,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 CLAIRETTE BLANCHE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),149/151,236/238,243/251,244/254,178/182,257/257,255/271,,,,False,False,ancestry
@@ -207,9 +207,9 @@ CONCORD,28.4,0.0,71.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/
 CONCORD SEEDLESS,49.4,0.0,50.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CONQUISTADOR,21.1,0.5,78.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 CONTE ROSSO,,,,,,,,131/131,225/232,239/239,238/238,186/191,235/247,255/271,,,,True,False,SNP_Myles
-CORNIFESTO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+CORNIFESTO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),141/143,232/236,249/253,240/248,178/186,,,,,Lacombe et al. 2013,False,False,ancestry
 CORTESE,99.9,0.1,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-COSMO 10,0.0,50.4,49.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+COSMO 10,0.0,50.4,49.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,199/213,250/258,Migliaro et al. 2019,False,False,ancestry
 COSMO 2,70.7,29.3,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 COT,99.9,0.1,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),141/143,223/225,239/239,240/254,176/191,233/243,239/255,,,,True,False,"ancestry,SNP_Myles"
 COTTAGE,28.1,0.0,71.9,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -253,7 +253,7 @@ DELAGO,50.2,0.0,49.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,
 DELAWARE,46.1,24.9,29.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DELICATESSEN,31.8,24.0,44.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DELICIOUS,62.7,24.7,12.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DELIGHT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DELIGHT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),133/143,232/234,239/249,238/254,176/178,,,,,Lacombe et al. 2013,False,False,ancestry
 DELIZIA DI VAPRIO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/143,232/238,239/259,240/240,178/178,239/243,243/255,,,,True,False,"ancestry,SNP_Myles"
 DEMETRA,78.6,16.2,4.8,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DIAMOND,43.1,0.0,56.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,223/236,247/249,238/254,176/182,257/259,239/261,,,,False,False,ancestry
@@ -263,9 +263,9 @@ DIX,48.2,34.5,16.6,0.0,0.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,
 DIXIE,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/151,229/238,239/239,240/244,176/191,243/257,271/271,,,,False,False,ancestry
 DIXIERED,0.0,0.1,0.0,99.9,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DIZMAR,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DOG RIDGE,0.0,49.4,50.6,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DOG RIDGE,0.0,49.4,50.6,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,173/189,238/254,Migliaro et al. 2019,False,False,ancestry
 DOLCETTO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-DORAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+DORAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,225/236,243/247,238/240,178/186,,,,,Lacombe et al. 2013,False,False,ancestry
 DORNFELDER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 DOVINE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DOWNING,42.4,23.6,33.8,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -279,7 +279,7 @@ DURIF,0.2,42.7,49.9,0.0,7.3,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/13
 DUTCHESS,66.0,0.0,34.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 DUVAL,1.7,0.4,96.6,0.4,0.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EARLY DAISY,12.9,18.5,68.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-EARLY MUSCAT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+EARLY MUSCAT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,234/236,247/249,240/254,176/182,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 ECLIPSE,0.9,96.1,3.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EDELWEISS,30.3,19.8,49.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EDEN,42.0,35.7,22.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -293,9 +293,9 @@ ELIZABETH,24.0,0.7,75.0,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,
 ELLEN SCOTT,66.6,21.8,10.8,0.0,0.8,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ELVICAND,13.3,13.1,73.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ELVIRA,22.0,32.3,45.5,0.0,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-EMERALD RIESLING,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+EMERALD RIESLING,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),133/143,223/234,243/247,240/254,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
 EMILE ROYAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-EMPEROR,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+EMPEROR,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,234/234,243/249,238/254,178/191,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 EMPIRE STATE,47.1,1.6,51.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EONA,17.4,49.0,33.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ERICSON,37.8,0.0,62.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -304,10 +304,10 @@ ERLIHANE,97.8,0.0,2.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 ESSEX,30.3,17.7,52.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ETTA,65.6,25.2,7.0,2.2,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EUMELAN,39.7,0.0,60.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-EXOTIC,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+EXOTIC,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),133/133,236/236,239/249,254/254,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
 EXTRA,33.2,0.3,66.5,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 EZERFUERTUE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-EZERJO,99.9,0.1,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+EZERJO,99.9,0.1,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,223/229,239/239,240/248,176/182,,,,,Lacombe et al. 2013,False,False,ancestry
 F26P41,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 F26P50,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 F42P74,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
@@ -330,29 +330,29 @@ FESTIVEE,62.3,12.5,25.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,
 FETEASCA NEAGRA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 FIANO,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 FLAME SEEDLESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-FLORA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+FLORA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,229/234,239/243,248/248,182/186,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 FLORILUSH,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 FLOWERS,0.2,0.0,0.0,99.8,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-FOLLE BLANCHE,100.0,0.0,0.0,0.0,0.0,4.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-FOSTER'S WHITE SEEDLING,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+FOLLE BLANCHE,100.0,0.0,0.0,0.0,0.0,4.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,223/232,239/239,238/248,178/186,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
+FOSTER'S WHITE SEEDLING,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),149/153,225/234,247/249,240/254,182/182,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 FREDONIA,23.6,0.2,76.1,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-FREEDOM,4.7,80.2,15.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+FREEDOM,4.7,80.2,15.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,187/189,256/266,Migliaro et al. 2019,False,False,ancestry
 FREISA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 FRY,0.3,0.0,0.0,99.7,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-FURMINT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+FURMINT,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/151,223/238,239/249,238/240,176/191,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 GAERTNER,50.5,1.3,48.2,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GAILLARD 2,19.7,54.4,25.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GALEA,0.0,51.2,48.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GAMAY NOIR,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-GANZIN 1,50.0,49.9,0.0,0.1,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GANZIN 2,64.6,0.1,35.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+GAMAY NOIR,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,232/236,239/249,238/238,178/186,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
+GANZIN 1,50.0,49.9,0.0,0.1,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,187/201,242/254,Migliaro et al. 2019,False,False,ancestry
+GANZIN 2,64.6,0.1,35.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,195/201,254/256,Migliaro et al. 2019,False,False,ancestry
 GARANOIR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GARNACHA TINTA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GARONNET,52.1,38.0,9.6,0.3,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GASCHOCHI,96.5,0.0,0.2,0.0,3.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GASCONADE,55.9,15.4,28.7,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GEISENHEIM 1,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GEISENHEIM 26,50.0,49.5,0.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+GEISENHEIM 26,50.0,49.5,0.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,190/193,256/258,Migliaro et al. 2019,False,False,ancestry
 GENEVA,9.0,19.3,6.4,29.6,35.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GEWUERZTRAMINER,100.0,0.0,0.0,0.0,0.0,4.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,True,"ancestry,SNP_Myles,SNP_Constantini"
 GIA F12P140,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
@@ -364,7 +364,7 @@ GLADWIN 113,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),
 GOECSEJI ZAMATOS,0.9,0.0,0.2,98.9,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GOETHE,50.2,0.6,49.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GOFF,58.1,0.0,41.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GOLD,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+GOLD,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),133/133,232/236,239/249,254/254,176/176,,,,,Lacombe et al. 2013,False,False,ancestry
 GOLD COIN,25.3,0.5,74.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GOLDEN CHAMPION,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 GOLDEN DROP,50.8,0.0,49.2,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -375,18 +375,18 @@ GOUVEIO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 GOYURA,99.7,0.2,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 GRACIANO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GRAND NOIR,99.9,0.1,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GRAVESAC,0.0,85.3,14.7,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GREC ROUGE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+GRAVESAC,0.0,85.3,14.7,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,189/191,254/256,Migliaro et al. 2019,False,False,ancestry
+GREC ROUGE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,225/234,247/253,240/254,182/182,,,,,Lacombe et al. 2013,False,False,ancestry
 GRECO BIANCO 2,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GREEK PERFUME,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GREEN EARLY,43.3,1.2,55.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GREEN MOUNTAIN,38.9,0.5,60.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 GRIGNOLINO,99.9,0.0,0.0,0.1,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-GRILLO,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
+GRILLO,,,,,,,,141/147,223/225,249/249,248/254,176/191,,,,,Lacombe et al. 2013,True,False,SNP_Myles
 GYOENGYRIZLING,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 HALSEY,9.0,19.3,6.4,29.6,35.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 HANOVER,22.1,0.0,77.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-HARMONY,9.6,79.6,10.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+HARMONY,9.6,79.6,10.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,187/201,254/256,Migliaro et al. 2019,False,False,ancestry
 HARSLEVELUE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 HARTFORD,18.2,15.2,3.6,29.7,33.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 HAYES,29.0,0.3,70.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -415,7 +415,7 @@ IASMA ECO 1,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 IASMA ECO 2,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 IASMA ECO 3,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 IASMA ECO 4,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-ICHKIMAR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ICHKIMAR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),139/149,232/238,243/253,248/254,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
 ILLINOIS 316- 3,65.8,12.3,21.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ILLINOIS 796- 4,28.8,38.5,32.0,0.1,0.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 INDIAN CREEK 8C,1.4,4.1,94.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -435,15 +435,15 @@ INZOLIA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 IONA,0.0,99.5,0.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 IRENE,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 IRONCLAD,63.9,28.4,7.1,0.0,0.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ISABELLA,70.8,17.2,11.4,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ISABELLA,70.8,17.2,11.4,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,201/203,236/246,Migliaro et al. 2019,False,False,ancestry
 ISKORKA,84.9,3.2,1.3,0.0,10.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ITALIA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 IV 1-1-768,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 IV 54/2,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 IV 8/1,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-IVAN,43.1,50.6,6.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+IVAN,43.1,50.6,6.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/137,229/244,247/249,240/240,182/186,,,,,Lacombe et al. 2013,False,False,ancestry
 IVES,0.0,99.5,0.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-JACQUEZ,11.9,12.9,0.0,27.2,48.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+JACQUEZ,11.9,12.9,0.0,27.2,48.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,185/197,248/250,Migliaro et al. 2019,False,False,ancestry
 JAEGER 7,0.0,50.9,49.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 JALES,31.8,19.5,48.2,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 JAMES,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -462,13 +462,13 @@ JOANNES SEYVE 26674,49.3,39.2,11.1,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT ad
 JOANNES SEYVE 9149,40.9,46.8,12.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 JOHANNITER,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 JOLY,0.0,49.2,50.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-JULIUS CAESAR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+JULIUS CAESAR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/153,234/234,239/247,240/240,178/186,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 JULY MUSCAT,99.9,0.0,0.0,0.1,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 JUMBO,0.0,0.0,0.0,100.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 JURANCON BLANC,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
 JURANCON NOIR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 JUWEL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-KADARKA KEK,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+KADARKA KEK,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/133,223/223,247/255,238/254,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
 KALA KOSTAN,98.3,0.1,0.5,0.0,1.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KALI SAG,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KARGA DILI,99.9,0.0,0.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -487,7 +487,7 @@ KING PHILIP,55.7,0.0,44.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),
 KINI YATCH,96.7,0.3,0.0,0.0,3.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KISHMISH KHISHRAU,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KISHMISH VATKANA,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
-KOBER 125 AA,0.0,49.7,50.3,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+KOBER 125 AA,0.0,49.7,50.3,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,191/209,250/258,Migliaro et al. 2019,False,False,ancestry
 KOBER 5 BB,53.8,34.6,11.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
 KOSHU BUDO,6.2,22.2,6.4,29.8,35.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KOSHU SANJAKU,10.0,18.3,3.4,29.6,38.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -499,14 +499,14 @@ KOZMA PALNE MUSKOTALY,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT a
 KRAUSE,12.1,16.7,9.4,27.7,34.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KRISZTALY,60.9,17.7,3.9,0.6,16.8,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 KUHLMANN 193-3,50.0,50.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-KURTELASKA,99.9,0.1,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+KURTELASKA,99.9,0.1,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/143,225/244,243/253,240/240,178/186,,,,,Lacombe et al. 2013,False,False,ancestry
 LA SALLE,0.4,0.0,0.0,99.6,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LABRUSCO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LADY,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LADY HUTT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LADY PATRICIA,68.2,28.4,2.6,0.0,0.9,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LADY WASHINGTON,9.0,18.1,5.1,28.2,39.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-LAGREIN,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
+LAGREIN,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),135/153,225/236,239/247,238/240,182/182,,,,,Lacombe et al. 2013,False,True,"ancestry,SNP_Constantini"
 LAKE EMERALD,8.9,18.0,3.7,32.9,36.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LAMBRUSCA DI ALESSANDRIA,99.8,0.2,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LANDOT 1674,56.3,35.2,8.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -527,7 +527,7 @@ LATE VAVILOV,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture)
 LAUROT,86.2,11.4,2.0,0.0,0.4,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LEVERKUHN,29.4,0.0,70.3,0.0,0.3,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LIBERTY,50.0,50.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-LINDLEY,0.0,22.2,77.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+LINDLEY,0.0,22.2,77.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,201/203,246/258,Migliaro et al. 2019,False,False,ancestry
 LIZA,84.7,0.0,0.0,0.0,15.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LOMANTO,55.3,19.2,25.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 LOMBARDIA,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
@@ -542,7 +542,7 @@ LUKFATA,3.9,24.9,71.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 LUTIE,13.2,0.2,86.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MACAROLI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MADELEINE CELINE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MADELEINE ROYALE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+MADELEINE ROYALE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),149/153,225/234,243/247,240/248,178/186,,,,,Lacombe et al. 2013,False,False,ancestry
 MAGNO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MAGNOLIA,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MAGOON,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -553,7 +553,7 @@ MALVASIA DI CANDIA AROMATICA,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 MALVASIA ROSARIO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MALVASIA ROSAVENDA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MALVERINA,2.1,92.2,4.8,0.0,0.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MAMELON,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+MAMELON,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,234/238,239/239,240/248,186/186,,,,,Lacombe et al. 2013,False,False,ancestry
 MAMIDON DELI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MANDAN,27.1,50.0,22.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MANITO,24.5,16.4,59.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -575,11 +575,11 @@ MCCOY,12.2,15.5,5.9,30.2,36.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 MCPIKE,29.2,0.3,70.3,0.0,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MEIER EVERBEARING,9.0,19.3,6.4,29.6,35.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MELODY,62.9,16.8,20.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MELON,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+MELON,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),135/141,236/238,239/249,238/254,178/182,,,,,Lacombe et al. 2013,False,False,ancestry
 MEMORY,0.0,0.4,0.2,99.2,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MERICADEL,25.4,23.1,51.6,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MERLAN,85.9,12.5,1.0,0.0,0.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MERLOT NOIR,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
+MERLOT NOIR,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),137/149,223/234,239/247,238/248,186/188,,,,,Lacombe et al. 2013,False,True,"ancestry,SNP_Constantini"
 MERMARK,99.8,0.0,0.0,0.0,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MERRIMAC,50.2,0.6,49.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MERZLING,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
@@ -591,7 +591,7 @@ MILLARDET ET GRASSET 101- 14,0.0,99.8,0.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (
 MILLARDET ET GRASSET 106- 8,2.7,97.3,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MILLISHUN,99.5,0.0,0.0,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MILLS,49.4,34.6,15.8,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MILTON,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+MILTON,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),133/141,234/236,239/243,254/254,176/186,,,,,Lacombe et al. 2013,False,False,ancestry
 MINNIE,9.0,19.3,6.4,29.6,35.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MISSBLUE,62.0,4.1,33.4,0.3,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MISSIO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -603,22 +603,22 @@ MONTILS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 MONTREAL,41.5,50.7,7.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MOORE EARLY,50.0,0.5,49.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MOORED,34.0,0.0,66.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MOSCATO D'ADDA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+MOSCATO D'ADDA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,223/225,247/251,240/248,176/182,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 MOSCATO DI TERRACINA,99.9,0.1,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MOSCATO JESUS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MOURISCO DE SEMENTE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+MOURISCO DE SEMENTE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),133/141,229/236,239/239,254/258,178/191,,,,,Lacombe et al. 2013,False,False,ancestry
 MOYER,21.6,17.4,61.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MRS. MUNSON,3.1,23.8,73.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MUELLER THURGAU WEISS,,,,,,,,,,,,,,,,,,False,True,SNP_Constantini
 MUNIER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MUNSON,24.9,19.0,56.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MUNSON'S EXTRA,34.9,2.1,62.9,0.1,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-MUSCADELLE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+MUSCADELLE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),137/141,223/232,239/239,238/254,176/182,,,,,Lacombe et al. 2013,False,False,ancestry
 MUSCAT A PETITS GRAINS BLANCS,,,,,,,,133/133,230/238,233/249,241/249,180/195,246/268,264/272,186/196,251/255,VIVC,False,False,SSR
 MUSCAT HAMBURG,99.9,0.0,0.0,0.0,0.1,4.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 MUSCAT NOIR,99.9,0.1,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MUSCAT OF ALEXANDRIA,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-MUSCAT OTTONEL,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
+MUSCAT OTTONEL,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,223/225,239/243,248/254,176/186,,,,,Lacombe et al. 2013,False,True,"ancestry,SNP_Constantini"
 MUSCAT ST. LAURENT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 MUSCAT TALABOT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 NABODA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -656,13 +656,13 @@ OBERLIN 605,50.0,49.8,0.2,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),
 OBERLIN 782,50.0,50.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OCONEE,51.1,0.0,48.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OEILLADE NOIRE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-OHANES,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+OHANES,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/135,232/234,233/251,254/254,180/191,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 OHIO,39.0,21.0,39.2,0.3,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OKANAGAN RIESLING,64.2,21.5,14.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OLITA,22.7,18.2,58.8,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-OLIVETTE BLANCHE,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+OLIVETTE BLANCHE,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),133/135,232/236,243/249,254/254,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
 OLIVETTE NOIRE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-OLIVETTE ROSE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+OLIVETTE ROSE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),133/135,223/232,239/243,238/254,176/180,,,,,Lacombe et al. 2013,False,False,ancestry
 ONEIDA,59.9,0.0,40.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ONSLOW,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ONTARIO,45.5,0.0,54.5,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -673,7 +673,7 @@ ORLANDO SEEDLESS,69.6,0.0,30.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixt
 ORTEGA,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
 OSBU,17.5,48.6,33.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OSCEOLA,16.1,5.0,78.7,0.1,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-OSTEINER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+OSTEINER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),149/149,223/229,243/257,248/248,186/186,,,,,Lacombe et al. 2013,False,False,ancestry
 OTHELLO,50.0,25.9,24.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OTILIA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 OZARK PRIZE,9.0,19.3,6.4,29.6,35.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -692,7 +692,7 @@ PERBOS 205,61.4,32.1,6.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,
 PERBOS 226,53.4,37.8,8.1,0.0,0.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 PERKINS,30.5,0.4,69.0,0.0,0.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 PERLE,99.7,0.3,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
-PERLETTE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+PERLETTE,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/143,232/234,247/253,238/240,176/178,,,,,Lacombe et al. 2013,False,False,ancestry
 PERRUNO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 PETIT NOIR,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 PETRA,83.2,0.0,0.0,0.0,16.8,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
@@ -721,8 +721,8 @@ PRIDE,0.4,0.0,0.0,99.6,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,
 PRIMIERA,,,,,,,,,,,,,,,,,,True,False,SNP_Myles
 PRIMITIVO,100.0,0.0,0.0,0.0,0.0,7.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 PRINCESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-PRUNE DE CAZOULS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-QUEEN,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+PRUNE DE CAZOULS,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/143,229/229,239/243,238/240,182/191,,,,,Lacombe et al. 2013,False,False,ancestry
+QUEEN,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),133/149,229/232,239/249,248/254,176/178,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 R.W. MUNSON,32.5,0.0,67.5,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RABOSO PIAVE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RAMBOLA,92.0,6.7,1.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -747,11 +747,11 @@ REMAILY 64- 68- 1,25.5,74.4,0.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admix
 REMAILY SEEDLESS,71.5,18.3,9.5,0.0,0.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 REQUA,9.0,19.4,6.4,29.6,35.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RIBOLLA GIALLA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-RICHTER 110,40.5,44.8,11.2,0.0,3.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+RICHTER 110,40.5,44.8,11.2,0.0,3.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,195/213,242/258,Migliaro et al. 2019,False,False,ancestry
 RICHTER 44,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RICHTER 57,0.0,50.2,49.5,0.3,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RICHTER 99,51.0,33.1,15.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-RIESLING WEISS,99.6,0.0,0.0,0.4,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
+RIESLING WEISS,99.6,0.0,0.0,0.4,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/149,223/232,249/257,248/254,178/186,,,,,Lacombe et al. 2013,False,True,"ancestry,SNP_Constantini"
 RIO COLORADO,7.3,19.2,9.5,28.7,35.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RIPARIA GLOIRE DE MONTPELLIER,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
 RIPLEY,49.4,0.0,50.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -768,7 +768,7 @@ RONALDO,15.8,19.2,13.1,17.1,34.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,
 RONDINELLA,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ROSEBELLE,32.0,0.0,68.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ROTBERGER,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-ROTGIPFLER,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+ROTGIPFLER,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/149,229/244,239/257,240/248,180/186,,,,,Lacombe et al. 2013,False,False,ancestry
 ROUSSANNE,99.9,0.1,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ROUSSETTE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 ROYALTY,87.3,12.1,0.5,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
@@ -776,7 +776,7 @@ RUBAIYAT,49.0,15.3,35.7,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,
 RUBIDOUX,4.9,21.6,8.7,28.8,36.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RUBIRED,87.1,12.3,0.6,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 RUBY,69.6,0.0,30.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-RUBY CABERNET,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+RUBY CABERNET,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),141/149,223/229,239/239,248/254,172/178,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 RUBY OKUYAMA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 RUBY SEEDLESS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 RUDELIN 14,48.5,38.3,13.1,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -788,7 +788,7 @@ RUGGERI 140,0.0,50.2,49.8,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),
 SABALKANSKOI,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SAINT LAURENT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SALEM,50.3,0.0,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-SALT CREEK,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+SALT CREEK,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,173/201,236/254,Migliaro et al. 2019,False,False,ancestry
 SALVADOR,50.5,28.3,21.3,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SAN JACINTO,0.0,0.0,0.0,99.8,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SANALBA,0.8,0.0,0.0,99.2,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -799,7 +799,7 @@ SAPERAVI BUDESHURISEBURI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVI
 SATINO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SAUVIGNON BLANC,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,True,"ancestry,SNP_Myles,SNP_Constantini"
 SAUVIGNON GRIS,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-SAVAGNIN BLANC,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+SAVAGNIN BLANC,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),149/149,229/236,243/257,248/248,186/186,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 SCARLET,85.9,0.0,14.1,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SCHIAVA GROSSA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
 SCHOENBURGER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
@@ -859,10 +859,10 @@ SEIBEL 874,34.2,0.0,65.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,
 SEIBEL 8740,0.0,99.6,0.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SEIBEL 880,37.0,54.4,8.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SEIBEL 8916,54.1,38.9,7.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-SEMILLON,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
+SEMILLON,100.0,0.0,0.0,0.0,0.0,3.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,234/236,239/257,240/248,172/182,,,,,Lacombe et al. 2013,True,False,"ancestry,SNP_Myles"
 SEMINOLE,9.9,0.5,89.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SENECA,73.1,0.0,26.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-SERVANT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+SERVANT,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,223/232,243/249,238/254,180/182,,,,,Lacombe et al. 2013,False,False,ancestry
 SEVERNYI,50.0,0.0,0.0,0.0,50.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SEYVAL BLANC,40.7,38.9,20.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,True,"ancestry,SNP_Constantini"
 SEYVE VILLARD 1- 72,40.3,39.3,20.3,0.0,0.2,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -947,17 +947,17 @@ SUMMER ROYAL,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture)
 SUPER HAMBURG,9.0,19.3,12.3,29.7,29.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SWEET BLUE,12.5,0.0,87.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 SWENSON RED,34.2,41.8,24.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-SYRAH,,,,,,,,,,,,,,,,,,True,True,"SNP_Myles,SNP_Constantini"
+SYRAH,,,,,,,,131/131,223/229,239/239,240/240,186/188,,,,,Lacombe et al. 2013,True,True,"SNP_Myles,SNP_Constantini"
 TABYRN,99.9,0.1,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TACHIKAWA 1,27.1,72.9,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TADONE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TAHAMA,8.7,13.2,10.5,35.5,32.1,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TALISMAN,89.2,2.7,0.1,0.0,8.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-TAMAREZ,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+TAMAREZ,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/141,236/238,239/257,254/254,186/191,,,,,Lacombe et al. 2013,False,False,ancestry
 TAMIAMI,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TAMINGA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
 TAMPA,24.2,0.0,75.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-TANNAT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+TANNAT,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),141/153,236/238,249/249,254/254,182/186,,,,,Lacombe et al. 2013,False,False,ancestry
 TARA,0.2,0.0,0.0,99.8,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TARHEEL,0.0,0.0,0.0,100.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TARNAU,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -987,7 +987,7 @@ TOLDI,67.1,20.5,4.7,0.0,7.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,
 TORGOON,99.4,0.0,0.0,0.0,0.6,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TORRONTES RIOJANO,99.5,0.0,0.0,0.5,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TOSCHA,14.9,48.6,36.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-TOURIGA NACIONAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+TOURIGA NACIONAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),141/149,223/234,239/271,248/254,178/186,,,,,Lacombe et al. 2013,False,False,ancestry
 TRAYSHED,0.0,0.2,0.2,99.6,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TREBBIANO TOSCANO,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 TRIESTE,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,True,False,"ancestry,SNP_Myles"
@@ -1022,7 +1022,7 @@ VEEPORT,43.8,11.7,44.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,
 VENTURA,32.5,42.0,25.6,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VENUS,65.6,1.1,33.3,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VERCHANT,56.4,42.6,0.6,0.0,0.3,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-VERDEA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+VERDEA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/131,232/238,247/247,238/254,176/186,,,,,Lacombe et al. 2013,False,False,ancestry
 VERDEAL,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VERGENNES,57.5,29.7,12.3,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VERNACCIA BIANCA,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -1038,8 +1038,8 @@ VINCENT,50.0,0.0,50.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,
 VINELAND 64237,47.4,36.1,16.4,0.2,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VINELAND 71121,47.7,28.5,3.0,20.3,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VINERED,69.5,0.0,30.5,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-VIOGNIER,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-VITAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+VIOGNIER,100.0,0.0,0.0,0.0,0.0,2.0,Myles et al. 2011 / GRIN (DVIT admixture),131/137,223/229,239/249,238/240,182/188,,,,,Lacombe et al. 2013,False,False,ancestry
+VITAL,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),143/149,219/238,239/239,240/254,178/191,,,,,Lacombe et al. 2013,False,False,ancestry
 VIVANT,63.7,19.9,16.4,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VOLNEY,73.0,0.1,26.4,0.0,0.5,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 VOSTORG,76.2,19.8,3.0,0.0,0.9,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
@@ -1060,7 +1060,7 @@ WINCHELL,62.8,27.1,9.4,0.0,0.7,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,
 WINE KING,0.0,100.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 WITBERGER,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 WOODRUFF,50.0,0.3,49.7,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
-XARELLO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
+XARELLO,100.0,0.0,0.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),131/141,234/238,239/243,238/254,178/186,,,,,Lacombe et al. 2013,False,False,ancestry
 XENIA,28.2,0.0,71.8,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 XLNTA,29.5,16.6,53.9,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
 YATES,60.0,0.0,40.0,0.0,0.0,1.0,Myles et al. 2011 / GRIN (DVIT admixture),,,,,,,,,,,False,False,ancestry
