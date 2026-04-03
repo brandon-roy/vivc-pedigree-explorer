@@ -1286,19 +1286,21 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame,
 
             if _ssr_vals:
                 _ssr_src = str(prof.get("ssr_source") or "VIVC").strip()
-                _ssr_cells = ""
-                for _locus, _val in _ssr_vals:
-                    _ssr_cells += (
-                        f"<td style='padding:1px 4px;color:#555;font-size:10px;'>{_locus}</td>"
-                        f"<td style='padding:1px 6px 1px 2px;font-size:10px;'>{_val}</td>"
-                    )
+                _n_found = len(_ssr_vals)
+                _n_total = len(_ssr_loci)
+                _loci_note = (
+                    f"{_n_found}/{_n_total} loci"
+                    if _n_found < _n_total else "all 9 loci"
+                )
                 # Group into rows of 3 loci each
                 _ssr_table_rows = ""
-                for _i in range(0, len(_ssr_vals), 3):
+                for _i in range(0, _n_found, 3):
                     _chunk = _ssr_vals[_i:_i + 3]
                     _tr_cells = "".join(
-                        f"<td style='padding:1px 4px;color:#555;font-size:10px;'>{_l}</td>"
-                        f"<td style='padding:1px 6px 1px 2px;font-size:10px;'>{_a}</td>"
+                        f"<td style='padding:2px 5px 2px 0;color:#666;"
+                        f"font-size:10px;white-space:nowrap;'>{_l}</td>"
+                        f"<td style='padding:2px 10px 2px 2px;font-size:10px;"
+                        f"font-family:monospace;color:#222;'>{_a}</td>"
                         for _l, _a in _chunk
                     )
                     _ssr_table_rows += f"<tr>{_tr_cells}</tr>"
@@ -1307,10 +1309,14 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame,
                     f"<tr><td colspan='2'>"
                     f"<div style='margin-top:8px;padding-top:6px;"
                     f"border-top:1px solid #e0d8cc;'>"
+                    f"<div style='display:flex;justify-content:space-between;"
+                    f"align-items:baseline;margin-bottom:3px;'>"
                     f"<span style='font-size:10px;color:#888;font-weight:600;"
-                    f"text-transform:uppercase;letter-spacing:.5px;'>"
-                    f"SSR Profile (GENRES081) — {_ssr_src}</span>"
-                    f"<table style='margin-top:4px;border-collapse:collapse;width:100%;'>"
+                    f"text-transform:uppercase;letter-spacing:.5px;'>SSR Profile</span>"
+                    f"<span style='font-size:9px;color:#aaa;'>"
+                    f"{_loci_note} · {_ssr_src}</span>"
+                    f"</div>"
+                    f"<table style='border-collapse:collapse;width:100%;'>"
                     f"{_ssr_table_rows}"
                     f"</table>"
                     f"</div></td></tr>"
@@ -2513,16 +2519,58 @@ def build_data_summary(_df: pd.DataFrame) -> dict:
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def metric_card(label: str, value: str, accent: str = "#4a7c30") -> None:
+def metric_card(
+    label: str,
+    value: str,
+    accent: str = "#4a7c30",
+    tooltip_html: str = "",
+) -> None:
+    """
+    Renders a styled metric card.  When *tooltip_html* is supplied the card
+    gets a ⓘ badge and a CSS hover panel that appears above the card.
+    """
+    if tooltip_html:
+        # Unique ID so multiple tooltip cards on the same page don't clash
+        _uid = abs(hash(label + value)) % 10_000_000
+        tooltip_block = (
+            f"<style>"
+            f"  .mc-wrap-{_uid} {{ position:relative; display:block; }}"
+            f"  .mc-tip-{_uid} {{"
+            f"    display:none; position:absolute; bottom:calc(100% + 6px); left:0;"
+            f"    background:#1a1a1a; color:#f0ece2; font-size:11px;"
+            f"    padding:10px 12px; border-radius:6px; width:260px;"
+            f"    box-shadow:0 4px 14px rgba(0,0,0,0.35); z-index:9999;"
+            f"    line-height:1.5; pointer-events:none;"
+            f"  }}"
+            f"  .mc-tip-{_uid}::after {{"
+            f"    content:''; position:absolute; top:100%; left:18px;"
+            f"    border:6px solid transparent; border-top-color:#1a1a1a;"
+            f"  }}"
+            f"  .mc-wrap-{_uid}:hover .mc-tip-{_uid} {{ display:block; }}"
+            f"</style>"
+            f"<div class='mc-wrap-{_uid}'>"
+            f"  <div class='mc-tip-{_uid}'>{tooltip_html}</div>"
+        )
+        close_wrap = "</div>"
+        info_badge = (
+            f"<span style='font-size:9px;color:#aaa;vertical-align:super;"
+            f"margin-left:4px;cursor:default;'>ⓘ</span>"
+        )
+    else:
+        tooltip_block = ""
+        close_wrap    = ""
+        info_badge    = ""
+
     st.markdown(
-        f"""<div style="background:#fff;padding:12px 16px;border-radius:6px;
+        f"""{tooltip_block}
+        <div style="background:#fff;padding:12px 16px;border-radius:6px;
         border-left:4px solid {accent};box-shadow:0 1px 4px rgba(0,0,0,0.08);
-        min-height:80px;box-sizing:border-box;">
+        min-height:80px;box-sizing:border-box;cursor:{'default' if not tooltip_html else 'help'};">
         <div style="font-size:10px;color:#888;text-transform:uppercase;
-                    letter-spacing:.07em;">{label}</div>
+                    letter-spacing:.07em;">{label}{info_badge}</div>
         <div style="font-size:22px;font-weight:700;color:#1a1a1a;
                     margin-top:5px;">{value}</div>
-        </div>""",
+        </div>{close_wrap}""",
         unsafe_allow_html=True,
     )
 
@@ -2704,6 +2752,73 @@ def main() -> None:
     n_offspring = len(names_with_kids)
     n_confirmed = int(marker_tbl["child_variety"].nunique()) if not marker_tbl.empty else 0
 
+    # Build hover tooltip for the "Marker Supported" card
+    _marker_tooltip = ""
+    if not marker_tbl.empty:
+        # Per-confidence variety counts (unique child_variety per level)
+        _CONF_LABELS = {
+            "confirmed":    ("Marker Supported", MARKER_COLORS["confirmed"]),
+            "probable":     ("Probable",         MARKER_COLORS["probable"]),
+            "disputed":     ("Disputed",         MARKER_COLORS["disputed"]),
+            "refuted":      ("Refuted",          MARKER_COLORS["refuted"]),
+            "undocumented": ("Undocumented",     MARKER_COLORS["undocumented"]),
+        }
+        _conf_rows = ""
+        for _ckey, (_clabel, _ccol) in _CONF_LABELS.items():
+            _sub = marker_tbl[marker_tbl["confidence_level"] == _ckey]
+            if _sub.empty:
+                continue
+            _nv  = _sub["child_variety"].nunique()
+            _ne  = len(_sub)
+            _conf_rows += (
+                f"<div style='display:flex;justify-content:space-between;"
+                f"margin:2px 0;'>"
+                f"<span><span style='display:inline-block;width:8px;height:8px;"
+                f"border-radius:50%;background:{_ccol};margin-right:5px;"
+                f"vertical-align:middle;'></span>{_clabel}</span>"
+                f"<span style='color:#ccc;'>{_nv:,} var · {_ne:,} edges</span>"
+                f"</div>"
+            )
+
+        # Per-source edge counts (using study_reference column)
+        _SOURCE_SHORT = {
+            "VIVC passport (pedigree confirmed by markers)": "VIVC passport",
+            "Lacombe et al. 2013":          "Lacombe 2013",
+            "Lacombe & Emanuelli 2020":     "Lac. & Emanuelli 2020",
+            "Laucou et al. 2018":           "Laucou 2018",
+            "Liang et al. 2019":            "Liang 2019",
+            "Costantini et al. 2026":       "Costantini 2026",
+            "Myles et al. 2011":            "Myles 2011",
+            "Oliveira et al. 2020":         "Oliveira 2020",
+            "GRIN DVIT/GVIT SNP Admixture": "GRIN admixture",
+        }
+        _src_counts = (
+            marker_tbl.groupby("study_reference")["child_variety"]
+            .nunique()
+            .sort_values(ascending=False)
+        )
+        _src_rows = ""
+        for _src, _cnt in _src_counts.items():
+            _slabel = _SOURCE_SHORT.get(str(_src), str(_src)[:28])
+            _src_rows += (
+                f"<div style='display:flex;justify-content:space-between;"
+                f"margin:1px 0;color:#bbb;'>"
+                f"<span style='color:#ddd;'>{_slabel}</span>"
+                f"<span>{_cnt:,}</span>"
+                f"</div>"
+            )
+
+        _marker_tooltip = (
+            f"<div style='font-weight:600;margin-bottom:6px;color:#fff;"
+            f"border-bottom:1px solid #444;padding-bottom:4px;'>"
+            f"Marker Evidence Breakdown</div>"
+            f"{_conf_rows}"
+            f"<div style='margin-top:7px;padding-top:5px;border-top:1px solid #444;"
+            f"font-size:10px;font-weight:600;color:#aaa;margin-bottom:3px;'>"
+            f"VARIETIES PER SOURCE</div>"
+            f"{_src_rows}"
+        )
+
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         metric_card("Total Varieties", f"{n_total:,}", "#7b1c2e")
@@ -2712,7 +2827,8 @@ def main() -> None:
     with col3:
         metric_card("With Offspring", f"{n_offspring:,} ({pct(n_offspring, n_total)})", "#4a235a")
     with col4:
-        metric_card("Marker Supported", f"{n_confirmed:,}", "#7a6a20")
+        metric_card("Marker Supported", f"{n_confirmed:,}", "#7a6a20",
+                    tooltip_html=_marker_tooltip)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
