@@ -1029,6 +1029,74 @@ def load_all_marker_evidence() -> pd.DataFrame:
     return tbl
 
 
+@st.cache_data(show_spinner="Computing cross-source concordance…")
+def _load_per_source_stats() -> tuple[dict, dict, dict]:
+    """
+    Load each marker-support source independently and return three dicts:
+        pair_sets   : source_label -> set of (child_variety, parent_variety) tuples
+        row_counts  : source_label -> total row count (before pair-dedup)
+        conf_counts : source_label -> {confidence_level: count}
+    Used exclusively by the Concordance & References tab.
+    """
+    _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
+    alias_map = load_alias_map()
+
+    _file_sources = [
+        ("Landmark SSR/SNP",            MARKER_PATH),
+        ("VIVC Passport",               VIVC_MARKER_PATH),
+        ("Constantini 2026 (SNP 22K)",  CONSTANTINI_PATH),
+        ("Myles 2011 (SNP 9K)",         MYLES_PATH),
+        ("Lacombe 2013 (SSR)",          LACOMBE_PATH),
+        ("Oliveira 2020 (SSR)",         OLIVEIRA_PATH),
+        ("Lacombe & Emanuelli 2020",    LAC_EMAN_PATH),
+        ("Laucou 2018 (10K SNP)",       LAUCOU18_PATH),
+        ("Liang 2019 (WGS)",            LIANG19_PATH),
+    ]
+
+    pair_sets:   dict[str, set] = {}
+    row_counts:  dict[str, int] = {}
+    conf_counts: dict[str, dict] = {}
+
+    for label, path in _file_sources:
+        if not path.exists():
+            continue
+        try:
+            d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
+            d = d.replace(_NA_VALS, np.nan)
+        except Exception:
+            continue
+
+        for c in ("child_variety", "parent_variety"):
+            if c in d.columns:
+                d[c] = d[c].str.strip().str.upper()
+        if "confidence_level" in d.columns:
+            d["confidence_level"] = d["confidence_level"].str.strip().str.lower()
+        if alias_map:
+            for c in ("child_variety", "parent_variety"):
+                if c in d.columns:
+                    d[c] = d[c].map(lambda x: alias_map.get(x, x) if isinstance(x, str) else x)
+
+        pair_sets[label]   = set(zip(d["child_variety"].dropna(), d["parent_variety"].dropna()))
+        row_counts[label]  = len(d)
+        conf_counts[label] = (
+            d["confidence_level"].value_counts().to_dict()
+            if "confidence_level" in d.columns else {}
+        )
+
+    # GRIN admixture (synthesised at runtime)
+    grin_df = _load_grin_pedigree_as_marker_support()
+    if not grin_df.empty:
+        if alias_map:
+            for c in ("child_variety", "parent_variety"):
+                if c in grin_df.columns:
+                    grin_df[c] = grin_df[c].map(lambda x: alias_map.get(x, x) if isinstance(x, str) else x)
+        pair_sets["GRIN Admixture"]   = set(zip(grin_df["child_variety"].dropna(), grin_df["parent_variety"].dropna()))
+        row_counts["GRIN Admixture"]  = len(grin_df)
+        conf_counts["GRIN Admixture"] = grin_df["confidence_level"].value_counts().to_dict()
+
+    return pair_sets, row_counts, conf_counts
+
+
 def annotate_edges(edges_df: pd.DataFrame, marker_tbl: pd.DataFrame) -> pd.DataFrame:
     """Left-join marker evidence onto edges (parent→child pairs)."""
     if edges_df.empty or marker_tbl.empty:
@@ -2865,7 +2933,7 @@ def main() -> None:
     st.markdown("<br>", unsafe_allow_html=True)
 
     # ── Tabs ──────────────────────────────────────────────────────────────────
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
         "🔍 Pedigree Explorer",
         "🌿 Descendants",
         "📅 Timeline",
@@ -2875,6 +2943,7 @@ def main() -> None:
         "📊 Data Summary",
         "📚 Resources",
         "🔬 Molecular Markers",
+        "🔗 Concordance & References",
     ])
 
     # ────────────────────────────────────────────────────────────────────────
@@ -4086,6 +4155,486 @@ def main() -> None:
                                     unsafe_allow_html=True,
                                 )
                             st.markdown("</div>", unsafe_allow_html=True)
+
+
+    # ────────────────────────────────────────────────────────────────────────
+    # TAB 10 — Concordance & References
+    # ────────────────────────────────────────────────────────────────────────
+    with tab10:
+        st.subheader("🔗 Data Concordance & References")
+        st.markdown(
+            "Cross-source overlap statistics for all molecular evidence layers integrated into this atlas, "
+            "followed by a complete reference list for every dataset and key publication used."
+        )
+
+        pair_sets, row_counts, conf_counts = _load_per_source_stats()
+
+        if not pair_sets:
+            st.info("No marker-support data files found.")
+        else:
+            labels = list(pair_sets.keys())
+            n_src  = len(labels)
+
+            # ── Section 1: Source Inventory ───────────────────────────────
+            st.markdown("---")
+            st.markdown(
+                "<h4 style='color:#7b1c2e;font-weight:700;'>📋 Evidence Source Inventory</h4>",
+                unsafe_allow_html=True,
+            )
+
+            _CONF_COLORS = {
+                "confirmed":    "#1e9645",
+                "probable":     "#d4920c",
+                "disputed":     "#c45d1a",
+                "refuted":      "#cc2222",
+                "undocumented": "#888",
+            }
+
+            _SOURCE_META = {
+                "Landmark SSR/SNP": {
+                    "technology": "SSR / SNP",
+                    "description": "Hand-curated landmark parentages from classic literature "
+                                   "(Bowers, Meredith, Vouillamoz, Lacombe, Myles). "
+                                   "Highest-priority tier; each entry independently verified.",
+                    "primary_ref": "Multiple (1997–2013)",
+                    "doi": "Various — see Reference List",
+                },
+                "VIVC Passport": {
+                    "technology": "SSR (multi-source)",
+                    "description": "All parentages in the VIVC passport flagged "
+                                   "'pedigree confirmed by markers'. DOIs scraped from VIVC bibliography pages.",
+                    "primary_ref": "VIVC.de (scraped)",
+                    "doi": "Multiple VIVC-attributed DOIs",
+                },
+                "Constantini 2026 (SNP 22K)": {
+                    "technology": "SNP Array (Axiom Vitis22K)",
+                    "description": "Axiom Vitis22K SNP array (10,484 SNPs, PN40024 T2T reference genome). "
+                                   "145 samples; parentage verification via SNP dosage and chlorotype.",
+                    "primary_ref": "Constantini et al. 2026",
+                    "doi": "—",
+                },
+                "Myles 2011 (SNP 9K)": {
+                    "technology": "SNP Array (Vitis9KSNP)",
+                    "description": "Vitis9KSNP array (6,114 SNPs, PN40024 8X). "
+                                   "IBD Consistency Score (ICS) scoring for 1,817 accessions. "
+                                   "ICS ≥ 0.97 → confirmed; 0.93–0.97 → probable.",
+                    "primary_ref": "Myles et al. (2011) PNAS 108(9):3530–3535",
+                    "doi": "10.1073/pnas.1009363108",
+                },
+                "Lacombe 2013 (SSR)": {
+                    "technology": "SSR (20 loci)",
+                    "description": "Large-scale parentage survey of 2,344 varieties using 20 SSR loci. "
+                                   "828 confirmed parentage pairs extracted from Online Resource 2.",
+                    "primary_ref": "Lacombe et al. (2013) Theor. Appl. Genet. 126:2233–2255",
+                    "doi": "10.1007/s00122-012-1988-2",
+                },
+                "Oliveira 2020 (SSR)": {
+                    "technology": "SSR",
+                    "description": "Portuguese and Iberian SSR parentage data. "
+                                   "Manual curation from published PDF supplement.",
+                    "primary_ref": "Oliveira et al. 2020",
+                    "doi": "—",
+                },
+                "Lacombe & Emanuelli 2020": {
+                    "technology": "SNP Array (Vitis18K)",
+                    "description": "Italian Parentage Atlas using 18,000-locus Vitis18K SNP array. "
+                                   "Comprehensive survey of Italian grapevine genetic diversity and parentages.",
+                    "primary_ref": "Lacombe & Emanuelli (2020) Frontiers",
+                    "doi": "—",
+                },
+                "Laucou 2018 (10K SNP)": {
+                    "technology": "SNP (10K genome-wide)",
+                    "description": "Genome-wide 10K SNP panel parent-offspring pairs. "
+                                   "High-throughput screening across a large European germplasm set.",
+                    "primary_ref": "Laucou et al. (2018) PLOS One",
+                    "doi": "—",
+                },
+                "Liang 2019 (WGS)": {
+                    "technology": "Whole-Genome Sequencing",
+                    "description": "WGS of 472 accessions; 108 cultivars with parentage from VIVC/GRIN passport "
+                                   "metadata (79 net-new). Largest WGS diversity study at time of publication.",
+                    "primary_ref": "Liang et al. (2019) Nat. Commun. 10:1190",
+                    "doi": "10.1038/s41467-019-09135-8",
+                },
+                "GRIN Admixture": {
+                    "technology": "SNP Admixture (STRUCTURE K=5)",
+                    "description": "USDA GRIN admixture proportions for 1,257 Vitis accessions "
+                                   "(DVIT/GVIT panels). Ancestry Consistency Score (ACS) computed for 117 VIVC trios.",
+                    "primary_ref": "USDA-ARS GRIN / DVIT·GVIT SNP panels",
+                    "doi": "—",
+                },
+            }
+
+            inv_rows = []
+            for lbl in labels:
+                cc = conf_counts.get(lbl, {})
+                n_pairs = len(pair_sets[lbl])
+                conf_html = " ".join(
+                    f"<span style='background:{_CONF_COLORS.get(c,'#aaa')};color:#fff;"
+                    f"padding:1px 6px;border-radius:3px;font-size:11px;'>{c}: {cc[c]}</span>"
+                    for c in CONFIDENCE_ORDER if c in cc
+                )
+                meta = _SOURCE_META.get(lbl, {})
+                doi_str = meta.get("doi", "—")
+                doi_html = (
+                    f"<a href='https://doi.org/{doi_str}' target='_blank' style='color:#4a7c30;'>"
+                    f"{doi_str}</a>"
+                    if doi_str.startswith("10.") else doi_str
+                )
+                inv_rows.append({
+                    "Source": lbl,
+                    "Technology": meta.get("technology", "—"),
+                    "Rows loaded": row_counts.get(lbl, 0),
+                    "Unique parent-child pairs": n_pairs,
+                    "Confidence breakdown": conf_html,
+                    "Primary reference": meta.get("primary_ref", "—"),
+                    "DOI": doi_html,
+                })
+
+            inv_df = pd.DataFrame(inv_rows)
+
+            # Render as HTML table for colour badges
+            table_html = "<table style='width:100%;border-collapse:collapse;font-size:13px;'>"
+            header_cols = ["Source", "Technology", "Rows loaded", "Unique pairs", "Confidence breakdown", "Primary reference", "DOI"]
+            table_html += "<thead><tr>" + "".join(
+                f"<th style='text-align:left;padding:6px 10px;border-bottom:2px solid #7b1c2e;"
+                f"background:#f7f0ea;color:#3a1010;white-space:nowrap;'>{c}</th>"
+                for c in header_cols
+            ) + "</tr></thead><tbody>"
+            for i, row in inv_df.iterrows():
+                bg = "#fff" if i % 2 == 0 else "#faf7f2"
+                table_html += (
+                    f"<tr style='background:{bg};'>"
+                    f"<td style='padding:6px 10px;font-weight:600;'>{row['Source']}</td>"
+                    f"<td style='padding:6px 10px;'>{row['Technology']}</td>"
+                    f"<td style='padding:6px 10px;text-align:right;'>{row['Rows loaded']:,}</td>"
+                    f"<td style='padding:6px 10px;text-align:right;'>{row['Unique parent-child pairs']:,}</td>"
+                    f"<td style='padding:6px 10px;'>{row['Confidence breakdown']}</td>"
+                    f"<td style='padding:6px 10px;font-size:12px;'>{row['Primary reference']}</td>"
+                    f"<td style='padding:6px 10px;font-size:12px;'>{row['DOI']}</td>"
+                    "</tr>"
+                )
+            table_html += "</tbody></table>"
+            st.markdown(table_html, unsafe_allow_html=True)
+
+            # ── Section 2: Pairwise Concordance Heatmap ───────────────────
+            st.markdown("---")
+            st.markdown(
+                "<h4 style='color:#7b1c2e;font-weight:700;'>🔥 Pairwise Source Concordance</h4>",
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                "Each cell shows the number of **unique parent–child pairs** shared between two sources "
+                "(intersection count). The diagonal shows the total unique pairs for that source. "
+                "High off-diagonal values indicate corroborating independent evidence."
+            )
+
+            matrix = np.zeros((n_src, n_src), dtype=int)
+            for i, li in enumerate(labels):
+                for j, lj in enumerate(labels):
+                    if i == j:
+                        matrix[i][j] = len(pair_sets[li])
+                    else:
+                        matrix[i][j] = len(pair_sets[li] & pair_sets[lj])
+
+            # Mask diagonal for off-diagonal colour scale; diagonal kept as annotation
+            diag_vals = np.diag(matrix).copy()
+            off_diag  = matrix.astype(float).copy()
+            np.fill_diagonal(off_diag, np.nan)
+
+            short_labels = [
+                lbl.replace(" (SNP 22K)", "").replace(" (SNP 9K)", "")
+                   .replace(" (SSR)", "").replace(" (WGS)", "")
+                   .replace(" (10K SNP)", "").replace(" Admixture", "")
+                for lbl in labels
+            ]
+
+            annot_text = [
+                [
+                    f"<b>{matrix[i][j]:,}</b>" if i == j else str(matrix[i][j])
+                    for j in range(n_src)
+                ]
+                for i in range(n_src)
+            ]
+
+            heatmap = go.Figure(go.Heatmap(
+                z=off_diag,
+                x=short_labels,
+                y=short_labels,
+                text=annot_text,
+                texttemplate="%{text}",
+                colorscale="YlOrRd",
+                reversescale=False,
+                showscale=True,
+                colorbar=dict(title="Shared pairs", thickness=14),
+                zmin=0,
+            ))
+            # Overlay diagonal as a separate trace with a distinct colour
+            heatmap.add_trace(go.Heatmap(
+                z=[[diag_vals[i] if i == j else None for j in range(n_src)] for i in range(n_src)],
+                x=short_labels,
+                y=short_labels,
+                colorscale=[[0, "#4a7c30"], [1, "#4a7c30"]],
+                showscale=False,
+                hovertemplate="<b>%{y}</b><br>Total unique pairs: %{z:,}<extra></extra>",
+            ))
+            heatmap.update_layout(
+                height=420 + n_src * 10,
+                margin=dict(l=10, r=10, t=30, b=10),
+                paper_bgcolor="#faf7f0",
+                plot_bgcolor="#faf7f0",
+                font=dict(size=11),
+                xaxis=dict(tickangle=-35),
+            )
+            st.plotly_chart(heatmap, use_container_width=True)
+
+            # ── Section 3: Multi-Source Coverage Distribution ─────────────
+            st.markdown("---")
+            st.markdown(
+                "<h4 style='color:#7b1c2e;font-weight:700;'>📈 Multi-Source Verification</h4>",
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                "Distribution of parent–child pairs by the number of **independent sources** that "
+                "document them. Pairs supported by 2+ sources have the strongest independent corroboration."
+            )
+
+            from collections import Counter
+            all_pairs: dict[tuple, int] = Counter()
+            for ps in pair_sets.values():
+                for pair in ps:
+                    all_pairs[pair] += 1
+
+            support_dist = Counter(all_pairs.values())
+            max_n = max(support_dist.keys()) if support_dist else 1
+            xs = list(range(1, max_n + 1))
+            ys = [support_dist.get(x, 0) for x in xs]
+            colors_bar = [
+                "#cc2222" if x == 1 else
+                "#d4920c" if x == 2 else
+                "#1e9645" if x >= 3 else "#888"
+                for x in xs
+            ]
+
+            bar_fig = go.Figure(go.Bar(
+                x=[f"{x} source{'s' if x > 1 else ''}" for x in xs],
+                y=ys,
+                marker_color=colors_bar,
+                text=ys,
+                textposition="outside",
+                hovertemplate="Supported by %{x}: %{y:,} pairs<extra></extra>",
+            ))
+            bar_fig.update_layout(
+                height=320,
+                margin=dict(l=10, r=10, t=10, b=10),
+                paper_bgcolor="#faf7f0",
+                plot_bgcolor="#faf7f0",
+                yaxis=dict(title="# unique parent–child pairs", gridcolor="#e8e0d4"),
+                xaxis=dict(title=""),
+                font=dict(size=12),
+                bargap=0.35,
+            )
+            st.plotly_chart(bar_fig, use_container_width=True)
+
+            # Summary sentence
+            multi_count = sum(v for k, v in support_dist.items() if k >= 2)
+            single_count = support_dist.get(1, 0)
+            total_unique = len(all_pairs)
+            st.markdown(
+                f"**{total_unique:,}** unique parent–child pairs across all sources — "
+                f"**{multi_count:,}** ({100*multi_count/max(total_unique,1):.1f}%) supported by 2+ independent sources, "
+                f"**{single_count:,}** ({100*single_count/max(total_unique,1):.1f}%) by a single source only."
+            )
+
+            # Most-corroborated pairs table
+            top_pairs = sorted(
+                [(cnt, child, par) for (child, par), cnt in all_pairs.items() if cnt >= 3],
+                reverse=True,
+            )[:30]
+            if top_pairs:
+                with st.expander(f"Top {len(top_pairs)} most-corroborated pairs (≥ 3 sources)"):
+                    tp_df = pd.DataFrame(top_pairs, columns=["# Sources", "Child variety", "Parent variety"])
+                    st.dataframe(tp_df, hide_index=True, use_container_width=True)
+
+        # ── Section 4: Full Reference List ───────────────────────────────
+        st.markdown("---")
+        st.markdown(
+            "<h4 style='color:#7b1c2e;font-weight:700;'>📖 Complete Reference List</h4>",
+            unsafe_allow_html=True,
+        )
+
+        def _ref_card(authors: str, year: str, title: str, journal: str,
+                      doi: str | None = None, notes: str = "", accent: str = "#4a235a") -> None:
+            doi_html = (
+                f"<br/><a href='https://doi.org/{doi}' target='_blank' "
+                f"style='color:#4a7c30;font-size:12px;'>doi:{doi}</a>"
+                if doi and doi.startswith("10.") else ""
+            )
+            notes_html = f"<br/><small style='color:#888;'>{notes}</small>" if notes else ""
+            st.markdown(
+                f"<div style='background:#fff;border-radius:6px;padding:14px 16px;"
+                f"border-left:4px solid {accent};margin-bottom:10px;'>"
+                f"<b style='font-size:13px;'>{title}</b><br/>"
+                f"<span style='font-size:12px;color:#444;'>{authors} ({year}). "
+                f"<i>{journal}</i>.</span>"
+                f"{doi_html}{notes_html}"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+
+        ref_c1, ref_c2 = st.columns(2)
+
+        with ref_c1:
+            st.markdown(
+                "<h5 style='color:#5c3a1e;'>Genomics & Diversity</h5>",
+                unsafe_allow_html=True,
+            )
+            _ref_card(
+                "Jaillon O et al.", "2007",
+                "The grapevine genome sequence suggests ancestral hexaploidization in major angiosperm phyla",
+                "Nature 449, 463–467",
+                "10.1038/nature06148",
+                "PN40024 reference genome. Foundation for all SNP array coordinate systems.",
+                "#7b1c2e",
+            )
+            _ref_card(
+                "This P et al.", "2006",
+                "Historical origins and genetic diversity of wine grapes",
+                "Trends in Genetics 22(9), 511–519",
+                "10.1016/j.tig.2006.07.008",
+                "Foundational review of Vitis vinifera domestication and SSR-based diversity.",
+            )
+            _ref_card(
+                "Myles S et al.", "2011",
+                "Genetic structure and domestication history of the grape",
+                "PNAS 108(9), 3530–3535",
+                "10.1073/pnas.1009363108",
+                "Vitis9KSNP array; 1,817 accessions. IBD Consistency Score (ICS) used for parentage scoring.",
+                "#3a6020",
+            )
+            _ref_card(
+                "Liang Z et al.", "2019",
+                "Whole-genome resequencing of 472 Vitis accessions for grapevine diversity and demographic history",
+                "Nature Communications 10, 1190",
+                "10.1038/s41467-019-09135-8",
+                "Largest WGS diversity study; 108 cultivars with passport-derived parentage.",
+                "#3a6020",
+            )
+            st.markdown(
+                "<h5 style='color:#5c3a1e;margin-top:18px;'>SSR Marker Panels & Fingerprinting</h5>",
+                unsafe_allow_html=True,
+            )
+            _ref_card(
+                "Laucou V et al.", "2011",
+                "High throughput analysis of grape genetic diversity as a tool for germplasm collection management",
+                "Theor. Appl. Genet. 122, 1233–1245",
+                "10.1007/s00122-010-1527-y",
+                "Standard GENRES081 9-locus SSR panel (VVS2, VVMD5, VVMD7, VVMD25, VVMD27, VVMD28, VVMD32, VrZAG62, VrZAG79).",
+                "#7a6a20",
+            )
+            _ref_card(
+                "Sefc KM et al.", "1997",
+                "Identification of microsatellite sequences in Vitis riparia and their applicability for genotyping of different Vitis species",
+                "Genome 40, 562–571",
+                "10.1139/g97-073",
+                "Early SSR marker development; Müller-Thurgau parentage (Riesling × Madeleine Royale) definitively confirmed.",
+            )
+            _ref_card(
+                "Regner F et al.", "2000",
+                "Genetic relationships of wild and cultivated grapevines (Vitis vinifera) from central Europe inferred from nuclear microsatellites",
+                "Am. J. Enol. Vitic. 51(1), 7–14",
+                "10.5344/ajev.2000.51.1.7",
+                "Somatic mutation chain Pinot Noir → Pinot Gris → Pinot Blanc confirmed.",
+            )
+            _ref_card(
+                "Crespan M & Milani N", "2001",
+                "The Muscats: a molecular analysis of synonyms, homonyms and genetic relationships within a large family of grapevine cultivars",
+                "Vitis 40(1), 23–30",
+                "10.5073/vitis.2001.40.23-30",
+                "Muscat Blanc à Petits Grains parentage analysis.",
+            )
+
+        with ref_c2:
+            st.markdown(
+                "<h5 style='color:#5c3a1e;'>Parentage Discovery</h5>",
+                unsafe_allow_html=True,
+            )
+            _ref_card(
+                "Bowers JE & Meredith CP", "1997",
+                "The parentage of a classic wine grape, Cabernet Sauvignon",
+                "Nature Genetics 16, 84–87",
+                "10.1038/ng0597-84",
+                "First major SSR parentage discovery: Cabernet Franc × Sauvignon Blanc → Cabernet Sauvignon.",
+                "#7b1c2e",
+            )
+            _ref_card(
+                "Bowers JE et al.", "1999",
+                "Historical genetics: the parentage of Chardonnay, Gamay, and other wine grapes of northeastern France",
+                "Science 285(5433), 1562–1565",
+                "10.1126/science.285.5433.1562",
+                "Pinot Noir × Gouais Blanc → Chardonnay, Gamay, Aligote, Melon, and 13 others.",
+                "#7b1c2e",
+            )
+            _ref_card(
+                "Meredith CP et al.", "1999",
+                "Genetic similarities among Petite Sirah and several related dark-berried grape varieties",
+                "Am. J. Enol. Vitic. 50(3), 278–284",
+                "10.5344/ajev.1999.50.3.236",
+                "Petite Sirah (Durif) = Syrah × Peloursin. First SSR parentage for Durif.",
+            )
+            _ref_card(
+                "Vouillamoz JF & Grando MS", "2006",
+                "Genealogy of wine grape cultivars: 'Pinot' is related to 'Syrah'",
+                "Heredity 97, 102–110",
+                "10.1038/sj.hdy.6800842",
+                "Pinot and Syrah share a common ancestor. Gewürztraminer = Savagnin color mutation.",
+            )
+            _ref_card(
+                "Vouillamoz JF et al.", "2007",
+                "Genetic characterization and relationships of traditional grape cultivars from Tuscany (Italy)",
+                "Vitis 46(1), 19–22",
+                "10.5073/vitis.2007.46.19-22",
+                "Sangiovese parentage (Ciliegiolo × Calabrese Montenuovo) first proposed.",
+            )
+            _ref_card(
+                "Lacombe T et al.", "2013",
+                "A large diversity analysis of wine varieties reveals a complex history of dependent cultivations leading to recent cultivar homogenization",
+                "Theor. Appl. Genet. 126, 2233–2255",
+                "10.1007/s00122-012-1988-2",
+                "2,344 varieties × 20 SSR loci. 828 confirmed parentages. Merlot, Malbec, Tempranillo, Touriga Nacional, Grenache, and many more.",
+                "#3a6020",
+            )
+            st.markdown(
+                "<h5 style='color:#5c3a1e;margin-top:18px;'>Databases & Data Resources</h5>",
+                unsafe_allow_html=True,
+            )
+            _ref_card(
+                "Maul E et al.", "ongoing",
+                "Vitis International Variety Catalogue (VIVC)",
+                "Julius Kühn-Institut, Siebeldingen, Germany — www.vivc.de",
+                notes="Primary data source for passport data, parentage, SSR profiles, and synonyms (~27,000 accessions).",
+                accent="#4a7c30",
+            )
+            _ref_card(
+                "USDA-ARS", "ongoing",
+                "Germplasm Resources Information Network (GRIN)",
+                "National Plant Germplasm System — www.ars-grin.gov",
+                notes="DVIT/GVIT SNP admixture panels; Vitis accession holdings and evaluation data.",
+                accent="#4a7c30",
+            )
+            _ref_card(
+                "Adam-Blondon AF et al.", "2004",
+                "Mapping 245 SSR markers on the Vitis vinifera genome: a tool for grape genetics",
+                "Theor. Appl. Genet. 109, 1017–1027",
+                "10.1007/s00122-004-1704-y",
+                "SSR genomic location reference; essential for interpreting linkage-group coordinates.",
+            )
+            _ref_card(
+                "Laucou V et al.", "2018",
+                "Extended diversity analysis of cultivated grapevine Vitis vinifera with 10K genome-wide SNPs",
+                "PLOS ONE",
+                notes="10K SNP genome-wide parent-offspring pairs; European germplasm panel.",
+            )
 
 
 if __name__ == "__main__":
