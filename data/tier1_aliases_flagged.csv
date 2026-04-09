@@ -13,3 +13,8 @@ DUNAVSKI MISKET,DUNAVSKI MISKET X CARDINAL,"X CARDINAL suffix marks a hybrid cro
 FUJIMINORI,FUJIMINORI (4N),(4N) = tetraploid — genetically distinct from the diploid Fujiminori; sources likely reference the standard diploid
 NIABELL,NIABELL (4N),(4N) = tetraploid — same concern as Fujiminori
 UVA DI TROJA,UVA DI TROJANERO,TROJANERO suffix substantially changes the name — unclear if these are the same variety
+CHASSELAS,CHASSELAS ROSE,CHASSELAS typically = CHASSELAS BLANC (white). CHASSELAS ROSE is a distinct pink variant; wrong default mapping
+ELBLING,ELBLING BLAU,Elbling in literature = ELBLING WEISS (white). ELBLING BLAU is a rare dark variant; wrong default mapping
+ALICANTE BOUSCHET,ALICANTE BOUSCHET 7,"ALICANTE BOUSCHET 7 is a numbered clone/selection, not the main variety; do not collapse the variety name to a clonal selection"
+MUSCAT,MUSCAT OTTONEL,"Muscat is a large family (Muscat Blanc, Muscat Hamburg, etc.); cannot map generically to Muscat Ottonel"
+LAMBRUSCO,LAMBRUSCO MAESTRI,"Lambrusco is a family of varieties (Grasparossa, Sorbara, Salamino, etc.); cannot map generically"
