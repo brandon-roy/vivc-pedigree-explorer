@@ -245,6 +245,10 @@ OLIVEIRA_PATH    = BASE_DIR / "data" / "oliveira_2020_marker_support.csv"
 LAC_EMAN_PATH    = BASE_DIR / "data" / "lacombe_emanuelli_2020_marker_support.csv"
 LAUCOU18_PATH    = BASE_DIR / "data" / "laucou_2018_marker_support.csv"
 LIANG19_PATH     = BASE_DIR / "data" / "liang_2019_marker_support.csv"
+TELLO24_PATH     = BASE_DIR / "data" / "tello_2024_marker_support.csv"
+CUNHA20_PATH     = BASE_DIR / "data" / "cunha_2020_marker_support.csv"
+MARGARYAN21_PATH = BASE_DIR / "data" / "margaryan_2021_marker_support.csv"
+CIPRIANI10_PATH  = BASE_DIR / "data" / "cipriani_2010_marker_support.csv"
 GRIN_PED_PATH    = BASE_DIR / "data" / "grin_pedigree_support.csv"
 ALIAS_PATH       = BASE_DIR / "data" / "marker_name_aliases.csv"
 SUPP_PATH        = BASE_DIR / "data" / "vivc_supplementary.csv"
@@ -504,6 +508,7 @@ def load_marker_support() -> pd.DataFrame:
       • lacombe_emanuelli_2020_marker_support.csv   — Italian Parentage Atlas SNP (Vitis18K, 18,000 loci)
       • laucou_2018_marker_support.csv              — 10K SNP genome-wide PO pairs
       • liang_2019_marker_support.csv               — 472-accession WGS study; 108 cultivars, 79 new (passport)
+      • tello_2024_marker_support.csv               — Balkan/Serbian SNP+SSR pedigree (35 trios, 31 duos)
       • grin_pedigree_support.csv                   — GRIN admixture ACS scoring (synthesised at runtime)
 
     Deduplication strategy
@@ -517,7 +522,7 @@ def load_marker_support() -> pd.DataFrame:
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH, LAC_EMAN_PATH, LAUCOU18_PATH, LIANG19_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH, LAC_EMAN_PATH, LAUCOU18_PATH, LIANG19_PATH, TELLO24_PATH, CUNHA20_PATH, MARGARYAN21_PATH, CIPRIANI10_PATH):
         if path.exists():
             try:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
@@ -986,7 +991,7 @@ def load_all_marker_evidence() -> pd.DataFrame:
     _NA_VALS = {"NA", "N/A", "n/a", "na", "N.A.", "NULL", "null", "None", "none", ""}
 
     dfs = []
-    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH, LAC_EMAN_PATH, LAUCOU18_PATH, LIANG19_PATH):
+    for path in (MARKER_PATH, VIVC_MARKER_PATH, CONSTANTINI_PATH, MYLES_PATH, LACOMBE_PATH, OLIVEIRA_PATH, LAC_EMAN_PATH, LAUCOU18_PATH, LIANG19_PATH, TELLO24_PATH, CUNHA20_PATH, MARGARYAN21_PATH, CIPRIANI10_PATH):
         if path.exists():
             try:
                 d = pd.read_csv(path, dtype=str, low_memory=False, keep_default_na=False)
@@ -1051,6 +1056,10 @@ def _load_per_source_stats() -> tuple[dict, dict, dict]:
         ("Lacombe & Emanuelli 2020",    LAC_EMAN_PATH),
         ("Laucou 2018 (10K SNP)",       LAUCOU18_PATH),
         ("Liang 2019 (WGS)",            LIANG19_PATH),
+        ("Tello 2024 (SNP+SSR)",        TELLO24_PATH),
+        ("Cunha 2020 (231 SNP)",        CUNHA20_PATH),
+        ("Margaryan 2021 (24 SSR)",     MARGARYAN21_PATH),
+        ("Cipriani 2010 (34 SSR)",      CIPRIANI10_PATH),
     ]
 
     pair_sets:   dict[str, set] = {}
@@ -1303,14 +1312,20 @@ def build_node_tooltip(row: pd.Series, edges_df: pd.DataFrame,
                     if str(s).strip().lower() not in _bad
                 ]
                 if studies:
-                    # If no DOI was found AND the reference is the generic VIVC passport
-                    # text, substitute a direct hyperlink to the variety's VIVC page.
+                    # If no DOI was found AND the reference is a VIVC passport text,
+                    # substitute a direct hyperlink to the variety's VIVC page.
+                    # For derived entries (via Lacombe / Laucou etc.) append the provenance.
                     is_vivc_ref = any("vivc passport" in s.lower() for s in studies)
+                    vivc_study = next((s for s in studies if "vivc passport" in s.lower()), None)
+                    via_note = ""
+                    if vivc_study and "(via " in vivc_study:
+                        via_note = " " + vivc_study[vivc_study.index("(via "):]  # e.g. "(via Lacombe 2013)"
                     if is_vivc_ref and not dois and vivc_no and not (isinstance(vivc_no, float) and np.isnan(vivc_no)):
                         source_cell = (
                             f"<a href='https://www.vivc.de/index.php?"
                             f"r=cultivarname%2Fview&id={vivc_no}' "
                             f"target='_blank' style='color:#4a7c30;'>VIVC passport ↗</a>"
+                            + (f"<br><span style='color:#888;font-size:10px;'>{via_note}</span>" if via_note else "")
                         )
                     else:
                         source_cell = "; ".join(studies[:2])
@@ -1723,9 +1738,12 @@ def build_visjs_network(
             else:
                 doi_cell = "—"
 
-            # Source — link to VIVC page when the reference is the generic passport text
-            # and there's no real DOI; otherwise show the citation as plain text
+            # Source — link to VIVC page when the reference is a passport text
+            # and there's no real DOI; append provenance note if derived from known source.
             dst_vivc = _vivc_no_map.get(dst)
+            _via_note2 = ""
+            if "(via " in study:
+                _via_note2 = " " + study[study.index("(via "):]
             if (study.lower() not in _bad_e
                     and "vivc passport" in study.lower()
                     and doi_cell == "—"
@@ -1734,6 +1752,7 @@ def build_visjs_network(
                     f"<a href='https://www.vivc.de/index.php?"
                     f"r=cultivarname%2Fview&id={dst_vivc}' "
                     f"target='_blank' style='color:#4a7c30;'>VIVC passport ↗</a>"
+                    + (f"<br><span style='color:#888;font-size:10px;'>{_via_note2}</span>" if _via_note2 else "")
                 )
             elif study.lower() not in _bad_e:
                 source_cell = study
@@ -2882,16 +2901,34 @@ def main() -> None:
 
         # Per-source edge counts (using study_reference column)
         _SOURCE_SHORT = {
-            "VIVC passport (pedigree confirmed by markers)": "VIVC passport",
+            "VIVC passport (pedigree confirmed by markers)": "VIVC passport (independent)",
             "Lacombe et al. 2013":          "Lacombe 2013",
             "Lacombe & Emanuelli 2020":     "Lac. & Emanuelli 2020",
             "Laucou et al. 2018":           "Laucou 2018",
             "Liang et al. 2019":            "Liang 2019",
+            "Tello et al. 2024":            "Tello 2024",
+            "Cunha et al. 2020":            "Cunha 2020",
+            "Margaryan et al. 2021":        "Margaryan 2021",
+            "Cipriani et al. 2010":         "Cipriani 2010",
             "Costantini et al. 2026":       "Costantini 2026",
             "Myles et al. 2011":            "Myles 2011",
             "Oliveira et al. 2020":         "Oliveira 2020",
             "GRIN DVIT/GVIT SNP Admixture": "GRIN admixture",
         }
+
+        def _shorten_vivc_ref(s: str) -> str:
+            """Collapse all 'VIVC passport (via …)' variants into grouped labels."""
+            if s.startswith("VIVC passport (via "):
+                via = s[len("VIVC passport (via "):-1]  # strip leading text and trailing ')'
+                # Shorten long multi-source strings
+                if len(via) > 30:
+                    parts = [p.strip() for p in via.split(";")]
+                    via = "; ".join(p.replace("Lacombe & Emanuelli 2020", "Lac&Em20")
+                                     .replace("Lacombe 2013", "Lac13")
+                                     .replace("Laucou 2018", "Lau18") for p in parts)
+                return f"VIVC (via {via})"
+            return _SOURCE_SHORT.get(s, s[:32])
+
         _src_counts = (
             marker_tbl.groupby("study_reference")["child_variety"]
             .nunique()
@@ -2899,7 +2936,7 @@ def main() -> None:
         )
         _src_rows = ""
         for _src, _cnt in _src_counts.items():
-            _slabel = _SOURCE_SHORT.get(str(_src), str(_src)[:28])
+            _slabel = _shorten_vivc_ref(str(_src))
             _src_rows += (
                 f"<div style='display:flex;justify-content:space-between;"
                 f"margin:1px 0;color:#bbb;'>"
@@ -3908,6 +3945,28 @@ def main() -> None:
                 "10.1038/sj.hdy.6800842",
                 accent="#7a6a20",
             )
+            lit_card(
+                "Iberian germplasm SSR characterization",
+                "Alvarez-Arbesú et al. (2022). Grapevine Genetic Resources of the IFAPA Centre "
+                "'Rancho de la Merced': Characterization and Management. <i>MDPI Plants</i> 11(8), 1088.",
+                "10.3390/plants11081088",
+                accent="#7a6a20",
+            )
+            lit_card(
+                "Genome-wide SNP diversity & parentage",
+                "Laucou et al. (2018). Extended diversity analysis of cultivated grapevine "
+                "<i>Vitis vinifera</i> with 10K genome-wide SNPs. <i>PLOS ONE</i> 13(2):e0192540.",
+                "10.1371/journal.pone.0192540",
+                accent="#3a6020",
+            )
+            lit_card(
+                "Balkan traditional varieties — pedigree network",
+                "Tello et al. (2024). The genetic characterization of grapevines prospected in "
+                "old Serbian vineyards reveals multiple relationships between traditional varieties "
+                "of the Balkans. <i>Front. Plant Sci.</i> 15:1391679.",
+                "10.3389/fpls.2024.1391679",
+                accent="#7b1c2e",
+            )
 
         # Future enrichment opportunities
         st.markdown("---")
@@ -3924,7 +3983,7 @@ def main() -> None:
         with enrich_cols[0]:
             st.markdown("""
 **Genetic / Molecular**
-- SSR marker profiles (VVS2, VVMD5, VVMD7…)
+- ~~SSR marker profiles (VVS2, VVMD5, VVMD7…)~~ ✅ Integrated (VIVC, Lacombe 2013, Rancho 2022, Migliaro 2019)
 - Chloroplast haplotype
 - SNP genotypes from resequencing panels
 - Parentage probability scores
@@ -4225,7 +4284,7 @@ def main() -> None:
                     "technology": "SSR (20 loci)",
                     "description": "Large-scale parentage survey of 2,344 varieties using 20 SSR loci. "
                                    "828 confirmed parentage pairs extracted from Online Resource 2.",
-                    "primary_ref": "Lacombe et al. (2013) Theor. Appl. Genet. 126:2233–2255",
+                    "primary_ref": "Lacombe et al. (2013) Theor. Appl. Genet. 126:401–414",
                     "doi": "10.1007/s00122-012-1988-2",
                 },
                 "Oliveira 2020 (SSR)": {
@@ -4244,10 +4303,10 @@ def main() -> None:
                 },
                 "Laucou 2018 (10K SNP)": {
                     "technology": "SNP (10K genome-wide)",
-                    "description": "Genome-wide 10K SNP panel parent-offspring pairs. "
-                                   "High-throughput screening across a large European germplasm set.",
-                    "primary_ref": "Laucou et al. (2018) PLOS One",
-                    "doi": "—",
+                    "description": "18K SNP array evaluated on 783 genotypes; 10,207 SNPs with no missing values. "
+                                   "118 full parentages + 490 parent-offspring duos confirmed. 8 genetic clusters.",
+                    "primary_ref": "Laucou et al. (2018) PLOS ONE 13(2):e0192540",
+                    "doi": "10.1371/journal.pone.0192540",
                 },
                 "Liang 2019 (WGS)": {
                     "technology": "Whole-Genome Sequencing",
@@ -4255,6 +4314,41 @@ def main() -> None:
                                    "metadata (79 net-new). Largest WGS diversity study at time of publication.",
                     "primary_ref": "Liang et al. (2019) Nat. Commun. 10:1190",
                     "doi": "10.1038/s41467-019-09135-8",
+                },
+                "Tello 2024 (SNP+SSR)": {
+                    "technology": "SNP (Vitis18K) + SSR (GENRES081 7-locus)",
+                    "description": "138 Serbian grapevines → 59 non-redundant genotypes; 35 trios + 31 duos confirmed. "
+                                   "44 novel Balkan relationships (13 trios, 18 duos) not previously in literature; "
+                                   "remaining confirmations already present in Lacombe/Laucou files.",
+                    "primary_ref": "Tello et al. (2024) Front. Plant Sci. 15:1391679",
+                    "doi": "10.3389/fpls.2024.1391679",
+                },
+                "Cipriani 2010 (34 SSR)": {
+                    "technology": "SSR (34 nSSR loci)",
+                    "description": "1,005 accessions profiled at 34 SSR loci; 200 synonymy groups resolved. "
+                                   "74 trios: 25 confirmed, 9 revised/corrected (incl. CARDINAL, LAGREIN, CHENIN BLANC), "
+                                   "40 new Italian pedigrees (first molecular confirmation). "
+                                   "87 parent–child pairs not yet in VIVC. Heavy focus on Southern Italian varieties.",
+                    "primary_ref": "Cipriani et al. (2010) TAG 121(8):1569–1585",
+                    "doi": "10.1007/s00122-010-1411-9",
+                },
+                "Margaryan 2021 (24 SSR)": {
+                    "technology": "SSR (24 nSSR loci, GENRES081 9-locus subset + 15 extra)",
+                    "description": "222 Armenian grapevine varieties and unknown genotypes profiled at 24 nSSR loci. "
+                                   "65 trios (34 novel / 4 rejected-invalidation / 4 citing Lacombe) and 370 half-parentages (duos). "
+                                   "VIVC prime names used directly; allele sizes VIVC-standardized (no offset). "
+                                   "206 new SSR profiles added to molecular database.",
+                    "primary_ref": "Margaryan A et al. (2021) Biology 10:1279",
+                    "doi": "10.3390/biology10121279",
+                },
+                "Cunha 2020 (231 SNP)": {
+                    "technology": "SNP (231-marker Vitis panel)",
+                    "description": "264 Portuguese grapevine varieties and wild accessions genotyped with 231 SNPs. "
+                                   "101 trios confirmed (31 with first molecular confirmation) + 5 duos. "
+                                   "84 parent–child pairs not yet in VIVC; key parents include Hebién, Marufo, "
+                                   "Cayetana Blanca, Alfrocheiro, Malvasia Fina, Gouveio, and Trousseau Noir.",
+                    "primary_ref": "Cunha et al. (2020) Front. Plant Sci. 11:127",
+                    "doi": "10.3389/fpls.2020.00127",
                 },
                 "GRIN Admixture": {
                     "technology": "SNP Admixture (STRUCTURE K=5)",
@@ -4345,7 +4439,8 @@ def main() -> None:
             short_labels = [
                 lbl.replace(" (SNP 22K)", "").replace(" (SNP 9K)", "")
                    .replace(" (SSR)", "").replace(" (WGS)", "")
-                   .replace(" (10K SNP)", "").replace(" Admixture", "")
+                   .replace(" (10K SNP)", "").replace(" (SNP+SSR)", "").replace(" Admixture", "")
+                   .replace(" (231 SNP)", "").replace(" (24 SSR)", "").replace(" (34 SSR)", "")
                 for lbl in labels
             ]
 
@@ -4456,7 +4551,79 @@ def main() -> None:
                     tp_df = pd.DataFrame(top_pairs, columns=["# Sources", "Child variety", "Parent variety"])
                     st.dataframe(tp_df, hide_index=True, use_container_width=True)
 
-        # ── Section 4: Full Reference List ───────────────────────────────
+        # ── Section 4: SSR Genotype Profile Coverage ─────────────────────────
+        st.markdown("---")
+        st.markdown(
+            "<h4 style='color:#7b1c2e;font-weight:700;'>🧬 SSR Genotype Profile Coverage</h4>",
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            "Coverage of the **GENRES081 9-locus SSR panel** across sources in `node_molecular_profile.csv`. "
+            "These profiles power the SSR fingerprint displayed in each variety's node tooltip."
+        )
+
+        _prof_df = load_node_molecular_profile()
+        if _prof_df.empty:
+            st.info("node_molecular_profile.csv not found.")
+        else:
+            _GENRES081 = ["VVS2", "VVMD5", "VVMD7", "VVMD25", "VVMD27",
+                          "VVMD28", "VVMD32", "VrZAG62", "VrZAG79"]
+            _ssr_cols_avail = [f"ssr_{l}" for l in _GENRES081 if f"ssr_{l}" in _prof_df.columns]
+
+            _ssr_src_rows = []
+            for _src, _grp in _prof_df.groupby("ssr_source"):
+                _src_label = str(_src).strip() if _src and str(_src).strip() else "—"
+                _n_vvs2  = (_grp["ssr_VVS2"].fillna("").str.strip() != "").sum() if "ssr_VVS2" in _grp.columns else 0
+                _n_zag62 = (_grp["ssr_VrZAG62"].fillna("").str.strip() != "").sum() if "ssr_VrZAG62" in _grp.columns else 0
+                _n_full  = int((_grp[_ssr_cols_avail].fillna("").applymap(str.strip) != "").all(axis=1).sum()) if _ssr_cols_avail else 0
+                _ssr_src_rows.append({
+                    "Source": _src_label,
+                    "Varieties": len(_grp),
+                    "VVS2": int(_n_vvs2),
+                    "VrZAG62": int(_n_zag62),
+                    "Full 9-locus": _n_full,
+                })
+            _ssr_src_df = pd.DataFrame(_ssr_src_rows).sort_values("Varieties", ascending=False)
+
+            _ssr_mc1, _ssr_mc2, _ssr_mc3, _ssr_mc4 = st.columns(4)
+            _n_any_ssr = (_prof_df["ssr_VVS2"].fillna("").str.strip() != "").sum() if "ssr_VVS2" in _prof_df.columns else 0
+            _n_zag_any = (_prof_df["ssr_VrZAG62"].fillna("").str.strip() != "").sum() if "ssr_VrZAG62" in _prof_df.columns else 0
+            _n_full9   = int((_prof_df[_ssr_cols_avail].fillna("").applymap(str.strip) != "").all(axis=1).sum()) if _ssr_cols_avail else 0
+            _ssr_mc1.metric("Total in profile", f"{len(_prof_df):,}")
+            _ssr_mc2.metric("With any SSR (VVS2)", f"{_n_any_ssr:,}")
+            _ssr_mc3.metric("With VrZAG62/79", f"{_n_zag_any:,}")
+            _ssr_mc4.metric("Full 9-locus panel", f"{_n_full9:,}")
+
+            _ssr_tbl_html = (
+                "<table style='width:100%;border-collapse:collapse;font-size:13px;margin-top:12px;'>"
+                "<thead><tr>"
+                + "".join(
+                    f"<th style='text-align:{'left' if c=='Source' else 'right'};"
+                    f"padding:5px 12px;border-bottom:2px solid #7b1c2e;"
+                    f"background:#f7f0ea;color:#3a1010;white-space:nowrap;'>{c}</th>"
+                    for c in _ssr_src_df.columns
+                )
+                + "</tr></thead><tbody>"
+            )
+            for _ti, _trow in enumerate(_ssr_src_df.itertuples(index=False)):
+                _bg = "#fff" if _ti % 2 == 0 else "#faf7f2"
+                _ssr_tbl_html += (
+                    f"<tr style='background:{_bg};'>"
+                    f"<td style='padding:5px 12px;font-weight:600;'>{_trow.Source}</td>"
+                    f"<td style='padding:5px 12px;text-align:right;'>{_trow.Varieties:,}</td>"
+                    f"<td style='padding:5px 12px;text-align:right;'>{_trow.VVS2:,}</td>"
+                    f"<td style='padding:5px 12px;text-align:right;'>{_trow.VrZAG62:,}</td>"
+                    f"<td style='padding:5px 12px;text-align:right;'>{getattr(_trow, 'Full 9-locus', 0):,}</td>"
+                    "</tr>"
+                )
+            _ssr_tbl_html += "</tbody></table>"
+            st.markdown(_ssr_tbl_html, unsafe_allow_html=True)
+            st.caption(
+                "Allele sizes from Lacombe 2013 and Alvarez-Arbesú 2022 are stored in VIVC-standardized bp units "
+                "(size standard offsets corrected). Full cross-source comparison in ssr_marker_profile_tally.xlsx."
+            )
+
+        # ── Section 5: Full Reference List ───────────────────────────────
         st.markdown("---")
         st.markdown(
             "<h4 style='color:#7b1c2e;font-weight:700;'>📖 Complete Reference List</h4>",
@@ -4520,6 +4687,12 @@ def main() -> None:
                 "Largest WGS diversity study; 108 cultivars with passport-derived parentage.",
                 "#3a6020",
             )
+            _ref_card(
+                "Labra M et al.", "2002",
+                "Microsatellite analysis to define genetic diversity of grapevines grown in central and western Mediterranean countries",
+                "J. Int. Sci. Vigne Vin 36(1), 11–20",
+                notes="238 cultivars from France, Italy, Spain, Portugal, Greece, Croatia; SSR-based population structure supporting Near East origin model.",
+            )
             st.markdown(
                 "<h5 style='color:#5c3a1e;margin-top:18px;'>SSR Marker Panels & Fingerprinting</h5>",
                 unsafe_allow_html=True,
@@ -4537,7 +4710,14 @@ def main() -> None:
                 "Identification of microsatellite sequences in Vitis riparia and their applicability for genotyping of different Vitis species",
                 "Genome 40, 562–571",
                 "10.1139/g97-073",
-                "Early SSR marker development; Müller-Thurgau parentage (Riesling × Madeleine Royale) definitively confirmed.",
+                "Early SSR marker development; VrZAG loci first described. Müller-Thurgau parentage confirmed.",
+            )
+            _ref_card(
+                "Sefc KM et al.", "2000",
+                "Microsatellite variability in grapevine cultivars from different European regions and evaluation of assignment testing to assess geographic origin",
+                "Theor. Appl. Genet. 100, 498–505",
+                "10.1007/s001220051328",
+                "9-marker panel (VVMD5, VVMD7, VVS2, VrZAG21/47/62/64/79/83) across 7 European regions; validated geographic differentiation by SSR.",
             )
             _ref_card(
                 "Regner F et al.", "2000",
@@ -4552,6 +4732,22 @@ def main() -> None:
                 "Vitis 40(1), 23–30",
                 "10.5073/vitis.2001.40.23-30",
                 "Muscat Blanc à Petits Grains parentage analysis.",
+            )
+            _ref_card(
+                "Lacombe T et al.", "2013",
+                "Large-scale parentage analysis in an extended set of grapevine cultivars (Vitis vinifera L.)",
+                "Theor. Appl. Genet. 126, 401–414",
+                "10.1007/s00122-012-1988-2",
+                "828 progenies + 434 genitors; 20-locus nSSR panel. 7 loci overlap GENRES081 (VVS2, VVMD5, VVMD7, VVMD25, VVMD27, VVMD28, VVMD32).",
+                "#7a6a20",
+            )
+            _ref_card(
+                "Alvarez-Arbesú R et al.", "2022",
+                "Grapevine Genetic Resources of the IFAPA Centre 'Rancho de la Merced': Characterization and Management",
+                "MDPI Plants 11(8), 1088",
+                "10.3390/plants11081088",
+                "475 unique genotypes from 930 Iberian accessions; full GENRES081 9-locus panel + EVA2, ISV2, ISV4, ISV3.",
+                "#7a6a20",
             )
 
         with ref_c2:
@@ -4597,11 +4793,51 @@ def main() -> None:
                 "Sangiovese parentage (Ciliegiolo × Calabrese Montenuovo) first proposed.",
             )
             _ref_card(
+                "Tello J et al.", "2024",
+                "The genetic characterization of grapevines prospected in old Serbian vineyards reveals multiple relationships between traditional varieties of the Balkans",
+                "Front. Plant Sci. 15:1391679",
+                "10.3389/fpls.2024.1391679",
+                "138 Serbian grapevines → 59 unique profiles (7 GENRES081 loci); 35 trios + 31 duos. "
+                "13 novel trios + 18 novel duos (Balkan varieties) integrated as new pedigree edges; "
+                "prior literature confirmations excluded to avoid duplication with Lacombe/Laucou files.",
+            )
+            _ref_card(
+                "Cipriani G et al.", "2010",
+                "The SSR-based molecular profile of 1005 grapevine (Vitis vinifera L.) accessions "
+                "uncovers new synonymy and parentages",
+                "Theoretical and Applied Genetics 121(8):1569–1585",
+                "10.1007/s00122-010-1411-9",
+                "1,005 accessions × 34 SSR loci; 200 synonymy groups; 74 trios resolved. "
+                "40 new Italian pedigrees, 9 corrected pedigrees (CARDINAL, LAGREIN, CHENIN BLANC, "
+                "INC MANZONI 2-14/15, SELEZIONE BRUNI 54). Key focus on Southern Italian and Sardinian varieties.",
+                "#3a6020",
+            )
+            _ref_card(
+                "Margaryan A et al.", "2021",
+                "Genetic diversity and population structure of Armenian grape germplasm reveals the presence of ancient variety descendants and possible missing-link varieties",
+                "Biology 10:1279",
+                "10.3390/biology10121279",
+                "222 Armenian varieties genotyped at 24 nSSR loci (includes full GENRES081 9-locus panel). "
+                "65 trios (34 novel) + 370 parent–offspring duos (123 novel). "
+                "4 pedigrees invalidated vs. breeder records. "
+                "206 new SSR profiles for Central Asian and Armenian grapevine diversity.",
+            )
+            _ref_card(
+                "Cunha J et al.", "2020",
+                "Genetic characterization of old grapevine varieties from Portugal using 231 novel SNP markers",
+                "Front. Plant Sci. 11:127",
+                "10.3389/fpls.2020.00127",
+                "264 Portuguese varieties and wild vines genotyped with 231 SSR-flanking SNPs. "
+                "101 trios confirmed, 31 with first molecular confirmation; 5 parent–offspring duos. "
+                "Key hub parents: Hebién, Marufo, Cayetana Blanca, Alfrocheiro, Malvasia Fina, Gouveio, Trousseau Noir. "
+                "84 parent–child pairs not yet reported in VIVC.",
+            )
+            _ref_card(
                 "Lacombe T et al.", "2013",
                 "A large diversity analysis of wine varieties reveals a complex history of dependent cultivations leading to recent cultivar homogenization",
-                "Theor. Appl. Genet. 126, 2233–2255",
-                "10.1007/s00122-012-1988-2",
-                "2,344 varieties × 20 SSR loci. 828 confirmed parentages. Merlot, Malbec, Tempranillo, Touriga Nacional, Grenache, and many more.",
+                "J. Experimental Botany 64(4), 1003–1017",
+                "10.1093/jxb/ers387",
+                "2,344 varieties × 20 SSR loci; structure, admixture, and cultivar homogenization through European viticultural history.",
                 "#3a6020",
             )
             st.markdown(
@@ -4632,8 +4868,10 @@ def main() -> None:
             _ref_card(
                 "Laucou V et al.", "2018",
                 "Extended diversity analysis of cultivated grapevine Vitis vinifera with 10K genome-wide SNPs",
-                "PLOS ONE",
-                notes="10K SNP genome-wide parent-offspring pairs; European germplasm panel.",
+                "PLOS ONE 13(2), e0192540",
+                "10.1371/journal.pone.0192540",
+                "783 genotypes, 10,207 SNPs; 118 full parentages + 490 parent-offspring duos confirmed; 8 genetic clusters; GWAS for berry acidity.",
+                "#3a6020",
             )
 
 
