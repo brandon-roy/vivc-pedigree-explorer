@@ -128,7 +128,7 @@ for i in range(1, sh.nrows):
 
         # Confidence level
         if current_section == "revised":
-            confidence = "revised"   # custom tag — pedigree corrected vs prior record
+            confidence = "confirmed"   # corrected pedigree is molecularly confirmed
         elif total_mm <= 1:
             confidence = "confirmed"
         elif total_mm <= 3:
@@ -139,6 +139,7 @@ for i in range(1, sh.nrows):
         # Novel flag
         is_novel = current_section == "new"
         novel_prefix = "first_molecular_confirmation; " if is_novel else ""
+        revised_prefix = "Revised from prior record; " if current_section == "revised" else ""
         section_label = {
             "confirmed": "Confirmed pedigree",
             "revised":   "Revised/corrected pedigree",
@@ -149,7 +150,7 @@ for i in range(1, sh.nrows):
         p1_v    = resolve(p1_name)
         p2_v    = resolve(p2_name)
 
-        note = (f"{novel_prefix}{section_label}; {notes_raw}; "
+        note = (f"{revised_prefix}{novel_prefix}{section_label}; {notes_raw}; "
                 f"Cipriani 2010 TAG 121:1569; {n_markers} SSR loci; "
                 f"mismatches={total_mm}").strip("; ")
 
