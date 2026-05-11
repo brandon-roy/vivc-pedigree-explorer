@@ -403,7 +403,8 @@ def load_passport() -> pd.DataFrame:
         df["parent1"] = df["parent1"].map(lambda x: alias_map.get(x, x) if isinstance(x, str) else x)
         df["parent2"] = df["parent2"].map(lambda x: alias_map.get(x, x) if isinstance(x, str) else x)
 
-    # Remove self-parents (data entry errors)
+    # Safety net: the source CSV is cleaned, but alias_map may rewrite a
+    # parent name into the child's prime_name. Drop any such self-loop.
     df.loc[df["parent1"] == df["prime_name"], "parent1"] = np.nan
     df.loc[df["parent2"] == df["prime_name"], "parent2"] = np.nan
 
@@ -2853,7 +2854,7 @@ def main() -> None:
                 data=nodes_df.to_csv(index=False).encode(),
                 file_name=f"{selected_variety}_nodes.csv",
                 mime="text/csv",
-                use_container_width=True,
+                width="stretch",
             )
         if not edges_df.empty:
             st.download_button(
@@ -2861,7 +2862,7 @@ def main() -> None:
                 data=ann_edges.to_csv(index=False).encode(),
                 file_name=f"{selected_variety}_edges.csv",
                 mime="text/csv",
-                use_container_width=True,
+                width="stretch",
             )
 
     # ── Summary metrics row ───────────────────────────────────────────────────
@@ -3005,7 +3006,7 @@ def main() -> None:
                         focal=selected_variety,
                         color_mode=color_mode,
                     )
-                st.graphviz_chart(dot_string, use_container_width=True)
+                st.graphviz_chart(dot_string, width="stretch")
             else:
                 vis_layout = "physics" if net_view_mode == "physics" else layout_mode
                 _node_profile_df = load_node_molecular_profile()
@@ -3126,7 +3127,7 @@ def main() -> None:
                 if node_filter:
                     mask = tbl["name"].str.contains(node_filter.strip(), case=False, na=False)
                     tbl = tbl[mask]
-                st.dataframe(tbl, use_container_width=True, hide_index=True, height=300)
+                st.dataframe(tbl, width="stretch", hide_index=True, height=300)
 
     # ────────────────────────────────────────────────────────────────────────
     # TAB 2 — Descendants
@@ -3171,7 +3172,7 @@ def main() -> None:
                     height=700,
                     margin={"l": 10, "r": 10, "t": 40, "b": 30},
                 )
-                st.plotly_chart(fig_off, use_container_width=True)
+                st.plotly_chart(fig_off, width="stretch")
 
             with desc_col2:
                 st.markdown("**Top 50 Varieties by Total Descendant Count**")
@@ -3197,7 +3198,7 @@ def main() -> None:
                     height=700,
                     margin={"l": 10, "r": 10, "t": 40, "b": 30},
                 )
-                st.plotly_chart(fig_desc, use_container_width=True)
+                st.plotly_chart(fig_desc, width="stretch")
 
         st.markdown("<br>", unsafe_allow_html=True)
 
@@ -3265,7 +3266,7 @@ def main() -> None:
                     )
                     st.dataframe(
                         results.sort_values("Generation"),
-                        use_container_width=True,
+                        width="stretch",
                         hide_index=True,
                         height=500,
                     )
@@ -3309,7 +3310,7 @@ def main() -> None:
                 tl_nodes, tl_edges, selected_variety,
                 color_mode=color_mode, show_markers=show_markers,
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
             # Node colour legend — mirrors Pedigree Explorer; uses shared palette constants
             if color_mode == "berry":
@@ -3482,7 +3483,7 @@ def main() -> None:
                     margin={"l": 10, "r": 10, "t": 10, "b": 10},
                     yaxis={"autorange": "reversed"},
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             with fc1:
                 st.markdown("**By Geographic Origin**")
@@ -3502,7 +3503,7 @@ def main() -> None:
                 ] if c in founders_df.columns]
                 st.dataframe(
                     founders_df[display_cols].sort_values("generation", ascending=False),
-                    use_container_width=True,
+                    width="stretch",
                     hide_index=True,
                     height=350,
                 )
@@ -3548,7 +3549,7 @@ def main() -> None:
                     height=500,
                     margin={"l": 10, "r": 10, "t": 40, "b": 30},
                 )
-                st.plotly_chart(fig_rs_par, use_container_width=True)
+                st.plotly_chart(fig_rs_par, width="stretch")
             else:
                 st.info("No rootstock parent data available.")
 
@@ -3573,7 +3574,7 @@ def main() -> None:
                     height=500,
                     margin={"l": 10, "r": 10, "t": 40, "b": 30},
                 )
-                st.plotly_chart(fig_rs_found, use_container_width=True)
+                st.plotly_chart(fig_rs_found, width="stretch")
             else:
                 st.info("No rootstock founder data available.")
 
@@ -3590,7 +3591,7 @@ def main() -> None:
                 ).any(axis=1)
                 rootstock_df = rootstock_df[mask]
 
-            st.dataframe(rootstock_df, use_container_width=True, hide_index=True, height=500)
+            st.dataframe(rootstock_df, width="stretch", hide_index=True, height=500)
             st.download_button(
                 "📥 Download rootstock data",
                 rootstock_df.to_csv(index=False).encode(),
@@ -3611,7 +3612,7 @@ def main() -> None:
                 if search_root2:
                     mask2 = rootstock_sub["prime_name"].str.contains(search_root2, case=False, na=False)
                     rootstock_sub = rootstock_sub[mask2]
-                st.dataframe(rootstock_sub, use_container_width=True, hide_index=True, height=500)
+                st.dataframe(rootstock_sub, width="stretch", hide_index=True, height=500)
                 st.download_button(
                     "📥 Download rootstock data",
                     rootstock_sub.to_csv(index=False).encode(),
@@ -3657,7 +3658,7 @@ def main() -> None:
         st.markdown(f"*Showing {len(filtered):,} of {n_total:,} rows*")
         st.dataframe(
             filtered,
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             height=550,
         )
@@ -3692,7 +3693,7 @@ def main() -> None:
 
         # Completeness table
         with st.expander("Completeness table", expanded=True):
-            st.dataframe(sd["summary"], use_container_width=True, hide_index=True)
+            st.dataframe(sd["summary"], width="stretch", hide_index=True)
 
         col_charts1, col_charts2 = st.columns(2)
 
@@ -3720,7 +3721,7 @@ def main() -> None:
                 height=500,
                 margin={"l": 10, "r": 10, "t": 10, "b": 10},
             )
-            st.plotly_chart(fig_orig_s, use_container_width=True)
+            st.plotly_chart(fig_orig_s, width="stretch")
 
         with col_charts2:
             st.subheader("Varieties by Berry Color")
@@ -3751,7 +3752,7 @@ def main() -> None:
                 height=500,
                 margin={"l": 10, "r": 10, "t": 10, "b": 10},
             )
-            st.plotly_chart(fig_berry, use_container_width=True)
+            st.plotly_chart(fig_berry, width="stretch")
 
         # Parentage distribution
         st.subheader("Parentage State Distribution")
@@ -3767,7 +3768,7 @@ def main() -> None:
             paper_bgcolor="#faf7f0",
             height=350,
         )
-        st.plotly_chart(fig_par, use_container_width=True)
+        st.plotly_chart(fig_par, width="stretch")
 
         # Year histogram
         if not sd["years"].empty:
@@ -3784,14 +3785,14 @@ def main() -> None:
                 height=300,
                 bargap=0.02,
             )
-            st.plotly_chart(fig_yr, use_container_width=True)
+            st.plotly_chart(fig_yr, width="stretch")
 
         # Top species + Top breeders side-by-side
         col_sp, col_br = st.columns(2)
 
         with col_sp:
             st.subheader("Top Species")
-            st.dataframe(sd["top_species"], use_container_width=True, hide_index=True)
+            st.dataframe(sd["top_species"], width="stretch", hide_index=True)
 
         with col_br:
             st.subheader("Top 20 Breeders")
@@ -3817,7 +3818,7 @@ def main() -> None:
                     height=500,
                     margin={"l": 10, "r": 10, "t": 10, "b": 10},
                 )
-                st.plotly_chart(fig_br, use_container_width=True)
+                st.plotly_chart(fig_br, width="stretch")
 
     # ────────────────────────────────────────────────────────────────────────
     # TAB 8 — Resources
@@ -4149,7 +4150,7 @@ def main() -> None:
                     })
                     .style.map(_conf_style, subset=["Confidence"])
                 )
-                st.dataframe(styled, use_container_width=True, height=480)
+                st.dataframe(styled, width="stretch", height=480)
 
                 # ── Download button ───────────────────────────────────────
                 csv_bytes = ev_filtered[disp_cols].to_csv(index=False).encode()
@@ -4481,7 +4482,7 @@ def main() -> None:
                 font=dict(size=11),
                 xaxis=dict(tickangle=-35),
             )
-            st.plotly_chart(heatmap, use_container_width=True)
+            st.plotly_chart(heatmap, width="stretch")
 
             # ── Section 3: Multi-Source Coverage Distribution ─────────────
             st.markdown("---")
@@ -4529,7 +4530,7 @@ def main() -> None:
                 font=dict(size=12),
                 bargap=0.35,
             )
-            st.plotly_chart(bar_fig, use_container_width=True)
+            st.plotly_chart(bar_fig, width="stretch")
 
             # Summary sentence
             multi_count = sum(v for k, v in support_dist.items() if k >= 2)
@@ -4549,7 +4550,7 @@ def main() -> None:
             if top_pairs:
                 with st.expander(f"Top {len(top_pairs)} most-corroborated pairs (≥ 3 sources)"):
                     tp_df = pd.DataFrame(top_pairs, columns=["# Sources", "Child variety", "Parent variety"])
-                    st.dataframe(tp_df, hide_index=True, use_container_width=True)
+                    st.dataframe(tp_df, hide_index=True, width="stretch")
 
         # ── Section 4: SSR Genotype Profile Coverage ─────────────────────────
         st.markdown("---")
@@ -4575,7 +4576,7 @@ def main() -> None:
                 _src_label = str(_src).strip() if _src and str(_src).strip() else "—"
                 _n_vvs2  = (_grp["ssr_VVS2"].fillna("").str.strip() != "").sum() if "ssr_VVS2" in _grp.columns else 0
                 _n_zag62 = (_grp["ssr_VrZAG62"].fillna("").str.strip() != "").sum() if "ssr_VrZAG62" in _grp.columns else 0
-                _n_full  = int((_grp[_ssr_cols_avail].fillna("").applymap(str.strip) != "").all(axis=1).sum()) if _ssr_cols_avail else 0
+                _n_full  = int((_grp[_ssr_cols_avail].fillna("").apply(lambda s: s.str.strip()) != "").all(axis=1).sum()) if _ssr_cols_avail else 0
                 _ssr_src_rows.append({
                     "Source": _src_label,
                     "Varieties": len(_grp),
@@ -4588,7 +4589,7 @@ def main() -> None:
             _ssr_mc1, _ssr_mc2, _ssr_mc3, _ssr_mc4 = st.columns(4)
             _n_any_ssr = (_prof_df["ssr_VVS2"].fillna("").str.strip() != "").sum() if "ssr_VVS2" in _prof_df.columns else 0
             _n_zag_any = (_prof_df["ssr_VrZAG62"].fillna("").str.strip() != "").sum() if "ssr_VrZAG62" in _prof_df.columns else 0
-            _n_full9   = int((_prof_df[_ssr_cols_avail].fillna("").applymap(str.strip) != "").all(axis=1).sum()) if _ssr_cols_avail else 0
+            _n_full9   = int((_prof_df[_ssr_cols_avail].fillna("").apply(lambda s: s.str.strip()) != "").all(axis=1).sum()) if _ssr_cols_avail else 0
             _ssr_mc1.metric("Total in profile", f"{len(_prof_df):,}")
             _ssr_mc2.metric("With any SSR (VVS2)", f"{_n_any_ssr:,}")
             _ssr_mc3.metric("With VrZAG62/79", f"{_n_zag_any:,}")
